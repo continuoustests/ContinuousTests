@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1A05A6F1-2CC0-4A55-A54B-F2AA252F7B45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoTest.Core</RootNamespace>
+    <AssemblyName>AutoTest.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FSWatcher">
+      <HintPath>..\..\lib\FSWatcher\FSWatcher.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle.Windsor\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle.Windsor\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Cecil\Mono.Cecil.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuildRunners\BuildConfiguration.cs" />
+    <Compile Include="BuildRunners\BuildOrderHandler.cs" />
+    <Compile Include="BuildRunners\BuildSessionRunner.cs" />
+    <Compile Include="BuildRunners\IAssemblyChangedProvider.cs" />
+    <Compile Include="BuildRunners\IPreProcessBuildruns.cs" />
+    <Compile Include="BuildRunners\MSBuildOutputParser.cs" />
+    <Compile Include="BuildRunners\MSTestCrossPlatformPreProcessor.cs" />
+    <Compile Include="BuildRunners\MSTestSwitcharoo.cs" />
+    <Compile Include="BuildRunners\NullBuildPreProcessor.cs" />
+    <Compile Include="Caching\Crawlers\ISolutionParser.cs" />
+    <Compile Include="Caching\Crawlers\SolutionCrawler.cs" />
+    <Compile Include="Caching\ProjectFile.cs" />
+    <Compile Include="Caching\Projects\ProjectReferenceParser.cs" />
+    <Compile Include="Caching\RunResultCache\BuildItem.cs" />
+    <Compile Include="Caching\ICache.cs" />
+    <Compile Include="Caching\ICreate.cs" />
+    <Compile Include="Caching\RunResultCache\IItem.cs" />
+    <Compile Include="Caching\RunResultCache\IMergeRunResults.cs" />
+    <Compile Include="Caching\IReload.cs" />
+    <Compile Include="Caching\IPrepare.cs" />
+    <Compile Include="Caching\RunResultCache\IRunResultCache.cs" />
+    <Compile Include="Caching\Projects\ProjectReloader.cs" />
+    <Compile Include="Caching\Projects\ProjectFactory.cs" />
+    <Compile Include="Caching\Projects\ProjectPreparer.cs" />
+    <Compile Include="Caching\RunResultCache\RunResultCache.cs" />
+    <Compile Include="Caching\RunResultCache\RunResultCacheDeltas.cs" />
+    <Compile Include="Caching\RunResultCache\TestItem.cs" />
+    <Compile Include="Configuration\CodeEditor.cs" />
+    <Compile Include="Configuration\CoreSection.cs" />
+    <Compile Include="Configuration\DIContainer.cs" />
+    <Compile Include="Configuration\IConfiguration.cs" />
+    <Compile Include="Configuration\IServiceLocator.cs" />
+    <Compile Include="Configuration\ServiceLocator.cs" />
+    <Compile Include="DebugLog\Debug.cs" />
+    <Compile Include="FileSystem\ICustomIgnoreProvider.cs" />
+    <Compile Include="FileSystem\IWatchPathLocator.cs" />
+    <Compile Include="FileSystem\NullIgnoreProvider.cs" />
+    <Compile Include="FileSystem\PathParser.cs" />
+    <Compile Include="FileSystem\ProjectLocators\FSharpLocator.cs" />
+    <Compile Include="FileSystem\WatchPathLocator.cs" />
+    <Compile Include="Launchers\ApplicatonLauncher.cs" />
+    <Compile Include="Messaging\IOverridingConsumer.cs" />
+    <Compile Include="Messaging\MessageConsumers\BuildListGenerator.cs" />
+    <Compile Include="Messaging\MessageConsumers\IGenerateBuildList.cs" />
+    <Compile Include="Messaging\MessageConsumers\IPrioritizeProjects.cs" />
+    <Compile Include="Messaging\MessageConsumers\ILocateRemovedTests.cs" />
+    <Compile Include="Messaging\MessageConsumers\ISolutionChangeConsumer.cs" />
+    <Compile Include="Messaging\MessageConsumers\PreProcessedTesRuns.cs" />
+    <Compile Include="Messaging\MessageConsumers\ProjectChangeConsumer.cs" />
+    <Compile Include="Messaging\MessageConsumers\FileChangeConsumer.cs" />
+    <Compile Include="FileSystem\DirectoryWatcher.cs" />
+    <Compile Include="FileSystem\FileSystemService.cs" />
+    <Compile Include="FileSystem\IFileSystemService.cs" />
+    <Compile Include="FileSystem\IWatchValidator.cs" />
+    <Compile Include="FileSystem\ProjectLocators\CSharpLocator.cs" />
+    <Compile Include="FileSystem\ProjectLocators\ILocateProjects.cs" />
+    <Compile Include="FileSystem\ProjectLocators\VisualBasicLocator.cs" />
+    <Compile Include="FileSystem\WatchValidator.cs" />
+    <Compile Include="FileSystem\IDirectoryWatcher.cs" />
+    <Compile Include="BuildRunners\IBuildRunner.cs" />
+    <Compile Include="BuildRunners\MSBuildRunner.cs" />
+    <Compile Include="Configuration\BootStrapper.cs" />
+    <Compile Include="Configuration\Config.cs" />
+    <Compile Include="FileSystem\ProjectFileCrawler.cs" />
+    <Compile Include="Messaging\IConsumerOf.cs" />
+    <Compile Include="Messaging\IMessageBus.cs" />
+    <Compile Include="Messaging\IMessageConsumer.cs" />
+    <Compile Include="Messaging\MessageBus.cs" />
+    <Compile Include="Messaging\MessageConsumers\ProjectPrioritizer.cs" />
+    <Compile Include="Caching\Projects\IProjectParser.cs" />
+    <Compile Include="Caching\IRecord.cs" />
+    <Compile Include="Caching\Projects\Project.cs" />
+    <Compile Include="Caching\Crawlers\ProjectCrawler.cs" />
+    <Compile Include="Caching\Projects\ProjectDocument.cs" />
+    <Compile Include="Caching\Cache.cs" />
+    <Compile Include="Caching\Projects\ProjectType.cs" />
+    <Compile Include="Caching\Projects\ProjectParser.cs" />
+    <Compile Include="Messaging\MessageConsumers\RemovedTestsLocator.cs" />
+    <Compile Include="Messaging\MessageConsumers\SolutionChangeConsumer.cs" />
+    <Compile Include="Messaging\MessageConsumers\TestRunInfoMerger.cs" />
+    <Compile Include="Notifiers\GrowlNotifier.cs" />
+    <Compile Include="Notifiers\SnarlNotifier.cs" />
+    <Compile Include="OperatingSystem\OS.cs" />
+    <Compile Include="Presenters\MessageProxy.cs" />
+    <Compile Include="Presenters\InformationFeedbackPresenter.cs" />
+    <Compile Include="Presenters\IInformationFeedbackPresenter.cs" />
+    <Compile Include="Presenters\IInformationFeedbackView.cs" />
+    <Compile Include="Presenters\IRunFeedbackPresenter.cs" />
+    <Compile Include="Presenters\IRunFeedbackView.cs" />
+    <Compile Include="Presenters\RunFeedbackPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionProviders\CecilReflectionProvider.cs" />
+    <Compile Include="TestRunners\ITestRunner.cs" />
+    <Compile Include="TestRunners\OnDemanTestrunPreprocessor.cs" />
+    <Compile Include="TestRunners\TestRunners\AutoTestTestRunner.cs" />
+    <Compile Include="TestRunners\TestRunners\HiddenExternalProcess.cs" />
+    <Compile Include="TestRunners\TestRunners\MSpecCommandLineBuilder.cs" />
+    <Compile Include="TestRunners\TestRunners\MSpecReportParser.cs" />
+    <Compile Include="TestRunners\TestRunners\MSpecTestRunner.cs" />
+    <Compile Include="TestRunners\TestRunners\MSTestResponseParser.cs" />
+    <Compile Include="TestRunners\TestRunners\MSTestRunConfigParser.cs" />
+    <Compile Include="TestRunners\TestRunners\MSTestRunner.cs" />
+    <Compile Include="TestRunners\TestRunners\MSTestStackLine.cs" />
+    <Compile Include="TestRunners\TestRunners\NUnitTestResponseParser.cs" />
+    <Compile Include="TestRunners\TestRunners\NUnitTestRunner.cs" />
+    <Compile Include="TestRunners\TestRunners\NUnitStackLine.cs" />
+    <Compile Include="TestRunners\TestRunners\XUnitTestRunner.cs" />
+    <Compile Include="FileSystem\PathParsing.cs" />
+    <Compile Include="Notifiers\ISendNotifications.cs" />
+    <Compile Include="Notifiers\notify_sendNotifier.cs" />
+    <Compile Include="Notifiers\NullNotifier.cs" />
+    <Compile Include="Messaging\MessageConsumers\TestRunInfo.cs" />
+    <Compile Include="Messaging\MessageConsumers\BinaryFileChangeConsumer.cs" />
+    <Compile Include="Messaging\MessageConsumers\AssemblyChangeConsumer.cs" />
+    <Compile Include="FileSystem\AssemblyParser.cs" />
+    <Compile Include="FileSystem\IRetrieveAssemblyIdentifiers.cs" />
+    <Compile Include="TestRunners\TestRunValidator.cs" />
+    <Compile Include="TestRunners\IDetermineWetherToTestAssembly.cs" />
+    <Compile Include="Configuration\ConfigItem.cs" />
+    <Compile Include="Messaging\MessageConsumers\BuildOptimizer.cs" />
+    <Compile Include="Messaging\MessageConsumers\RunInfo.cs" />
+    <Compile Include="Messaging\MessageConsumers\IOptimizeBuildConfiguration.cs" />
+    <Compile Include="Launchers\MonoDevelopLauncher.cs" />
+    <Compile Include="TestRunners\IPreProcessTestruns.cs" />
+    <Compile Include="TestRunners\NullPreProcessor.cs" />
+    <Compile Include="TestRunners\RunFailedTestsFirstPreProcessor.cs" />
+    <Compile Include="Configuration\IHandleDelayedConfiguration.cs" />
+    <Compile Include="Configuration\DelayedConfigurer.cs" />
+    <Compile Include="Configuration\DefaultConfigurationLocator.cs" />
+    <Compile Include="Configuration\ILocateWriteLocation.cs" />
+    <Compile Include="DebugLog\IWriteDebugInfo.cs" />
+    <Compile Include="DebugLog\DebugWriter.cs" />
+    <Compile Include="TestRunners\TestRunners\RunnerExe.cs" />
+    <Compile Include="Launchers\MaxCmdLengthCalculator.cs" />
+    <Compile Include="Messaging\MessageConsumers\ProjectRebuildMarker.cs" />
+    <Compile Include="Messaging\MessageConsumers\IMarkProjectsForRebuild.cs" />
+    <Compile Include="Launchers\EditorEngineLauncher.cs" />
+    <Compile Include="Launchers\SocketClient.cs" />
+    <Compile Include="Launchers\Instance.cs" />
+    <Compile Include="Launchers\IApplicatonLauncher.cs" />
+    <Compile Include="Messaging\MessageConsumers\PhpFileChangeConsumer.cs" />
+    <Compile Include="ForeignLanguageProviders\Php\PhpUnitRunner.cs" />
+    <Compile Include="ForeignLanguageProviders\Php\PhpUnitParseErrorParser.cs" />
+    <Compile Include="ForeignLanguageProviders\Php\JUnitXmlParser.cs" />
+    <Compile Include="ForeignLanguageProviders\Php\PhpRunHandler.cs" />
+    <Compile Include="Processes\ProcessExtensions.cs" />
+    <Compile Include="ForeignLanguageProviders\Php\PhpUnitLiveParser.cs" />
+    <Compile Include="ForeignLanguageProviders\Php\PhpFileConventionMatcher.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <None Include="AutoTest.config.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoTest.Messages\AutoTest.Messages.csproj">
+      <Project>{5352CB10-E898-4089-BFF0-79D635FB44C9}</Project>
+      <Name>AutoTest.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTest.TestRunner\AutoTest.TestRunners.Shared\AutoTest.TestRunners.Shared.csproj">
+      <Project>{7D34AABB-DD67-4826-AD89-75D91A1375F5}</Project>
+      <Name>AutoTest.TestRunners.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AutoTest.config.template.VS" />
+  </ItemGroup>
+</Project>

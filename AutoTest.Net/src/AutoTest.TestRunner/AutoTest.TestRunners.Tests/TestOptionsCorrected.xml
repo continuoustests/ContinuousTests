@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<run>
+  <plugin type="This.Is.Full.Type.Name.For.Class.Implementing.IAutoTestNetTestRunner">C:\Some\Path\Assembly.dll</plugin>
+  <plugin type="Some.Class.Name">C:\Some\Path\Assembly.dll</plugin>
+  <runner id="nunit">
+    <categories>
+      <ignore_category>SomeTestCategory</ignore_category>
+      <ignore_category>SomeOtherTestCategory</ignore_category>
+    </categories>
+    <test_assembly name="C:\my\testassembly.dll" verified="true">
+      <tests>
+        <test>testassembly.class.test1</test>
+        <test>testassembly.class.test2</test>
+      </tests>
+      <members>
+        <member>testassembly.class2</member>
+        <member>testassembly.class3</member>
+      </members>
+      <namespaces>
+        <namespace>testassembly.somenamespace1</namespace>
+        <namespace>testassembly.somenamespace2</namespace>
+      </namespaces>
+    </test_assembly>
+    <test_assembly name="C:\my\anothernunitassembly.dll" />
+  </runner>
+  <runner id="another">
+    <test_assembly name="C:\my\other\testassembly.dll" />
+  </runner>
+</run>

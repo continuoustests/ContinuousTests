@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C10F3D4F-EE5A-4F5F-96B4-E4D88DD719BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoTest.Test</RootNamespace>
+    <AssemblyName>AutoTest.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Build.Engine" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Rhino.Mocks, Version=3.5.0.1337, Culture=neutral, PublicKeyToken=0b3305902db7183f">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle.Windsor\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Services.Logging.Log4netIntegration, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle.Windsor\Castle.Services.Logging.log4netIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle.Windsor\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.9.10348, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\BuildRunners\BuildMessageTest.cs" />
+    <Compile Include="Core\BuildRunners\BuildRunResultTest.cs" />
+    <Compile Include="Core\BuildRunners\MSBuildOutputParserTest.cs" />
+    <Compile Include="Core\BuildRunners\MSTestSwitcharooTests.cs" />
+    <Compile Include="Core\Caching\Crawlers\SolutionCrawlerTest.cs" />
+    <Compile Include="Core\Caching\Fakes\FakeStackLine.cs" />
+    <Compile Include="Core\Caching\Projects\ProjectReferenceParserTests.cs" />
+    <Compile Include="Core\Caching\RunResultCache\LinkParserTest.cs" />
+    <Compile Include="Core\Caching\Projects\ProjectReloaderTest.cs" />
+    <Compile Include="Core\Caching\RunResultCache\RunResultCacheTest.cs" />
+    <Compile Include="Core\Configuration\ConfigTest.cs" />
+    <Compile Include="Core\FileSystem\ProjectLocators\FSharpLocatorTest.cs" />
+    <Compile Include="Core\FileSystem\WatchPathLocatorTests.cs" />
+    <Compile Include="Core\Messaging\ErrorMessageTest.cs" />
+    <Compile Include="Core\Messaging\Fakes\FakeProjectPrioritizer.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\BuildListGeneratorTest.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\FileChangeConsumerTest.cs" />
+    <Compile Include="Core\Caching\Projects\Fakes\FakeCacheTest.cs" />
+    <Compile Include="Core\Caching\Projects\Fakes\FakeFileSystemServiceTest.cs" />
+    <Compile Include="Core\Caching\Projects\Fakes\FakeRecord.cs" />
+    <Compile Include="Core\Caching\Projects\ProjectCrawlerTest.cs" />
+    <Compile Include="Core\Caching\Projects\Fakes\FakeCache.cs" />
+    <Compile Include="Core\Caching\Projects\Fakes\FakeFileSystemService.cs" />
+    <Compile Include="Core\Caching\Projects\Fakes\FakeServiceLocator.cs" />
+    <Compile Include="Core\Caching\Projects\Fakes\FakeProjectParser.cs" />
+    <Compile Include="Core\Caching\Projects\ProjectParserTest.cs" />
+    <Compile Include="Core\Caching\Projects\ProjectDocumentTest.cs" />
+    <Compile Include="Core\Caching\CacheTest.cs" />
+    <Compile Include="Core\Caching\Projects\ProjectPreparerTest.cs" />
+    <Compile Include="Core\Configuration\DIContainerFullTest.cs" />
+    <Compile Include="Core\FileSystem\ProjectLocators\CSharpLocatorTest.cs" />
+    <Compile Include="Core\FileSystem\Fakes\FakeProjectFileCrawler.cs" />
+    <Compile Include="Core\FileSystem\ProjectLocators\VisualBasicLocatorTest.cs" />
+    <Compile Include="Core\FileSystem\WatchValidatorTest.cs" />
+    <Compile Include="Core\Messaging\Fakes\FakeProjectLocator.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\ProjectChangeConsumerTest.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\ReferencePrioritizerTest.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\RunInfoMergerTests.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\RunInfoTests.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\RunReportTest.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\TestRunInfoMergerTests.cs" />
+    <Compile Include="Core\Messaging\TestClasses\RunMessageConsumer.cs" />
+    <Compile Include="Core\Messaging\TestClasses\InformationMessageConsumer.cs" />
+    <Compile Include="Core\Presenters\Fakes\FakeInformationFeedbackView.cs" />
+    <Compile Include="Core\Presenters\Fakes\FakeRunFeedbackView.cs" />
+    <Compile Include="Core\Presenters\Fakes\FakeRunResultMerger.cs" />
+    <Compile Include="Core\Presenters\InformationFeedbackPresenterTest.cs" />
+    <Compile Include="Core\Presenters\RunFeedbackPresenterTest.cs" />
+    <Compile Include="Core\ReflectionProviders\CecilReflectionProviderTests.cs" />
+    <Compile Include="Core\TestRunners\MSpecCommandLineBuilderTest.cs" />
+    <Compile Include="Core\TestRunners\MSpecReportParserTest.cs" />
+    <Compile Include="Core\TestRunners\MSpecTestRunnerTest.cs" />
+    <Compile Include="Core\TestRunners\MSTestResponseParserTest.cs" />
+    <Compile Include="Core\TestRunners\TestRunners\AutoTestTestRunnerTests.cs" />
+    <Compile Include="Core\TestRunners\TestRunners\MSTestRunConfigParserTest.cs" />
+    <Compile Include="Core\TestRunners\MSTestRunnerTest.cs" />
+    <Compile Include="Core\TestRunners\NUnitTestResponseParserTest.cs" />
+    <Compile Include="Core\TestRunners\NUnitStackLineTest.cs" />
+    <Compile Include="Core\TestRunners\NUnitTestRunnerTest.cs" />
+    <Compile Include="Core\TestRunners\RemovedTestsLocatorTest.cs" />
+    <Compile Include="Core\TestRunners\TestResultTests.cs" />
+    <Compile Include="Core\Configuration\DIContainerTests.cs" />
+    <Compile Include="Core\BuildRunners\IBuildEngine.cs" />
+    <Compile Include="Core\FileSystem\ProjectFileCrawlerTest.cs" />
+    <Compile Include="Core\FileSystem\DirectoryWatcherTests.cs" />
+    <Compile Include="Core\Messaging\FileChangeMessageTests.cs" />
+    <Compile Include="Core\Messaging\MessageTestBase.cs" />
+    <Compile Include="Core\TestRunners\XUnitTestRunnerTest.cs" />
+    <Compile Include="Messages\FileStorage\PathTranslatorTests.cs" />
+    <Compile Include="TestObjects\Listener.cs" />
+    <Compile Include="TestObjects\Message.cs" />
+    <Compile Include="TestObjects\Talker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Messaging\MessageBusTests.cs" />
+    <Compile Include="Core\FileSystem\PathParsingTest.cs" />
+    <Compile Include="Core\TestRunners\NUnitTestResponseParserMultipleAssembliesTest.cs" />
+    <Compile Include="Core\TestRunners\XUnitResponseParserTest.cs" />
+    <Compile Include="Core\TestRunners\NUnitTestResponseParserNewOutput.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\BinaryFileChangeConsumerTest.cs" />
+    <Compile Include="Core\TestRunners\TestRunValidatorTest.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\AssemblyChangeConsumerTest.cs" />
+    <Compile Include="Core\Configuration\CoreSectionTest.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\BuildOptimizerTest.cs" />
+    <Compile Include="Messages\SerializerTests.cs" />
+    <Compile Include="Core\TestRunners\TestRunInfoTests.cs" />
+    <Compile Include="Core\Caching\Projects\Fakes\ProjectTest.cs" />
+    <Compile Include="Core\TestRunners\RunFailedTestsFirstPreProcessorTest.cs" />
+    <Compile Include="Core\Configuration\DefaultConfigurationLocatorTest.cs" />
+    <Compile Include="Core\Launchers\MaxCmdLengthCalculatorTest.cs" />
+    <Compile Include="Core\FileSystem\AssemblyParserTest.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\ProjectRebuildMarkerTest.cs" />
+    <Compile Include="Launchers\EditorEngineMessageTests.cs" />
+    <Compile Include="Core\FileSystem\PathParserTests.cs" />
+    <Compile Include="Core\Messaging\MessageConsumers\JUnitXmlParserTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoTest.Core\AutoTest.Core.csproj">
+      <Project>{1A05A6F1-2CC0-4A55-A54B-F2AA252F7B45}</Project>
+      <Name>AutoTest.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTest.TestCore\AutoTest.TestCore.csproj">
+      <Project>{D2BE27D7-36C9-4C0E-92A6-E2768666F430}</Project>
+      <Name>AutoTest.TestCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTest.Messages\AutoTest.Messages.csproj">
+      <Project>{5352CB10-E898-4089-BFF0-79D635FB44C9}</Project>
+      <Name>AutoTest.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTest.TestRunner\AutoTest.TestRunners.Shared\AutoTest.TestRunners.Shared.csproj">
+      <Project>{7D34AABB-DD67-4826-AD89-75D91A1375F5}</Project>
+      <Name>AutoTest.TestRunners.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AutoTest.ForTests.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\NUnit\multipleAssemblies.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\NUnit\singleAssembly.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\NUnit\XUnitOutput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\NUnit\NewOutput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\MSBuild\msbuild_warnings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\MSBuild\msbuild_succeeded.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\MSBuild\msbuild_errors.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\MSBuild\msbuild_windows_warnings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\VS2008\CSharpNoAnyCPU.csproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\VS2008\FSharpNUnitTestProject.fsproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestResources\MSBuild\msbuild_rebuild.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\MSBuild\msbuild_solution_error.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\MSBuild\msbuild_windows.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\MSpec\SingleAssembly.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\MSpec\TwoAssemblies.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\MSTest\mstestrun_run_error.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\NUnit\FailsToParse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\VS2008\AutoTest.NET.sln">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\VS2008\CSharpNUnitTestProject.csproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestResources\VS2008\NUnitTestProjectVisualBasic.vbproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup />
+</Project>

@@ -1,0 +1,40 @@
+Microsoft (R) Test Execution Command Line Tool Version 10.0.30319.1
+Copyright (c) Microsoft Corporation. All rights reserved.
+    
+Loading C:\Users\n06261\src\OnDemandTrunk\Trunk\Backend\Distribution.Engine.UnitTests\bin\AutoTest.NET\Nrk.OnDemand.Backend.Distribution.Engine.UnitTests.dll...
+Starting execution...
+
+Results               Top Level Tests
+-------               ---------------
+Error                 Nrk.OnDemand.Backend.Distribution.Engine.UnitTests.Upload.SftpClientTests.SC_ShouldUploadAndRemoveFile
+[errormessage] = The agent process was stopped while the test was running.
+
+Final Test Results:
+Results               Top Level Tests
+-------               ---------------
+Error                 Nrk.OnDemand.Backend.Distribution.Engine.UnitTests.Upload.SftpClientTests.SC_ShouldUploadAndRemoveFile
+[errormessage] = The agent process was stopped while the test was running.
+0/1 test(s) Passed, 1 Error
+
+Summary
+-------
+Test Run Error.
+  Error  1
+  --------
+  Total  1
+Results file:  C:\Users\n06261\TestResults\n06261_NRKDT58750 2010-12-16 13_30_21.trx
+Test Settings: Default Test Settings
+
+Run has the following issue(s):
+One of the background threads threw exception: 
+System.InvalidCastException: Unable to cast object of type 'clohccZ' to type 'Nrk.OnDemand.Backend.Distribution.Engine.TaskManager.ITask'.
+   at Nrk.OnDemand.Backend.Distribution.Engine.Upload.SFtpClient.uploadCompleted(Object taskData) in c:\Users\n06261\src\OnDemandTrunk\Trunk\Backend\Distribution.Engine\Upload\SFtpClient.cs:line 45
+   at wWGvS.cLikxD.AExGBoZ()
+   at wWGvS.cLikxD.PyHMxZ.BzmFTt()
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.runTryCode(Object userData)
+   at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean ignoreSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()

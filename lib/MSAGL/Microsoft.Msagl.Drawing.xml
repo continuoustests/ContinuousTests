@@ -1,0 +1,3303 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Msagl.Drawing</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Msagl.Drawing.SiteInsertUndoAction">
+            <summary>
+            undoes/redoes edge editing when dragging the smoothed polyline corner
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.UndoRedoAction">
+            <summary>
+            the interface for undo objects
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.UndoRedoAction.Undo">
+            <summary>
+            Undoes the action
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.UndoRedoAction.Redo">
+            <summary>
+            Redoes the action
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.UndoRedoAction.AffectedObjects">
+            <summary>
+            the set of the objects that the viewer has to invalidate
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.UndoRedoAction.Graph">
+            <summary>
+            the graph being edited
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.UndoRedoAction.Next">
+            <summary>
+            The pointer to the next undo object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.UndoRedoAction.Previous">
+            <summary>
+            The pointer to the previous undo object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.UndoRedoAction.EditedObjects">
+            <summary>
+            enumerates over all edited objects
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.UndoRedoAction.GraphBoundingBoxBefore">
+            <summary>
+            the graph bounding box before the change
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.UndoRedoAction.GraphBoundingBoxAfter">
+            <summary>
+            the graph bounding box after the change
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.UndoRedoAction.GraphBoundingBoxHasChanged">
+            <summary>
+            returns true if the was a change in the bounding box of the graph
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.SiteInsertUndoAction.#ctor(Microsoft.Msagl.Edge)">
+            <summary>
+            Constructor. At the moment of the constructor call the site should not be inserted yet
+            </summary>
+            <param name="edgeToEdit"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.SiteInsertUndoAction.Undo">
+            <summary>
+            undoes the editing
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.SiteInsertUndoAction.Redo">
+            <summary>
+            redoes the editing
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.SiteInsertUndoAction.SiteK">
+            <summary>
+            k - the coefficient giving the start and the end spline points
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.SiteInsertUndoAction.InsertionPoint">
+            <summary>
+            The point where the new polyline corner was inserted
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Size">
+            <summary>
+            Size structure
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Size.#ctor(System.Double,System.Double)">
+            <summary>
+            constructor
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Size.Width">
+            <summary>
+            width
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Size.Height">
+            <summary>
+            Height
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.PhyloEdge">
+            <summary>
+            a phylogenetic edge, an edge with the specified length
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Edge">
+            <summary>
+            Edge of Microsoft.Msagl.Drawing
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.DrawingObject">
+            <summary>
+            Base class for graph objects  
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingObject.UserData">
+            <summary>
+            This field can be used as a backpointer to the user data associated with the object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingObject.BoundingBox">
+            <summary>
+            gets the bounding box of the object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingObject.GeometryObject">
+            <summary>
+            gets the geometry object corresponding to the drawing object
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.ILabeledObject">
+            <summary>
+            an interface for objects having a label
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.ILabeledObject.Label">
+            <summary>
+            gets or sets the label
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Edge.source">
+            <summary>
+            The id of the edge source node.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Edge.target">
+            <summary>
+            The id of the edge target node
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Edge.#ctor(System.String,System.String,System.String)">
+            <summary>
+            source id, label ,target id
+            </summary>
+            <param name="source"> cannot be null</param>
+            <param name="labelText">label can be null</param>
+            <param name="target">cannot be null</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Edge.#ctor(Microsoft.Msagl.Drawing.Node,Microsoft.Msagl.Drawing.Node,Microsoft.Msagl.Drawing.Connection)">
+            <summary>
+            creates a detached edge
+            </summary>
+            <param name="sourceNode"></param>
+            <param name="targetNode"></param>
+            <param name="connection">controls is the edge will be connected to the graph</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Edge.ToString">
+            <summary>
+            Head->Tail->Label.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Edge.Label">
+            <summary>
+            the label of the object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Edge.LabelText">
+            <summary>
+            a shortcut to edge label
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Edge.BoundingBox">
+            <summary>
+            the edge bounding box
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Edge.Attr">
+            <summary>
+            The edge attribute.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Edge.Source">
+            <summary>
+            the edge source node ID
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Edge.Target">
+            <summary>
+            the edge target node ID
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Edge.SourceNode">
+            <summary>
+            the edge source node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Edge.TargetNode">
+            <summary>
+            the edge target node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Edge.GeometryObject">
+            <summary>
+            gets the corresponding geometry edge
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.PhyloEdge.#ctor(System.String,System.String)">
+            <summary>
+            constructor
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.PhyloEdge.#ctor(System.String,System.String,System.Double)">
+            <summary>
+            constructor with the length as a parameter
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <param name="lengthP"></param>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PhyloEdge.RealLength">
+            <summary>
+            the real edge length
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PhyloEdge.Length">
+            <summary>
+            the edge length
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PhyloEdge.Negative">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.ModifierKeys">
+            <summary>
+               Specifies the set of modifier keys.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.ModifierKeys.None">
+            <summary>
+            No modifiers are pressed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.ModifierKeys.Alt">
+            <summary>
+            THE alt key
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.ModifierKeys.Control">
+            <summary>
+            the control key
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.ModifierKeys.Shift">
+            <summary>
+            the shift key
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.ModifierKeys.Windows">
+            <summary>
+            the window logo key
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.IViewerGraph">
+            <summary>
+            this interface represents a graph that is drawn by the viewer and can be edited by it
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerGraph.DrawingGraph">
+            <summary>
+            gets the drawing graph
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.NodeBoundaryCurves">
+            <summary>
+            a helper class for creation of node boundary curves
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.NodeBoundaryCurves.GetNodeBoundaryCurve(Microsoft.Msagl.Drawing.Node,System.Double,System.Double)">
+            <summary>
+            a helper function to creat a node boundary curve 
+            </summary>
+            <param name="node">the node</param>
+            <param name="width">the node width</param>
+            <param name="height">the node height</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.IViewerObject">
+            <summary>
+            an interface for an editable object 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerObject.DrawingObject">
+            <summary>
+            gets or sets the corresponding DrawingObject
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerObject.MarkedForDragging">
+            <summary>
+            is set to true when the object is selected for editing
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.Drawing.IViewerObject.MarkedForDraggingEvent">
+            <summary>
+            raised when the entity is marked for dragging
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.Drawing.IViewerObject.UnmarkedForDraggingEvent">
+            <summary>
+            raised when the entity is unmarked for dragging
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.EdgeDragUndoRedoAction">
+            <summary>
+            undoes/redoes edge editing when dragging the smoothed polyline corner
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.UndoRedoDragAction">
+            <summary>
+            undoes/redoes the corner dragging operation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.UndoRedoDragAction.Delta">
+            <summary>
+            the amount of the drag action
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.EdgeDragUndoRedoAction.#ctor(Microsoft.Msagl.Edge)">
+            <summary>
+            constructor
+            </summary>
+            <param name="editedEdgePar"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.EdgeDragUndoRedoAction.Undo">
+            <summary>
+            undoes the editing
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.EdgeDragUndoRedoAction.Redo">
+            <summary>
+            redoes the editing
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.MouseAndKeysAnalyzer">
+            <summary>
+            The usage of this delegate is 
+            a) when dragging is false
+            to find out if a combination of mouse buttons and pressed 
+            modifier keys signals that the current selected entity should be added 
+            (removed) to (from) the dragging group
+            b) if the dragging is true to find out if we are selecting objects with the rectangle 
+            </summary>
+            <param name="modifierKeys"></param>
+            <param name="mouseButtons"></param>
+            <param name="dragging"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.DelegateForIDraggableObject">
+            <summary>
+            a delegate type with IDraggableNode as a parameter
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.DelegateForEdge">
+            <summary>
+            a delegate type with IDraggableEdge as a parameter
+            </summary>
+            <param name="edge"></param>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.NewNodeFactory">
+            <summary>
+            creates a new node to insert
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.DelegateForEdgeLabel">
+            <summary>
+            a delegate type with IDraggableLabel as a parameter
+            </summary>
+            <param name="edge"></param>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.PolylineCornerType">
+            <summary>
+            type of a polyline corner for insertion or deletion
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.PolylineCornerType.PreviousCornerForInsertion">
+            <summary>
+            a corner to insert
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.PolylineCornerType.CornerToDelete">
+            <summary>
+            a corner to delete
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.DelegateReturningVoid">
+            <summary>
+            A delegate with no parameters and void return type
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.DrawingLayoutEditor">
+            <summary>
+            Provides  graph nodes dragging functionality at the moment
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.#ctor(Microsoft.Msagl.Drawing.IViewer)">
+            <summary>
+            A simplified constructor. This constructor does not set entity decorators. There will be no entity appearence change for editing.
+            The reaction on mouse will be handles be a method of DrawingLayoutEditor
+            </summary>
+            <param name="viewerPar">the viewer that the editor communicates with</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.DetachFromViewerEvents">
+            <summary>
+            Unsubscibes from the viewer events
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.Undo">
+            <summary>
+            Undoes the editing
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.Redo">
+            <summary>
+            Redoes the editing
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.Clear">
+            <summary>
+            Clear the editor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.AnalyzeInsertOrDeletePolylineCorner(Microsoft.Msagl.Point,System.Double)">
+            <summary>
+            Finds a corner to delete or insert
+            </summary>
+            <param name="point"></param>
+            <param name="tolerance"></param>
+            <returns>null if a corner is not found</returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.InsertPolylineCorner(Microsoft.Msagl.Point,Microsoft.Msagl.Site)">
+            <summary>
+            insert a polyline corner at the point befor the prevCorner
+            </summary>
+            <param name="point"></param>
+            <param name="previousCorner"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.DeleteCorner(Microsoft.Msagl.Site)">
+            <summary>
+            delete the polyline corner, shortcut it.
+            </summary>
+            <param name="corner"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.FitGraphBoundingBox(Microsoft.Msagl.Drawing.IViewerObject)">
+            <summary>
+            create a tight bounding box for the graph
+            </summary>
+            <param name="graphToFit"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.RegisterNodeAdditionForUndo(Microsoft.Msagl.Drawing.IViewerNode)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.RegisterEdgeAdditionForUndo(Microsoft.Msagl.Drawing.IViewerEdge)">
+            <summary>
+            registers the edge addition for undo
+            </summary>
+            <param name="edge"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.RegisterEdgeRemovalForUndo(Microsoft.Msagl.Drawing.IViewerEdge)">
+            <summary>
+            
+            </summary>
+            <param name="edge"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.DrawingLayoutEditor.RegisterNodeForRemoval(Microsoft.Msagl.Drawing.IViewerNode)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.Graph">
+            <summary>
+            current graph of under editin
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.Drawing.DrawingLayoutEditor.ChangeInUndoRedoList">
+            <summary>
+            signals that there is a change in the undo/redo list
+            There are four possibilities: Undo(Redo) becomes available (unavailable)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.TransparencyOfSelectedEntityColor">
+            <summary>
+            Sets or gets the transparency of the selected entity color: the range is from 0, opaque, to 255, transparent.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.SelectedEntityColor">
+            <summary>
+            Sets or gets the color of the selected entity.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.SelectedNodeBoundaryColor">
+            <summary>
+            Sets or gets the color of the selected node boundary
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.SelectedEdge">
+            <summary>
+            the current selected edge
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.MouseMoveThreshold">
+            <summary>
+            If the distance between the mouse down point and the mouse up point is greater than the threshold 
+            then we have a mouse move. Otherwise we have a click.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.ToggleEntityPredicate">
+            <summary>
+            the delegate to decide if an entity is dragged or we just zoom in the viewer
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.PressedMouseButtons">
+            <summary>
+            current pressed mouse buttons
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.DecorateObjectForDragging">
+            <summary>
+            a delegate to decorate a node for dragging
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.DecorateEdgeForDragging">
+            <summary>
+            a delegate decorate an edge for editing
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.DecorateEdgeLabelForDragging">
+            <summary>
+            a delegate decorate a label for editing
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.RemoveObjDraggingDecorations">
+            <summary>
+            a delegate to remove node decorations
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.RemoveEdgeDraggingDecorations">
+            <summary>
+            a delegate to remove edge decorations
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.NodeInsertPredicate">
+            <summary>
+            The method analysing keys and mouse buttons to decide if we are inserting a node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.CanUndo">
+            <summary>
+            returns true if Undo is available
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.CanRedo">
+            <summary>
+            return true if Redo is available
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.DrawingLayoutEditor.CurrentAction">
+            <summary>
+            current undo action
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Couple`2">
+            <summary>
+            a generic class for representing a couple of entities
+            </summary>
+            <typeparam name="TFirst"></typeparam>
+            <typeparam name="TSecond"></typeparam>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Couple`2.#ctor(`0,`1)">
+            <summary>
+            create a couple
+            </summary>
+            <param name="firstElement"></param>
+            <param name="secondElement"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Couple`2.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Couple`2.Equals(System.Object)">
+            <summary>
+            overrides the equality
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Couple`2.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Couple`2.First">
+            <summary>
+            the first element
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Couple`2.Second">
+            <summary>
+            the second element
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Connection">
+            <summary>
+            shows the connection status
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Connection.Connected">
+            <summary>
+            connected
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Connection.Disconnected">
+            <summary>
+            disconnected
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.NodeAttr">
+            <summary>
+            Attribute of a Node.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.AttributeBase">
+            <summary>
+            Base class for attribute hierarchy.
+            Some of the attributes are present just for DOT compatibility and not fully supported.  
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.AttributeBase.#ctor">
+            <summary>
+            a default constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.AttributeBase.AddStyle(Microsoft.Msagl.Drawing.Style)">
+            <summary>
+            
+            </summary>
+            <param name="style"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.AttributeBase.RemoveStyle(Microsoft.Msagl.Drawing.Style)">
+            <summary>
+            
+            </summary>
+            <param name="style"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.AttributeBase.ClearStyles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.AttributeBase.lineWidth">
+            <summary>
+            The width of a node border or an edge.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.AttributeBase.id">
+            <summary>
+            An id of the entity.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.AttributeBase.PointSize">
+            <summary>
+            Sets the size of the point. The value of this property can scale all dimensions up or down, the default is 1.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.AttributeBase.USCultureInfo">
+            <summary>
+            The current culture. Not tested with another culture.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.Drawing.AttributeBase.StylesChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.AttributeBase.Color">
+            <summary>
+            A color of the object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.AttributeBase.Styles">
+            <summary>
+            An array of attribute styles.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.AttributeBase.Id">
+            <summary>
+            the ID of the entity
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.AttributeBase.LineWidth">
+            <summary>
+            Influences border width of clusters, border width of nodes
+             and edge thickness.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.Drawing.AttributeBase.LineWidthHasChanged">
+            <summary>
+            an event notifying that the line width has changed
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.NodeAttr.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.NodeAttr.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.NodeAttr.Clone">
+            <summary>
+            Clones the node attribute
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.LineWidth">
+            <summary>
+            overrides the Node line width
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.GeometryNode">
+            <summary>
+            the underlying GLEE node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.Padding">
+            <summary>
+            Splines should avoid being closer to the node than Padding
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.XRadius">
+             <summary>
+            x radius of the rectangle box 
+             </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.YRadius">
+            <summary>
+            y radius of the rectangle box 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.Pos">
+            <summary>
+            Node position.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.DefaultFillColor">
+            <summary>
+            the default fill color
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.FillColor">
+            <summary>
+            Node fill color.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.Height">
+            <summary>
+            Height .
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.Shape">
+            <summary>
+            Node shape.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.Width">
+            <summary>
+            the node width
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.NodeAttr.LabelMargin">
+            <summary>
+            the node label margin
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.DelegateToOverrideNodeRendering">
+            <summary>
+            If this delegate is not null and returns true then no node rendering is done by the viewer, the delegate is supposed to do the job.
+            </summary>
+            <param name="node"></param>
+            <param name="graphics"></param>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Node">
+            <summary>
+            Node of the Microsoft.Msagl.Drawing.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Node.drawNodeDelegate">
+            <summary>
+            A delegate to draw node
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Node.attr">
+            <summary>
+            Attribute controling the node drawing.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Node.#ctor(System.String)">
+            <summary>
+            Creates a Node instance
+            </summary>
+            <param name="id">node name</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Node.CompareTo(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Node.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Node.AddInEdge(Microsoft.Msagl.Drawing.Edge)">
+            <summary>
+            add an incoming edge to the node
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Node.AddOutEdge(Microsoft.Msagl.Drawing.Edge)">
+            <summary>
+            adds and outcoming edge to the node
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Node.AddSelfEdge(Microsoft.Msagl.Drawing.Edge)">
+            <summary>
+            adds a self edge to the node
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Node.RemoveInEdge(Microsoft.Msagl.Drawing.Edge)">
+            <summary>
+            Removes an in-edge from the node's edge list (this won't remove the edge from the graph).
+            </summary>
+            <param name="edge">The edge to be removed</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Node.RemoveOutEdge(Microsoft.Msagl.Drawing.Edge)">
+            <summary>
+            Removes an out-edge from the node's edge list (this won't remove the edge from the graph).
+            </summary>
+            <param name="edge">The edge to be removed</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Node.RemoveSelfEdge(Microsoft.Msagl.Drawing.Edge)">
+            <summary>
+            Removes a self-edge from the node's edge list (this won't remove the edge from the graph).
+            </summary>
+            <param name="edge">The edge to be removed</param>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.Label">
+            <summary>
+            the label of the object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.DrawNodeDelegate">
+            <summary>
+            If this delegate is not null and returns true then no node rendering is done
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.BoundingBox">
+            <summary>
+            gets the node bounding box
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.Attr">
+            <summary>
+            gets or sets the node attribute
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.Id">
+            <summary>
+            the node ID
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.OutEdges">
+            <summary>
+            Enumerates over outgoing edges of the node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.InEdges">
+            <summary>
+            enumerates over the node incoming edges
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.SelfEdges">
+            <summary>
+            enumerates over the node self edges
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.GeometryObject">
+            <summary>
+            gets the geometry node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.LabelText">
+            <summary>
+            a shortcut to the node label text
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Node.Edges">
+            <summary>
+            enumerates over all edges
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.GeometryGraphEditor">
+            <summary>
+            the editor of a graph layout
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.Drag(Microsoft.Msagl.Point)">
+            <summary>
+            drags elements by the delta
+            </summary>
+            <param name="delta"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.DragEdgeWithSite(Microsoft.Msagl.Point,Microsoft.Msagl.Edge,Microsoft.Msagl.EdgeRestoreData,Microsoft.Msagl.Site,Microsoft.Msagl.Point)">
+            <summary>
+            
+            </summary>
+            <param name="delta">delta of the drag</param>
+            <param name="e">the modified edge</param>
+            <param name="edgeRestoreData"></param>
+            <param name="site"></param>
+            <param name="previousSitePosition"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.PrepareForObjectDragging(Microsoft.Msagl.Set{System.Object},System.Collections.Generic.IEnumerable{Microsoft.Msagl.GeometryObject})">
+            <summary>
+            prepares for node dragging
+            </summary>
+            <param name="affectedObjects">LayoutEditor just keeps these object for the client convenience</param>
+            <param name="markedObjects">markedObjects will be dragged</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.PrepareForEdgeCornerDragging(Microsoft.Msagl.Set{System.Object},Microsoft.Msagl.Edge,Microsoft.Msagl.Site)">
+            <summary>
+            preparing for an edge corner dragging
+            </summary>
+            <param name="affectedObjects"></param>
+            <param name="geometryEdge"></param>
+            <param name="site"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.PrepareForPolylineCornerRemoval(System.Object,Microsoft.Msagl.Site)">
+            <summary>
+            prepares for the polyline corner removal
+            </summary>
+            <param name="affectedEdge"></param>
+            <param name="site"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.PrepareForPolylineCornerInsertion(System.Object,Microsoft.Msagl.Site)">
+            <summary>
+            prepare for polyline corner insertion
+            </summary>
+            <param name="affectedObj">edited objects</param>
+            <param name="site">the site to insert</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.Undo">
+            <summary>
+            Undoes the last editing. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.Redo">
+            <summary>
+            redo the dragging
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.Clear">
+            <summary>
+            clear the editor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.GetPreviousSite(Microsoft.Msagl.Edge,Microsoft.Msagl.Point)">
+            <summary>
+            gets the enumerator pointing to the polyline corner before the point
+            </summary>
+            <param name="edge"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.InsertSite(Microsoft.Msagl.Edge,Microsoft.Msagl.Point,Microsoft.Msagl.Site,System.Object)">
+             <summary>
+             insert a polyline corner
+             </summary>
+             <param name="edge"></param>
+             <param name="point">the point to insert the corner</param>
+             <param name="siteBeforeInsertion"></param>
+            <param name="affectedEntity">an object to be stored in the undo action</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.DeleteSite(Microsoft.Msagl.Edge,Microsoft.Msagl.Site,System.Object)">
+            <summary>
+            deletes the polyline corner
+            </summary>
+            <param name="edge"></param>
+            <param name="site"></param>
+            <param name="userData">an object to be stored in the unde action</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.FindCornerForEdit(Microsoft.Msagl.UnderlyingPolyline,Microsoft.Msagl.Point,System.Double)">
+            <summary>
+            finds the polyline corner near the mouse position
+            </summary>
+            <param name="underlyingPolyline"></param>
+            <param name="mousePoint"></param>
+            <param name="tolerance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.FitGraphBoundingBox(System.Object,Microsoft.Msagl.GeometryGraph)">
+            <summary>
+            creates a "tight" bounding box
+            </summary>
+            <param name="affectedEntity">the object corresponding to the graph</param>
+            <param name="geometryGraph"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GeometryGraphEditor.OnDragEnd(Microsoft.Msagl.Point)">
+            <summary>
+            
+            </summary>
+            <param name="delta"></param>
+        </member>
+        <member name="E:Microsoft.Msagl.Drawing.GeometryGraphEditor.ChangeInUndoRedoList">
+            <summary>
+            signals that there is a change in the undo/redo list
+            There are four possibilities: Undo(Redo) becomes available (unavailable)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GeometryGraphEditor.CurrentUndoAction">
+            <summary>
+            return the current undo action
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GeometryGraphEditor.CurrentRedoAction">
+            <summary>
+            return the current redo action
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GeometryGraphEditor.GraphBoundingBoxGetsExtended">
+            <summary>
+            Will be set to true if an entity was dragged out of the graph bounding box
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GeometryGraphEditor.Graph">
+            <summary>
+            Current graph under editing
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GeometryGraphEditor.EditedEdge">
+            <summary>
+            The edge data of the edge selected for editing
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GeometryGraphEditor.ObjectsToDrag">
+            <summary>
+            enumerates over the nodes chosen for dragging
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GeometryGraphEditor.CanUndo">
+            <summary>
+            returns true if "undo" is available
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GeometryGraphEditor.CanRedo">
+            <summary>
+            returns true if "redo" is available
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.IViewerEdge">
+            <summary>
+            an interface for an edge drawn by viewer which is enabled for editing
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerEdge.Edge">
+            <summary>
+            the corresponding drawing edge
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerEdge.Source">
+            <summary>
+            the edge source
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerEdge.Target">
+            <summary>
+            the edge target
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerEdge.RadiusOfPolylineCorner">
+             <summary>
+            the radius of circles drawin around polyline corners 
+             </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.IEditableObject">
+            <summary>
+            an interface for an editable object 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IEditableObject.DrawingObject">
+            <summary>
+            gets or sets the corresponding DrawingObject
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IEditableObject.SelectedForEditing">
+            <summary>
+            is set to true when the object is selected for editing
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.EdgeAttr">
+            <summary>
+            Edge layout attributes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.EdgeAttr.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.EdgeAttr.Clone">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.EdgeAttr.arrowheadAtTarget">
+            <summary>
+            Arrow style; for the moment only a few are supported.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.EdgeAttr.ToString(System.String)">
+            <summary>
+            ToString with a parameter.
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.Separation">
+            <summary>
+            The separation of the edge in layers. The default is 1.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.Weight">
+            <summary>
+            Greater weight keeps the edge short
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.ArrowheadAtSource">
+            <summary>
+            Arrow style; for the moment only the Normal and None are supported.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.ArrowheadAtTarget">
+            <summary>
+            Arrow style; for the moment only the Normal and None are supported.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.ArrowheadLength">
+            <summary>
+            the length of an arrow head of the edge
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.GeometryEdge">
+            <summary>
+            gets and sets the geometry edge
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.EdgeCurve">
+            <summary>
+            gets and sets the edge curve
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.ArrowAtTarget">
+            <summary>
+            Signals if an arrow should be drawn at the end.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.ArrowAtTargetPosition">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.ArrowAtSource">
+            <summary>
+            is true if need to draw an arrow at the source
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.ArrowAtSourcePosition">
+            <summary>
+            gets or sets the position of the arrow head at the source
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.EdgeAttr.Length">
+            <summary>
+            applicable for MDS layouts
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.MouseButtons">
+            <summary>
+            Mouse button enum
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.MouseButtons.None">
+            <summary>
+            No button was pressed
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.MouseButtons.Left">
+            <summary>
+            The left mouse button was pressed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.MouseButtons.Right">
+            <summary>
+            The right mouse button was pressed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.MouseButtons.Middle">
+             <summary>
+            The middle mouse button was pressed. 
+             </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.MouseButtons.XButton1">
+            <summary>
+             The first XButton was pressed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.MouseButtons.XButton2">
+            <summary>
+               The second XButton was pressed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GraphWriter.Write">
+            <summary>
+            Writes the graph to a file
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.GraphReader">
+            <summary>
+            reads a drawing graph from a stream
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GraphReader.Read">
+            <summary>
+            Reads the graph from a file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.IViewer">
+            <summary>
+            the interface for the viewer which is able to edit a graph layout
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.Invalidate(Microsoft.Msagl.Drawing.IViewerObject)">
+            <summary>
+            forcing redraw of the object
+            </summary>
+            <param name="editObj"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.Invalidate">
+            <summary>
+            invalidates everything
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.InvalidateBeforeTheChange(Microsoft.Msagl.Drawing.IViewerObject)">
+            <summary>
+            forcing redraw of the object
+            </summary>
+            <param name="editObj"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.ScreenToSource(Microsoft.Msagl.Drawing.MsaglMouseEventArgs)">
+            <summary>
+            maps a point in screen coordinates to the point in the graph surface
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.ScreenToSource(Microsoft.Msagl.Point)">
+            <summary>
+            maps a point in screen coordinates to the point in the graph surface
+            </summary>
+            <param name="screenPoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.OnDragEnd(System.Collections.Generic.IEnumerable{Microsoft.Msagl.Drawing.IViewerObject})">
+            <summary>
+            this method should be called on the end of the dragging
+            </summary>
+            <param name="changedObjects"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.PopupMenus(Microsoft.Msagl.Drawing.Couple{System.String,Microsoft.Msagl.Drawing.DelegateReturningVoid}[])">
+            <summary>
+            Pops up a pop up menu with a menu item for each couple, the string is the title and the delegate is the callback
+            </summary>
+            <param name="menuItems"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.StartDrawingRubberLine(Microsoft.Msagl.Drawing.MsaglMouseEventArgs)">
+            <summary>
+            prepare to draw the rubber line
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.DrawRubberLine(Microsoft.Msagl.Drawing.MsaglMouseEventArgs)">
+            <summary>
+            draw the rubber line to the current mouse position
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.StopDrawingRubberLine">
+            <summary>
+            stop drawing the rubber line
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.AddEdge(Microsoft.Msagl.Drawing.IViewerEdge,System.Boolean)">
+            <summary>
+            add an edge to the viewer graph
+            </summary>
+            <param name="edge"></param>
+            <param name="registerForUndo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.AddNode(Microsoft.Msagl.Drawing.IViewerNode,System.Boolean)">
+            <summary>
+            adds a node to the viewer graph
+            </summary>
+            <param name="node"></param>
+            <param name="registerForUndo"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.RemoveEdge(Microsoft.Msagl.Drawing.IViewerEdge,System.Boolean)">
+             <summary>
+             removes an edge from the graph
+             </summary>
+             <param name="edge"></param>
+            <param name="registerForUndo"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.RemoveNode(Microsoft.Msagl.Drawing.IViewerNode,System.Boolean)">
+            <summary>
+            deletes node
+            </summary>
+            <param name="node"></param>
+            <param name="registerForUndo"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.CreateEdge(Microsoft.Msagl.Drawing.Node,Microsoft.Msagl.Drawing.Node)">
+            <summary>
+            creates a detached edge between existing nodes
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.SetEdgeLabel(Microsoft.Msagl.Drawing.Edge,Microsoft.Msagl.Drawing.Label)">
+            <summary>
+            sets the edge label
+            </summary>
+            <param name="edge"></param>
+            <param name="label"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewer.CreateNode(Microsoft.Msagl.Drawing.Node)">
+            <summary>
+            creates a viewer node
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="E:Microsoft.Msagl.Drawing.IViewer.MouseDown">
+            <summary>
+            signalling the mouse down event
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.Drawing.IViewer.MouseMove">
+            <summary>
+            signalling the mouse move event
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.Drawing.IViewer.MouseUp">
+            <summary>
+            signalling the mouse up event
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewer.ObjectUnderMouseCursor">
+            <summary>
+            Returns the object under the cursor and null if there is none
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.Drawing.IViewer.GraphChanged">
+            <summary>
+            is raised after the graph is changed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewer.ModifierKeys">
+            <summary>
+            returns modifier keys; control, shift, or alt are pressed at the moments
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewer.Entities">
+            <summary>
+            gets all entities which can be dragged
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewer.DpiX">
+            <summary>
+            number of dots per inch in x direction
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewer.DpiY">
+            <summary>
+            number of dots per inch in y direction
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewer.LineThicknessForEditing">
+            <summary>
+            The scale dependent width of an edited curve that should be clearly visible.
+            Used in the default entity editing.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewer.LayoutIsEditable">
+            <summary>
+            enables and disables the default editing of the viewer
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewer.UnderlyingPolylineCircleRadius">
+            <summary>
+            The radius of the circle drawn around a polyline corner
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewer.Graph">
+            <summary>
+            gets or sets the graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewer.ViewerGraph">
+            <summary>
+            gets the viewer graph
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.CreateLayoutGraph">
+            <summary>
+            a helper class to create a geometry graph
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.CreateLayoutGraph.CreateGeometryNode(Microsoft.Msagl.GeometryGraph,Microsoft.Msagl.Drawing.Node,Microsoft.Msagl.Drawing.Connection)">
+            <summary>
+            a helper function creating a geometry node
+            </summary>
+            <param name="graph"></param>
+            <param name="node"></param>
+            <param name="connection">controls if the node is connected to the graph</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.SiteRemoveUndoAction.#ctor(Microsoft.Msagl.Edge)">
+            <summary>
+            Constructor. At the moment of the constructor call the site should not be inserted yet
+            </summary>
+            <param name="edgePar"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.SiteRemoveUndoAction.Undo">
+            <summary>
+            undoes the editing
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.SiteRemoveUndoAction.Redo">
+            <summary>
+            redoes the editing
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.PosData">
+            <summary>
+            This class keeps information about edge geometry;
+            Bezier curve and arrows settings: it is mostly for DOT support
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.PosData.controlPoints">
+            <summary>
+            Control points of consequent Bezier segments.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.PosData.arrowAtTarget">
+            <summary>
+            Signals if an arrow should be drawn at the end.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.PosData.arrowAtTargetPosition">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.PosData.arrowAtSource">
+            <summary>
+            Signals if an arrow should be drawn at the beginning.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.PosData.arrowAtSourcePosition">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PosData.StartPoint">
+            <summary>
+            the edge start point
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PosData.Endpoint">
+            <summary>
+            the edge end point
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PosData.EdgeCurve">
+            <summary>
+            gets or sets the edge curve
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PosData.ControlPoints">
+            <summary>
+            enumerates over the edge control points
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PosData.ArrowAtTarget">
+            <summary>
+            gets ro sets if an arrow head at target is needed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PosData.ArrowAtTargetPosition">
+            <summary>
+            gets or sets the position of the arrow head at the target node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PosData.ArrowAtSource">
+            <summary>
+            if set to true then we need to draw an arrow head at source
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PosData.ArrowAtSourcePosition">
+            <summary>
+            the position of the arrow head at the source node
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Utils.Quote(System.String)">
+            <summary>
+            Quotes the string
+            </summary>
+            <param name="s">string to quote</param>
+            <returns>quoted string</returns>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Style">
+            <summary>
+            Styles enumeration
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Style.None">
+            <summary>
+            The default style - solid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Style.Dashed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Style.Solid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Style.Invis">
+            <summary>
+            not supported
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Style.Bold">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Style.Filled">
+            <summary>
+            not supported
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Style.Diagonals">
+            <summary>
+            not supported
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Style.Dotted">
+            <summary>
+            not supported
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Style.Rounded">
+            <summary>
+            not supported
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.ArrowStyle">
+            <summary>
+            http://www.graphviz.org/cvs/doc/info/attrs.html#k:arrowType
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.ArrowStyle.NonSpecified">
+            <summary>
+            The default.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.ArrowStyle.None">
+            <summary>
+            The default.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.ArrowStyle.Normal">
+            <summary>
+            The default
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.ArrowStyle.Tee">
+            <summary>
+            Looks like a tee
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.EdgeDirection">
+            <summary>
+            http://www.graphviz.org/cvs/doc/info/attrs.html#k:dirType
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.EdgeDirection.NonSpecified">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.EdgeDirection.Forward">
+            <summary>
+            Not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.EdgeDirection.Back">
+            <summary>
+            Not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.EdgeDirection.Both">
+            <summary>
+            Not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.EdgeDirection.None">
+            <summary>
+            Not supported.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Orientation">
+            <summary>
+            http://www.graphviz.org/cvs/doc/info/attrs.html#aa:orientation
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Orientation.Portrait">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Orientation.Landscape">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Layer">
+            <summary>
+            Layer constrain enum: is not used for the time being
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Layer.Undefined">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Layer.Same">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Layer.Min">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Layer.Max">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Layer.Source">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Layer.Sink">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Ratio">
+            <summary>
+            http://www.graphviz.org/cvs/doc/info/attrs.html#a:ratio
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Ratio.Fill">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Ratio.Auto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Ratio.Compress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Ratio.Expand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.LabelJustification">
+            <summary>
+            http://www.graphviz.org/cvs/doc/info/attrs.html#a:labeljust
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.LabelJustification.Left">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.LabelJustification.Right">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.LabelLocation">
+            <summary>
+            http://www.graphviz.org/cvs/doc/info/attrs.html#a:labelloc
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.LabelLocation.Top">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.LabelLocation.Bottom">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.PhylogeneticTree">
+            <summary>
+            represents a phylogenetic tree: a tree with edges of specific length
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Graph">
+            <summary>
+            Graph for drawing. Putting an instance of this class to property Microsoft.Msagl.Drawing of DOTViewer
+            triggers the drawing.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.ToString">
+            <summary>
+            Prints Microsoft.Msagl.Drawing in the DOT format - has side effects!
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Graph.attr">
+            <summary>
+            The graph attribute.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.AddNode(System.String)">
+            <summary>
+            Creates a new node and returns it or returns the old node.
+            If the node label is not set the id is used as the label.
+            </summary>
+            <param name="nodeId">is a key to the node in the Node's table</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.AddNode(Microsoft.Msagl.Drawing.Node)">
+            <summary>
+            adds a node to the graph
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.EdgeById(System.String)">
+            <summary>
+            A lookup function.
+            </summary>
+            <param name="edgeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.RemoveEdge(Microsoft.Msagl.Drawing.Edge)">
+            <summary>
+            Removes an edge, if the edge doesn't exist then nothing happens.
+            </summary>
+            <param name="edge">edge reference</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.RemoveNode(Microsoft.Msagl.Drawing.Node)">
+            <summary>
+            Removes a node and all of its edges. If the node doesn't exist, nothing happens.
+            </summary>
+            <param name="node">node reference</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.AddEdge(System.String,System.String,System.String)">
+            <summary>
+            Always adds a new edge,if head or tail nodes don't exist they will be created
+            </summary>
+            <param name="source">source node id</param>
+            <param name="edgeLabel">edge labe - can be null</param>
+            <param name="target">target node id</param>
+            <returns>Edge</returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.AddPrecalculatedEdge(Microsoft.Msagl.Drawing.Edge)">
+            <summary>
+            adds and edge object
+            </summary>
+            <param name="edge"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.FindNode(System.String)">
+            <summary>
+            A lookup function: searching recursively in the subgraphs
+            </summary>
+            <param name="nodeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.AddEdge(System.String,System.String)">
+            <summary>
+            Always adds a new edge,if head or tail nodes don't exist they will be created
+            </summary>
+            <param name="source">the source node id</param>
+            <param name="target">the target node id</param>
+            <returns>edge</returns>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Graph.minLayer">
+            <summary>
+            Nodes having minimal layering
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Graph.maxLayer">
+            <summary>
+            Nodes to have maximal layering
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.AddSameLayer(System.Collections.IEnumerable)">
+            <summary>
+            Nodes having the same layering: different calls generate different groups with the same layer
+            </summary>
+            <param name="nodeLabels">collection of strings - node labels</param>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Graph.sameLayers">
+            <summary>
+            Collections of same layers nodes
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Graph.nodeMap">
+            <summary>
+            Very strangely, but layouts look not so good if I use Dictionary ovet string, Node
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.#ctor(System.String,System.String)">
+            <summary>
+            Graph constructor
+            </summary>
+            <param name="label">graph label</param>
+            <param name="id">graph id</param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.#ctor">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="labelPar"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.CreateGeometryGraph">
+            <summary>
+            Creates the corresponding geometry graph
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.Write(System.String)">
+            <summary>
+            Write the graph to a file
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Graph.Read(System.String)">
+            <summary>
+            Reads the graph from a file
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.Label">
+            <summary>
+            the label of the object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.LayoutAlgorithmSettings">
+            <summary>
+            the properties of the layout algorithm
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.BoundingBox">
+            <summary>
+            Returns the bounding box of the graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.Attr">
+            <summary>
+            The graph attribute property
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.Width">
+            <summary>
+            the width of the graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.Height">
+            <summary>
+            the height of the graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.Left">
+            <summary>
+            left of the graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.Top">
+            <summary>
+            top of the graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.Bottom">
+            <summary>
+            bottom of the graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.Right">
+            <summary>
+            right of the graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.NodeCount">
+            <summary>
+            Number of nodes in the graph without counting the subgraphs.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.EdgeCount">
+            <summary>
+            The number of dges in the graph.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.MinLayer">
+            <summary>
+            for future use
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.MaxLayer">
+            <summary>
+            for future use
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.SameLayers">
+            <summary>
+            for future use
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.NodeMap">
+            <summary>
+            labels -> nodes 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.Edges">
+            <summary>
+            The list of edges
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.Directed">
+            <summary>
+            true is the graph is directed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.GeometryGraph">
+            <summary>
+            underlying graph with pure geometry info
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Graph.GeometryObject">
+            <summary>
+            the geometry graph
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.PhylogeneticTree.CreateGeometryGraph">
+            <summary>
+            creates the geometry graph corresponding to the tree
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.PhylogeneticTree.AddEdge(System.String,System.String,System.String)">
+            <summary>
+            adds an edge to the tree
+            </summary>
+            <param name="source"></param>
+            <param name="edgeLabel"></param>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.PhylogeneticTree.AddEdge(System.String,System.String)">
+            <summary>
+            adds an edge to the tree
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.PhylogeneticTree.IsLeaf(Microsoft.Msagl.Drawing.Node)">
+            <summary>
+            true if the node is a leaf
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.PhylogeneticTree.Leaves">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.ObjectDragUndoRedoAction">
+            <summary>
+            Undoes/redoes the node dragging operation. Works for multiple nodes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.ObjectDragUndoRedoAction.#ctor(Microsoft.Msagl.Set{Microsoft.Msagl.GeometryObject})">
+            <summary>
+            constructor
+            </summary>
+            <param name="movedNodesParameter"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.ObjectDragUndoRedoAction.Undo">
+            <summary>
+            Undoes the editing
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.ObjectDragUndoRedoAction.Redo">
+            <summary>
+            redoes the editing
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.ObjectDragUndoRedoAction.BoundingBoxChanges">
+            <summary>
+            returns true if the bounding box changes
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.GraphAttr">
+            <summary>
+            Microsoft.Msagl.Drawing attribute.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GraphAttr.ToString(System.String)">
+            <summary>
+            dumps the attribute into a string
+            </summary>
+            <param name="label"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.GraphAttr.bgcolor">
+            <summary>
+            Background color for drawing ,plus initial fill color - white by default.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.GraphAttr.nodesep">
+            <summary>
+            Separation between nodes
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.GraphAttr.layersep">
+            <summary>
+            Separation between layers in
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.GraphAttr.#ctor">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.MinNodeHeight">
+            <summary>
+            the lower bound for the node height
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.MinNodeWidth">
+            <summary>
+            the lower bound for the node width
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.AspectRatio">
+            <summary>
+            the required aspect ratio of the graph bounding box
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.Border">
+            <summary>
+            thickness of the graph border line
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.BackgroundColor">
+            <summary>
+            Background color for drawing and initial fill color.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.Margin">
+            <summary>
+            margins width
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.OptimizeLabelPositions">
+            <summary>
+            if set to true then the label positions are optimized
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.MinNodeSeparation">
+            <summary>
+            the minimal node separation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.NodeSeparation">
+            <summary>
+            the node separation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.LayerDirection">
+            <summary>
+            Directs node layers
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.LayerSeparation">
+            <summary>
+            the distance between two neigbor layers
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.GraphAttr.MinLayerSeparation">
+            <summary>
+            the minimal layer separation
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.LayerDirection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.LayerDirection.TB">
+            <summary>
+            top to bottom
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.LayerDirection.LR">
+            <summary>
+            left to right
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.LayerDirection.BT">
+            <summary>
+            bottom top
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.LayerDirection.RL">
+            <summary>
+            right to left
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.LayerDirection.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Shape">
+            <summary>
+            Defines a shape of the node
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Diamond">
+            <summary>
+            draws a diamond
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Ellipse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Box">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Circle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Record">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Plaintext">
+             <summary>
+            does not provide any boundary 
+             </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Point">
+            <summary>
+            draws a solid point
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Mdiamond">
+            <summary>
+            Draws a dot
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Msquare">
+            <summary>
+            Not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Polygon">
+            <summary>
+            Not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.DoubleCircle">
+            <summary>
+            double circle
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.House">
+            <summary>
+            Draws a box with a roof
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.InvHouse">
+            <summary>
+            Draws an inverterted house
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Parallelogram">
+            <summary>
+            Not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Octagon">
+            <summary>
+            octagon
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.TripleOctagon">
+            <summary>
+            Not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Triangle">
+            <summary>
+            Not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.Trapezium">
+            <summary>
+            Not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Shape.DrawFromGeometry">
+            <summary>
+            the curve is given by the geometry node
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Color">
+            <summary>
+            Color structure
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Color.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            constructor with alpha and red, green, bluee components
+            </summary>
+            <param name="a"></param>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Color.#ctor(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            opaque color
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Color.op_Equality(Microsoft.Msagl.Drawing.Color,Microsoft.Msagl.Drawing.Color)">
+            <summary>
+            ==
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Color.op_Inequality(Microsoft.Msagl.Drawing.Color,Microsoft.Msagl.Drawing.Color)">
+            <summary>
+            !=
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Color.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Color.Equals(System.Object)">
+            <summary>
+            the equality
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Color.GetHashCode">
+            <summary>
+            the hash code
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.A">
+            <summary>
+            alpha - transparency
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.R">
+            <summary>
+            red
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.G">
+            <summary>
+            green
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.B">
+            <summary>
+            blue
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.AliceBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.AntiqueWhite">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Aqua">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Aquamarine">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Azure">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Beige">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Bisque">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Black">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.BlanchedAlmond">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Blue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.BlueViolet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Brown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.BurlyWood">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.CadetBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Chartreuse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Chocolate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Coral">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.CornflowerBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Cornsilk">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Crimson">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Cyan">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkCyan">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkGoldenrod">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkGray">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkKhaki">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkMagenta">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkOliveGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkOrange">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkOrchid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkRed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkSalmon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkSeaGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkSlateBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkSlateGray">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkTurquoise">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DarkViolet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DeepPink">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DeepSkyBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DimGray">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.DodgerBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Firebrick">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.FloralWhite">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.ForestGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Fuchsia">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Gainsboro">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.GhostWhite">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Gold">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Goldenrod">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Gray">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Green">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.GreenYellow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Honeydew">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.HotPink">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.IndianRed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Indigo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Ivory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Khaki">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Lavender">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LavenderBlush">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LawnGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LemonChiffon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightCoral">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightCyan">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightGoldenrodYellow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightGray">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightPink">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightSalmon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightSeaGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightSkyBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightSlateGray">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightSteelBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LightYellow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Lime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.LimeGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Linen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Magenta">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Maroon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MediumAquamarine">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MediumBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MediumOrchid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MediumPurple">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MediumSeaGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MediumSlateBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MediumSpringGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MediumTurquoise">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MediumVioletRed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MidnightBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MintCream">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.MistyRose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Moccasin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.NavajoWhite">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Navy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.OldLace">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Olive">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.OliveDrab">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Orange">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.OrangeRed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Orchid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.PaleGoldenrod">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.PaleGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.PaleTurquoise">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.PaleVioletRed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.PapayaWhip">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.PeachPuff">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Peru">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Pink">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Plum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.PowderBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Purple">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Red">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.RosyBrown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.RoyalBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.SaddleBrown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Salmon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.SandyBrown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.SeaGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.SeaShell">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Sienna">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Silver">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.SkyBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.SlateBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.SlateGray">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Snow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.SpringGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.SteelBlue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Tan">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Teal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Thistle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Tomato">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Transparent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Turquoise">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Violet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Wheat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.White">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.WhiteSmoke">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.Yellow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Color.YellowGreen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.MsaglMouseEventArgs">
+            <summary>
+            an abstract class supporting mouse events
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.MsaglMouseEventArgs.LeftButtonIsPressed">
+            <summary>
+             Gets the current state of the left mouse button.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.MsaglMouseEventArgs.MiddleButtonIsPressed">
+            <summary>
+             Gets the current state of the middle mouse button.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.MsaglMouseEventArgs.RightButtonIsPressed">
+            <summary>
+               Gets the current state of the right mouse button.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.MsaglMouseEventArgs.Handled">
+            <summary>
+            gets or sets the handled flag
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.MsaglMouseEventArgs.X">
+            <summary>
+            X position of the mouse cursor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.MsaglMouseEventArgs.Y">
+            <summary>
+            Y position of the mouse cursor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.MsaglMouseEventArgs.Source">
+            <summary>
+            gets the event source
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.MsaglMouseEventArgs.Clicks">
+            <summary>
+            gets the number of clicks of the button
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.Label">
+            <summary>
+            Keep the information related to an object label
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Label.#ctor">
+            <summary>
+            an empty constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.Label.#ctor(System.String)">
+            <summary>
+            a constructor with text
+            </summary>
+            <param name="textPar"></param>
+        </member>
+        <member name="F:Microsoft.Msagl.Drawing.Label.fontName">
+            <summary>
+            Type face font.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.Width">
+            <summary>
+            the width of the label
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.Height">
+            <summary>
+            the height of the label
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.Left">
+            <summary>
+            left coordinate 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.Top">
+            <summary>
+            top coordinate
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.Right">
+            <summary>
+            left coordinate 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.Bottom">
+            <summary>
+            top coordinate
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.LeftTop">
+            <summary>
+            gets the left top corner
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.RightBottom">
+            <summary>
+            gets the right bottom corner
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.BoundingBox">
+            <summary>
+            returns the bounding box of the label
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.Size">
+            <summary>
+            gets or sets the label size
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.Center">
+            <summary>
+            Center of the label
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.FontColor">
+            <summary>
+            Label font color.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.FontName">
+            <summary>
+            Type face font
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.Text">
+            <summary>
+            A label of the entity. The label is rendered opposite to the ID. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.FontSize">
+            <summary>
+            The point size of the id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.DefaultFontName">
+            <summary>
+            the name of the defaul font
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.DefaultFontSize">
+            <summary>
+            the default font size
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.GeometryLabel">
+            <summary>
+            gets or set geometry label
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.Label.GeometryObject">
+            <summary>
+            gets the geometry of the label
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.Drawing.IViewerNode">
+            <summary>
+            interface of a node that could be edited
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.Drawing.IViewerNode.SetStrokeFill">
+            <summary>
+            set color and fillcolor from the node attributes
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerNode.Node">
+            <summary>
+            the corresponding drawing node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerNode.InEdges">
+            <summary>
+            incomind editable edges
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerNode.OutEdges">
+            <summary>
+            outgoing editable edges
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.Drawing.IViewerNode.SelfEdges">
+            <summary>
+            self editable edges
+            </summary>
+        </member>
+    </members>
+</doc>

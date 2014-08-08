@@ -1,0 +1,69 @@
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,b, u, i, center,
+dl, dt, dd, ol, ul, li,fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video 	{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {display:block;}
+body 							{line-height:1;}
+ol, ul 							{list-style:none;}
+blockquote, q 				{quotes:none;}
+blockquote:before, blockquote:after,
+q:before, q:after 			{content: '';content:none;}
+table 							{border-collapse:collapse;border-spacing:0;}
+
+html 							{height:100%;}
+body 							{font-size:75%;line-height:1.5;color:#444;background:#ede7e1 url("../images/body-bg.jpg") left top repeat-x;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;height:100%;}
+#wrap 						{min-height:100%;}
+#main 						{overflow:auto;padding-bottom:80px;}
+#footer 						{position:relative;margin-top:-80px;height:75px;border-top:5px solid #7db1c9;clear:both;background:#005a84;}
+.footer-inner 				{margin:0 auto;padding:5px 0 0;width:950px;color:#207fa6;font-size:11px;}
+.footer-inner a 			{padding:0 0 0 15px;color:#1f7fa7;}
+.footer-inner a:hover 	{color:#fff;}
+.footer-inner p 			{margin-top:10px;}
+
+#header						{height:50px;background:#fff;position:absolute;top:0;left:0;width:100%;z-index:1;}
+.header-inner 				{margin:0 auto;width:950px;position:relative;}
+.header-nav				{float:right;width:420px;}
+.header-nav ul				{padding-right:150px;}
+.header-nav ul li			{padding:13px 20px 0;float:left;}
+.header-nav ul li a		{font:normal 24px 'LeagueGothicRegular', arial, sans-serif;text-decoration:none;color:#444;}
+.header-nav ul li a:hover, .header-nav ul li a.active	{color:#015a84;}
+.logo							{margin-top:-15px;}
+
+#container					{margin:0 auto;width:950px;min-height:650px;background:transparent url("../images/container-bg.png") 420px 150px no-repeat;position:relative;}
+#content-box				{margin-bottom:25px;padding:15px 30px;float:left;background:#fff;width:430px;font-size:14px;position:relative;z-index:2;border-bottom:4px solid #c7bcaf;min-height:650px;}
+.cb-corner-right			{position:absolute;top:50px;right:-100px;}
+.cb-corner-left				{position:absolute;top:49px;left:-100px;}
+
+.big-moose					{position:absolute;top:115px;right:-60px;}
+.ribbon-corner				{position:absolute;top:114px;left:-15px;}
+
+.button-orange, .button-orange-big	{margin:0;padding:3px 10px;-moz-border-radius:6px;border-radius:6px;cursor:pointer;text-align:center;font-weight:bold;box-shadow:inset 0 0 2px #fff;-moz-box-shadow:inset 0 0 1px #fff;-webkit-transition-property:color, background, border;-webkit-transition-duration:.25s, .25s, .25s;-webkit-transition-timing-function:linear, ease-in, ease-in;-moz-transition-property:color, background, border;-moz-transition-duration:.25s, .25s, .25s;-moz-transition-timing-function:linear, ease-in, ease-in;}
+
+a.button-orange			{display:inline-block;color:#fff;background:#ff6c00;border:1px solid #c45300;}
+a.button-orange:hover 	{background:#a53600;color:#fff;}
+
+a.button-orange-big		{padding:3px 10px 0;line-height:38px;display:inline-block;font:normal 42px 'LeagueGothicRegular', arial, sans-serif;color:#3a2a13;background:#f49b25;border:1px solid #e27f37;position:absolute;top:25px;right:0;}
+a.button-orange-big:hover	{background:#005a84;color:#fff;border:1px solid #005a84;}
+
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('fonts/League_Gothic-webfont.eot');
+    src: url('fonts/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/League_Gothic-webfont.woff') format('woff'),
+         url('fonts/League_Gothic-webfont.ttf') format('truetype'),
+         url('fonts/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+		 font-style:normal;}
+		 
+h1								{margin:10px 0 25px -45px;padding:10px 0 5px 45px;width:460px;font:normal 42px 'LeagueGothicRegular', arial, sans-serif;color:#3a2a13;text-shadow:-3px 3px 0 #d7c5b1;-moz-text-shadow:-3px 3px 0 #d7c5b1;background:#ede7e1;position:relative;border-right:5px solid #877e74;box-shadow: 0 3px 4px #333;}
+h2								{margin:10px 0 0px -45px;padding:10px 0 5px 45px;width:360px;font:normal 32px 'LeagueGothicRegular', arial, sans-serif;color:#3a2a13;text-shadow:-3px 3px 0 #d7c5b1;-moz-text-shadow:-3px 3px 0 #d7c5b1;position:relative;}
+a								{text-decoration:none;outline:none;color:#006699;}
+a:hover						{color:#444;}
+p								{margin:0 0 15px;}
+
+/* misc */
+.middle						{vertical-align:middle;}

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<project name="Settings">
+  <!-- environment settings -->
+  <property name="environment" value="LOCAL" />
+  <property name="machine" value="127.0.0.1" />
+  <property name="server.database" value="(local)" />
+  <property name="database.name" value="NAME" />
+  <property name="log.level" value="DEBUG" />
+
+  <!-- base settings -->
+  <property name="project.name" value="__REPLACE__" overwrite="false" />
+  <property name="repository.path" value="__REPLACE__" />
+  <property name="folder.app.drop" value="${project.name}" overwrite="false" />
+
+  <!-- database deployment -->
+  <property name="folder.database" value="db" overwrite="false" />
+  <property name="file.version" value="${project.name}.dll" overwrite="false" />
+  <property name="restore.from.path" value="..\${database.name}.bak" overwrite="false" />
+  
+</project>

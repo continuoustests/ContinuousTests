@@ -1,0 +1,101 @@
+NUnit version 2.4.7
+Copyright (C) 2002-2007 Charlie Poole.
+Copyright (C) 2002-2004 James W. Newkirk, Michael C. Two, Alexei A. Vorontsov.
+Copyright (C) 2000-2002 Philip Craig.
+All Rights Reserved.
+
+Runtime Environment - 
+   OS Version: Unix 2.6.32.24
+  CLR Version: 2.0.50727.1433 ( 2.6.7 (Debian 2.6.7-3ubuntu1~dhx1) )
+
+[Warn] 'AutoTest.Console.ConsoleApplication' Invalid build executable specified in the configuration file. Builds will not be run.[Warn] 'AutoTest.Console.ConsoleApplication' NUnit test runner not specified. NUnit tests will not be run.
+[Warn] 'AutoTest.Console.ConsoleApplication' MSTest test runner not specified. MSTest tests will not be run.
+[Warn] 'AutoTest.Console.ConsoleApplication' XUnit test runner not specified. XUnit tests will not be run.
+[Warn] 'AutoTest.Console.ConsoleApplication' Code editor not specified
+
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="UNNAMED" total="7" failures="1" not-run="1" date="2010-09-24" time="22:59:29">
+  <environment nunit-version="2.4.7.0" clr-version="2.0.50727.1433" os-version="Unix 2.6.32.24" platform="Unix" cwd="/home/ack/src/AutoTest.Net/src" machine-name="svein-arne-xps" user="ack" user-domain="svein-arne-xps" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite name="UNNAMED" success="False" time="3.389" asserts="0">
+    <results>
+      <test-suite name="AutoTest.WinForms.Test/bin/Debug/AutoTest.WinForms.Test.dll" success="False" time="2.415" asserts="0">
+        <results>
+          <test-suite name="AutoTest" success="False" time="2.412" asserts="0">
+            <results>
+              <test-suite name="WinForms" success="False" time="2.410" asserts="0">
+                <results>
+                  <test-suite name="Test" success="False" time="2.408" asserts="0">
+                    <results>
+                      <test-suite name="BotstrapperTest" success="True" time="2.243" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.WinForms.Test.BotstrapperTest.Should_register_directoy_picker_form" executed="True" success="True" time="0.877" asserts="1" />
+                          <test-case name="AutoTest.WinForms.Test.BotstrapperTest.Should_register_feedback_form" executed="True" success="True" time="0.817" asserts="1" />
+                          <test-case name="AutoTest.WinForms.Test.BotstrapperTest.Should_register_information_form" executed="True" success="True" time="0.537" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="LinkParserTest" success="False" time="0.045" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.WinForms.Test.LinkParserTest.Should_replace_link_tags" executed="True" success="False" time="0.024" asserts="2">
+                            <failure>
+                              <message><![CDATA[  Expected: 10
+  But was:  2
+]]></message>
+                              <stack-trace><![CDATA[at AutoTest.TestingExtensionMethods.ShouldEqual[Int32] (Int32 actual, Int32 expected) [0x00000] in <filename unknown>:0
+at AutoTest.WinForms.Test.LinkParserTest.Should_replace_link_tags () [0x00000] in <filename unknown>:0
+at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&)
+at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] in <filename unknown>:0
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                          <test-case name="AutoTest.WinForms.Test.LinkParserTest.Should_return_links" executed="False">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                      <test-suite name="SummaryBuilderTest" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.WinForms.Test.SummaryBuilderTest.Should_build_tooltip_string" executed="True" success="True" time="0.002" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="WatchDirectoryPickerFormTest" success="True" time="0.083" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.WinForms.Test.WatchDirectoryPickerFormTest.Should_list_directories_from_configuration" executed="True" success="True" time="0.083" asserts="2" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite name="AutoTest.Console.Test/bin/Debug/AutoTest.Console.Test.dll" success="True" time="0.884" asserts="0">
+        <results>
+          <test-suite name="AutoTest" success="True" time="0.883" asserts="0">
+            <results>
+              <test-suite name="Console" success="True" time="0.883" asserts="0">
+                <results>
+                  <test-suite name="Test" success="True" time="0.882" asserts="0">
+                    <results>
+                      <test-suite name="ConfigurationTest" success="True" time="0.859" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.Console.Test.ConfigurationTest.Should_resolve_console" executed="True" success="True" time="0.856" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

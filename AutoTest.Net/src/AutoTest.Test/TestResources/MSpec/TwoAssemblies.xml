@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MSpec>
+  <generated>
+    <date>Donnerstag, 23. Dezember 2010</date>
+    <time>15:41:28</time>
+  </generated>
+  <run time="167" />
+  <assembly name="Machine.Specifications.Example.Random" location="C:\Some\Path\Machine.Specifications.Example.Random.dll" time="70">
+    <concern name="">
+      <context name="context with multiple specifications and setup for each" type-name="Machine.Specifications.Specs.context_with_multiple_specifications_and_setup_for_each">
+        <specification name="spec1" field-name="spec1" status="passed" />
+        <specification name="spec2" field-name="spec2" status="passed" />
+      </context>
+      <context name="context with multiple specifications" type-name="Machine.Specifications.Specs.context_with_multiple_specifications">
+        <specification name="spec1" field-name="spec1" status="passed" />
+        <specification name="spec2" field-name="spec2" status="passed" />
+      </context>
+      <context name="context with duplicate tags" type-name="Machine.Specifications.Specs.context_with_duplicate_tags">
+        <specification name="bla bla" field-name="bla_bla" status="passed" />
+      </context>
+      <context name="context with tags" type-name="Machine.Specifications.Specs.context_with_tags">
+        <specification name="bla bla" field-name="bla_bla" status="passed" />
+      </context>
+      <context name="context with unimplemented specs" type-name="Machine.Specifications.Specs.context_with_unimplemented_specs">
+        <specification name="should be unimplemented" field-name="should_be_unimplemented" status="not-implemented" />
+      </context>
+      <context name="context with ignore" type-name="Machine.Specifications.Specs.context_with_ignore">
+        <specification name="should be ignored" field-name="should_be_ignored" status="ignored" />
+      </context>
+      <context name="context with ignore on one spec" type-name="Machine.Specifications.Specs.context_with_ignore_on_one_spec">
+        <specification name="should be ignored" field-name="should_be_ignored" status="ignored" />
+      </context>
+      <context name="context with ignore and reason" type-name="Machine.Specifications.Specs.context_with_ignore_and_reason">
+        <specification name="should be ignored" field-name="should_be_ignored" status="ignored" />
+      </context>
+      <context name="context with ignore and reason on one spec" type-name="Machine.Specifications.Specs.context_with_ignore_and_reason_on_one_spec">
+        <specification name="should be ignored" field-name="should_be_ignored" status="ignored" />
+      </context>
+      <context name="context with failing specs" type-name="Machine.Specifications.Specs.context_with_failing_specs">
+        <specification name="should" field-name="should" status="failed">
+          <error>
+            <message><![CDATA[something went wrong]]></message>
+            <stack-trace><![CDATA[   at Machine.Specifications.Specs.context_with_failing_specs.<.ctor>b__0() in C:\Some\Path\Source\Machine.Specifications.Example.Random\ExampleSpecs.cs:line 124.
+   at Machine.Specifications.Model.Specification.InvokeSpecificationField() in C:\Some\Path\Source\Machine.Specifications\Model\Specification.cs:line 75.
+   at Machine.Specifications.Model.Specification.Verify() in C:\Some\Path\Source\Machine.Specifications\Model\Specification.cs:line 53.]]></stack-trace>
+          </error>
+        </specification>
+      </context>
+      <context name="context with failing establish" type-name="Machine.Specifications.Specs.context_with_failing_establish">
+        <specification name="should" field-name="should" status="failed">
+          <error>
+            <message><![CDATA[something went wrong]]></message>
+            <stack-trace><![CDATA[   at Machine.Specifications.Specs.context_with_failing_establish.<.ctor>b__0() in C:\Some\Path\Source\Machine.Specifications.Example.Random\ExampleSpecs.cs:line 130.
+   at Machine.Specifications.Utility.RandomExtensionMethods.InvokeAll(IEnumerable`1 contextActions) in C:\Some\Path\Source\Machine.Specifications\Utility\RandomExtensionMethods.cs:line 28.
+   at Machine.Specifications.Model.Context.EstablishContext() in C:\Some\Path\Source\Machine.Specifications\Model\Context.cs:line 56.]]></stack-trace>
+          </error>
+        </specification>
+      </context>
+      <context name="context with failing because" type-name="Machine.Specifications.Specs.context_with_failing_because">
+        <specification name="should" field-name="should" status="failed">
+          <error>
+            <message><![CDATA[something went wrong]]></message>
+            <stack-trace><![CDATA[   at Machine.Specifications.Specs.context_with_failing_because.<.ctor>b__0() in C:\Some\Path\Source\Machine.Specifications.Example.Random\ExampleSpecs.cs:line 137.
+   at Machine.Specifications.Utility.RandomExtensionMethods.InvokeIfNotNull(Because because) in C:\Some\Path\Source\Machine.Specifications\Utility\RandomExtensionMethods.cs:line 21.
+   at Machine.Specifications.Model.Context.EstablishContext() in C:\Some\Path\Source\Machine.Specifications\Model\Context.cs:line 57.]]></stack-trace>
+          </error>
+        </specification>
+      </context>
+      <context name="context with console output" type-name="Machine.Specifications.Specs.context_with_console_output">
+        <specification name="should log messages" field-name="should_log_messages" status="passed" />
+        <specification name="should log messages also for the nth run" field-name="should_log_messages_also_for_the_nth_run" status="passed" />
+      </context>
+      <context name="context with inner exception" type-name="Machine.Specifications.Specs.context_with_inner_exception">
+        <specification name="should throw" field-name="should_throw" status="failed">
+          <error>
+            <message><![CDATA[Ein Aufrufziel hat einen Ausnahmefehler verursacht.]]></message>
+            <stack-trace><![CDATA[   at Machine.Specifications.Specs.context_with_inner_exception.<.ctor>b__0() in C:\Some\Path\Source\Machine.Specifications.Example.Random\ExampleSpecs.cs:line 187.
+   at Machine.Specifications.Model.Specification.InvokeSpecificationField() in C:\Some\Path\Source\Machine.Specifications\Model\Specification.cs:line 75.
+   at Machine.Specifications.Model.Specification.Verify() in C:\Some\Path\Source\Machine.Specifications\Model\Specification.cs:line 53.]]></stack-trace>
+          </error>
+        </specification>
+      </context>
+      <context name="context with console output and for each" type-name="Machine.Specifications.Specs.context_with_console_output_and_for_each">
+        <specification name="should log messages" field-name="should_log_messages" status="passed" />
+        <specification name="should log messages also for the nth run" field-name="should_log_messages_also_for_the_nth_run" status="passed" />
+      </context>
+      <context name="nested context" type-name="Machine.Specifications.Specs.Container+nested_context">
+        <specification name="should be run" field-name="should_be_run" status="passed" />
+      </context>
+      <context name="context with behaviors" type-name="Machine.Specifications.Specs.context_with_behaviors">
+        <specification name="should run" field-name="should_run" status="passed" />
+        <specification name="should run if behavior is not ignored" field-name="should_run_if_behavior_is_not_ignored" status="passed" />
+      </context>
+      <context name="context with behaviors where the behavior field is ignored" type-name="Machine.Specifications.Specs.context_with_behaviors_where_the_behavior_field_is_ignored">
+        <specification name="should run" field-name="should_run" status="passed" />
+        <specification name="should run if behavior is not ignored" field-name="should_run_if_behavior_is_not_ignored" status="ignored" />
+      </context>
+      <context name="context with behaviors where the behavior is ignored" type-name="Machine.Specifications.Specs.context_with_behaviors_where_the_behavior_is_ignored">
+        <specification name="should run" field-name="should_run" status="passed" />
+        <specification name="should not run" field-name="should_not_run" status="ignored" />
+      </context>
+      <context name="context with behaviors where the behavior specs are ignored" type-name="Machine.Specifications.Specs.context_with_behaviors_where_the_behavior_specs_are_ignored">
+        <specification name="should run" field-name="should_run" status="passed" />
+        <specification name="should not run" field-name="should_not_run" status="ignored" />
+      </context>
+    </concern>
+  </assembly>
+  <assembly name="Machine.Specifications.FailingExample" location="C:\Some\Path\Machine.Specifications.FailingExample.dll" time="32">
+    <concern name="Scott Bellware">
+      <context name="at any given moment" type-name="Machine.Specifications.FailingExample.at_any_given_moment">
+        <specification name="will fail" field-name="will_fail" status="failed">
+          <error>
+            <message><![CDATA[hi scott, love you, miss you.]]></message>
+            <stack-trace><![CDATA[   at Machine.Specifications.FailingExample.at_any_given_moment.<.ctor>b__0() in C:\Some\Path\Source\Machine.Specifications.FailingExample\FailingContext.cs:line 13.
+   at Machine.Specifications.Model.Specification.InvokeSpecificationField() in C:\Some\Path\Source\Machine.Specifications\Model\Specification.cs:line 75.
+   at Machine.Specifications.Model.Specification.Verify() in C:\Some\Path\Source\Machine.Specifications\Model\Specification.cs:line 53.]]></stack-trace>
+          </error>
+        </specification>
+      </context>
+    </concern>
+  </assembly>
+</MSpec>

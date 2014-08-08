@@ -1,0 +1,62 @@
+﻿                                                                     
+                                                                     
+                                                                     
+                                             
+NUnit version 2.5.7.10213
+Copyright (C) 2002-2009 Charlie Poole.
+Copyright (C) 2002-2004 James W. Newkirk, Michael C. Two, Alexei A. Vorontsov.
+Copyright (C) 2000-2002 Philip Craig.
+All Rights Reserved.
+
+Runtime Environment - 
+   OS Version: Microsoft Windows NT 6.1.7600.0
+  CLR Version: 2.0.50727.4952 ( Net 2.0 )
+
+ProcessModel: Default    DomainUsage: Single
+Execution Runtime: Default
+Selected test(s): DoDoTransferAgent.Engine.UnitTests.UBL.PaycheckWriterTests.Should_handle_emtpy_paycheck_list,DoDoTransferAgent.Engine.UnitTests.UBL.PaycheckWriterTests.Should_build_xml
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\ack\src\SomeProject\SomeFile.dll" total="2" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2010-12-28" time="22:12:26">
+  <environment nunit-version="2.5.7.10213" clr-version="2.0.50727.4952" os-version="Microsoft Windows NT 6.1.7600.0" platform="Win32NT" cwd="C:\Users\ack" machine-name="ACK-WIN7-2" user="ack" user-domain="ack-Win7-2" />
+  <culture-info current-culture="nb-NO" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\ack\src\SomeProject\SomeFile.dll" executed="True" result="Failure" success="False" time="0.095" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="DoDoTransferAgent" executed="True" result="Failure" success="False" time="0.089" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Engine" executed="True" result="Failure" success="False" time="0.086" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="UnitTests" executed="True" result="Failure" success="False" time="0.084" asserts="0">
+                <results>
+                  <test-suite type="Namespace" name="UBL" executed="True" result="Failure" success="False" time="0.083" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="PaycheckWriterTests" executed="True" result="Failure" success="False" time="0.077" asserts="0">
+                        <results>
+                          <test-case name="DoDoTransferAgent.Engine.UnitTests.UBL.PaycheckWriterTests.Should_build_xml" executed="True" result="Failure" success="False" time="0.053" asserts="1">
+                            <failure>
+                              <message><![CDATA[  Did not write xml header at line 0
+  Expected string length 38 but was 253. Strings differ at index 30.
+  Expected: "<?xml version="1.0" encoding="UTF-8"?>"
+  But was:  "<?xml version="1.0" encoding="utf-8"?><paycheck_messages />\0\0..."
+  -----------------------------------------^
+]]></message>
+                              <stack-trace><![CDATA[at DoDoTransferAgent.Engine.UnitTests.UBL.PaycheckWriterTests.verifyLine(Int32 line, String message) in c:\Users\ack\src\DoDoTransferAgent\DoDoTransferAgent.Engine.UnitTests\UBL\PaycheckWriterTests.cs:line 55
+at DoDoTransferAgent.Engine.UnitTests.UBL.PaycheckWriterTests.Should_build_xml() in /Users/ack/src/DoDoTransferAgent/DoDoTransferAgent.Engine.UnitTests/UBL/PaycheckWriterTests.cs:line 44
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                          <test-case name="DoDoTransferAgent.Engine.UnitTests.UBL.PaycheckWriterTests.Should_handle_emtpy_paycheck_list" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

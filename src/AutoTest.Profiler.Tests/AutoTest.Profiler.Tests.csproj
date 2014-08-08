@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7EFC1679-11C0-4C4D-92F6-739FFEDEB584}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoTest.Profiler.Tests</RootNamespace>
+    <AssemblyName>AutoTest.Profiler.Tests</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <HintPath>..\..\lib\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database\TestProjection.cs" />
+    <Compile Include="Database\when_adding_an_item_to_an_empty_database.cs" />
+    <Compile Include="Database\when_adding_a_duplicate_item_to_an_empty_database.cs" />
+    <Compile Include="Database\when_compressing_database.cs" />
+    <Compile Include="Database\when_creating_a_new_database.cs" />
+    <Compile Include="Database\when_loading_an_empty_database.cs" />
+    <Compile Include="Database\when_loading_an_invalid_database_file.cs" />
+    <Compile Include="Database\when_loading_a_database_with_duplicate_entries_from_file.cs" />
+    <Compile Include="Database\when_loading_a_database_with_multiple_unirque_entries_from_file.cs" />
+    <Compile Include="Database\when_loading_a_database_with_previous_entry_in_it.cs" />
+    <Compile Include="Database\when_loading_from_a_file_with_a_removed_item.cs" />
+    <Compile Include="Database\when_loading_from_a_snapshotted_database.cs" />
+    <Compile Include="Database\when_loading_from_a_snapshotted_database_with_corrupted_file.cs" />
+    <Compile Include="Database\when_loading_from_a_snapshotted_database_with_nodes_left_over.cs" />
+    <Compile Include="Database\when_loading_from_a_snapshotted_database_with_no_snapshot.cs" />
+    <Compile Include="Database\when_loading_recently_compressed_database.cs" />
+    <Compile Include="Database\when_removing_an_item_from_the_database.cs" />
+    <Compile Include="DataBuilder.cs" />
+    <Compile Include="Entry.cs" />
+    <Compile Include="EntryBuilder.cs" />
+    <Compile Include="EntryType.cs" />
+    <Compile Include="hacktests.cs" />
+    <Compile Include="Paths\when_building_graph_of_single_path.cs" />
+    <Compile Include="Paths\when_finding_multiple_paths_in_test.cs" />
+    <Compile Include="Paths\when_finding_non_existent_path_in_test.cs" />
+    <Compile Include="Paths\when_finding_single_path_in_setup.cs" />
+    <Compile Include="Paths\when_finding_single_path_in_teardown.cs" />
+    <Compile Include="Paths\when_finding_single_path_in_test.cs" />
+    <Compile Include="RealFile\when_parsing_a_real_file.cs" />
+    <Compile Include="TestCounts\CountsAndTimes_Tests.cs" />
+    <Compile Include="TestCounts\when_adding_item_to_counts.cs" />
+    <Compile Include="TestCounts\when_adding_item_to_counts_that_is_nested.cs" />
+    <Compile Include="TestCounts\when_adding_single_items_counts_with_times.cs" />
+    <Compile Include="TestCounts\when_loading_from_an_existing_counts_snapshot.cs" />
+    <Compile Include="TestCounts\when_loading_from_a_corrupt_counts_snapshot.cs" />
+    <Compile Include="TestCounts\when_loading_from_a_nonexistant_counts_snapshot.cs" />
+    <Compile Include="TestCounts\when_removing_same_item_from_counts.cs" />
+    <Compile Include="TestData.cs" />
+    <Compile Include="when_building_test_run_information_without_a_test.cs" />
+    <Compile Include="when_building_test_run_information_with_a_tests_on_interleaved_threads.cs" />
+    <Compile Include="when_building_test_run_information_with_a_test_that_has_no_dependencies.cs" />
+    <Compile Include="when_building_test_run_information_with_a_test_that_has_single_dependency.cs" />
+    <Compile Include="when_building_test_run_information_with_a_test_that_has_two_dependencies.cs" />
+    <Compile Include="when_build_test_run_information_with_empty_teardown.cs" />
+    <Compile Include="when_build_test_run_information_with_multiple_setups.cs" />
+    <Compile Include="when_build_test_run_information_with_setup_with_no_exit_then_another_setup.cs" />
+    <Compile Include="when_build_test_run_information_with_setup_with_no_exit_then_test.cs" />
+    <Compile Include="when_build_test_run_information_with_teardown_with_no_exit_then_nothing.cs" />
+    <Compile Include="when_build_test_run_information_with_test_with_depth_more_than_twohundred.cs" />
+    <Compile Include="when_build_test_run_information_with_test_with_more_than_1000_children_calls_in_a_node.cs" />
+    <Compile Include="when_build_test_run_information_with_test_with_no_exit_then_new_test.cs" />
+    <Compile Include="when_build_test_run_information_with_test_with_no_exit_then_nothing.cs" />
+    <Compile Include="when_build_test_run_information_with_test_with_no_exit_then_setup.cs" />
+    <Compile Include="when_build_test_run_information_with_test_with_no_exit_then_teardown.cs" />
+    <Compile Include="when_build_test_run_irnformation_with_empty_setup.cs" />
+    <Compile Include="when_build_test_run_information_with_nonempty_setup.cs" />
+    <Compile Include="when_handling_simple_enter_and_leave.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="when_iterating_all_items_in_call_chain.cs" />
+    <Compile Include="when_iterating_a_test_chain_with_time_information.cs" />
+    <Compile Include="when_iterating_calls_in_test_information.cs" />
+    <Compile Include="when_iterating_calls_in_test_information_with_multiple_setups.cs" />
+    <Compile Include="when_iterating_calls_in_test_information_with_setup.cs" />
+    <Compile Include="when_iterating_calls_in_test_inrformation_with_teardown.cs" />
+    <Compile Include="when_iterating_calls_in_test_inrformmation_with_multiple_teardowns.cs" />
+    <Compile Include="when_parsing_profiler_information_with_an_exception.cs" />
+    <Compile Include="when_parsing_profiler_info_with_multiple_threads.cs" />
+    <Compile Include="when_parsing_profiler_info_with_nested_enters.cs" />
+    <Compile Include="when_parsing_profiler_info_with_non_mathing_functionid_on_leave.cs" />
+    <Compile Include="when_parsing_profiler_info_with_too_few_leaves.cs" />
+    <Compile Include="when_parsing_profiler_info_with_too_few_leaves_on_one_thread.cs" />
+    <Compile Include="when_parsing_profiler_info_with_too_many_leaves.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoTest.Graphs\AutoTest.Graphs.csproj">
+      <Project>{F59ADD6E-822A-4F5F-92CC-896F4669C740}</Project>
+      <Name>AutoTest.Graphs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTest.Profiler\AutoTest.Profiler.csproj">
+      <Project>{A59EC146-66F9-45A4-95E6-18242714B581}</Project>
+      <Name>AutoTest.Profiler</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RealFile\MMProfiler.log">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

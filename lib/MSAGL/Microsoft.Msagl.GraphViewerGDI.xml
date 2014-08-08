@@ -1,0 +1,1101 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Msagl.GraphViewerGdi</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.Draw">
+            <summary>
+            exposes some drawing functionality
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.Draw.#ctor">
+            <summary>
+            private constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.Draw.MsaglColorToDrawingColor(Microsoft.Msagl.Drawing.Color)">
+            <summary>
+            A color converter
+            </summary>
+            <param name="gleeColor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.Draw.DrawPrecalculatedLayoutObject(System.Drawing.Graphics,System.Object)">
+            <summary>
+            Drawing that can be performed on any Graphics object
+            </summary>
+            <param name="graphics"></param>
+            <param name="precalculatedObject"></param>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.DNode">
+            <summary>
+            it is a class holding Microsoft.Msagl.Drawing.Node and Microsoft.Msagl.Node
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.DObject">
+            <summary>
+            A base class for objects that a drawn by GViewer
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.ObjectWithBox">
+            <summary>
+            a base class for object that are drawn
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.DObject.dashPatternArray">
+            <summary>
+            Dash pattern.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DObject.DrawingObject">
+            <summary>
+            get the underlying drawing object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DObject.MarkedForDragging">
+            <summary>
+            Implements a property of an interface IEditViewer
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.GraphViewerGdi.DObject.MarkedForDraggingEvent">
+            <summary>
+            raised when the entity is marked for dragging
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.GraphViewerGdi.DObject.UnmarkedForDraggingEvent">
+            <summary>
+            raised when the entity is unmarked for dragging
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.IHavingDLabel">
+            <summary>
+            an interface for objects having a label
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.IHavingDLabel.Label">
+            <summary>
+            gets or sets the label
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.DNode.SetStrokeFill">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DNode.Label">
+            <summary>
+            gets / sets the rendered label of the object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DNode.Color">
+            <summary>
+            return the color of a node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DNode.FillColor">
+            <summary>
+            Fillling color of a node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DNode.DrawingNode">
+            <summary>
+            the corresponding drawing node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DNode.Node">
+            <summary>
+            returns the corresponding DrawingNode
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DNode.InEdges">
+            <summary>
+            return incoming edges
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DNode.OutEdges">
+            <summary>
+            returns outgoing edges
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DNode.SelfEdges">
+            <summary>
+            returns self edges
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DNode.DrawingObject">
+            <summary>
+            returns the corresponding drawing object
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.DrawingPanel">
+            <summary>
+            this class serves as a drawing panel for GViewer
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.SpatialAlgorithm">
+            <summary>
+            Build a spatial hierarchy
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.SpatialAlgorithm.ProcessGroup(System.Int32,System.Int32)">
+            <summary>
+            first and count denine the segment  needed to be split into two groups
+            </summary>
+            <param name="first"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.SaveViewAsImageForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.SaveViewAsImageForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.SaveViewAsImageForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.SaveInVectorFormatForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.SaveInVectorFormatForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.SaveInVectorFormatForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.Geometry">
+            <summary>
+            Summary description for Geometry.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.GraphRenderer">
+            <summary>
+            provides an API for drawing in a image
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GraphRenderer.#ctor(Microsoft.Msagl.Drawing.Graph)">
+            <summary>
+            constructor
+            </summary>
+            <param name="drGraph"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GraphRenderer.CalculateLayout">
+            <summary>
+            calulates the layout
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GraphRenderer.Render(System.Drawing.Image)">
+            <summary>
+            renders the graph on the image
+            </summary>
+            <param name="image"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GraphRenderer.Render(System.Drawing.Graphics,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Renders the graph inside of the rectangle xleft,ytop, width, height
+            </summary>
+            <param name="graphics">the graphics object</param>
+            <param name="left">left of the rectangle</param>
+            <param name="top">top of the rectangle</param>
+            <param name="width">width of the rectangle</param>
+            <param name="height">height of the rectangle</param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GraphRenderer.Render(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Renders the graph inside of the rectangle
+            </summary>
+            <param name="graphics"></param>
+            <param name="rect"></param>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.DGraph">
+            <summary>
+            This yet another graph is needed to hold additional GDI specific data for drawing.
+            It has a pointer to Microsoft.Msagl.Drawing.Graph and Microsoft.Msagl.Graph.
+            It is passed to the drawing routine
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.DGraph.CreateDGraphFromPrecalculatedDrawingGraph(Microsoft.Msagl.Drawing.Graph)">
+            <summary>
+            creates DGraph from a precalculated drawing graph
+            </summary>
+            <param name="drawingGraph"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.LayoutProgress">
+            <summary>
+            An enumeration representing layout progress.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.LayoutProgress.LayingOut">
+            <summary>
+            Layout phase.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.LayoutProgress.Rendering">
+            <summary>
+            Rendering phase.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.LayoutProgress.Finished">
+            <summary>
+            Finished.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.LayoutProgress.Aborted">
+            <summary>
+            Aborted.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.GViewer">
+            <summary>
+            Summary description for DOTViewer.
+            </summary>
+            <summary>
+            viewer of directed graphs
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.GetHitSlack">
+            <summary>
+            It should be physically on the screen by one tenth of an inch
+            </summary>
+            <returns></returns> 
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ScreenToSource(System.Drawing.Point)">
+            <summary>
+            Maps a point from the screen to the graph surface
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ScreenToSource(Microsoft.Msagl.Point)">
+            <summary>
+            maps a point from the screen to the graph surface
+            </summary>
+            <param name="screenPoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.OnResize(System.EventArgs)">
+            <summary>
+            Handle Resize event
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.AbortAsyncLayout">
+            <summary>
+            Abort an asynchronous layout activity.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ClearBoundingBoxHierarchy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ShowGroup(System.Object[])">
+            <summary>
+            Brings in to the view the object of the group
+            </summary>
+            <param name="graphElements"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.CenterToGroup(System.Object[])">
+            <summary>
+            Changes the view in a way that the group is at the center
+            </summary>
+            <param name="graphElements"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ShowBBox(Microsoft.Msagl.Splines.Rectangle)">
+            <summary>
+            Make the bounding box fully visible
+            </summary>
+            <param name="bb"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.Pan(System.Double,System.Double)">
+            <summary>
+            Pans the view by vector (x,y)
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.Pan(Microsoft.Msagl.Point)">
+            <summary>
+            Pans the view by vector point
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.CenterToPoint(System.Double,System.Double)">
+            <summary>
+            centers the view to the point (x,y)
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.CenterToPoint(Microsoft.Msagl.Point)">
+            <summary>
+            Centers the view to the point p
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.GetObjectAt(System.Int32,System.Int32)">
+            <summary>
+            Finds the object under point (x,y) where x,y are given in the window coordinates
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.GetObjectAt(System.Drawing.Point)">
+            <summary>
+            Finds the object under point p where p is given in the window coordinates
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ZoomInPressed">
+            <summary>
+            Zooms in
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ZoomOutPressed">
+            <summary>
+            Zooms out
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.SaveButtonPressed">
+            <summary>
+            Raises a dialog of saving the drawing image to a file
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ForwardButtonPressed">
+            <summary>
+            Navigates forward in the view history
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.BackwardButtonPressed">
+            <summary>
+            Navigates backward in the view history
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.PrintButtonPressed">
+            <summary>
+            Prints the graph.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.OnKey(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Reacts on some pressed keys
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.CalculateLayout(Microsoft.Msagl.Drawing.Graph)">
+            <summary>
+            calcualates the layout and returns the object ready to be drawn
+            </summary>
+            <param name="graph"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.SetToolTip(System.Windows.Forms.ToolTip,System.String)">
+            <summary>
+            sets a tool tip
+            </summary>
+            <param name="toolTip"></param>
+            <param name="tip"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.SetCalculatedLayout(System.Object)">
+            <summary>
+            Just uses the passed object to draw the graph. The method expects DGraph as the argument
+            </summary>
+            <param name="entityContainingLayout"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ScreenToSource(System.Single,System.Single,System.Single@,System.Single@)">
+            <summary>
+            maps screen coordinates to viewer coordinates
+            </summary>
+            <param name="screenX"></param>
+            <param name="screenY"></param>
+            <param name="viewerX"></param>
+            <param name="viewerY"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.Pan(System.Single,System.Single)">
+            <summary>
+            pans the drawing on deltaX, deltaY in the drawing coords
+            </summary>
+            <param name="deltaX"></param>
+            <param name="deltaY"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.Invalidate(Microsoft.Msagl.Drawing.IViewerObject)">
+            <summary>
+            Forces redraw of draggableObject
+            </summary>
+            <param name="editObj"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ScreenToSource(Microsoft.Msagl.Drawing.MsaglMouseEventArgs)">
+            <summary>
+            Maps a screen point to the graph surface point
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.OnDragEnd(System.Collections.Generic.IEnumerable{Microsoft.Msagl.Drawing.IViewerObject})">
+            <summary>
+            A method of IEditViewer
+            </summary>
+            <param name="changedObjects"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.InvalidateBeforeTheChange(Microsoft.Msagl.Drawing.IViewerObject)">
+            <summary>
+            Forces redraw of the object
+            </summary>
+            <param name="editObj"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.Undo">
+            <summary>
+            Undoes the last edit action
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.Redo">
+            <summary>
+            redoes the last undo
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.CanUndo">
+            <summary>
+            returns true if an undo is available
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.CanRedo">
+            <summary>
+            returns true is a redo is available
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.PopupMenus(Microsoft.Msagl.Drawing.Couple{System.String,Microsoft.Msagl.Drawing.DelegateReturningVoid}[])">
+            <summary>
+            Pops up a pop up menu with a menu item for each couple, the string is the title and the delegate is the callback
+            </summary>
+            <param name="menuItems"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.AddNode(Microsoft.Msagl.Drawing.IViewerNode,System.Boolean)">
+            <summary>
+            adding a node to the graph with the undo support
+            The node boundary curve should have (0,0) as its internal point.
+            The curve will be moved the the node center.
+            </summary>
+            <param name="node"></param>
+            <param name="registerForUndo"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.AddEdge(Microsoft.Msagl.Drawing.IViewerEdge,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="edge"></param>
+            <param name="registerForUndo"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.RemoveNode(Microsoft.Msagl.Drawing.IViewerNode,System.Boolean)">
+            <summary>
+            removes a node from the graph with the undo support
+            </summary>
+            <param name="node"></param>
+            <param name="registerForUndo"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.RemoveNodeFromAllGraphs(Microsoft.Msagl.Drawing.IViewerNode)">
+            <summary>
+            makes the node unreachable
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.RemoveEdge(Microsoft.Msagl.Drawing.IViewerEdge,System.Boolean)">
+            <summary>
+            removes an edge from the graph with the undo support
+            </summary>
+            <param name="edge"></param>
+            <param name="registerForUndo"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.ResizeNodeToLabel(Microsoft.Msagl.Drawing.Node)">
+            <summary>
+            Sets the size of the node to something appropriate to the label it has to display.
+            </summary>
+            <param name="node">The node to be resized</param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.StartDrawingRubberLine(Microsoft.Msagl.Drawing.MsaglMouseEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.DrawRubberLine(Microsoft.Msagl.Drawing.MsaglMouseEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.StopDrawingRubberLine">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.CreateEdge(Microsoft.Msagl.Drawing.Node,Microsoft.Msagl.Drawing.Node)">
+            <summary>
+            creates a detached edge from the existing nodes
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.CreateNode(Microsoft.Msagl.Drawing.Node)">
+            <summary>
+            creates a viewer node
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.SetEdgeLabel(Microsoft.Msagl.Drawing.Edge,Microsoft.Msagl.Drawing.Label)">
+            <summary>
+            sets the edge label
+            </summary>
+            <param name="edge"></param>
+            <param name="label"></param>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.GViewer.xLong">
+            <summary>
+            
+            xLong = GrapWidth/ClientRect.Width>GraphHeight/ClientRect.Height
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.GViewer.scaledDown">
+            <summary>
+            if scaledDown is true - take the scale from the zoomCoeff 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            The ViewInfo gives all info needed for setting the view
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.FitGraphBoundingBox">
+            <summary>
+            Tightly fit the bounding box around the graph
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GViewer.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.GraphViewerGdi.GViewer.GraphChanged">
+            <summary>
+            The event raised after changing the graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.BuildHitTree">
+            <summary>
+            support for mouse selection 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.NeedToCalculateLayout">
+            <summary>
+            If set to false no layout is calculated. It is presumed that the layout is precalculated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.Graph">
+            <summary>
+            Setting the Graph property shows the graph in the control
+            </summary>
+            
+        </member>
+        <member name="E:Microsoft.Msagl.GraphViewerGdi.GViewer.AsyncLayoutProgress">
+            <summary>
+            An event which can be subscribed to get notification of layout progress.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.AsyncLayout">
+            <summary>
+            Whether asynchronous layouting is enabled. Defaults to false.
+            </summary>
+            <remarks>
+            If you set this property to true, setting the <see cref="P:Microsoft.Msagl.GraphViewerGdi.GViewer.Graph"/> property
+            will work asynchronously by starting a thread which does the layout and 
+            displaying. The coarse progress of layouting can be observed with 
+            <see cref="E:Microsoft.Msagl.GraphViewerGdi.GViewer.AsyncLayoutProgress"/>, and layouting can be aborted with 
+            <see cref="M:Microsoft.Msagl.GraphViewerGdi.GViewer.AbortAsyncLayout"/>.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.PanButtonPressed">
+            <summary>
+            Controls the pan button.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.ZoomWindowThreshold">
+            <summary>
+            If the mininal side of the zoom window is shorter than the threshold then zoom 
+            does not take place
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.MouseHitDistance">
+            <summary>
+            SelectedObject can be detected if the distance in inches between it and 
+            the cursor is less than MouseHitDistance
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.GraphWithLayout">
+            <summary>
+            Returns layouted Microsoft.Msagl.Drawing.Graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.ObjectUnderMouseCursor">
+            <summary>
+            returns the object under the cursor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.UnderlyingPolylineCircleRadius">
+            <summary>
+            The radius of a circle around a underlying polyline corner
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.Microsoft#Msagl#Drawing#IViewer#ModifierKeys">
+            <summary>
+            return ModifierKeys
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.Entities">
+            <summary>
+            enumerates over all draggable entities
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.DpiX">
+            <summary>
+            number of dots per inch horizontally
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.DpiY">
+            <summary>
+            number of dots per inch vertically
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.GraphViewerGdi.GViewer.GraphSavingStarted">
+            <summary>
+            This event is raised before the file saving
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.GraphViewerGdi.GViewer.GraphSavingEnded">
+            <summary>
+            This even is raised after graph saving
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.LineThicknessForEditing">
+            <summary>
+            The scale dependent width of an edited curve that should be clearly visible.
+            Used in the default entity editing.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.ViewerGraph">
+            <summary>
+            gets the visual graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.ZoomFraction">
+            <summary>
+            Sets or gets the fraction on which the zoom value changes in every zoom out or zoom in
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.HVal">
+            <summary>
+            positions and largeValue of scroll bars define srcRect in the graph coordinates
+            </summary>		
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.VVal">
+            <summary>
+            positions and largeValue of scroll bars define srcRect in the graph coordinates
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.GraphWidth">
+            <summary>
+            The width of the current graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.GraphHeight">
+            <summary>
+            The height of the current graph
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.ZoomF">
+            <summary>
+            Gets or sets the zoom factor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.SaveCurrentViewInImage">
+            <summary>
+            capturing the previous user's choice of which veiw to save
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.DrawingPanel">
+            <summary>
+            The panel containing GViewer object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.NavigationVisible">
+            <summary>
+            Gets or sets the forward and backward buttons visibility
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.SaveButtonVisible">
+            <summary>
+            Gets or sets the save button visibility
+            </summary>
+        </member>
+        <member name="E:Microsoft.Msagl.GraphViewerGdi.GViewer.SelectionChanged">
+            <summary>
+            The event raised when the graph object under the mouse cursor changes
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.DestRect">
+            <summary>
+            The rectangle for drawing
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.OutsideAreaBrush">
+            <summary>
+            The color of the area outside of the graph.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.SelectedObject">
+            <summary>
+            The object which is currently located under the mouse cursor
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.ForwardEnabled">
+            <summary>
+            Enables or disables the forward button
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.BackwardEnabled">
+            <summary>
+            Enables or disables the backward button
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.LayoutIsEditable">
+            <summary>
+            returns true if in the current state the layout can be edited
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.LayoutEditingEnabled">
+            <summary>
+            enables or disables the layout editing
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.ToolBarIsVisible">
+            <summary>
+            hides/shows the toolbar
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.SaveAsMsaglEnabled">
+            <summary>
+            If this property is set to true the control enables saving and loading of .MSAGL files
+            Otherwise the "Load file" button and saving as .MSAGL file is disabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.SaveInVectorFormatEnabled">
+            <summary>
+            enables or disables saving the graph in a vector format
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.SaveAsImageEnabled">
+            <summary>
+            enables or disables saving the graph as an image
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.LayoutAlgorithmSettingsButtonVisible">
+             <summary>
+            hides and shows the layout algorithm settings button
+             </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.SaveGraphButtonVisible">
+            <summary>
+            hides and shows the "Save graph" button
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.GViewer.CurrentLayoutMethod">
+            <summary>
+            sets the layout method of the viewer
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.BBNode">
+            <summary>
+            Summary description for BBNode.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.LayoutProgressEventArgs">
+            <summary>
+            A class representing arguments of the layout progress.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.LayoutProgressEventArgs.Progress">
+            <summary>
+            returning LayoutProgress
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.LayoutProgressEventArgs.Diagnostics">
+            <summary>
+            Returning diagnostics (in case aborted because of a crash)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.DLabel">
+            <summary>
+            A class representing a drawn label
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.DLabel.#ctor(Microsoft.Msagl.GraphViewerGdi.DObject,Microsoft.Msagl.Drawing.Label)">
+            <summary>
+            constructor
+            </summary>
+            <param name="parentPar"></param>
+            <param name="label"></param>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DLabel.Font">
+            <summary>
+            gets the font of the label
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DLabel.Parent">
+            <summary>
+            the object that label belongs to
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DLabel.DrawingObject">
+            <summary>
+            delivers the underlying label object
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DLabel.DrawingLabel">
+            <summary>
+            gets or set the underlying drawing label
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.DEdge">
+            <summary>
+            it is a class holding Microsoft.Msagl.Drawing.Edge and Microsoft.Msagl.Edge
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DEdge.DrawingEdge">
+            <summary>
+            the corresponding drawing edge
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DEdge.GraphicsPath">
+            <summary>
+            Can be set to GraphicsPath of GDI (
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DEdge.Color">
+            <summary>
+            Color of the edge
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DEdge.Edge">
+            <summary>
+            underlying Drawing edge
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DEdge.Label">
+            <summary>
+            keeps the pointer to the corresponding label
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DEdge.DrawingObject">
+            <summary>
+            The underlying DrawingEdge
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DEdge.RadiusOfPolylineCorner">
+             <summary>
+            the radius of circles drawin around polyline corners 
+             </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.DEdge.SelectedForEditing">
+            <summary>
+            is set to true then the edge should set up for editing
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.ViewerMouseEventArgs">
+            <summary>
+            Implements the IMouseEventArgs
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.ViewerMouseEventArgs.#ctor(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            constructor
+            </summary>
+            <param name="argsP"></param>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.ViewerMouseEventArgs.LeftButtonIsPressed">
+            <summary>
+            true is the left mouse button is pressed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.ViewerMouseEventArgs.MiddleButtonIsPressed">
+            <summary>
+            true is the middle mouse button is pressed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.ViewerMouseEventArgs.RightButtonIsPressed">
+            <summary>
+            true is the right button is pressed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.ViewerMouseEventArgs.Handled">
+            <summary>
+            the controls should ignore the event if handled is set to true
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.ViewerMouseEventArgs.X">
+            <summary>
+            return x position
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.ViewerMouseEventArgs.Y">
+            <summary>
+            return y position
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.ViewerMouseEventArgs.Source">
+            <summary>
+            returns null always
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.ViewerMouseEventArgs.Clicks">
+            <summary>
+            gets the number of clicks of the button
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.Tessellator">
+            <summary>
+            Class building the node hierarchy 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.Tessellator.#ctor">
+            <summary>
+            a private constructor to avoid the instantiation
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.LayoutSettingsForm">
+            <summary>
+            the form for the layout settings dialog
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.LayoutSettingsForm.#ctor">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.LayoutSettingsForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.LayoutSettingsForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.LayoutSettingsForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Msagl.GraphViewerGdi.LayoutSettingsForm.PropertyGrid">
+            <summary>
+            the property grid 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.StringMeasure">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.StringMeasure.MeasureWithFont(System.String,System.Drawing.Font,System.Double@,System.Double@)">
+            <summary>
+            
+            </summary>
+            <param name="text"></param>
+            <param name="font"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.GraphPrinting">
+            <summary>
+            Summary description for Printing.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GraphPrinting.#ctor(Microsoft.Msagl.GraphViewerGdi.GViewer)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="viewer"></param>
+        </member>
+        <member name="M:Microsoft.Msagl.GraphViewerGdi.GraphPrinting.OnPrintPage(System.Drawing.Printing.PrintPageEventArgs)">
+            <summary>
+            This methods "draws" to the printer
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.Line">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Msagl.GraphViewerGdi.LayoutMethod">
+            <summary>
+            enumerates through available layout methods
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.LayoutMethod.UseSettingsOfTheGraph">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.LayoutMethod.SugiyamaScheme">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.LayoutMethod.MDS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Msagl.GraphViewerGdi.LayoutMethod.Ranking">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTest.Core", "src\AutoTest.Core\AutoTest.Core.csproj", "{1A05A6F1-2CC0-4A55-A54B-F2AA252F7B45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTest.Console", "src\AutoTest.Console\AutoTest.Console.csproj", "{5522C9C0-55A5-47AB-8D78-4A9C6BF27B18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTest.WinForms", "src\AutoTest.WinForms\AutoTest.WinForms.csproj", "{156E0A36-C747-49B2-A8D1-A85894145989}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D0A96165-68B5-4DD8-82A6-04BFBEB67D12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTest.Test", "src\AutoTest.Test\AutoTest.Test.csproj", "{C10F3D4F-EE5A-4F5F-96B4-E4D88DD719BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTest.TestCore", "src\AutoTest.TestCore\AutoTest.TestCore.csproj", "{D2BE27D7-36C9-4C0E-92A6-E2768666F430}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTest.WinForms.Test", "src\AutoTest.WinForms.Test\AutoTest.WinForms.Test.csproj", "{34B13716-6F2A-4894-B586-51956BB03F54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTest.Console.Test", "src\AutoTest.Console.Test\AutoTest.Console.Test.csproj", "{06800CE6-375C-4DEB-916C-52CCDD7FD0E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTest.Messages", "src\AutoTest.Messages\AutoTest.Messages.csproj", "{5352CB10-E898-4089-BFF0-79D635FB44C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06800CE6-375C-4DEB-916C-52CCDD7FD0E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06800CE6-375C-4DEB-916C-52CCDD7FD0E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06800CE6-375C-4DEB-916C-52CCDD7FD0E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06800CE6-375C-4DEB-916C-52CCDD7FD0E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{156E0A36-C747-49B2-A8D1-A85894145989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156E0A36-C747-49B2-A8D1-A85894145989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{156E0A36-C747-49B2-A8D1-A85894145989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156E0A36-C747-49B2-A8D1-A85894145989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A05A6F1-2CC0-4A55-A54B-F2AA252F7B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A05A6F1-2CC0-4A55-A54B-F2AA252F7B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A05A6F1-2CC0-4A55-A54B-F2AA252F7B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A05A6F1-2CC0-4A55-A54B-F2AA252F7B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34B13716-6F2A-4894-B586-51956BB03F54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34B13716-6F2A-4894-B586-51956BB03F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34B13716-6F2A-4894-B586-51956BB03F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34B13716-6F2A-4894-B586-51956BB03F54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5352CB10-E898-4089-BFF0-79D635FB44C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5352CB10-E898-4089-BFF0-79D635FB44C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5352CB10-E898-4089-BFF0-79D635FB44C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5352CB10-E898-4089-BFF0-79D635FB44C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5522C9C0-55A5-47AB-8D78-4A9C6BF27B18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5522C9C0-55A5-47AB-8D78-4A9C6BF27B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5522C9C0-55A5-47AB-8D78-4A9C6BF27B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5522C9C0-55A5-47AB-8D78-4A9C6BF27B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C10F3D4F-EE5A-4F5F-96B4-E4D88DD719BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C10F3D4F-EE5A-4F5F-96B4-E4D88DD719BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C10F3D4F-EE5A-4F5F-96B4-E4D88DD719BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C10F3D4F-EE5A-4F5F-96B4-E4D88DD719BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2BE27D7-36C9-4C0E-92A6-E2768666F430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2BE27D7-36C9-4C0E-92A6-E2768666F430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2BE27D7-36C9-4C0E-92A6-E2768666F430}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2BE27D7-36C9-4C0E-92A6-E2768666F430}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C10F3D4F-EE5A-4F5F-96B4-E4D88DD719BF} = {D0A96165-68B5-4DD8-82A6-04BFBEB67D12}
+		{D2BE27D7-36C9-4C0E-92A6-E2768666F430} = {D0A96165-68B5-4DD8-82A6-04BFBEB67D12}
+		{34B13716-6F2A-4894-B586-51956BB03F54} = {D0A96165-68B5-4DD8-82A6-04BFBEB67D12}
+		{06800CE6-375C-4DEB-916C-52CCDD7FD0E7} = {D0A96165-68B5-4DD8-82A6-04BFBEB67D12}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = src\AutoTest.WinForms\AutoTest.WinForms.csproj
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

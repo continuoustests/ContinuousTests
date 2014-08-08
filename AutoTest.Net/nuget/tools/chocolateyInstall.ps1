@@ -1,0 +1,1 @@
+Install-ChocolateyPackage 'autotest.net' 'exe' '/sp- /silent /norestart' 'https://github.com/downloads/continuoustests/AutoTest.Net/AutoTest.Net-v1.3.1.exe'

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{052F78A0-E25A-4C48-8409-CA4DE76958E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoTest.VM.Messages</RootNamespace>
+    <AssemblyName>AutoTest.VM.Messages</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Rhino.Licensing">
+      <HintPath>..\..\lib\Rhino.Licensing\Rhino.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="AutoTest.Messages">
+      <HintPath>..\..\lib\AutoTest.Net\AutoTest.Messages.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssembliesMinimizedMessage.cs" />
+    <Compile Include="AssemblyPathRequest.cs" />
+    <Compile Include="Communication\ConnectedClient.cs" />
+    <Compile Include="Communication\IClientFeedbackProvider.cs" />
+    <Compile Include="Communication\IServerFeedbackProvider.cs" />
+    <Compile Include="Communication\ITcpServer.cs" />
+    <Compile Include="Communication\MessageReceivedEventArgs.cs" />
+    <Compile Include="Communication\NetClient.cs" />
+    <Compile Include="Communication\VMConnectHandle.cs" />
+    <Compile Include="ConfigurationUpdateMessage.cs" />
+    <Compile Include="Configuration\IMSBuildLocator.cs" />
+    <Compile Include="Configuration\MSBuildLocator.cs" />
+    <Compile Include="DiagnosticInstanceMessage.cs" />
+    <Compile Include="ForceFullRunMessage.cs" />
+    <Compile Include="GetLastAffectedGraphMessage.cs" />
+    <Compile Include="GoToFileAndLineMessage.cs" />
+    <Compile Include="IsSolutionInitializedRequest.cs" />
+    <Compile Include="License\RhinoValidator.cs" />
+    <Compile Include="MinimizerInitializedMessage.cs" />
+    <Compile Include="OrderedBuildList.cs" />
+    <Compile Include="PartialRunMessage.cs" />
+    <Compile Include="ProfiledTestRunStarted.cs" />
+    <Compile Include="ProfilerCompletedMessage.cs" />
+    <Compile Include="ProfilerInitializedMessage.cs" />
+    <Compile Include="ProfilerLoadErrorOccurredMessage.cs" />
+    <Compile Include="RealtimeChangeMessage.cs" />
+    <Compile Include="ReplyMessage.cs" />
+    <Compile Include="RequestMessage.cs" />
+    <Compile Include="RequestProfiledGraphMessage.cs" />
+    <Compile Include="RequestRiskMetricsMessage.cs" />
+    <Compile Include="InvalidLicenseMessage.cs" />
+    <Compile Include="IValidateLicense.cs" />
+    <Compile Include="ManualMinimizationRequestMessage.cs" />
+    <Compile Include="PauseVMMessage.cs" />
+    <Compile Include="RecursiveRunResultMessage.cs" />
+    <Compile Include="RegisterLicenseMessage.cs" />
+    <Compile Include="RequestRuntimeTestInformationMessage.cs" />
+    <Compile Include="RequestVisualGraphMessage.cs" />
+    <Compile Include="ResumeVMMessage.cs" />
+    <Compile Include="RiskMetricGeneratedMessage.cs" />
+    <Compile Include="RunRecursiveRunDetectorMessage.cs" />
+    <Compile Include="RunRelatedTestsMessage.cs" />
+    <Compile Include="SpawnMeessage.cs" />
+    <Compile Include="MessageInitializer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Communication\TcpServer.cs" />
+    <Compile Include="TerminateMessage.cs" />
+    <Compile Include="TestInformationGeneratedMessage.cs" />
+    <Compile Include="TestProfilerCorruptedMessage.cs" />
+    <Compile Include="UpdateCustomOutputpathMessage.cs" />
+    <Compile Include="ValidLicenseMessage.cs" />
+    <Compile Include="VisualGraphGeneratedMessage.cs" />
+    <Compile Include="VMInitializedMessage.cs" />
+    <Compile Include="VMSpawnedMessage.cs" />
+    <Compile Include="VMTerminating.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ms_visual_studio.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="License\public.key" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Foo.build">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

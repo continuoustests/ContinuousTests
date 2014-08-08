@@ -1,0 +1,69 @@
+AutoTest.NET TODO's:
+
+done - Get tests running with XUnit
+done - Switch to NUnit
+done - Switch to Rhino.Mocks
+done - Build project dependency tree from source folder
+done - Add service locator functionality to Cache.cs
+done - (Services.Locate<ICreate<Project>>(); ?)
+done - Put a buffer in front of the fs watcher to eliminate duplicates
+done - Change from ninject to Castle?
+done - Replace C:\... stuff (make mono and cross platform compatible)
+done - Create tests for all instances of resolve
+done - Cleanup binaries
+done - setup git
+done - Should have one handler for all files finding closest located project file (csproj and vbproj
+done - Something generic about project types cs vb aso.
+done - Have directory watcher skip changes in bin/Debug obj/ and so on
+done - For some reasons it runs builds and tests twice again
+done - Improve build output
+done - Improve test output
+done - Improve console
+done - Get assembly name from project file so we know what to run tests agains
+done - Get configuration and platform to know where to locate the test assembly
+done - Improve MSTest response
+done - Handle build and test response through async messaging using registered presenter instances as consumers
+done - Make sure it builds one project once on a buildrun
+done - Move logging registration to console.. not sure I want that in the winforms one
+done - Have the form handling continuous feedback and not just listing items
+done - make sure it supports mono xbuild
+done - Clean up brute force launcher implementation
+done - Add window showing warnings and information
+done - Remove duplicate error messages
+done - Use xmldocument on configuration section
+done - Add configuration validation
+done - Make support for ISynchronousConsumer<T>
+done - Make project consumer a synchronous consumer
+done - Figure out why it crashes when projects are added
+done - Handled added / changed project files
+done - Different MSBuild versions for different project files, based on framework version <BuildExecutable framework="4.0>
+done - Different MSTest versions for different project files, based on framework version
+done - Add MIT license
+done - Figure out why it displays duplicate errors when having build error in multiple projects
+done - Fix build prioritet (hvis dependency1 er avhengig av dependency2)
+done - Add XUnit.net support
+done - Fix window resize for status window
+done - Choose watch path on startup or as parameter
+done - Winforms dies on mono when getting tow sets compile errors and trying to select one of them
+done - Fix bug in console app (won't launch)
+done - Build all first then run all tests in a single batch
+done - AutoTest.Config
+done - 	State that watchdirectory is optional and that you can have multiple
+done - Add custom ignore lists or even better what files is contained in what project
+done - Remove Product version from deployed xml (ProductVersion is flawed)
+done - Need to match assemblies for the assemblychangeconsumer so that same assembly in different locations aren't tested twice
+done - "nunit-console myassembly.dll /exclude:bleh" (excludes the category bleh) put categories in config
+done - Add support for inherited configs
+======== Beta ========
+When adding new folder on linux it doesn't detect changes in the files within it??
+Add MbUnit support
+Add support for versioned mstest runners (because of /category:"!Category1|!Category2" that's only supported for VS2010)
+Implement support for VS2005 7.10.3077 and VS2003 project files
+Run single test turned out pretty useless for MSTest.. figure out what's going on
+Add test to ProjectChangeConsumer
+Add system tests doing real work
+Implement service locator properly (blog post)
+Use a panel to make the link label scrolleable
+Cleanup files in repo
+Create vs addin to open file on right line
+Move from WinForm to Gtk#

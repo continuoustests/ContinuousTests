@@ -1,0 +1,2126 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Northwoods.Go.Instruments</name>
+    </assembly>
+    <members>
+        <member name="T:Northwoods.Go.Instruments.GoInstruments">
+            <summary>
+            Provide static properties describing this version of GoInstruments.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GoInstruments.#ctor">
+            <summary>
+            The only purpose of this constructor is to do a license check.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GoInstruments.Version">
+            <summary>
+            Return the version of GoInstruments being used.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GoInstruments.VersionName">
+            <summary>
+            Return the name of the version of GoInstruments being used.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.GoInstrumentsLicenseProvider">
+            <summary>
+            This is an internal class used to implement licensing.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GoInstrumentsLicenseProvider.GetLicense(System.ComponentModel.LicenseContext,System.Type,System.Object,System.Boolean)">
+            <summary>
+            This method implements licensing.
+            </summary>
+            <param name="context"></param>
+            <param name="type"></param>
+            <param name="instance"></param>
+            <param name="allowExceptions"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.GraduatedScaleLabelStyle">
+            <summary>
+            Specifies the style used to layout tick labels.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScaleLabelStyle.Left">
+            <summary>
+            A style for the layout of tick labels for <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>
+            </summary>
+            <remarks>
+            All ticks are labeled on the end that is left of the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>'s path.
+            </remarks>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScaleLabelStyle.Right">
+            <summary>
+            A style for the layout of tick labels for <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>
+            </summary>
+            <remarks>
+            All ticks are labeled on the end that is right of the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>'s path.
+            </remarks>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScaleLabelStyle.AlternateStartLeft">
+            <summary>
+            A style for the layout of tick labels for <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>
+            </summary>
+            <remarks>
+            Alternates which side of the tick gets labeled.
+            The first label tick is labeled to the left.
+            </remarks>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScaleLabelStyle.AlternateStartRight">
+            <summary>
+            A style for the layout of tick labels for <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>
+            </summary>
+            <remarks>
+            Alternates which side of the tick gets labeled.
+            The first label tick is labeled to the right.
+            </remarks>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.GraduatedScale">
+            <summary>
+            An implementation of the IGraduatedScale class, used to depict a scale
+            as a path between two end points, representing a minimum and
+            maximum value, with all the points along that path representing
+            uniformly delineated values.
+            </summary>
+            <remarks>
+            This class constructs an instance of <see cref="T:Northwoods.Go.Instruments.GoInstruments"/>
+            in order to do a license check.
+            </remarks>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.IGraduatedScale">
+            <summary>
+            The IGraduatedScale interface provides a range of values that a scale may display,
+            along with methods to map a value to a display point.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IGraduatedScale.GetPointForValue(System.Double)">
+            <summary>
+            Returns a point that represents the given value.
+            </summary>
+            <param name="val">a <c>PointF</c> in document coordinates</param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IGraduatedScale.GetValueAtPoint(System.Drawing.PointF)">
+            <summary>
+            Returns the value which would be represented at a given point.
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IGraduatedScale.IntersectionWithLine(System.Drawing.PointF,System.Drawing.PointF,System.Double@)">
+            <summary>
+            Returns true if the line defined by points p1 and p2 intersect with the path of 
+            the scale; outputs the associated value at that point with the out parameter val.
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IGraduatedScale.Minimum">
+            <summary>
+            Gets or sets the minimum value represented on the scale.
+            </summary>
+            <remarks>
+            Standard behavior dictates the scale be inclusive of the minimum and
+            maximum values.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IGraduatedScale.Maximum">
+            <summary>
+            Gets or sets the maximum value represented on the scale.
+            </summary>
+            <remarks>
+            Standard behavior dictates the scale be inclusive of the minimum and
+            maximum values
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IGraduatedScale.Range">
+            <summary>
+            Gets the extent of the scale's range.
+            </summary>
+            <remarks>
+            Standard behavior returns the difference between the scale's
+            Maximum and Minimum values.
+            </remarks>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedMaximum">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedMinimum">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedTickLengthLeft">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedTickLengthRight">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedTickUnit">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedTickBase">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedTickMajorFrequency">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedTickColor">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedTickLabels">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedLabelStyle">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedLabelFrequency">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedLabelDistance">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedLabelTemplate">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedLabelFormat">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedTickMajorLengthRatio">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedTickMajorWidth">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedTickWidth">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScale.ChangedLabelChoices">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.#ctor">
+            <summary>
+            This constructor creates a <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/> with all default properties,
+            including not being <c>Selectable</c>.
+            </summary>
+            <remarks>
+            Because <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/> is an abstract class, this constructor
+            is protected instead of public.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.CopyObject(Northwoods.Go.GoCopyDictionary)">
+            <summary>
+            Make sure the <c>GoText</c> object that is the <see cref="P:Northwoods.Go.Instruments.GraduatedScale.LabelTemplate"/>
+            is copied.
+            </summary>
+            <param name="env"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.IntersectionWithLine(System.Drawing.PointF,System.Drawing.PointF,System.Double@)">
+            <summary>
+            Finds the value that corresponds to the point where the scale and
+            the line defined by p1 and p2 intersect.
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="val">an output parameter, giving the double floating point value</param>
+            <returns>true if the scale intersects the line</returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.GetValueAtPoint(System.Drawing.PointF)">
+            <summary>
+            Returns the value that is associated with point p.
+            </summary>
+            <param name="p">a <b>PointF</b> in document coordinates</param>
+            <returns>a double floating point number</returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.GetPointForValue(System.Double)">
+            <summary>
+            Returns the point on the scale that corresponds to the given value.
+            </summary>
+            <param name="val">a double floating point number</param>
+            <returns>a <b>PointF</b> in document coordinates</returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.GetTickEnds(System.Double,System.Boolean,System.Drawing.PointF@,System.Drawing.PointF@)">
+            <summary>
+            Finds the two end points of the tick mark for a given value.
+            Outputs the end points as the two parameters p1 and p2.
+            </summary>
+            <param name="v">a double floating point number</param>
+            <param name="isMajor">true if it is a major tick mark</param>
+            <param name="p1">an output parameter, giving a <b>PointF</b> in document coordinates</param>
+            <param name="p2">an output parameter, giving a <b>PointF</b> in document coordinates</param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.GetLabelString(System.Double)">
+            <summary>
+            Returns the text string that a label marking
+            the given value would contain.
+            </summary>
+            <param name="val">the double floating point number that is labeled</param>
+            <returns></returns>
+            <remarks>
+            If the value of <see cref="P:Northwoods.Go.Instruments.GraduatedScale.LabelChoices"/> is non-null and non-empty,
+            this method rounds the <paramref name="val"/> value to an integer
+            and uses that as an index into that <see cref="P:Northwoods.Go.Instruments.GraduatedScale.LabelChoices"/> list
+            to get an object that is converted to a String to be returned.
+            Otherwise this returns the string produced by
+            formatting the value using <see cref="P:Northwoods.Go.Instruments.GraduatedScale.LabelFormat"/>.
+            See also <see cref="M:Northwoods.Go.Instruments.GraduatedScale.PaintLabel(System.Drawing.Graphics,Northwoods.Go.GoView,System.Drawing.PointF,System.String)"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.GetLabelCenter(System.Double,System.Boolean)">
+            <summary>
+            Returns the point at which the Label should be centered.
+            </summary>
+            <param name="val">the double floating point number that is labeled</param>
+            <param name="drawLeft"></param>
+            <returns></returns>
+            <remarks>
+            See also <see cref="M:Northwoods.Go.Instruments.GraduatedScale.PaintLabel(System.Drawing.Graphics,Northwoods.Go.GoView,System.Drawing.PointF,System.String)"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.PaintLabel(System.Drawing.Graphics,Northwoods.Go.GoView,System.Drawing.PointF,System.String)">
+            <summary>
+            Responsible for properly painting a label for the given
+            value parameter.
+            </summary>
+            <param name="g"></param>
+            <param name="view"></param>
+            <param name="p">the reference point for where the label should be drawn, computed by <see cref="M:Northwoods.Go.Instruments.GraduatedScale.GetLabelCenter(System.Double,System.Boolean)"/></param>
+            <param name="text">the text of the label to be drawn, computed by <see cref="M:Northwoods.Go.Instruments.GraduatedScale.GetLabelString(System.Double)"/></param>
+            <remarks>
+            If you override this method, you may also need to override <see cref="M:Northwoods.Go.Instruments.GraduatedScale.ExpandPaintBounds(System.Drawing.RectangleF,Northwoods.Go.GoView)"/>
+            to account for the potentially increased area where text or any other decorations may be drawn.
+            An alternative way to change where a label is drawn is to override <see cref="M:Northwoods.Go.Instruments.GraduatedScale.GetLabelCenter(System.Double,System.Boolean)"/>
+            so that it returns the point you want.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.Paint(System.Drawing.Graphics,Northwoods.Go.GoView)">
+            <summary>
+            Render this object to a Graphics object.
+            </summary>
+            <remarks>
+            This assumes that it need not draw any shadow.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.MakePath">
+            <summary>
+            Make sure that whenever we reconstruct the main <c>GraphicsPath</c> for
+            this shape, we also reconstruct the paths for the ticks.
+            </summary>
+            <returns>a newly allocated <c>GraphicsPath</c></returns>
+            <remarks>
+            This calls both <see cref="M:Northwoods.Go.Instruments.GraduatedScale.ComputePath(System.Drawing.Drawing2D.GraphicsPath)"/> and an internal method for
+            computing and remembering tick marks.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.MakeAllGraphicsPaths">
+            <summary>
+            Return an enumerable holding all the <c>GraphicsPath</c> objects
+            needed to draw the principal path and all tick marks.
+            </summary>
+            <returns>an <c>IEnumerable</c> of <c>GraphicsPath</c>s, which must not be modified.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.ComputePath(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Determines the main path of the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>. 
+            Does not include tick marks.
+            </summary>
+            <param name="path">a GraphicsPath to be modified</param>
+            <returns></returns>
+            <remarks>
+            The abstract implementation does nothing.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.ExpandPaintBounds(System.Drawing.RectangleF,Northwoods.Go.GoView)">
+            <summary>
+            The paint bounds needs to include tick marks and labels.
+            </summary>
+            <param name="rect"></param>
+            <param name="view"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScale.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Handle undo and redo changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.Minimum">
+            <summary>
+            Gets or sets the minimum value represented on the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>.
+            </summary>
+            <value>
+            This value must be less than <see cref="P:Northwoods.Go.Instruments.GraduatedScale.Maximum"/>.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.Maximum">
+            <summary>
+            Gets or sets the maximum value represented on the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>.
+            </summary>
+            <value>
+            This value must be greater than <see cref="P:Northwoods.Go.Instruments.GraduatedScale.Minimum"/>.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.Range">
+            <summary>
+            Gets the range of values represented by the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>
+            </summary>
+            <value>
+            This is just the <see cref="P:Northwoods.Go.Instruments.GraduatedScale.Maximum"/> minus the <see cref="P:Northwoods.Go.Instruments.GraduatedScale.Minimum"/>.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.TickUnit">
+            <summary>
+            Gets or sets the difference between two consecutive
+            values marked by minor ticks.
+            </summary>
+            <value>
+            The value must be positive.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.TickBase">
+            <summary>
+            Gets or sets the base value which is marked with a tick.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.TickColor">
+            <summary>
+            Gets or sets the color used to draw tick marks.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.TickWidth">
+            <summary>
+            Gets or sets the pen width of the tick marks.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.TickLengthLeft">
+            <summary>
+            Gets or sets the length that each minor tick is drawn
+            to the left of the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>'s path.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.TickLengthRight">
+            <summary>
+            Gets or sets the length that each minor tick is drawn
+            to the right of the scale's path.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.TickMajorFrequency">
+            <summary>
+            Gets or sets when to draw emphasized tick marks.
+            </summary>
+            <value>
+            This defaults to 10.  The value must be positive.
+            </value>
+            <remarks>
+            A tick mark will be drawn as a major tick mark every TickMajorFrequency ticks.
+            If this equals 1, then only major tick marks will be drawn.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.TickMajorWidth">
+            <summary>
+            Gets or sets the pen width of major tick marks.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.TickMajorLengthRatio">
+            <summary>
+            Gets or sets the relative length of major tick marks compared to minor ones.
+            </summary>
+            <value>
+            This defaults to 2.0f.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.TickLabels">
+            <summary>
+            Gets or sets whether to draw tick labels at major tick marks.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.LabelStyle">
+            <summary>
+            Gets or sets the layout style with which the tick labels are drawn.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.LabelFrequency">
+            <summary>
+            Gets or sets how often to label major tick marks.
+            </summary>
+            <value>
+            The default value is 1, to label every major tick mark.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.LabelDistance">
+            <summary>
+            Gets or sets the distance at which labels 
+            are centered away from the tick mark.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.LabelFormat">
+            <summary>
+            Gets or sets the format string for formatting label values.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.LabelTemplate">
+            <summary>
+            Gets or sets the instance of a GoText that contains the font, size, and
+            other text properties used when drawing labels. 
+            </summary>
+            <value>
+            An instance of a GoText; the value must not be null.
+            </value>
+            <remarks>
+            This GoText object must not be part of any GoGroup or any GoLayer;
+            it is just used as a template for drawing labels.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.LabelChoices">
+            <summary>
+            Gets or sets a list of labels to use for integral values starting at zero.
+            </summary>
+            <value>
+            By default this is null, so <see cref="M:Northwoods.Go.Instruments.GraduatedScale.GetLabelString(System.Double)"/> will just format the value.
+            This value can be shared by multiple instances of a <c>GraduatedScale</c>.
+            </value>
+            <remarks>
+            <para>
+            This property makes it easy to use a scale to display a range of
+            non-numerical values for the labels.  Just set this property and then set
+            <code>scale.Maximum = scale.LabelChoices.Count-1</code> and
+            <code>scale.TickMajorFrequency = 1</code>.
+            </para>
+            <para>
+            Modifying the items in the list is not controlled.  Any such changes are not
+            recorded by the undo manager.  Only replacing the list is recorded for undo/redo,
+            and even then, it is only the reference to an <c>IList</c> that is remembered
+            and restored.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.Bounds">
+            <summary>
+            Whenever the size and/or position is changed, we need to recalculate the
+            GraphicsPath.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScale.Length">
+            <summary>
+            Gets the length of the scale, in document units.
+            </summary>
+            <remarks>
+            By default this is just the distance between the points on the
+            scale for the minimum and maximum values.
+            </remarks>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.GraduatedScaleElliptical">
+            <summary>
+            A subclass of <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>, which represents the
+            scale as an ellipse defined by a <c>RectangleF</c>, a
+            starting angle, and a sweep angle.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScaleElliptical.ChangedStartAngle">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScaleElliptical.ChangedSweepAngle">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.#ctor">
+            <summary>
+            Construct an elliptical graduated scale, whose start and sweep angles cover everything.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.IntersectionWithLine(System.Drawing.PointF,System.Drawing.PointF,System.Double@)">
+            <summary>
+            Finds the value that corresponds to the point where the scale and
+            the line defined by p1 and p2 interesct.
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.GetValueAtPoint(System.Drawing.PointF)">
+            <summary>
+            Returns the value that is associated with point p.
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.GetPointForValue(System.Double)">
+            <summary>
+            Returns the point on the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/> that corresponds to the given value.
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.DoResize(Northwoods.Go.GoView,System.Drawing.RectangleF,System.Drawing.PointF,System.Int32,Northwoods.Go.GoInputState,System.Drawing.SizeF,System.Drawing.SizeF)">
+            <summary>
+            Called when a user resizes this object.
+            </summary>
+            <param name="view"></param>
+            <param name="origRect"></param>
+            <param name="newPoint"></param>
+            <param name="whichHandle"></param>
+            <param name="evttype"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <remarks>
+            This is normally called from <see cref="T:Northwoods.Go.GoToolResizing"/>.
+            By default it just calls <see cref="M:Northwoods.Go.GoObject.ComputeResize(System.Drawing.RectangleF,System.Drawing.PointF,System.Int32,System.Drawing.SizeF,System.Drawing.SizeF,System.Boolean)"/>, allowing
+            reshaping if this object's <see cref="M:Northwoods.Go.GoObject.CanReshape"/> property is true
+            and the <paramref name="view"/>'s last input's <see cref="P:Northwoods.Go.GoInputEventArgs.Shift"/>
+            property is true.
+            The resulting <c>RectangleF</c> value is used as this object's new
+            <see cref="P:Northwoods.Go.GoObject.Bounds"/> if <see cref="P:Northwoods.Go.GoObject.ResizesRealtime"/> is true or if
+            <paramref name="evttype"/> is <see cref="F:Northwoods.Go.GoInputState.Finish"/>.
+            Override <see cref="M:Northwoods.Go.GoObject.ComputeResize(System.Drawing.RectangleF,System.Drawing.PointF,System.Int32,System.Drawing.SizeF,System.Drawing.SizeF,System.Boolean)"/> if you want to constrain the user's
+            resizing of this object without regard to the actual view or input events
+            causing the resize.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.AddSelectionHandles(Northwoods.Go.GoSelection,Northwoods.Go.GoObject)">
+            <summary>
+            Display the appropriate selected appearance. Reshape selection handles
+            are located at the start point and end point.
+            </summary>
+            <param name="sel"></param>
+            <param name="selectedObj"></param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.ContainsPoint(System.Drawing.PointF)">
+            <summary>
+            Determine if a given point is inside and on this object.
+            </summary>
+            <param name="p"></param>
+            <returns>
+            Returns true if the point is within the area defined by
+            sweeping a minor tickmark around the elliptical scale.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.ComputePath(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Determines the main path of the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>. 
+            Does not include tick marks.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.GetTickEnds(System.Double,System.Boolean,System.Drawing.PointF@,System.Drawing.PointF@)">
+            <summary>
+            Calculates the two end points of a tick mark corresponding to the given value.
+            </summary>
+            <param name="v"></param>
+            <param name="isMajor"></param>
+            <param name="p1"></param>
+            <param name="p2"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.GetLabelCenter(System.Double,System.Boolean)">
+            <summary>
+            Compute the label center to be appropriately positioned relative to the tick marks.
+            </summary>
+            <param name="val"></param>
+            <param name="drawLeft"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleElliptical.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Handle undo and redo changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScaleElliptical.StartAngle">
+            <summary>
+            Gets or sets the angle (in degrees) where the drawing of the <see cref="T:Northwoods.Go.Instruments.GraduatedScaleElliptical"/> begins.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScaleElliptical.SweepAngle">
+            <summary>
+            Gets or sets the arc length (in degrees) through which the <see cref="T:Northwoods.Go.Instruments.GraduatedScaleElliptical"/> is drawn.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScaleElliptical.Length">
+            <summary>
+            The length must be measured along the circumference of the ellipse.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.GraduatedScaleLinear">
+            <summary>
+            A subclass of <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>, which represents the scale
+            as a straight line between two end points.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScaleLinear.ChangedStartPoint">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.GraduatedScaleLinear.ChangedEndPoint">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.#ctor">
+            <summary>
+            Construct a linear graduated scale whose start and end points are the origin.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.IntersectionWithLine(System.Drawing.PointF,System.Drawing.PointF,System.Double@)">
+            <summary>
+            Finds the value that corresponds to the point where the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>
+            and the line defined by p1 and p2 intersect.
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="val">the value for the intersection point</param>
+            <returns>true if this intersects with the infinite line through P1 and P2</returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.GetValueAtPoint(System.Drawing.PointF)">
+            <summary>
+            Returns the value that is associated with point p.
+            </summary>
+            <param name="p">if P is not on this finite line segment, the nearest point on the line is used instead</param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.GetPointForValue(System.Double)">
+            <summary>
+            Returns the point on the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/> that corresponds to the given value.
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.ComputeBounds">
+            <summary>
+            Computes the bounds of the <see cref="T:Northwoods.Go.Instruments.GraduatedScaleLinear"/> by finding the
+            smallest rectangle that contains both the <see cref="P:Northwoods.Go.Instruments.GraduatedScaleLinear.StartPoint"/>
+            and <see cref="P:Northwoods.Go.Instruments.GraduatedScaleLinear.EndPoint"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.OnBoundsChanged(System.Drawing.RectangleF)">
+            <summary>
+            Called after this object's bounds has changed.
+            </summary>
+            <param name="old">
+            A <c>RectangleF</c> in document coordinates holding the previous bounds.
+            </param>
+            <remarks>
+            Needs to be overriden to adjust <see cref="P:Northwoods.Go.Instruments.GraduatedScaleLinear.StartPoint"/> and <see cref="P:Northwoods.Go.Instruments.GraduatedScaleLinear.EndPoint"/> accordingly.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.DoResize(Northwoods.Go.GoView,System.Drawing.RectangleF,System.Drawing.PointF,System.Int32,Northwoods.Go.GoInputState,System.Drawing.SizeF,System.Drawing.SizeF)">
+            <summary>
+            When the resize handles are at each point of the stroke, the user's
+            dragging of a resize handle should just change that point in the stroke.
+            </summary>
+            <param name="view"></param>
+            <param name="origRect"></param>
+            <param name="newPoint"></param>
+            <param name="whichHandle"></param>
+            <param name="evttype"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.AddSelectionHandles(Northwoods.Go.GoSelection,Northwoods.Go.GoObject)">
+            <summary>
+            Display the appropriate selected appearance, normally resize selection handles
+            at the StartPoint and EndPoint.
+            </summary>
+            <param name="sel"></param>
+            <param name="selectedObj"></param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.ContainsPoint(System.Drawing.PointF)">
+            <summary>
+            Determine if a given point is inside and on this object.
+            </summary>
+            <param name="p"></param>
+            <returns>
+            Returns true if the point is within the rectangle created by
+            sweeping a minor tickmark across the linear scale.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.ComputePath(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Finds the main path of the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>. 
+            Does not include tick marks.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.AdjustTickOffset">
+            <summary>
+            This function is called to refresh the internal parameters used
+            when drawing tickmarks. 
+            </summary>
+            <remarks>
+            Whenever a change is made that would adjust how tick marks are drawn
+            this function should be called, after that change is made.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.GetTickEnds(System.Double,System.Boolean,System.Drawing.PointF@,System.Drawing.PointF@)">
+            <summary>
+            Calculates the two end points of a tick mark corresponding to the given value.
+            </summary>
+            <param name="v"></param>
+            <param name="isMajor"></param>
+            <param name="p1"></param>
+            <param name="p2"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.GetLabelCenter(System.Double,System.Boolean)">
+            <summary>
+            Compute the appropriate position for the center of each label compared to the tick mark.
+            </summary>
+            <param name="val"></param>
+            <param name="drawLeft"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.GraduatedScaleLinear.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Handle undo and redo changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScaleLinear.StartPoint">
+            <summary>
+            Gets or sets the point where the drawing of the <see cref="T:Northwoods.Go.Instruments.GraduatedScaleLinear"/> begins.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScaleLinear.EndPoint">
+            <summary>
+            Gets or sets the point where the drawing of the <see cref="T:Northwoods.Go.Instruments.GraduatedScaleLinear"/> ends
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScaleLinear.TickLengthLeft">
+            <summary>
+            Gets or sets the length that each minor tick is drawn
+            to the left of the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>'s path.
+            </summary>
+            <remarks>
+            Overridden to refresh the internal parameters used to draw
+            the tick marks.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.GraduatedScaleLinear.TickLengthRight">
+            <summary>
+            Gets or sets the length that each minor tick is drawn
+            to the right of the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>'s path.
+            </summary>
+            <remarks>
+            Overridden to refresh the internal parameters used to draw
+            the tick marks.
+            </remarks>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.Indicator">
+            <summary>
+            An abstract class designed to visually represent a specific quantitative value.
+            </summary>
+            <remarks>
+            <see cref="T:Northwoods.Go.Instruments.Indicator"/> provides a basis for indicators designed to interact with
+            an implementation of <see cref="T:Northwoods.Go.Instruments.IGraduatedScale"/> to indicate values that correspond to
+            specific graphical points, determined by the <see cref="T:Northwoods.Go.Instruments.IGraduatedScale"/>.
+            However, it is possible to create an <see cref="T:Northwoods.Go.Instruments.Indicator"/> that does not rely on
+            an instance of <see cref="T:Northwoods.Go.Instruments.IGraduatedScale"/>, and the information needed to indicate specific
+            values would be contained internally. This would be useful when the value system does not
+            correspond to graphical points, such as a color scale system.
+            </remarks>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Indicator.ChangedValue">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Indicator.ChangedScale">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Indicator.ChangedQuantized">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Indicator.ChangedQuantBase">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Indicator.ChangedQuantUnit">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Indicator.ChangedActionEnabled">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.#ctor">
+            <summary>
+            The constructor changes the default <see cref="P:Northwoods.Go.GoShape.Brush"/>
+            of <see cref="T:Northwoods.Go.Instruments.Indicator"/>s to <see cref="P:System.Drawing.Brushes.Red"/> and makes it
+            not <c>Selectable</c>.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.CopyObject(Northwoods.Go.GoCopyDictionary)">
+            <summary>
+            Make sure the reference to the <see cref="T:Northwoods.Go.Instruments.IGraduatedScale"/> is maintained.
+            </summary>
+            <param name="env"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.ValidValue(System.Double)">
+            <summary>
+            A function used to check the validity of the given value.
+            </summary>
+            <param name="val"></param>
+            <returns>
+            If the given value is valid, returns that value.
+            Else, returns the valid value that is "closest" to the given value.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.QuantizeValue(System.Double)">
+            <summary>
+            A function used to ensure valid values within the quantized value system.
+            </summary>
+            <param name="val"></param>
+            <returns>
+            If <see cref="P:Northwoods.Go.Instruments.Indicator.Quantized"/> is true, returns an acceptable
+            quantized value that is closest to the given value.
+            Otherwise it just returns the given value.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.OnActionActivated(Northwoods.Go.GoView,Northwoods.Go.GoInputEventArgs)">
+            <summary>
+            This method saves the original value when the indicator is starting to be
+            manipulated by the user.
+            </summary>
+            <param name="view"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.OnActionAdjusted(Northwoods.Go.GoView,Northwoods.Go.GoInputEventArgs)">
+            <summary>
+            This method is called by <see cref="T:Northwoods.Go.GoToolAction"/> as the user is
+            adjusting the object, normally by a mouse drag.
+            </summary>
+            <param name="view">the <see cref="T:Northwoods.Go.GoView"/> that the input event occurred in</param>
+            <param name="e">the <see cref="T:Northwoods.Go.GoInputEventArgs"/> describing the input event</param>
+            <remarks>
+            By default this just sets the <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/> according to the current input point.
+            This calls <see cref="M:Northwoods.Go.Instruments.Indicator.GetValueForPoint(System.Drawing.PointF)"/> to determine the indicator's new value
+            for the current mouse point.
+            This will get called repeatedly as the user drags the mouse around.
+            When setting the Value, this method temporarily sets <see cref="P:Northwoods.Go.GoObject.SkipsUndoManager"/> to true.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.OnAction(Northwoods.Go.GoView,Northwoods.Go.GoInputEventArgs)">
+            <summary>
+            This method is called by <see cref="T:Northwoods.Go.GoToolAction"/> when the mouse is released,
+            to set the <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/> according to the current input point, within a transaction.
+            </summary>
+            <param name="view">the <see cref="T:Northwoods.Go.GoView"/> that the input event occurred in</param>
+            <param name="e">the <see cref="T:Northwoods.Go.GoInputEventArgs"/> describing the input event</param>
+            <remarks>
+            This calls <see cref="M:Northwoods.Go.Instruments.Indicator.GetValueForPoint(System.Drawing.PointF)"/> to determine the indicator's new value
+            for the current mouse point.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.OnActionCancelled(Northwoods.Go.GoView)">
+            <summary>
+            This method is called by <see cref="T:Northwoods.Go.GoToolAction"/> when the tool is being cancelled.
+            </summary>
+            <param name="view"></param>
+            <remarks>
+            This just restores the <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/> to its original value, remembered
+            at the time this indicator was activated.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.GetValueForPoint(System.Drawing.PointF)">
+            <summary>
+            This method is called by <see cref="M:Northwoods.Go.Instruments.Indicator.OnActionAdjusted(Northwoods.Go.GoView,Northwoods.Go.GoInputEventArgs)"/> and <see cref="M:Northwoods.Go.Instruments.Indicator.OnAction(Northwoods.Go.GoView,Northwoods.Go.GoInputEventArgs)"/>
+            to determine the appropriate scale value given the current mouse point.
+            </summary>
+            <param name="p">a PointF in document coordinates</param>
+            <returns>
+            By default this just returns the <see cref="P:Northwoods.Go.Instruments.Indicator.Scale"/>'s <see cref="M:Northwoods.Go.Instruments.IGraduatedScale.GetValueAtPoint(System.Drawing.PointF)"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.OnMouseOver(Northwoods.Go.GoInputEventArgs,Northwoods.Go.GoView)">
+            <summary>
+            Change the cursor to <c>Cursors.Hand</c> if the user can modify the value of this indicator interactively.
+            </summary>
+            <param name="evt"></param>
+            <param name="view"></param>
+            <returns>
+            true if the <paramref name="view"/>'s <c>Cursor</c> is changed to <c>Cursors.Hand</c>
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.ComputePath(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Compute a GraphicsPath used to paint this <see cref="T:Northwoods.Go.Instruments.Indicator"/>
+            </summary>
+            <param name="path">a GraphicsPath that should be modified</param>
+            <returns></returns>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.MakePath">
+            <summary>
+            Make sure that whenever we reconstruct the main <c>GraphicsPath</c> for
+            this shape, we call <see cref="M:Northwoods.Go.Instruments.Indicator.ComputePath(System.Drawing.Drawing2D.GraphicsPath)"/>.
+            </summary>
+            <returns>a newly allocated and initialized <c>GraphicsPath</c></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.Paint(System.Drawing.Graphics,Northwoods.Go.GoView)">
+            <summary>
+            Paint this object to a view, using a <c>GraphicsPath</c>
+            determined by a call to <see cref="M:Northwoods.Go.Instruments.Indicator.ComputePath(System.Drawing.Drawing2D.GraphicsPath)"/>.
+            </summary>
+            <remarks>
+            The <see cref="P:Northwoods.Go.GoObject.Shadowed"/> property is currently not supported in GoInstruments Pocket.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Indicator.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Handle undo and redo changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Indicator.Value">
+            <summary>
+            Gets or sets the value that will be indicated, relative to the
+            associated <see cref="T:Northwoods.Go.Instruments.IGraduatedScale"/>.
+            </summary>
+            <remarks>
+            This calls <see cref="M:Northwoods.Go.Instruments.Indicator.ValidValue(System.Double)"/> to make sure the new value is
+            in the permitted range.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Indicator.Scale">
+            <summary>
+            Gets or sets the scale with which the indicator is associated.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Indicator.Quantized">
+            <summary>
+            Gets or sets whether the indicator is forced to have discrete values.
+            If true, <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/> is restricted to values that
+            follow (value - <see cref="P:Northwoods.Go.Instruments.Indicator.QuantizeBase"/>) mod <see cref="P:Northwoods.Go.Instruments.Indicator.QuantizeUnit"/> = 0.
+            </summary>
+            <remarks>
+            Setting this property does not actually change the <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/>.
+            If you want to make sure the <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/> is "quantized" correctly,
+            you will need to set it explicitly.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Indicator.QuantizeBase">
+            <summary>
+            Gets or sets the base value which is allowed when
+            <see cref="P:Northwoods.Go.Instruments.Indicator.Quantized"/> is true.
+            </summary>.
+            <remarks>
+            Setting this property does not actually change the <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/>.
+            If you want to make sure the <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/> is "quantized" correctly,
+            you will need to set it explicitly.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Indicator.QuantizeUnit">
+            <summary>
+            Gets or Sets the difference between two consecutive allowed 
+            values when <see cref="P:Northwoods.Go.Instruments.Indicator.Quantized"/> is true.
+            </summary>
+            <remarks>
+            Setting this property does not actually change the <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/>.
+            If you want to make sure the <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/> is "quantized" correctly,
+            you will need to set it explicitly.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Indicator.ActionEnabled">
+            <summary>
+            Gets or sets whether the user can adjust the indicators value.
+            </summary>
+            <value>
+            The default value is false.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Indicator.ActionActivated">
+            <summary>
+            Gets or sets whether the object's Action is about to be invoked,
+            normally by a mouse button being pressed.
+            </summary>
+            <value>
+            This defaults to false.
+            </value>
+            <remarks>
+            A change to this state is considered transient, and does not
+            invoke <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/>.
+            </remarks>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.IndicatorBar">
+            <summary>
+            An Indicator that represents its value as a bar beginning
+            at a set start point and extending to an end point which
+            represents a specific value.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorBar.ChangedThickness">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorBar.ChangedStartOffset">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorBar.InsertedPhase">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorBar.RemovedPhase">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorBar.ReplacedPhase">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.#ctor">
+            <summary>
+            This constructor creates an <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/> with all default properties.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.ContainsPoint(System.Drawing.PointF)">
+            <summary>
+            Returns true if the point is close to the end of the bar.
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.GetPhasePath(System.Drawing.Drawing2D.GraphicsPath,System.Double,System.Double)">
+            <summary>
+            Compute a GraphicsPath corresponding to a specific phase of the <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/>.
+            </summary>
+            <param name="path">a GraphicsPath that is modified</param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+            <remarks>
+            The default method for painting <see cref="T:Northwoods.Go.Instruments.Indicator"/>s relies on this function
+            for a definition of the shape. However, <see cref="M:Northwoods.Go.Instruments.IndicatorBar.Paint(System.Drawing.Graphics,Northwoods.Go.GoView)"/> can be overriden to
+            not require this function.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.ComputePath(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Returns a GraphicsPath used to paint this <see cref="T:Northwoods.Go.Instruments.Indicator"/>
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+            <remarks>
+            Because this function simply calls <see cref="M:Northwoods.Go.Instruments.IndicatorBar.GetPhasePath(System.Drawing.Drawing2D.GraphicsPath,System.Double,System.Double)"/> for a phase that ranges
+            <see cref="P:Northwoods.Go.Instruments.IGraduatedScale.Minimum"/> to <see cref="P:Northwoods.Go.Instruments.Indicator.Value"/>, this function does not
+            have to be overriden for basic changes in desired shape. Most likely, it will only
+            require that <see cref="M:Northwoods.Go.Instruments.IndicatorBar.GetPhasePath(System.Drawing.Drawing2D.GraphicsPath,System.Double,System.Double)"/> be overriden.
+            The default method for painting <see cref="T:Northwoods.Go.Instruments.Indicator"/>s relies on this function
+            for a definition of the shape. However, <see cref="M:Northwoods.Go.Instruments.IndicatorBar.Paint(System.Drawing.Graphics,Northwoods.Go.GoView)"/> can be overriden to
+            not require this function.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.Paint(System.Drawing.Graphics,Northwoods.Go.GoView)">
+            <summary>
+            Render this object to a Graphics object.
+            </summary>
+            <param name="g">
+            The <c>Graphics</c> object with which to draw.
+            </param>
+            <param name="view">
+            The <see cref="T:Northwoods.Go.GoView"/> provides additional context for this painting
+            operation.
+            </param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.PaintPhase(System.Drawing.Graphics,Northwoods.Go.GoView,Northwoods.Go.Instruments.Phase,System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Used to paint a provided phase.
+            </summary>
+            <param name="g"></param>
+            <param name="view"></param>
+            <param name="phase">the phase to be drawn, specifying minimum value, maximum value and color</param>
+            <param name="path">the GraphicsPath to be filled and/or drawn</param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.AddPhase(Northwoods.Go.Instruments.Phase)">
+            <summary>
+            Add a phase to the <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/>'s phase collection.
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.RemovePhase(Northwoods.Go.Instruments.Phase)">
+            <summary>
+            Remove a phase from the <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/>'s phase collection.
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.RemovePhase(System.Int32)">
+            <summary>
+            Remove a phase from the <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/>'s phase collection.
+            </summary>
+            <param name="i"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.InsertPhase(System.Int32,Northwoods.Go.Instruments.Phase)">
+            <summary>
+            Insert a phase to a specific index of the phase collection.
+            </summary>
+            <param name="i"></param>
+            <param name="p"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.SetPhase(System.Int32,Northwoods.Go.Instruments.Phase)">
+            <summary>
+            Replace a phase at a specific index of the phase collection.
+            </summary>
+            <param name="i"></param>
+            <param name="p"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.GetPhase(System.Int32)">
+            <summary>
+            Returns the phase located at the given index of the <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/>'s phase collection.
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBar.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Handle undo and redo changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorBar.Thickness">
+            <summary>
+            Gets or sets the thickness of the <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/>
+            </summary>
+            <remarks>
+            The thickness is the width of the bar.
+            As the value changes, the length of the IndicatorBar changes.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorBar.StartOffset">
+            <summary>
+            Gets or sets the offset of this bar's starting point relative to the scale's
+            point for the minimum value.
+            </summary>
+            <value>a SizeF in document coordinates, that defaults to zero/zero.</value>
+            <remarks>
+            The drawing of <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/> relies on this offset to
+            the point associated with <see cref="P:Northwoods.Go.Instruments.Indicator.Scale"/>'s minimum value.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorBar.PhaseCount">
+            <summary>
+            Gets the number of phases currently in the <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/>'s phase collection.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.IndicatorBarElliptical">
+            <summary>
+            A form of <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/> that represents its value as an
+            eliptical arc with a set thickness between a set starting angle
+            and an varying ending angle.
+            The shape of elliptical path is determined by the <see cref="T:Northwoods.Go.Instruments.Indicator"/>'s bounds.
+            </summary>
+            <remarks>
+            Requires that <see cref="P:Northwoods.Go.Instruments.Indicator.Scale"/> be and instance
+            of <see cref="T:Northwoods.Go.GoObject"/>
+            </remarks>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorBarElliptical.ChangedFillClockwise">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBarElliptical.#ctor">
+            <summary>
+            This constructor creates an <see cref="T:Northwoods.Go.Instruments.IndicatorBarElliptical"/> with all default properties.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBarElliptical.ContainsPoint(System.Drawing.PointF)">
+            <summary>
+            Determine if a given point is inside and on this object.
+            </summary>
+            <param name="p"></param>
+            <returns>
+            Returns true if the point is close to the end of the bar.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBarElliptical.GetPhasePath(System.Drawing.Drawing2D.GraphicsPath,System.Double,System.Double)">
+            <summary>
+            Returns a GraphicsPath corresponding to a specific phase of the <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/>.
+            </summary>
+            <param name="path"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+            <remarks>
+            The default method for painting <see cref="T:Northwoods.Go.Instruments.Indicator"/>s relies on this function
+            for a definition of the shape. However, <see cref="M:Northwoods.Go.Instruments.Indicator.Paint(System.Drawing.Graphics,Northwoods.Go.GoView)"/> can be overriden to
+            not require this function.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorBarElliptical.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Handle undo and redo changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorBarElliptical.FillClockwise">
+            <summary>
+            Gets or sets whether the <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/> will sweep
+            clockwise or counter-clockwise from its start angle to its end angle.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.IndicatorKnob">
+            <summary>
+            A knob is drawn as two concentric ellipses with a triangular pointer indicating the current value.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorKnob.ChangedMarkerColor">
+            <summary>
+            A <c>GoObject.Changed</c> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorKnob.#ctor">
+            <summary>
+            Create a knob with a black pointer.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorKnob.ComputePath(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            The path includes the triangular pointer.
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorKnob.Paint(System.Drawing.Graphics,Northwoods.Go.GoView)">
+            <summary>
+            Draw both the ellipses and the triangular pointer computed as the path.
+            </summary>
+            <param name="g"></param>
+            <param name="view"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorKnob.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Perform undo/redo state changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorKnob.MarkerColor">
+            <summary>
+            Gets or sets the color of the arrow on the knob.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.IndicatorNeedleStyle">
+            <summary>
+            Specifies the appearance of the needle
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorNeedleStyle.Line">
+            <summary>
+            The <see cref="T:Northwoods.Go.Instruments.IndicatorNeedle"/> appears as a line
+            between its pivot and end point
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorNeedleStyle.Kite">
+            <summary>
+            The <see cref="T:Northwoods.Go.Instruments.IndicatorNeedle"/> appears as a kite
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorNeedleStyle.Bar">
+            <summary>
+            The <see cref="T:Northwoods.Go.Instruments.IndicatorNeedle"/> appears as a rectangle
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.IndicatorNeedle">
+            <summary>
+            An indicator that displays the current value by drawing a straight line from
+            a <see cref="P:Northwoods.Go.Instruments.IndicatorNeedle.PivotPoint"/>.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorNeedle.ChangedPivotPoint">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorNeedle.ChangedConstantLength">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorNeedle.ChangedLength">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorNeedle.ChangedThickness">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorNeedle.ChangedStyle">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorNeedle.#ctor">
+            <summary>
+            This constructor creates an <see cref="T:Northwoods.Go.Instruments.IndicatorNeedle"/> with all default properties.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorNeedle.OnBoundsChanged(System.Drawing.RectangleF)">
+            <summary>
+            Update the <see cref="P:Northwoods.Go.Instruments.IndicatorNeedle.PivotPoint"/> proportionately.
+            </summary>
+            <param name="old"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorNeedle.ComputePath(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Returns a GraphicsPath used to paint this <see cref="T:Northwoods.Go.Instruments.Indicator"/>
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+            <remarks>
+            The default method for painting <see cref="T:Northwoods.Go.Instruments.Indicator"/>s relies on this function
+            for a definition of the shape. However, <see cref="M:Northwoods.Go.Instruments.Indicator.Paint(System.Drawing.Graphics,Northwoods.Go.GoView)"/> can be overriden to
+            not require this function.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorNeedle.ContainsPoint(System.Drawing.PointF)">
+            <summary>
+            Determine if a given point is inside and on this object.
+            </summary>
+            <param name="p"></param>
+            <returns>
+            Returns true if the point is contained by the indicator's path,
+            or near the line if it is just a line.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorNeedle.GetValueForPoint(System.Drawing.PointF)">
+            <summary>
+            Determine the appropriate value for this kind of indicator given a mouse point.
+            </summary>
+            <param name="p">a PointF in document coordinates</param>
+            <returns>
+            The result is the scale's value at the intersection point between the <see cref="P:Northwoods.Go.Instruments.Indicator.Scale"/>
+            and the line between the <see cref="P:Northwoods.Go.Instruments.IndicatorNeedle.PivotPoint"/> and the mouse point.
+            </returns>
+            <remarks>
+            This method is called by <see cref="M:Northwoods.Go.Instruments.Indicator.OnActionAdjusted(Northwoods.Go.GoView,Northwoods.Go.GoInputEventArgs)"/> and
+            <see cref="M:Northwoods.Go.Instruments.Indicator.OnAction(Northwoods.Go.GoView,Northwoods.Go.GoInputEventArgs)"/> while this <see cref="T:Northwoods.Go.IGoActionObject"/>
+            is actively being manipulated by the user.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorNeedle.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Handle undo and redo changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorNeedle.PivotPoint">
+            <summary>
+            Gets or sets a fixed point which the needle will rotate around. 
+            </summary>
+            <value>
+            The value must be a point within the Bounds of this <c>IndicatorNeedle</c>.
+            </value>
+            <remarks>
+            When you change the <c>Bounds</c> for this object, you will also need to
+            update this property.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorNeedle.ConstantLength">
+            <summary>
+            Gets or sets whether the needle will maintain a set length.
+            </summary>
+            <remarks>
+            If <see cref="P:Northwoods.Go.Instruments.IndicatorNeedle.ConstantLength"/> is false, the needle will be drawn the
+            length of the line between <see cref="P:Northwoods.Go.Instruments.IndicatorNeedle.PivotPoint"/> and the PointF returned
+            by <see cref="M:Northwoods.Go.Instruments.IGraduatedScale.GetPointForValue(System.Double)"/>.
+            If it is false, the needle will be drawn according to the <see cref="P:Northwoods.Go.Instruments.IndicatorNeedle.Length"/>
+            property, along the line connecting <see cref="P:Northwoods.Go.Instruments.IndicatorNeedle.PivotPoint"/> and the PointF
+            returned by <see cref="M:Northwoods.Go.Instruments.IGraduatedScale.GetPointForValue(System.Double)"/>.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorNeedle.Length">
+            <summary>
+            Gets or sets whether the length to which the <see cref="T:Northwoods.Go.Instruments.IndicatorNeedle"/> will
+            be drawn, if <see cref="P:Northwoods.Go.Instruments.IndicatorNeedle.ConstantLength"/> is true.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorNeedle.Thickness">
+            <summary>
+            Used when drawing needles with the Kite or Bar style.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorNeedle.Style">
+            <summary>
+            Gets or sets the style used to draw the <see cref="T:Northwoods.Go.Instruments.IndicatorNeedle"/>.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.IndicatorSliderStyle">
+            <summary>
+            Specifies the style used to paint an <see cref="T:Northwoods.Go.Instruments.IndicatorSlider"/>.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorSliderStyle.Bar">
+            <summary>
+            A style for painting a <see cref="T:Northwoods.Go.Instruments.IndicatorSlider"/>.
+            </summary>
+            <remarks>
+            The <see cref="T:Northwoods.Go.Instruments.IndicatorSlider"/> is painted as a rectangle with a height and
+            width defined by <see cref="P:Northwoods.Go.Instruments.IndicatorSlider.Dimensions"/>.
+            </remarks>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorSliderStyle.Triangles">
+            <summary>
+            A style for painting a <see cref="T:Northwoods.Go.Instruments.IndicatorSlider"/>.
+            </summary>
+            <remarks>
+            The <see cref="T:Northwoods.Go.Instruments.IndicatorSlider"/> is painted as a two triangles connected by a line
+            which indicates the appropriate value.
+            </remarks>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.IndicatorSlider">
+            <summary>
+            An indicator that displays the current value by drawing a rectangle
+            at the value on the scale, perpendicular to the main path of the scale.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorSlider.ChangedDimensions">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.IndicatorSlider.ChangedStyle">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorSlider.#ctor">
+            <summary>
+            This constructor creates an <see cref="T:Northwoods.Go.Instruments.IndicatorSlider"/> with all default properties.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorSlider.ComputePath(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Returns a GraphicsPath used to paint this <see cref="T:Northwoods.Go.Instruments.Indicator"/>
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+            <remarks>
+            The default method for painting <see cref="T:Northwoods.Go.Instruments.Indicator"/>s relies on this function
+            for a definition of the shape. However, <see cref="M:Northwoods.Go.Instruments.Indicator.Paint(System.Drawing.Graphics,Northwoods.Go.GoView)"/> can be overriden to
+            not require this function.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorSlider.ContainsPoint(System.Drawing.PointF)">
+            <summary>
+            Determine if a given point is inside and on this object.
+            </summary>
+            <param name="p"></param>
+            <returns>
+            Returns true if the point is within the path.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorSlider.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Handle undo and redo changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorSlider.Dimensions">
+            <summary>
+            Gets or sets the drawn dimensions of the slider.
+            </summary>
+            <remarks>
+            <see cref="P:Northwoods.Go.GoObject.Width"/> and <see cref="P:Northwoods.Go.GoObject.Height"/> refer to the bounds of
+            the <see cref="T:Northwoods.Go.Instruments.IndicatorSlider"/>, while <see cref="P:Northwoods.Go.Instruments.IndicatorSlider.Dimensions"/> is used
+            specifically in the drawing of the slider, which should not expand beyond those bounds. 
+            The Width corresponds to the dimension of the slider that runs
+            perpendicular to the path of the <see cref="T:Northwoods.Go.Instruments.IGraduatedScale"/>.
+            The Height corresponds to the dimension of the slider that runs
+            parallel to the path of the <see cref="T:Northwoods.Go.Instruments.IGraduatedScale"/>.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.IndicatorSlider.Style">
+            <summary>
+            Gets or sets the style used to draw the <see cref="T:Northwoods.Go.Instruments.IndicatorSlider"/>.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.IndicatorSliderElliptical">
+            <summary>
+            An example of an <see cref="T:Northwoods.Go.Instruments.Indicator"/> that is designed to
+            interact specifically with one type of <see cref="T:Northwoods.Go.Instruments.IGraduatedScale"/>, namely
+            <see cref="T:Northwoods.Go.Instruments.GraduatedScaleElliptical"/>.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorSliderElliptical.#ctor">
+            <summary>
+            This constructor creates an <see cref="T:Northwoods.Go.Instruments.IndicatorSliderElliptical"/> with all default properties.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.IndicatorSliderElliptical.ComputePath(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Returns a GraphicsPath used to paint this <see cref="T:Northwoods.Go.Instruments.Indicator"/>
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+            <remarks>
+            The default method for painting <see cref="T:Northwoods.Go.Instruments.Indicator"/>s relies on this method
+            for a definition of the shape.  Furthermore, this method depends on the <see cref="P:Northwoods.Go.Instruments.Indicator.Scale"/>
+            being a <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>.
+            </remarks>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.Meter">
+            <summary>
+            A GoGroup designed to maintain a <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>, an
+            <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>, a <see cref="T:Northwoods.Go.GoObject"/> background, and a <see cref="T:Northwoods.Go.GoText"/> label.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Meter.ChangedBackground">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Meter.ChangedLabel">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Meter.ChangedIndicator">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Meter.ChangedScale">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Meter.ChangedTopLeftMargin">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Meter.ChangedBottomRightMargin">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Meter.ChangedOrientation">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Meter.ChangedLabelSpot">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.Meter.ChangedLabelRelativeSpot">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Meter.#ctor">
+            <summary>
+            Handles the basic initialization of <see cref="T:Northwoods.Go.Instruments.Meter"/>.
+            </summary>
+            <remarks>
+            This calls <see cref="M:Northwoods.Go.Instruments.Meter.CreateBackground"/>, <see cref="M:Northwoods.Go.Instruments.Meter.CreateLabel"/>,
+            <see cref="M:Northwoods.Go.Instruments.Meter.CreateScale"/>, and <see cref="M:Northwoods.Go.Instruments.Meter.CreateIndicator"/>,
+            adds all the resulting objects to this group, and sets the
+            <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.<c>Scale</c> to the created scale.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Meter.CreateBackground">
+            <summary>
+            Method for creating an instance of the meter's standard background.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Meter.CreateLabel">
+            <summary>
+            Method for creating an instance of the meter's standard label.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Meter.CreateScale">
+            <summary>
+            Method for creating an instance of the meter's standard scale.
+            </summary>
+            <returns></returns>
+            <remarks>
+            By default this returns null--each subclass should override this to
+            actually allocate and return some kind of <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Meter.CreateIndicator">
+            <summary>
+            Method for creating an instance of the meter's standard indicator.
+            </summary>
+            <returns></returns>
+            <remarks>
+            By default this returns null--each subclass should override this to
+            actually allocate and return some kind of <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Meter.CopyChildren(Northwoods.Go.GoGroup,Northwoods.Go.GoCopyDictionary)">
+            <summary>
+            Make sure fields referring to children are updated to refer to
+            the newly copied objects.
+            </summary>
+            <param name="newgroup"></param>
+            <param name="env"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Meter.Remove(Northwoods.Go.GoObject)">
+            <summary>
+            If any part is removed from this group,
+            be sure to remove any references in local fields.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Meter.LayoutChildren(Northwoods.Go.GoObject)">
+            <summary>
+            Have the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/> and <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/> have the
+            same bounds smaller than and within the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/>,
+            as determined by <see cref="P:Northwoods.Go.Instruments.Meter.TopLeftMargin"/> and <see cref="P:Northwoods.Go.Instruments.Meter.BottomRightMargin"/>.
+            The <see cref="P:Northwoods.Go.Instruments.Meter.Label"/> is positioned according to the
+            <see cref="P:Northwoods.Go.Instruments.Meter.LabelSpot"/> and <see cref="P:Northwoods.Go.Instruments.Meter.LabelRelativeSpot"/>.
+            </summary>
+            <param name="childchanged"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Meter.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Handle undo and redo changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.SelectionObject">
+            <summary>
+            The object that appears to be selected, when the meter is selected,
+            is the background object.
+            </summary>
+            <remarks>
+            The <c>Shadowed</c>, <c>Resizable</c>, <c>Reshapable</c>, and
+            <c>ResizesRealtime</c> properties for the meter as a whole are
+            determined by the corresponding properties on the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/>
+            object.
+            If the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/> object is null, then the
+            meter as a whole is shown with selection handle(s).
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Shadowed">
+            <summary>
+            This property comes from the <see cref="P:Northwoods.Go.Instruments.Meter.SelectionObject"/>,
+            normally the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Resizable">
+            <summary>
+            This property comes from the <see cref="P:Northwoods.Go.Instruments.Meter.SelectionObject"/>,
+            normally the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Reshapable">
+            <summary>
+            This property comes from the <see cref="P:Northwoods.Go.Instruments.Meter.SelectionObject"/>,
+            normally the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.ResizesRealtime">
+            <summary>
+            This property comes from the <see cref="P:Northwoods.Go.Instruments.Meter.SelectionObject"/>,
+            normally the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Scale">
+            <summary>
+            Gets or sets the <see cref="T:Northwoods.Go.Instruments.GraduatedScale"/> associated with the <see cref="T:Northwoods.Go.Instruments.Meter"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Indicator">
+            <summary>
+            Gets or sets the <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/> associated with the <see cref="T:Northwoods.Go.Instruments.Meter"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Background">
+            <summary>
+            Gets or sets the background object of the <see cref="T:Northwoods.Go.Instruments.Meter"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Label">
+            <summary>
+            Gets or sets the label object of the <see cref="T:Northwoods.Go.Instruments.Meter"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Orientation">
+            <summary>
+            Some meters may find it useful to be oriented along either a horizontal
+            or vertical direction; others may ignore this.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TopLeftMargin">
+            <summary>
+            Gets or sets the margin between the top-left corner of the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/>
+            and the top-left corner of the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/> (and <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>).
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.BottomRightMargin">
+            <summary>
+            Gets or sets the margin between the bottom-right corner of the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/>
+            and the bottom-right corner of the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/> (and <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>).
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.LabelSpot">
+            <summary>
+            Gets or sets the position of <see cref="P:Northwoods.Go.Instruments.Meter.Label"/> compared to the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/>.
+            </summary>
+            <value>This defaults to <c>GoObject.MiddleBottom</c></value>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.LabelRelativeSpot">
+            <summary>
+            Gets or sets the <see cref="P:Northwoods.Go.Instruments.Meter.Label"/>'s position compared to the spot
+            specified by the <see cref="P:Northwoods.Go.Instruments.Meter.LabelSpot"/>.
+            </summary>
+            <value>
+            This defaults to <c>GoObject.MiddleBottom</c>, thereby placing the
+            label inside the <see cref="P:Northwoods.Go.Instruments.Meter.Background"/>.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Minimum">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.Minimum"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Maximum">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.Maximum"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TickUnit">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.TickUnit"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TickBase">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.TickBase"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TickColor">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.TickColor"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TickWidth">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.TickWidth"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TickLengthLeft">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.TickLengthLeft"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TickLengthRight">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.TickLengthRight"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TickMajorFrequency">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.TickMajorFrequency"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TickMajorWidth">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.TickMajorWidth"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TickMajorLengthRatio">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.TickMajorLengthRatio"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.TickLabels">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.TickLabels"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.ScaleLabelStyle">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.LabelStyle"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.ScaleLabelFrequency">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.LabelFrequency"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.ScaleLabelDistance">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.LabelDistance"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.ScaleLabelFormat">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.LabelFormat"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.ScaleLabelTemplate">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.LabelTemplate"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.ScaleLabelChoices">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.GraduatedScale.LabelChoices"/> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Scale"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Value">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.<c>Value</c> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Controllable">
+            <summary>
+            Gets or sets whether the value of the meter can be
+            manipulated by the user.
+            </summary>
+            <remarks>
+            Directly checks and changes the <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>'s
+            <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.<c>ActionEnabled</c> property.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.Quantized">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.<c>Quantized</c> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.QuantizeBase">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.<c>QuantizeBase</c> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Meter.QuantizeUnit">
+            <summary>
+            The <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.<c>QuantizeUnit</c> property exposed from the <see cref="P:Northwoods.Go.Instruments.Meter.Indicator"/>.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.MultipleIndicatorMeter">
+            <summary>
+            A Meter designed to maintain an array of <see cref="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.Indicator"/>s.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.MultipleIndicatorMeter.InsertedIndicator">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.MultipleIndicatorMeter.RemovedIndicator">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Instruments.MultipleIndicatorMeter.ReplacedIndicator">
+            <summary>
+            This is a <see cref="M:Northwoods.Go.GoObject.Changed(System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/> subhint.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.MultipleIndicatorMeter.#ctor">
+            <summary>
+            Construct a meter with no scale or indicator.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.MultipleIndicatorMeter.AddIndicator(Northwoods.Go.Instruments.Indicator)">
+            <summary>
+            Add an <see cref="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.Indicator"/> to the list.
+            </summary>
+            <param name="ind"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.MultipleIndicatorMeter.InsertIndicator(System.Int32,Northwoods.Go.Instruments.Indicator)">
+            <summary>
+            Add an <see cref="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.Indicator"/> at a particular position in the list.
+            </summary>
+            <param name="index"></param>
+            <param name="ind"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.MultipleIndicatorMeter.RemoveIndicator(Northwoods.Go.Instruments.Indicator)">
+            <summary>
+            Remove an <see cref="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.Indicator"/> from the list.
+            </summary>
+            <param name="ind"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.MultipleIndicatorMeter.GetIndicator(System.Int32)">
+            <summary>
+            Get an <see cref="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.Indicator"/> at a particular position in the list.
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.MultipleIndicatorMeter.SetIndicator(System.Int32,Northwoods.Go.Instruments.Indicator)">
+            <summary>
+            Replace an <see cref="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.Indicator"/> at a particular position in the list.
+            </summary>
+            <param name="index"></param>
+            <param name="ind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.MultipleIndicatorMeter.CopyChildren(Northwoods.Go.GoGroup,Northwoods.Go.GoCopyDictionary)">
+            <summary>
+            Make sure references to the children, including the indicators, are referring
+            to newly copied objects.
+            </summary>
+            <param name="newgroup"></param>
+            <param name="env"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.MultipleIndicatorMeter.Remove(Northwoods.Go.GoObject)">
+            <summary>
+            If any part is removed from this group,
+            be sure to remove any references in local fields.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.MultipleIndicatorMeter.ChangeValue(Northwoods.Go.GoChangedEventArgs,System.Boolean)">
+            <summary>
+            Handle undo and redo changes.
+            </summary>
+            <param name="e"></param>
+            <param name="undo"></param>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.Indicator">
+            <summary>
+            The main Indicator is the first one.
+            </summary>
+            <remarks>
+            If there are no indicators, the getter returns null.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.Indicators">
+            <summary>
+            A read-only list containing all the <see cref="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.Indicators"/> associated
+            with this <see cref="T:Northwoods.Go.Instruments.MultipleIndicatorMeter"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.IndicatorCount">
+            <summary>
+            Gets the number of <see cref="P:Northwoods.Go.Instruments.MultipleIndicatorMeter.Indicator"/>s being displayed.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Instruments.Phase">
+            <summary>
+            Contains the information needed to paint a phase of an <see cref="T:Northwoods.Go.Instruments.IndicatorBar"/>.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Phase.#ctor(System.Double,System.Double,System.Drawing.Color)">
+            <summary>
+            Creates a <see cref="T:Northwoods.Go.Instruments.Phase"/> with properties set by the parameters.
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="color"></param>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Phase.op_Equality(Northwoods.Go.Instruments.Phase,Northwoods.Go.Instruments.Phase)">
+            <summary>
+            Equality is defined by the equality of each of the fields.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Phase.op_Inequality(Northwoods.Go.Instruments.Phase,Northwoods.Go.Instruments.Phase)">
+            <summary>
+            Equality is defined by the equality of each of the fields.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Phase.Equals(System.Object)">
+            <summary>
+            Equality is defined by the equality of each of the fields.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Instruments.Phase.GetHashCode">
+            <summary>
+            The hash code is determined by the XOR of the hash codes of the fields.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Phase.Min">
+            <summary>
+            Gets or sets the minimum value of the phase.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Phase.Max">
+            <summary>
+            Gets or sets the maximum value of the phase.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Instruments.Phase.Color">
+            <summary>
+            Gets or sets the <see cref="P:Northwoods.Go.Instruments.Phase.Color"/> used to paint the phase.
+            </summary>
+        </member>
+    </members>
+</doc>

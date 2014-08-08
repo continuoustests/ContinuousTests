@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="Packager" default="go">
+  <property name="build.config.settings" value="__NONE__" overwrite="false" />
+  <include buildfile="${build.config.settings}" if="${file::exists(build.config.settings)}" />
+  <property name="path.separator" value="${string::trim(path::combine(' ', ' '))}" />
+  <property name="dirs.current" value="${directory::get-parent-directory(project::get-buildfile-path())}" />
+  <property name="folder.code_build" value="build_output" overwrite="false" />
+  <property name="dirs.build" value="${dirs.current}${path.separator}..${path.separator}${folder.code_build}" />
+  <property name="folder.code_drop" value="code_drop" overwrite="false" />
+  <property name="dirs.drop" value="${dirs.current}${path.separator}..${path.separator}${folder.code_drop}" overwrite="false" />
+  <property name="folder.app.drop" value="${project.name}" overwrite="false" />
+
+  <target name="go" depends="app" description="Packaging" />
+
+  <target name="app">
+    <echo message="Packaging test items to ${dirs.drop}${path.separator}${folder.app.drop}."/>
+    <copy todir="${dirs.drop}${path.separator}${folder.app.drop}">
+      <fileset basedir="${dirs.build}">
+        <include name="*Test*" />
+      </fileset>
+    </copy>
+  </target>
+
+</project>

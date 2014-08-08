@@ -1,0 +1,71 @@
+												NUnit version 2.4.7
+Copyright (C) 2002-2007 Charlie Poole.
+Copyright (C) 2002-2004 James W. Newkirk, Michael C. Two, Alexei A. Vorontsov.
+Copyright (C) 2000-2002 Philip Craig.								
+All Rights Reserved.
+
+Runtime Environment - 
+   OS Version: Unix 2.6.32.24
+  CLR Version: 2.0.50727.1433 ( 2.6.7 (Debian 2.6.7-3ubuntu1~dhx1) )
+
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="AutoTest.WinForms.Test/bin/Debug/AutoTest.WinForms.Test.dll" total="6" failures="1" not-run="1" date="2010-09-24" time="22:57:58">
+  <environment nunit-version="2.4.7.0" clr-version="2.0.50727.1433" os-version="Unix 2.6.32.24" platform="Unix" cwd="/home/ack/src/AutoTest.Net/src" machine-name="svein-arne-xps" user="ack" user-domain="svein-arne-xps" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite name="AutoTest.WinForms.Test/bin/Debug/AutoTest.WinForms.Test.dll" success="False" time="2.428" asserts="0">
+    <results>
+      <test-suite name="AutoTest" success="False" time="2.426" asserts="0">
+        <results>
+          <test-suite name="WinForms" success="False" time="2.425" asserts="0">
+            <results>
+              <test-suite name="Test" success="False" time="2.424" asserts="0">
+                <results>
+                  <test-suite name="BotstrapperTest" success="True" time="2.256" asserts="0">
+                    <results>
+                      <test-case name="AutoTest.WinForms.Test.BotstrapperTest.Should_register_directoy_picker_form" executed="True" success="True" time="0.909" asserts="1" />
+                      <test-case name="AutoTest.WinForms.Test.BotstrapperTest.Should_register_feedback_form" executed="True" success="True" time="0.783" asserts="1" />
+                      <test-case name="AutoTest.WinForms.Test.BotstrapperTest.Should_register_information_form" executed="True" success="True" time="0.556" asserts="1" />
+                    </results>
+                  </test-suite>
+                  <test-suite name="LinkParserTest" success="False" time="0.044" asserts="0">
+                    <results>
+                      <test-case name="AutoTest.WinForms.Test.LinkParserTest.Should_replace_link_tags" executed="True" success="False" time="0.023" asserts="2">
+                        <failure>
+                          <message><![CDATA[  Expected: 10
+  But was:  2
+]]></message>
+                          <stack-trace><![CDATA[at AutoTest.Core.Caching.RunResultCache.LinkParser.Parse () [0x0000d] in /home/ack/src/AutoTest.Net/src/AutoTest.Core/Caching/RunResultCache/LinkParser.cs:27
+at AutoTest.Test.Core.Caching.LinkParserTest.Should_replace_link_tags () [0x0000b] in /home/ack/src/AutoTest.Net/src/AutoTest.Test/Core/Caching/RunResultCache/LinkParserTest.cs:18
+at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (System.Reflection.MonoMethod*,object,object[],System.Exception&)
+at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x000d0] in /home/ack/src/mono2.8/mono-2.8/mcs/class/corlib/System.Reflection/MonoMethod.cs:223
+]]></stack-trace>
+                        </failure>
+                      </test-case>
+                      <test-case name="AutoTest.WinForms.Test.LinkParserTest.Should_return_links" executed="False">
+                        <reason>
+                          <message><![CDATA[Ignored Test]]></message>
+                        </reason>
+                      </test-case>
+                    </results>
+                  </test-suite>
+                  <test-suite name="SummaryBuilderTest" success="True" time="0.003" asserts="0">
+                    <results>
+                      <test-case name="AutoTest.WinForms.Test.SummaryBuilderTest.Should_build_tooltip_string" executed="True" success="True" time="0.002" asserts="1" />
+                    </results>
+                  </test-suite>
+                  <test-suite name="WatchDirectoryPickerFormTest" success="True" time="0.086" asserts="0">
+                    <results>
+                      <test-case name="AutoTest.WinForms.Test.WatchDirectoryPickerFormTest.Should_list_directories_from_configuration" executed="True" success="True" time="0.086" asserts="2" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

@@ -1,0 +1,22 @@
+{
+	"#Comment" : "Handlers are command arguments and stdout writelines",
+	"handlers" :
+	[
+		{
+			"handler" :
+			{
+				"arguments" : [ "|ANY|", "get-command-definitions" ],
+				"responses" : [ "Starts AutoTest.Net winforms application" ]
+			}
+		}
+	],
+	"link" :
+	{
+		"executable" : "ReleaseBinaries/AutoTest.WinForms.exe",
+		"params" : "{args}",
+		"#Comment" :
+			"Valid: {run-location} {global-profile} {local-profile} {args}",
+		"#Comment" :
+			"Paths uses / on all platforms"
+	}
+}

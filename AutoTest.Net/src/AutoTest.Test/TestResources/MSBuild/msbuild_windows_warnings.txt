@@ -1,0 +1,29 @@
+Microsoft (R) Build Engine Version 3.5.30729.4926
+[Microsoft .NET Framework, Version 2.0.50727.4952]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 22.10.2010 23:07:45.
+Project "C:\Users\ack\src\EventStore\EventStore\EventStore.csproj" on node 0 (default targets).
+Project file contains ToolsVersion="4.0", which is not supported by this version of MSBuild. Treating the project as if it had ToolsVersion="3.5".
+EntityDeploy:
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+Program.cs(21,8): warning CS0219: The variable 'a' is assigned but its value is never used
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\EventStoreNS.exe" to "bin\Debug\EventStoreNS.exe".
+  EventStore -> C:\Users\ack\src\EventStore\EventStore\bin\Debug\EventStoreNS.exe
+  Copying file from "obj\x86\Debug\EventStoreNS.pdb" to "bin\Debug\EventStoreNS.pdb".
+Done Building Project "C:\Users\ack\src\EventStore\EventStore\EventStore.csproj" (default targets).
+
+
+Build succeeded.
+
+"C:\Users\ack\src\EventStore\EventStore\EventStore.csproj" (default target) (1) ->
+(CoreCompile target) ->
+  Program.cs(21,8): warning CS0219: The variable 'a' is assigned but its value is never used
+
+    1 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.34
+

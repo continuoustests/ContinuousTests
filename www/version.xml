@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<release>
+	<version>1.0.47</version>
+	<information><![CDATA[This release contains the following changes{0}
+{0}
+Version 1.0.47{0}
+Fixed an issue where an unhandled exception made it possible not to run correct tests{0}
+{0}
+Version 1.0.46{0}
+Added some fault handling for winforms issues on linux{0}
+Removes temporary profiler files felt behind{0}
+{0}
+Version 1.0.45{0}
+Fixed installer so that it does as little as possible to not upset the fragile Visual Studio{0}
+When a process terminates abnormally profiler log files left behind will be cleaned up on next run{0}
+{0}
+Version 1.0.44{0}
+Fixed issue with editing files of certain types in Visual Studio{0}
+Fixed some installer issues{0}
+{0}
+Version 1.0.43{0}
+Removed old beta license handling that gave some users issues{0}
+{0}
+Version 1.0.42{0}
+Fixed issues with VS crashing while editing .cshtml files{0}
+Fixed issue with license window{0}
+Fixed issue with assembly ignores{0}
+{0}
+Version 1.0.41{0}
+Installer now works for Visual Studio 2012 (debugger support is on the way){0}
+{0}
+Version 1.0.40{0}
+Fixes for Visual Studio 2012{0}
+Fixed issue with wrong NUnit version{0}
+Issue with profiling using large amounts of memory solved{0}
+Profiler speed optimized{0}
+Test runner failures regarding invalid result xml's fixed (internal error){0}
+Various fixes{0}
+{0}
+Version 1.0.37{0}
+Fixed issue with slow profiler analysis{0}
+Fixed issues with occasional hangs{0}
+{0}
+Version 1.0.36{0}
+Use G, P and S to go to graphs, profiled graphs and sequence diagrams inside a graph{0}
+Bugfixes{0}
+{0}
+Version 1.0.35{0}
+TO KEEP USING ContinuousTests YOU HAVE TO UPGRADE TO THIS VERSION{0}
+After upgrade the message about no valid license is gone{0}
+Improved recursive handling for profiler{0}
+Better handling of large profiled tests{0}
+Added support for aborting build/test runs{0}
+Fixed go to test which sometimes did nothing{0}
+{0}
+Version 1.0.34{0}
+Optimized handling of profiler information{0}
+Improved MSpec with profiler information and more{0}
+Support for profiled graphs in addition to previous graphs{0}
+Support for viewing graphs of last test run{0}
+Optimized test runner feedback{0}
+Fixed bug where full run windows pop up twice{0}
+Fixed bug with right-click->Run tests in solution and class view{0}
+Fixed bug where growl did not work on MacOSX{0}
+Loads of small fixes{0}
+{0}
+Version 1.0.33{0}
+Speed optimizations for profiler{0}
+Lots of new features and information in graphs{0}
+Removed getters and setters from sequence diagrams{0}
+Fixed issue with Mono.Cecil versioning{0}
+{0}
+Version 1.0.32{0}
+A bit quick on the trigger there. Fixed issue with reolving test runner shared library{0}
+{0}
+Version 1.0.31{0}
+Fixed issue with project builds not working{0}
+{0}
+Version 1.0.30{0}
+Support for the Simple.Testing test framework{0}
+Automatically submits solution directory to project builds{0}
+Setting for specifying parallel builds in MSBuild when building solution{0}
+A bunch of bug fixes{0}
+{0}
+Version 1.0.29{0}
+Fixed slowdowns when working in .cshtml files{0}
+Fixed issue with profiling MSpec tests{0}
+Added green checks and red crosses next to tests{0}
+{0}
+Version 1.0.28{0}
+Fixed slowdowns in editor while typing{0}
+Fixed renames with R#{0}
+Nested class fix{0}
+{0}
+Version 1.0.27{0}
+Fixes the issue with disapearing Visual Studio menus{0}
+Fixes issue with illegal characters in test output{0}
+{0}
+Version 1.0.26{0}
+New MSpec runner that handles all MSpec versions.{0}
+Various performance fixes.{0}
+{0}
+Version 1.0.25{0}
+Inline realtime time tracking of test execution in margins{0}
+Automatic notification of significant changes in time tracking{0}
+Visible time tracking analysis in sequence diagrams{0}
+Gary the snail!{0}
+Drastically reduced build times for project build mode{0}
+Support for additional parameters for msbuild in configuration{0}
+Various bugfixes{0}
+{0}
+Version 1.0.24{0}
+Fixed issues with risc margins not showing up correctly after first run{0}
+Added support for nested test fixtures for the test runner{0}
+{0}
+Version 1.0.23{0}
+Installer no longer runs the menu removal tool as it's not needed{0}
+Fixed issues with warmup not running after register screen{0}
+Fixed issue with risc numbers not getting loaded in some scenarios{0}
+{0}
+Version 1.0.22{0}
+Fixed critical issue with NUnit runner{0}
+Fixed sequence diagram issues{0}
+{0}
+Version 1.0.21{0}
+Fixed issues coexistense issues with resharper{0}
+{0}
+Version 1.0.20{0}
+Bugfix in testrunner{0}
+Fixed menues and uninstall issues{0}
+{0}
+Version 1.0.19{0}
+Added support for MSpec 0.5{0}
+Bugfixes{0}
+{0}
+Version 1.0.18{0}
+Background thread exceptions will no longer crash the test runner{0}
+When dealing with a project with no tests it will only show the watmup once{0}
+{0}
+Version 1.0.17{0}
+Memory usage down to 1/5 of previous footprint{0}
+Speed improvements for test runner{0}
+Possibility for disabling CT completely{0}
+Run progress information{0}
+Moved to only use solution configuration{0}
+Can now report bugs directly from the ContinuousTests menu{0}
+Numerous bugfixes{0}
+{0}
+Version 1.0.16{0}
+Right click in SpecFlow feature to run spesification{0}
+Solved performance issues when typing in Visual Studio{0}
+Moved all cache and config files away from source structure (solution config is still possible though){0}
+Added configuration for removing risc margins{0}
+Tests marked with the Explicit attribute will no longer be run{0}
+{0}
+Version 1.0.15{0}
+Made test details window monospace to display string mismatch better{0}
+Fixed bug where test runner would hang{0}
+Fixed bug where go to MSpec tests wouldn't work{0}
+{0}
+Version 1.0.14{0}
+Fixed issue with double builds in Auto-Moose mode{0}
+{0}
+Version 1.0.13{0}
+Test duration added to test details and last run window{0}
+Test runner compatibility mode setting to supress unhandled exceptions like several other runners{0}
+Various bugfixes{0}
+{0}
+Version 1.0.12{0}
+Addition to Mighty-Moose mode: Realtime feedback as you type mode (Toggle with Ctrl+'){0}
+Realtime updating graphs and sequence diagrams (Graph setting: Window){0}
+Off mode for test minimizing to disable most functionality and drop memory usage{0}
+Configuration for running test assemblies in parallel{0}
+Big speed increase for test runs{0}
+Window showing last tests run{0}
+Full profiler support for MSpec{0}
+Seamles test runner support for MSpec 3 and 4{0}
+Support for building only required projects in manual mode{0}
+Click support in sequence diagram headers{0}
+Overlay notification icons{0}
+Fixed several VS crash bugs{0}
+Show's an X in the margin for failing tests{0}
+A whole bunch of bug fixes{0}
+And a easter egg!{0}
+{0}
+Version 1.0.11{0}
+Full support for F# projects{0}
+Fixed bug where addin had stopped working in Visual Studio 2008{0}
+Fixed path issues with growl notifier{0}
+{0}
+Version 1.0.10{0}
+Sequence Diagrams for tests. Right click inside a test and click ContinuousTests->Sequence Diagram to view test execution information{0}
+Fixed problem with VS crash{0}
+Added configurable options for showing compile errors/warnings and test failures/ingores in the feedback window{0}
+Added workflow setting to warmup window and made it configurable{0}
+Made enter and double click on test in feedback window open code window positioned on test{0}
+Made debugger work with MSpec. (Will not set breakpoint automatically){0}
+Got ContinousTests working with the nCQRS source{0}
+Various bugfixes{0}
+{0}
+Version 1.0.9{0}
+Bug Fixes with properties and risk margins{0}
+Setters can have graphs brought up on them{0}
+Project based builds in config{0}
+Ability to add other namespaces to be profiled{0}
+Bunch of fixes to mono/linux{0}
+Fixed the duplicate and not removed build items in feedback{0}
+]]></information>
+</release>

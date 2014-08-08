@@ -1,0 +1,161 @@
+﻿@MediaGeniX
+Feature: Receive VOD patterns from PRF
+	In order to update ODA with VOD patterns
+	As a VOD pattern consumer
+	I want to receive VOD patterns and store them in ODA database
+
+Scenario: Create a new VOD pattern for a TV program
+	Given ODA database contains program data
+	    | PiProgId      | Medium	|
+	    | NNFA20400099  | tv	|
+	But ODA database does not contain fileset parts with carrier "NNFA20400099AA"
+	And ODA database does not contain files for fileset parts with carrier "NNFA20400099AA"
+	And ODA database does not contain rights with pattern "83223739100"
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId   | Id	| StartDateTime	| EndDateTime	| TitleLong	| SummaryMedium	| MasterSourceId	| TranscodingDomain	| TranscodingStatus	| Platform	|
+	    | NewOrUpdate	| NNFA20400099  | 83223739100	| 2010-11-01	| 2010-12-01	| Head title	| Drama series	| NNFA20400099AA	| NARK	| Finished	| WEB	|
+	Then MgxGranitt adapter service should return OK
+	And ODA database should contain rights for program "NNFA20400099"
+	    | VodPatternId  | PublishStart	| PublishEnd	|
+	    | 83223739100   | 2010-11-01	| 2010-12-01	|
+	And ODA database should contain fileset parts for program "NNFA20400099"
+	    | CarrierId	   | PartNumber	| Priority	| Deactivated	|
+	    | NNFA20400099AA	   | 1	| 1	| False	|
+	And ODA database should contain transcoding information for program "NNFA20400099"
+	    | CarrierId	   | Platform	| TranscodingStatus	|
+	    | NNFA20400099AA	   | web	| 100	|
+	And ODA database should contain files for fileset parts with carrier "NNFA20400099AA"
+	    | FileName	| Profile	|
+	    | NNFA20400099AA_ID180.mp4	| ID180	|
+	    | NNFA20400099AA_ID270.mp4	| ID270	|
+	    | NNFA20400099AA_ID360.mp4	| ID360	|
+	    | NNFA20400099AA_ID540.mp4	| ID540	|
+	    | NNFA20400099AA_ID720.mp4	| ID720	|
+
+Scenario: Create a new VOD pattern for a radio program
+	Given ODA database contains program data
+	    | PiProgId      | Medium	|
+	    | MUHR01006611  | radio	|
+	But ODA database does not contain fileset parts with carrier "MUHR01006611AA"
+	And ODA database does not contain rights with pattern "83223739200"
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId   | Id	| StartDateTime	| EndDateTime	| TitleLong	| SummaryMedium	| MasterSourceId	| TranscodingDomain	| TranscodingStatus	| Platform	|
+	    | NewOrUpdate	| MUHR01006611  | 83223739200	| 2010-11-01	| 2010-12-01	| Radio title	| Drama series	| MUHR01006611AA	| NARK	| Finished	| WEB	|
+	Then MgxGranitt adapter service should return OK
+	And ODA database should contain rights for program "MUHR01006611"
+	    | VodPatternId  | PublishStart	| PublishEnd	|
+	    | 83223739200   | 2010-11-01	| 2010-12-01	|
+	And ODA database should contain fileset parts for program "MUHR01006611"
+	    | CarrierId	   | PartNumber	| Priority	| Deactivated	|
+	    | MUHR01006611AA	   | 1	| 1	| False	|
+	And ODA database should contain transcoding information for program "MUHR01006611"
+	    | CarrierId	   | Platform	| TranscodingStatus	|
+	    | MUHR01006611AA	   | web	| 100	|
+	And ODA database should not contain files for fileset parts with carrier "MUHR01006611AA"
+
+Scenario: Reject a VOD pattern for a non-existing TV program
+	Given ODA database does not contain program "NNFA20400099"
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId   | Id	| StartDateTime	| EndDateTime	| TitleLong	| SummaryMedium	| MasterSourceId	| TranscodingDomain	| TranscodingStatus	| Platform	|
+	    | NewOrUpdate	| NNFA20400099  | 83223739100	| 2010-11-01	| 2010-12-01	| Head title	| Drama series	| NNFA20400099AA	| NARK	| Finished	| WEB	|
+	Then MgxGranitt adapter service should return fail
+
+Scenario: Reject a VOD pattern for a non-existing radio program
+	Given ODA database does not contain program "MUHR01006611"
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId   | Id	| StartDateTime	| EndDateTime	| TitleLong	| SummaryMedium	| MasterSourceId	| TranscodingDomain	| TranscodingStatus	| Platform	|
+	    | NewOrUpdate	| MUHR01006611  | 83223739200	| 2010-11-01	| 2010-12-01	| Radio title	| Drama series	| MUHR01006611AA	| NARK	| Finished	| WEB	|
+	Then MgxGranitt adapter service should return fail
+
+Scenario: Create title and description for a TV program
+	Given ODA database does not contain program data
+	    | PiProgId      | Medium	|
+	    | NNFA20400099  | tv	|
+	And ODA database contains program data
+	    | PiProgId      | Medium	|
+	    | NNFA20400099  | tv	|
+	And ODA database does not contain fileset parts with carrier "NNFA20400099AA"
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId   | Id	| StartDateTime	| EndDateTime	| TitleLong	| SummaryMedium	| MasterSourceId	| TranscodingDomain	| TranscodingStatus	| Platform	|
+	    | NewOrUpdate	| NNFA20400099  | 83223739100	| 2010-11-01	| 2010-12-01	| Head title	| Drama series	| NNFA20400099AA	| NARK	| Finished	| WEB	|
+	Then MgxGranitt adapter service should return OK
+	And ODA database should contain titles for program "NNFA20400099"
+	    | Title      | TitlesGroupType | Label    | Purpose | Reference | Restriction |
+	    | Head title | secondaryTitle  | onDemand | web     | MGX       | public      |
+	And ODA database should contain descriptions for program "NNFA20400099"
+	    | Abstract     | Purpose          | Reference | Restriction |
+	    | Drama series | shortDescription | MGX       | public      |
+
+Scenario: Create a new VOD pattern for an existing TV program
+	Given ODA database contains rights for program "NNFA20400099"
+	    | VodPatternId  | PublishStart	| PublishEnd	|
+	    | 83223739100   | 2010-11-01	| 2010-12-01	|
+	But ODA database does not contain rights with pattern "83223739111"
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId   | Id	| StartDateTime	| EndDateTime	|
+	    | NewOrUpdate	| NNFA20400099  | 83223739111   | 2010-11-11	| 2010-12-11	|
+	Then MgxGranitt adapter service should return OK
+	And ODA database should contain rights for program "NNFA20400099"
+	    | VodPatternId  | PublishStart	| PublishEnd	|
+	    | 83223739100   | 2010-11-01	| 2010-12-01	|
+	    | 83223739111   | 2010-11-11	| 2010-12-11	|
+
+Scenario: Create a new VOD pattern for existing subtitles
+	Given ODA database contains program "NNFA20400099"
+	And ODA database does not contain fileset parts with carrier "NNFA20400099AA"
+	But ODA database contains subtitles
+	| Title	| PiProgId	| CarrierId	| Language	|
+	| Subtitle 123	| NNFA20400099	| NNFA20400099AA| NOR	|
+	| Subtitle 456	| NNFA20400099	| NNFA20400099AA| TTV	|
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId   | Id	| MasterSourceId	|
+	    | NewOrUpdate	| NNFA20400099  | 83223739100	| NNFA20400099AA	|
+	Then MgxGranitt adapter service should return OK
+	And ODA database should contain program "NNFA20400099"
+	And ODA database should contain subtitles for program "NNFA20400099"
+	| Title	| CarrierId	| Language	|
+	| Subtitle 123	| NNFA20400099AA| NOR	|
+	| Subtitle 456	| NNFA20400099AA| TTV	|
+
+Scenario: Update rights for an existing VOD pattern
+	Given ODA database contains rights for program "NNFA20400099"
+	    | VodPatternId  | PublishStart	| PublishEnd	|
+	    | 83223739100   | 2010-11-01	| 2010-12-01	|
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId   | Id	| StartDateTime| EndDateTime	|
+	    | NewOrUpdate	| NNFA20400099  | 83223739100   | 2010-11-11	| 2010-12-11	|
+	Then MgxGranitt adapter service should return OK
+	And ODA database should contain rights for program "NNFA20400099"
+	    | VodPatternId  | PublishStart	| PublishEnd	|
+	    | 83223739100   | 2010-11-11	| 2010-12-11	|
+
+Scenario: Update transcoding status for an existing VOD pattern
+	Given ODA database contains program "NNFA20400099"
+	And ODA database contains transcoding information for program "NNFA20400099"
+	    | CarrierId	   | Platform	| TranscodingStatus	|
+	    | NNFA20400099AA	   | web	| 2	|
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId   | Id	| MasterSourceId	| TranscodingDomain	| TranscodingStatus	| Platform	|
+	    | NewOrUpdate	| NNFA20400099  | 83223739100   | NNFA20400099AA	| NARK	| Finished	| WEB	|
+	Then MgxGranitt adapter service should return OK
+	And ODA database should contain transcoding information for program "NNFA20400099"
+	    | CarrierId	   | Platform	| TranscodingStatus	|
+	    | NNFA20400099AA	   | web	| 100	|
+
+Scenario: Delete a VOD pattern
+	Given ODA database contains rights for program "NNFA20400099"
+	    | VodPatternId  | PublishStart	| PublishEnd	|
+	    | 83223739100   | 2010-11-01	| @tomorrow	|
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId   | Id	|
+	    | Delete	| NNFA20400099  | 83223739100   |
+	Then MgxGranitt adapter service should return OK
+	And ODA database should contain rights for program "NNFA20400099"
+	    | VodPatternId  | PublishStart	| PublishEnd	|
+	    | 83223739100   | 2010-11-01	| @today	|
+
+Scenario: Send an invalid VOD pattern
+	When MgxGranitt adapter service receives pattern with data
+	    | ChangeType	| AlternateId    | Id	| StartDateTime	| EndDateTime	|
+	    | NewOrUpdate	| NNFA20400099   | 83223739100  |	|	|
+	Then MgxGranitt adapter service should return fail

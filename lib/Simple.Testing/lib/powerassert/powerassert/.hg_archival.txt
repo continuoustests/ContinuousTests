@@ -1,0 +1,5 @@
+repo: 2c8ea7745a23d74598bea917327266eada703926
+node: 8e1d4d6874e16f7b2f925a23a19005a26bc386de
+branch: default
+latesttag: Release 1.0.2
+latesttagdistance: 2

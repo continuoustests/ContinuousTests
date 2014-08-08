@@ -1,0 +1,28 @@
+﻿Microsoft (R) Build Engine Version 3.5.30729.4926
+[Microsoft .NET Framework, Version 2.0.50727.4952]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 22.10.2010 22:53:01.
+Project "C:\Users\ack\src\EventStore\EventStore\EventStore.csproj" on node 0 (default targets).
+Project file contains ToolsVersion="4.0", which is not supported by this version of MSBuild. Treating the project as if it had ToolsVersion="3.5".
+EntityDeploy:
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+Program.cs(20,20): error CS1002: ; expected
+Program.cs(20,20): error CS1525: Invalid expression term '.'
+Program.cs(20,21): error CS1002: ; expected
+Done Building Project "C:\Users\ack\src\EventStore\EventStore\EventStore.csproj" (default targets) -- FAILED.
+
+
+Build FAILED.
+
+"C:\Users\ack\src\EventStore\EventStore\EventStore.csproj" (default target) (1) ->
+(CoreCompile target) ->
+  Program.cs(20,20): error CS1002: ; expected
+  Program.cs(20,20): error CS1525: Invalid expression term '.'
+  Program.cs(20,21): error CS1002: ; expected
+
+    0 Warning(s)
+    3 Error(s)
+
+Time Elapsed 00:00:00.27

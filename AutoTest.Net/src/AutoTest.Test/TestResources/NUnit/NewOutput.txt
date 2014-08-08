@@ -1,0 +1,563 @@
+NUnit version 2.5.7.10213
+Copyright (C) 2002-2009 Charlie Poole.
+Copyright (C) 2002-2004 James W. Newkirk, Michael C. Two, Alexei A. Vorontsov.
+Copyright (C) 2000-2002 Philip Craig.
+All Rights Reserved.
+
+Runtime Environment - 
+   OS Version: Unix 2.6.32.24
+  CLR Version: 2.0.50727.1433 ( 2.6.7 (Debian 2.6.7-3ubuntu1~dhx1) )
+
+ProcessModel: Default    DomainUsage: Multiple
+Execution Runtime: Default
+install called
+install called
+install called
+Number of results 1
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="/home/ack/src/AutoTest.Net/src/AutoTest.TestCore/bin/Debug/AutoTest.TestCore.dll" total="260" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2010-09-26" time="02:23:25">
+  <environment nunit-version="2.5.7.10213" clr-version="2.0.50727.1433" os-version="Unix 2.6.32.24" platform="Unix" cwd="/home/ack/src/AutoTest.Net/src/AutoTest.WinForms/bin/Debug" machine-name="svein-arne-xps" user="ack" user-domain="svein-arne-xps" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Test Project" name="" executed="True" result="Success" success="True" time="5.014" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="/home/ack/src/AutoTest.Net/src/AutoTest.TestCore/bin/Debug/AutoTest.TestCore.dll" executed="True" result="Success" success="True" time="0.057" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="AutoTest" executed="True" result="Success" success="True" time="0.052" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="Test" executed="True" result="Success" success="True" time="0.048" asserts="0">
+                <results>
+                  <test-suite type="TestFixture" name="TestingExtensionMethodsTests" executed="True" result="Success" success="True" time="0.047" asserts="0">
+                    <results>
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Shoud_be_same" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Shoud_be_same_should_fail_when_not_same" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_be_equal" executed="True" result="Success" success="True" time="0.004" asserts="3" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_Be_False" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_be_null" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_be_right_type" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_Be_True" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_be_wrong_type" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_make_sure_thing_is_not_null" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_not_be_equal_on_numbers" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_not_be_equal_on_string_arrays" executed="True" result="Success" success="True" time="0.006" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_not_be_equal_on_strings" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_not_be_null" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_not_be_of_the_right_type" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_not_be_same" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.Should_not_be_same_should_fail_when_same" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                      <test-case name="AutoTest.Test.TestingExtensionMethodsTests.SHould_not_say_thing_is_null_and_should_allow_chaining" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="Assembly" name="/home/ack/src/AutoTest.Net/src/AutoTest.Test/bin/Debug/AutoTest.Test.dll" executed="True" result="Success" success="True" time="3.969" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="AutoTest" executed="True" result="Success" success="True" time="3.949" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="Test" executed="True" result="Success" success="True" time="3.949" asserts="0">
+                <results>
+                  <test-suite type="Namespace" name="Core" executed="True" result="Success" success="True" time="3.923" asserts="0">
+                    <results>
+                      <test-suite type="Namespace" name="BuildRunners" executed="True" result="Success" success="True" time="0.037" asserts="0">
+                        <results>
+                          <test-suite type="TestFixture" name="BuildMessageTest" executed="True" result="Success" success="True" time="0.023" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.BuildRunners.BuildMessageTest.Should_be_equal" executed="True" result="Success" success="True" time="0.011" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.BuildRunners.BuildMessageTest.Should_not_be_equal" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="BuildRunResultTest" executed="True" result="Success" success="True" time="0.003" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.BuildRunners.BuildRunResultTest.Should_add_error" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.BuildRunners.BuildRunResultTest.Should_add_warning" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.BuildRunners.BuildRunResultTest.Should_set_time_spent" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="MSBuildOutputParserTest" executed="True" result="Success" success="True" time="0.007" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.BuildRunners.MSBuildOutputParserTest.Should_not_add_duplicate_errors" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.BuildRunners.MSBuildOutputParserTest.Should_not_add_duplicate_warnings" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.BuildRunners.MSBuildOutputParserTest.Should_parse_error" executed="True" result="Success" success="True" time="0.001" asserts="5" />
+                              <test-case name="AutoTest.Test.Core.BuildRunners.MSBuildOutputParserTest.Should_parse_warning" executed="True" result="Success" success="True" time="0.001" asserts="5" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite type="Namespace" name="Caching" executed="True" result="Success" success="True" time="0.229" asserts="0">
+                        <results>
+                          <test-suite type="TestFixture" name="CacheTest" executed="True" result="Success" success="True" time="0.017" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Caching.CacheTest.Can_Add_And_Get_Project" executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.CacheTest.Can_Check_That_Project_Exists" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.CacheTest.Can_Get_By_Index" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.CacheTest.Should_Not_Add_Duplicates" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.CacheTest.Should_read_project_only_once" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.CacheTest.When_Geting_Placeholder_It_Should_Parse_Project" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="LinkParserTest" executed="True" result="Success" success="True" time="0.018" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Caching.LinkParserTest.Should_replace_link_tags" executed="True" result="Success" success="True" time="0.016" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.Caching.LinkParserTest.Should_return_links" executed="True" result="Success" success="True" time="0.000" asserts="5" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="Namespace" name="Projects" executed="True" result="Success" success="True" time="0.164" asserts="0">
+                            <results>
+                              <test-suite type="Namespace" name="Fakes" executed="True" result="Success" success="True" time="0.009" asserts="0">
+                                <results>
+                                  <test-suite type="TestFixture" name="FakeCacheTest" executed="True" result="Success" success="True" time="0.003" asserts="0">
+                                    <results>
+                                      <test-case name="AutoTest.Test.Core.Caching.Projects.Fakes.FakeCacheTest.Should_be_able_to_verify_added_keys" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                                      <test-case name="AutoTest.Test.Core.Caching.Projects.Fakes.FakeCacheTest.Should_faile_when_key_not_added" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                      <test-case name="AutoTest.Test.Core.Caching.Projects.Fakes.FakeCacheTest.Should_return_null_when_provided_with_wrong_key" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                      <test-case name="AutoTest.Test.Core.Caching.Projects.Fakes.FakeCacheTest.Should_return_project_when_provided_with_one" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                    </results>
+                                  </test-suite>
+                                  <test-suite type="TestFixture" name="FakeFileSystemServiceTest" executed="True" result="Success" success="True" time="0.001" asserts="0">
+                                    <results>
+                                      <test-case name="AutoTest.Test.Core.Caching.Projects.Fakes.FakeFileSystemServiceTest.Should_return_nothing_when_invalid_condition" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                      <test-case name="AutoTest.Test.Core.Caching.Projects.Fakes.FakeFileSystemServiceTest.Should_return_on_condition" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                    </results>
+                                  </test-suite>
+                                </results>
+                              </test-suite>
+                              <test-suite type="TestFixture" name="ProjectCrawlerTest" executed="True" result="Success" success="True" time="0.085" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectCrawlerTest.Should_exit_if_invalid_folder" executed="True" result="Success" success="True" time="0.069" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectCrawlerTest.Should_Find_CSharp_Projects" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectCrawlerTest.Should_Find_VisualBasic_Projects" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectCrawlerTest.Should_log_information_message_if_add_project_fails" executed="True" result="Success" success="True" time="0.012" asserts="0" />
+                                </results>
+                              </test-suite>
+                              <test-suite type="TestFixture" name="ProjectDocumentTest" executed="True" result="Success" success="True" time="0.018" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Can_add_reference" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Can_add_reference_range" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Can_add_referencedBy" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Can_add_referencedBy_range" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Can_remove_reference" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Can_remove_referencedBy" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Can_verify_referenced_By" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Can_verify_references" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Has_MSTest_tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Has_NUnit_Tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Has_XUnit_tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Should_set_assembly_name" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Should_set_configuration" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Should_set_framework" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Should_set_outputpath" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Should_set_Platform" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.Should_set_VSVersion" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectDocumentTest.When_calling_HasBeenReadFromFile_IsReadFromFile_should_be_true" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                </results>
+                              </test-suite>
+                              <test-suite type="TestFixture" name="ProjectParserTest" executed="True" result="Success" success="True" time="0.020" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_add_exists_referencedby_records" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_Find_CSharp_Project_With_MS_Tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_Find_CSharp_Project_With_NUnit_Tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_Find_CSharp_Project_With_XUnit_Tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_find_CSharp_references" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_Find_VisualBasic_Project_With_MS_Tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_Find_VisualBasic_Project_With_NUnit_Tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_Find_VisualBasic_Project_With_XUnit_Tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_find_VisualBasic_references" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_mark_found_project_as_read" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_set_assembly_name" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_set_build_configuration" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_set_build_platform" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_set_framework_version" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_set_output_path" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectParserTest.Should_set_product_version" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                                </results>
+                              </test-suite>
+                              <test-suite type="TestFixture" name="ProjectPreparerTest" executed="True" result="Success" success="True" time="0.004" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectPreparerTest.Should_Add_ReferencedProjects" executed="True" result="Success" success="True" time="0.001" asserts="3" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectPreparerTest.Should_populate_referenced_by" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectPreparerTest.Should_prepare_project" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectPreparerTest.When_already_prepared_return_null" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                </results>
+                              </test-suite>
+                              <test-suite type="TestFixture" name="ProjectReloaderTest" executed="True" result="Success" success="True" time="0.020" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectReloaderTest.Should_mark_as_dirty" executed="True" result="Success" success="True" time="0.009" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectReloaderTest.Should_preserve_referencedbys" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectReloaderTest.Should_reload_record" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Caching.Projects.ProjectReloaderTest.Should_remove_remote_referencedbys" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+                                </results>
+                              </test-suite>
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="RunResultCacheTest" executed="True" result="Success" success="True" time="0.017" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_add_build_errors" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_add_build_warnings" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_add_failed_tests" executed="True" result="Success" success="True" time="0.004" asserts="3" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_add_ignored_tests" executed="True" result="Success" success="True" time="0.001" asserts="3" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_merge_build_errors" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_merge_build_warnings" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_merge_failed_tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_merge_ignored_tests" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_not_merge_same_build_errors_from_different_project" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_not_merge_same_build_warnings_from_different_project" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_not_merge_same_failed_tests_from_different_assemblies" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_not_merge_same_ignored_tests_from_different_assemblies" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_remove_cached_build_errors_that_now_works" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_remove_cached_build_warnings_that_now_works" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_remove_cached_failed_tests_that_now_passes" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Caching.RunResultCacheTest.Should_remove_cached_ignored_tests_that_now_passes" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite type="Namespace" name="Configuration" executed="True" result="Success" success="True" time="0.219" asserts="0">
+                        <results>
+                          <test-suite type="TestFixture" name="ConfigTest" executed="True" result="Success" success="True" time="0.053" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_get_framework_spesific_build_executable" executed="True" result="Success" success="True" time="0.032" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_get_product_version_spesific_build_executable" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_code_editor" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_debug_flag" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_default_build_executable" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_default_mstest_testrunner_path" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_default_nunit_testrunner_path" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_default_xunit_testrunner_path" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_directory_to_watch" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_growl_executable" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_mstest_testrunner_path" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_notify_on_completed" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_notify_on_start" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_nunit_testrunner_path" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.ConfigTest.Should_read_xunit_testrunner_path" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="DIContainerFullTest" executed="True" result="Success" success="True" time="0.096" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerFullTest.Should_perform_full_bootstrap" executed="True" result="Success" success="True" time="0.095" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="DIContainerTests" executed="True" result="Success" success="True" time="0.066" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_be_able_to_get_service_locator_from_container" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_bind_consumer_of_file_change_message" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_initialize_setting_service" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_only_register_one_notifiers" executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_application_launcher" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_build_list_generator" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_build_locator" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_build_runner" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_cache" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_cache_as_singleton" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_file_system_service" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_growl_notifier_if_available" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_information_feedback_presenter" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_messaging_module" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_notify_send_notifier_if_available" executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_null_notifier_if_nothing_is_available" executed="True" result="Success" success="True" time="0.009" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_project_dirtifier" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_project_factory" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_project_locators" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_project_parser" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_project_preparer" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_reference_prioritizer" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_run_feedback_presenter" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_run_result_cache" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_run_result_merger" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_test_runners" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Configuration.DIContainerTests.Should_register_watch_validator" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="DirectoryWatcherTests" executed="True" result="Success" success="True" time="1.638" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.Test.Core.DirectoryWatcherTests.Should_not_publish_event_when_validator_invalidates_change" executed="True" result="Success" success="True" time="0.596" asserts="0" />
+                          <test-case name="AutoTest.Test.Core.DirectoryWatcherTests.Should_not_start_watch_when_folder_is_invalid" executed="True" result="Success" success="True" time="0.006" asserts="0" />
+                          <test-case name="AutoTest.Test.Core.DirectoryWatcherTests.Should_send_message_when_file_changes_once" executed="True" result="Success" success="True" time="1.036" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="Namespace" name="FileSystem" executed="True" result="Success" success="True" time="0.251" asserts="0">
+                        <results>
+                          <test-suite type="Namespace" name="ProjectLocators" executed="True" result="Success" success="True" time="0.004" asserts="0">
+                            <results>
+                              <test-suite type="TestFixture" name="CSharpLocatorTest" executed="True" result="Success" success="True" time="0.002" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.FileSystem.ProjectLocators.CSharpLocatorTest.Should_locate_csharp_project" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.FileSystem.ProjectLocators.CSharpLocatorTest.Should_verify_that_file_is_project" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                </results>
+                              </test-suite>
+                              <test-suite type="TestFixture" name="VisualBasicLocatorTest" executed="True" result="Success" success="True" time="0.001" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.FileSystem.ProjectLocators.VisualBasicLocatorTest.Should_locate_visual_basic_project" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.FileSystem.ProjectLocators.VisualBasicLocatorTest.Should_verify_that_file_is_project" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                </results>
+                              </test-suite>
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="WatchValidatorTest" executed="True" result="Success" success="True" time="0.244" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.FileSystem.WatchValidatorTest.Should_invalidate_bin_debug" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.FileSystem.WatchValidatorTest.Should_invalidate_bin_release" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.FileSystem.WatchValidatorTest.Should_invalidate_bin_x86" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.FileSystem.WatchValidatorTest.Should_invalidate_directories" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.FileSystem.WatchValidatorTest.Should_invalidate_monos_filelistabsolute_file" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.FileSystem.WatchValidatorTest.Should_invalidate_monos_fileswrittenabsolute_file" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.FileSystem.WatchValidatorTest.Should_invalidate_obj_debug" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.FileSystem.WatchValidatorTest.Should_invalidate_obj_release" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.FileSystem.WatchValidatorTest.Should_invalidate_obj_x86" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.FileSystem.WatchValidatorTest.Should_return_true_if_normal_file" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite type="Namespace" name="Messaging" executed="True" result="Success" success="True" time="1.171" asserts="0">
+                        <results>
+                          <test-suite type="TestFixture" name="ErrorMessageTest" executed="True" result="Success" success="True" time="0.003" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Messaging.ErrorMessageTest.Should_format_exception" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="FileChangeMessageTests" executed="True" result="Success" success="True" time="0.010" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Messaging.FileChangeMessageTests.Should_be_immutable" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                              <test-case name="AutoTest.Test.Core.Messaging.FileChangeMessageTests.Should_have_file_info" executed="True" result="Success" success="True" time="0.001" asserts="3" />
+                              <test-case name="AutoTest.Test.Core.Messaging.FileChangeMessageTests.Should_initialize_from_strings" executed="True" result="Success" success="True" time="0.001" asserts="3" />
+                              <test-case name="AutoTest.Test.Core.Messaging.FileChangeMessageTests.SHould_not_allow_null_info" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="MessageBusTests" executed="True" result="Success" success="True" time="1.049" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.On_blocking_message_it_should_consme_withheld_messages" executed="True" result="Success" success="True" time="0.134" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_consume_build_messages" executed="True" result="Success" success="True" time="0.068" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_consume_error_messages" executed="True" result="Success" success="True" time="0.070" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_consume_information_message" executed="True" result="Success" success="True" time="0.069" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_consume_run_finished_messages" executed="True" result="Success" success="True" time="0.072" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_consume_run_information_messages" executed="True" result="Success" success="True" time="0.077" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_consume_run_started_messages" executed="True" result="Success" success="True" time="0.071" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_consume_testrun_messages" executed="True" result="Success" success="True" time="0.070" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_consume_warning_messages" executed="True" result="Success" success="True" time="0.070" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_send_int_message" executed="True" result="Success" success="True" time="0.074" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_send_message_to_bus_with_no_subscribers" executed="True" result="Success" success="True" time="0.023" asserts="0" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_be_able_to_send_string_message_and_have_it_delivered_to_all_consumers" executed="True" result="Success" success="True" time="0.062" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_not_be_able_to_send_null_message" executed="True" result="Success" success="True" time="0.018" asserts="0" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.Should_remove_block_when_witheld_messages_are_published" executed="True" result="Success" success="True" time="0.081" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.Messaging.MessageBusTests.When_blocking_consumer_is_running_it_should_block" executed="True" result="Success" success="True" time="0.071" asserts="2" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="Namespace" name="MessageConsumers" executed="True" result="Success" success="True" time="0.100" asserts="0">
+                            <results>
+                              <test-suite type="TestFixture" name="BuildListGeneratorTest" executed="True" result="Success" success="True" time="0.006" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.BuildListGeneratorTest.Should_generate_list" executed="True" result="Success" success="True" time="0.003" asserts="4" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.BuildListGeneratorTest.Should_prioritize_list" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                                </results>
+                              </test-suite>
+                              <test-suite type="TestFixture" name="FileChangeConsumerTest" executed="True" result="Success" success="True" time="0.024" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.FileChangeConsumerTest.Should_not_publish_if_no_project_was_found" executed="True" result="Success" success="True" time="0.013" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.FileChangeConsumerTest.Should_publish_if_project_was_found" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.FileChangeConsumerTest.When_changed_file_is_non_existing_project_add_project" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.FileChangeConsumerTest.When_changed_file_is_project_mark_project_as_dirty" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.FileChangeConsumerTest.When_finding_more_projects_by_multiple_locators_the_ones_closest_to_the_changed_file_should_be_published" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.FileChangeConsumerTest.When_finding_multiple_projects_all_should_be_published" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                                </results>
+                              </test-suite>
+                              <test-suite type="TestFixture" name="ProjectChangeConsumerTest" executed="True" result="Success" success="True" time="0.048" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.ProjectChangeConsumerTest.Should_be_a_blocking_consumer" executed="True" result="Success" success="True" time="0.027" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.ProjectChangeConsumerTest.Should_not_run_builds_when_build_executable_not_defined" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.ProjectChangeConsumerTest.Should_publish_run_finished_message" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.ProjectChangeConsumerTest.Should_publish_run_started_message" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.ProjectChangeConsumerTest.Should_run_builds" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.ProjectChangeConsumerTest.Should_run_tests" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                                </results>
+                              </test-suite>
+                              <test-suite type="TestFixture" name="ReferencePrioritizerTest" executed="True" result="Success" success="True" time="0.005" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.ReferencePrioritizerTest.When_having_multiple_references_should_prioritize_by_reference" executed="True" result="Success" success="True" time="0.002" asserts="4" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.ReferencePrioritizerTest.When_having_referencing_tests_prioritize_referenced" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.ReferencePrioritizerTest.When_no_references_should_return_argument" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                                </results>
+                              </test-suite>
+                              <test-suite type="TestFixture" name="RunReportTest" executed="True" result="Success" success="True" time="0.011" asserts="0">
+                                <results>
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.RunReportTest.Builds_ran_should_be_a_combination_of_failed_an_succeeded" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.RunReportTest.Should_add_failed_build_action" executed="True" result="Success" success="True" time="0.007" asserts="5" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.RunReportTest.Should_add_succeeded_build_action" executed="True" result="Success" success="True" time="0.001" asserts="5" />
+                                  <test-case name="AutoTest.Test.Core.Messaging.MessageConsumers.RunReportTest.Should_add_test_run" executed="True" result="Success" success="True" time="0.001" asserts="8" />
+                                </results>
+                              </test-suite>
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite type="Namespace" name="Presenters" executed="True" result="Success" success="True" time="0.227" asserts="0">
+                        <results>
+                          <test-suite type="TestFixture" name="InformationFeedbackPresenterTest" executed="True" result="Success" success="True" time="0.065" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Presenters.InformationFeedbackPresenterTest.Should_subscribe_to_error_messages" executed="True" result="Success" success="True" time="0.021" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Presenters.InformationFeedbackPresenterTest.Should_subscribe_to_information_messages" executed="True" result="Success" success="True" time="0.021" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Presenters.InformationFeedbackPresenterTest.Should_subscribe_to_warning_messages" executed="True" result="Success" success="True" time="0.021" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="RunFeedbackPresenterTest" executed="True" result="Success" success="True" time="0.160" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.Presenters.RunFeedbackPresenterTest.Should_subscribe_to_build_messages" executed="True" result="Success" success="True" time="0.032" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.Presenters.RunFeedbackPresenterTest.Should_subscribe_to_run_finished_messages" executed="True" result="Success" success="True" time="0.031" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Presenters.RunFeedbackPresenterTest.Should_subscribe_to_run_information_messages" executed="True" result="Success" success="True" time="0.031" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Presenters.RunFeedbackPresenterTest.Should_subscribe_to_run_started_messages" executed="True" result="Success" success="True" time="0.031" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.Presenters.RunFeedbackPresenterTest.Should_subscribe_to_testrun_messages" executed="True" result="Success" success="True" time="0.031" asserts="2" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="ProjectFileCrawlerTest" executed="True" result="Success" success="True" time="0.013" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.Test.Core.ProjectFileCrawlerTest.Should_find_dlls_two_steps_down" executed="True" result="Success" success="True" time="0.007" asserts="2" />
+                          <test-case name="AutoTest.Test.Core.ProjectFileCrawlerTest.Should_return_null_if_no_fiels_found" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="Namespace" name="TestRunners" executed="True" result="Success" success="True" time="0.105" asserts="0">
+                        <results>
+                          <test-suite type="TestFixture" name="MSTestResponseParserTest" executed="True" result="Success" success="True" time="0.009" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.TestRunners.MSTestResponseParserTest.Should_find_error_message_and_stacktrace" executed="True" result="Success" success="True" time="0.005" asserts="8" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.MSTestResponseParserTest.Should_find_failed_test" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.MSTestResponseParserTest.Should_find_ignored_test" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.MSTestResponseParserTest.Should_find_inconclusive_and_treat_as_ignored" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.MSTestResponseParserTest.Should_find_passed_test" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="MSTestRunnerTest" executed="True" result="Success" success="True" time="0.001" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.TestRunners.MSTestRunnerTest.Should_handle_projects_referencing_mstest" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.MSTestRunnerTest.Should_not_handle_projects_not_referencing_mstest" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="NUnitStackLineTest" executed="True" result="Success" success="True" time="0.015" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitStackLineTest.Should_parse_description_line" executed="True" result="Success" success="True" time="0.001" asserts="4" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitStackLineTest.Should_parse_line_number" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitStackLineTest.Should_parse_line_with_file" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitStackLineTest.Should_parse_line_with_method" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitStackLineTest.When_invalid_line_number_should_return_0" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitStackLineTest.When_no_line_number_should_not_return_file" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitStackLineTest.When_no_line_number_should_return_0" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitStackLineTest.When_no_method_closing_should_return_empty_string" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="NUnitTestResponseParserMultipleAssembliesTest" executed="True" result="Success" success="True" time="0.021" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestResponseParserMultipleAssembliesTest.Should_containt_tests_for_two_assemblies" executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestResponseParserMultipleAssembliesTest.Should_extract_assemblies" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestResponseParserMultipleAssembliesTest.Should_extract_run_time" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestResponseParserMultipleAssembliesTest.Should_find_succeeded_test" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="NUnitTestResponseParserTest" executed="True" result="Success" success="True" time="0.015" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestResponseParserTest.Should_extract_assemblies" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestResponseParserTest.Should_extract_run_time" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestResponseParserTest.Should_find_failed_test" executed="True" result="Success" success="True" time="0.002" asserts="4" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestResponseParserTest.Should_find_ignored_test" executed="True" result="Success" success="True" time="0.002" asserts="3" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestResponseParserTest.Should_find_succeeded_test" executed="True" result="Success" success="True" time="0.002" asserts="3" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestResponseParserTest.Should_find_test_name" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="NUnitTestRunnerTest" executed="True" result="Success" success="True" time="0.002" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestRunnerTest.Should_handle_projects_referencing_nunit" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.NUnitTestRunnerTest.Should_not_handle_projects_not_referencing_nunit" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="TestResultTests" executed="True" result="Success" success="True" time="0.006" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.TestRunners.TestResultTests.Should_be_equal" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.TestResultTests.Should_map_message" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.TestResultTests.Should_not_be_equal" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.TestResultTests.Should_return_fail_message" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.TestResultTests.Should_return_passed_message" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="XUnitResponseParserTest" executed="True" result="Success" success="True" time="0.017" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.TestRunners.XUnitResponseParserTest.Should_extract_assemblies" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.XUnitResponseParserTest.Should_extract_run_time" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.XUnitResponseParserTest.Should_find_failed_test" executed="True" result="Success" success="True" time="0.001" asserts="4" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.XUnitResponseParserTest.Should_find_succeeded_test" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.XUnitResponseParserTest.Should_find_test_name" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite type="TestFixture" name="XUnitTestRunnerTest" executed="True" result="Success" success="True" time="0.002" asserts="0">
+                            <results>
+                              <test-case name="AutoTest.Test.Core.TestRunners.XUnitTestRunnerTest.Should_handle_projects_referencing_xunit" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                              <test-case name="AutoTest.Test.Core.TestRunners.XUnitTestRunnerTest.Should_not_handle_projects_not_referencing_xunit" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite type="Namespace" name="FileSystem" executed="True" result="Success" success="True" time="0.001" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="PathParsingTest" executed="True" result="Success" success="True" time="0.000" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.Test.FileSystem.PathParsingTest.Should_retrieve_correct_path" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="Assembly" name="/home/ack/src/AutoTest.Net/src/AutoTest.WinForms.Test/bin/Debug/AutoTest.WinForms.Test.dll" executed="True" result="Success" success="True" time="0.747" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="AutoTest" executed="True" result="Success" success="True" time="0.745" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="WinForms" executed="True" result="Success" success="True" time="0.737" asserts="0">
+                <results>
+                  <test-suite type="Namespace" name="Test" executed="True" result="Success" success="True" time="0.737" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="BotstrapperTest" executed="True" result="Success" success="True" time="0.642" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.WinForms.Test.BotstrapperTest.Should_register_directoy_picker_form" executed="True" result="Success" success="True" time="0.354" asserts="1" />
+                          <test-case name="AutoTest.WinForms.Test.BotstrapperTest.Should_register_feedback_form" executed="True" result="Success" success="True" time="0.258" asserts="1" />
+                          <test-case name="AutoTest.WinForms.Test.BotstrapperTest.Should_register_information_form" executed="True" result="Success" success="True" time="0.021" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="LinkParserTest" executed="True" result="Success" success="True" time="0.014" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.WinForms.Test.LinkParserTest.Should_replace_link_tags" executed="True" result="Success" success="True" time="0.013" asserts="2" />
+                          <test-case name="AutoTest.WinForms.Test.LinkParserTest.Should_return_links" executed="True" result="Success" success="True" time="0.000" asserts="5" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="SummaryBuilderTest" executed="True" result="Success" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.WinForms.Test.SummaryBuilderTest.Should_build_tooltip_string" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="WatchDirectoryPickerFormTest" executed="True" result="Success" success="True" time="0.073" asserts="0">
+                        <results>
+                          <test-case name="AutoTest.WinForms.Test.WatchDirectoryPickerFormTest.Should_list_directories_from_configuration" executed="True" result="Success" success="True" time="0.073" asserts="2" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

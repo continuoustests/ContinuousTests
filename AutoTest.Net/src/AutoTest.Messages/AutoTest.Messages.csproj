@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5352CB10-E898-4089-BFF0-79D635FB44C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AutoTest.Messages</RootNamespace>
+    <AssemblyName>AutoTest.Messages</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbortMessage.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="BuildMessage.cs" />
+    <Compile Include="BuildRunResults.cs" />
+    <Compile Include="CacheBuildMessage.cs" />
+    <Compile Include="CacheMessage.cs" />
+    <Compile Include="CacheTestMessage.cs" />
+    <Compile Include="ChangedFile.cs" />
+    <Compile Include="BuildRunMessage.cs" />
+    <Compile Include="FileStorage\ConfigurationLocator.cs" />
+    <Compile Include="FileStorage\PathTranslator.cs" />
+    <Compile Include="IMessage.cs" />
+    <Compile Include="ErrorMessage.cs" />
+    <Compile Include="IMessageForwarder.cs" />
+    <Compile Include="InformationMessage.cs" />
+    <Compile Include="LiveTestStatusMessage.cs" />
+    <Compile Include="OnDemandTestRunMessage.cs" />
+    <Compile Include="RunAction.cs" />
+    <Compile Include="RunInformationMessage.cs" />
+    <Compile Include="RunReport.cs" />
+    <Compile Include="RunFinishedMessage.cs" />
+    <Compile Include="RunStartedMessage.cs" />
+    <Compile Include="TestRunMessage.cs" />
+    <Compile Include="TestRunner.cs" />
+    <Compile Include="TestRunResults.cs" />
+    <Compile Include="TestResult.cs" />
+    <Compile Include="IStackLine.cs" />
+    <Compile Include="TestRunStatus.cs" />
+    <Compile Include="WarningMessage.cs" />
+    <Compile Include="ICustomBinarySerializable.cs" />
+    <Compile Include="Serializers\CustomBinaryFormatter.cs" />
+    <Compile Include="FileChangeMessage.cs" />
+    <Compile Include="AssemblyChangeMessage.cs" />
+    <Compile Include="ProjectChangeMessage.cs" />
+    <Compile Include="StackLineMessage.cs" />
+    <Compile Include="LinkParser.cs" />
+    <Compile Include="Link.cs" />
+    <Compile Include="ExternalCommandMessage.cs" />
+    <Compile Include="EditorEngineMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

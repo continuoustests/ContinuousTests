@@ -1,0 +1,103 @@
+XBuild Engine Version 2.8.0.0
+Mono, Version 2.8.0.0
+Copyright (C) Marek Sieradzki 2005-2008, Novell 2008-2009.
+
+Build started 10/12/2010 12:01:56 PM.
+__________________________________________________
+Project "/home/ack/src/AutoTest.Net/src/AutoTest.Test/AutoTest.Test.csproj" (default target(s)):
+
+	Target _ValidateEssentialProperties:
+	Target PrepareForBuild:
+		Configuration: Debug Platform: AnyCPU
+	Target GetFrameworkPaths:
+	Target AssignProjectConfigurations:
+	Target SplitProjectReferencesByExistent:
+	Target ResolveProjectReferences:
+		Project "/home/ack/src/AutoTest.Net/src/AutoTest.Core/AutoTest.Core.csproj" (default target(s)):
+		
+			Target _ValidateEssentialProperties:
+			Target PrepareForBuild:
+				Configuration: Debug Platform: AnyCPU
+			Target GetFrameworkPaths:
+			Target SplitProjectReferencesByExistent:
+			Target ResolveProjectReferences:
+			Target ResolveAssemblyReferences:
+			Target CopyFilesMarkedCopyLocal:
+			Target AssignTargetPaths:
+			Target SplitResourcesByCulture:
+			Target CreateManifestResourceNames:
+			Target GenerateResources:
+			Target GenerateSatelliteAssemblies:
+			No input files were specified for target GenerateSatelliteAssemblies, skipping.
+			Target CoreCompile:
+			
+			Target GetCopyToOutputDirectoryItems:
+			Target _CopyDeployFilesToOutputDirectoryAlways:
+				Copying file from '/home/ack/src/AutoTest.Net/src/AutoTest.Core/AutoTest.config.template' to '/home/ack/src/AutoTest.Net/src/AutoTest.Core/bin/Debug/AutoTest.config.template'
+			Target DeployOutputFiles:
+			Target _GetCompileOutputsForClean:
+			Target _RecordCleanFile:
+		Done building project "/home/ack/src/AutoTest.Net/src/AutoTest.Core/AutoTest.Core.csproj".
+		
+		Project "/home/ack/src/AutoTest.Net/src/AutoTest.TestCore/AutoTest.TestCore.csproj" (default target(s)):
+		
+			Target _ValidateEssentialProperties:
+			Target PrepareForBuild:
+				Configuration: Debug Platform: AnyCPU
+			Target GetFrameworkPaths:
+			Target SplitProjectReferencesByExistent:
+			Target ResolveProjectReferences:
+			Target ResolveAssemblyReferences:
+			Target CopyFilesMarkedCopyLocal:
+			Target AssignTargetPaths:
+			Target SplitResourcesByCulture:
+			Target CreateManifestResourceNames:
+			Target GenerateResources:
+			Target GenerateSatelliteAssemblies:
+			No input files were specified for target GenerateSatelliteAssemblies, skipping.
+			Target CoreCompile:
+			
+			Target GetCopyToOutputDirectoryItems:
+			Target DeployOutputFiles:
+			Target _GetCompileOutputsForClean:
+			Target _RecordCleanFile:
+		Done building project "/home/ack/src/AutoTest.Net/src/AutoTest.TestCore/AutoTest.TestCore.csproj".
+		
+	Target ResolveAssemblyReferences:
+	Target CopyFilesMarkedCopyLocal:
+	Target AssignTargetPaths:
+	Target SplitResourcesByCulture:
+	Target CreateManifestResourceNames:
+	Target GenerateResources:
+	Target GenerateSatelliteAssemblies:
+	No input files were specified for target GenerateSatelliteAssemblies, skipping.
+	Target CoreCompile:
+	
+	Target GetCopyToOutputDirectoryItems:
+		Project "/home/ack/src/AutoTest.Net/src/AutoTest.Core/AutoTest.Core.csproj" (GetCopyToOutputDirectoryItems target(s)):
+		
+		Done building project "/home/ack/src/AutoTest.Net/src/AutoTest.Core/AutoTest.Core.csproj".
+		
+		Project "/home/ack/src/AutoTest.Net/src/AutoTest.TestCore/AutoTest.TestCore.csproj" (GetCopyToOutputDirectoryItems target(s)):
+		
+		Done building project "/home/ack/src/AutoTest.Net/src/AutoTest.TestCore/AutoTest.TestCore.csproj".
+		
+	Target _CopyDeployFilesToOutputDirectoryAlways:
+		Copying file from '/home/ack/src/AutoTest.Net/src/AutoTest.Core/AutoTest.config.template' to '/home/ack/src/AutoTest.Net/src/AutoTest.Test/bin/Debug/AutoTest.config.template'
+		Copying file from '/home/ack/src/AutoTest.Net/src/AutoTest.Test/AutoTest.config' to '/home/ack/src/AutoTest.Net/src/AutoTest.Test/bin/Debug/AutoTest.config'
+		Copying file from '/home/ack/src/AutoTest.Net/src/AutoTest.Test/TestResources/NUnit/multipleAssemblies.txt' to '/home/ack/src/AutoTest.Net/src/AutoTest.Test/bin/Debug/TestResources/NUnit/multipleAssemblies.txt'
+		Copying file from '/home/ack/src/AutoTest.Net/src/AutoTest.Test/TestResources/NUnit/singleAssembly.txt' to '/home/ack/src/AutoTest.Net/src/AutoTest.Test/bin/Debug/TestResources/NUnit/singleAssembly.txt'
+		Copying file from '/home/ack/src/AutoTest.Net/src/AutoTest.Test/TestResources/NUnit/XUnitOutput.txt' to '/home/ack/src/AutoTest.Net/src/AutoTest.Test/bin/Debug/TestResources/NUnit/XUnitOutput.txt'
+		Copying file from '/home/ack/src/AutoTest.Net/src/AutoTest.Test/TestResources/NUnit/NewOutput.txt' to '/home/ack/src/AutoTest.Net/src/AutoTest.Test/bin/Debug/TestResources/NUnit/NewOutput.txt'
+		Copying file from '/home/ack/src/AutoTest.Net/src/AutoTest.Test/TestResources/VS2008/CSharpNUnitTestProject.csproj' to '/home/ack/src/AutoTest.Net/src/AutoTest.Test/bin/Debug/TestResources/VS2008/CSharpNUnitTestProject.csproj'
+		Copying file from '/home/ack/src/AutoTest.Net/src/AutoTest.Test/TestResources/VS2008/NUnitTestProjectVisualBasic.vbproj' to '/home/ack/src/AutoTest.Net/src/AutoTest.Test/bin/Debug/TestResources/VS2008/NUnitTestProjectVisualBasic.vbproj'
+	Target DeployOutputFiles:
+	Target _GetCompileOutputsForClean:
+	Target _RecordCleanFile:
+Done building project "/home/ack/src/AutoTest.Net/src/AutoTest.Test/AutoTest.Test.csproj".
+
+Build succeeded.
+	 0 Warning(s)
+	 0 Error(s)
+
+Time Elapsed 00:00:00.3028700

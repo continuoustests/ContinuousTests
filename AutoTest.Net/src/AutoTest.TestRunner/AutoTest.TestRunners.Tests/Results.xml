@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<results>
+  <runner id="nunit">
+    <assembly name="C:\Users\ack\src\AutoTest.Net\src\AutoTest.Runners.NUnit.Tests.TestResource\bin\AutoTest.NET\AutoTest.Runners.NUnit.Tests.TestResource.dll">
+      <fixture name="AutoTest.Runners.NUnit.Tests.TestResource.Fixture1">
+        <test state="Failed" name="AutoTest.Runners.NUnit.Tests.TestResource.Fixture1.Should_fail" duration="100">
+          <message><![CDATA[failing test]]></message>
+          <stack-trace>
+            <line>
+              <method><![CDATA[AutoTest.Runners.NUnit.Tests.TestResource.Fixture1.Should_fail()]]></method>
+              <file line="21">C:\Users\ack\src\AutoTest.Net\src\AutoTest.Runners.NUnit.Tests.TestResource\Fixture1.cs</file>
+            </line>
+          </stack-trace>
+        </test>
+        <test state="Ignored" name="AutoTest.Runners.NUnit.Tests.TestResource.Fixture1.Should_ignore" duration="20">
+          <message><![CDATA[ignored test]]></message>
+          <stack-trace>
+            <line>
+              <method><![CDATA[AutoTest.Runners.NUnit.Tests.TestResource.Fixture1.Should_ignore()]]></method>
+              <file line="27">C:\Users\ack\src\AutoTest.Net\src\AutoTest.Runners.NUnit.Tests.TestResource\Fixture1.cs</file>
+            </line>
+          </stack-trace>
+        </test>
+        <test state="Passed" name="AutoTest.Runners.NUnit.Tests.TestResource.Fixture1.Should_pass" duration="20">
+          <message><![CDATA[]]></message>
+        </test>
+      </fixture>
+      <fixture name="AutoTest.Runners.NUnit.Tests.TestResource.Fixture2">
+        <test state="Passed" name="AutoTest.Runners.NUnit.Tests.TestResource.Fixture2.Should_also_pass" duration="20">
+          <message><![CDATA[]]></message>
+        </test>
+        <test state="Passed" name="AutoTest.Runners.NUnit.Tests.TestResource.Fixture2.Should_also_pass_again" displayName="Alternative description" duration="250">
+          <message><![CDATA[]]></message>
+        </test>
+      </fixture>
+    </assembly>
+  </runner>
+</results>

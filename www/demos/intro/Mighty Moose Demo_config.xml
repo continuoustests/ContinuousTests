@@ -1,0 +1,36 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/" xmlns:xmpG="http://ns.adobe.com/xap/1.0/g/" xmlns:tsc="http://www.techsmith.com/xmp/tsc/" xmlns:tscDM="http://www.techsmith.com/xmp/tscDM/" xmlns:tscHS="http://www.techsmith.com/xmp/tscHS/" xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#" xmlns:stFnt="http://ns.adobe.com/xap/1.0/sType/Font#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <rdf:Description tsc:version="1.2.0" dc:date="2011-06-02 11:24:35 AM" dc:title="Mighty Moose Demo" tscDM:firstFrame="FirstFrame.png">
+         <xmpDM:duration xmpDM:scale="1/1000" xmpDM:value="279800"/>
+         <xmpDM:videoFrameSize stDim:unit="pixel" stDim:h="768" stDim:w="1024"/>
+         <tsc:langName>
+            <rdf:Bag>
+               <rdf:li xml:lang="en-US">English</rdf:li></rdf:Bag>
+         </tsc:langName>
+         <xmpDM:Tracks>
+            <rdf:Bag>
+            </rdf:Bag>
+         </xmpDM:Tracks>
+         <tscDM:controller>
+            <rdf:Description xmpDM:name="scplayer">
+               <tscDM:parameters>
+                  <rdf:Bag>
+                     <rdf:li xmpDM:name="autohide" xmpDM:value="true"/><rdf:li xmpDM:name="autostart" xmpDM:value="false"/><rdf:li xmpDM:name="loop" xmpDM:value="false"/><rdf:li xmpDM:name="showendscreen" xmpDM:value="true"/><rdf:li xmpDM:name="showsearch" xmpDM:value="false"/><rdf:li xmpDM:name="showstartscreen" xmpDM:value="true"/><rdf:li xmpDM:name="tocdoc" xmpDM:value="left"/></rdf:Bag>
+               </tscDM:parameters>
+               <tscDM:controllerText>
+                  <rdf:Bag>
+                     <rdf:li><rdf:Description xmp:label="searchText"><tscDM:localizedText><rdf:Alt><rdf:li xml:lang="en-US">Search</rdf:li></rdf:Alt></tscDM:localizedText></rdf:Description></rdf:li><rdf:li><rdf:Description xmp:label="resultText"><tscDM:localizedText><rdf:Alt><rdf:li xml:lang="en-US">Results Found</rdf:li></rdf:Alt></tscDM:localizedText></rdf:Description></rdf:li><rdf:li><rdf:Description xmp:label="searchFullscreenText"><tscDM:localizedText><rdf:Alt><rdf:li xml:lang="en-US">Search disabled in full screen mode</rdf:li></rdf:Alt></tscDM:localizedText></rdf:Description></rdf:li><rdf:li><rdf:Description xmp:label="replayButtonText"><tscDM:localizedText><rdf:Alt><rdf:li xml:lang="en-US">Replay</rdf:li></rdf:Alt></tscDM:localizedText></rdf:Description></rdf:li></rdf:Bag>
+               </tscDM:controllerText>
+            </rdf:Description>
+         </tscDM:controller>
+         <tscDM:contentList>
+            <rdf:Description>
+               <tscDM:files>
+                  <rdf:Seq>
+                     <rdf:li xmpDM:name="0" xmpDM:value="Mighty Moose Demo.mp4"/><rdf:li xmpDM:name="1" xmpDM:value="FirstFrame.png"/></rdf:Seq>
+               </tscDM:files>
+            </rdf:Description>
+         </tscDM:contentList>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>

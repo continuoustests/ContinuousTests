@@ -1,0 +1,221 @@
+XBuild Engine Version 2.6.7.0
+Mono, Version 2.6.7.0
+Copyright (C) Marek Sieradzki 2005-2008, Novell 2008-2009.
+
+Build started 10/3/2010 12:13:42 AM.
+__________________________________________________
+Project "/home/ack/src/AutoTest.Net/src/AutoTest.Test/AutoTest.Test.csproj" (default target(s)):
+
+	Target _ValidateEssentialProperties:
+
+	Target PrepareForBuild:
+		Configuration: Debug Platform: AnyCPU
+
+	Target GetFrameworkPaths:
+
+	Target AssignProjectConfigurations:
+
+	Target SplitProjectReferencesByExistent:
+
+	Target ResolveProjectReferences:
+		Project "/home/ack/src/AutoTest.Net/src/AutoTest.Core/AutoTest.Core.csproj" (default target(s)):
+		
+			Target _ValidateEssentialProperties:
+		
+			Target PrepareForBuild:
+				Configuration: Debug Platform: AnyCPU
+		
+			Target GetFrameworkPaths:
+		
+			Target SplitProjectReferencesByExistent:
+		
+			Target ResolveProjectReferences:
+		
+			Target ResolveAssemblyReferences:
+		
+			Target CopyFilesMarkedCopyLocal:
+		
+			Target AssignTargetPaths:
+		
+			Target SplitResourcesByCulture:
+		
+			Target CreateManifestResourceNames:
+		
+			Target GenerateResources:
+		
+			Target GenerateSatelliteAssemblies:
+			Skipping target "GenerateSatelliteAssemblies" because its outputs are up-to-date.
+		
+			Target CoreCompile:
+				Tool /usr/bin/gmcs execution started with arguments: /noconfig /debug:full /debug+ /optimize- /out:obj/Debug/AutoTest.Core.dll BuildRunners/BuildMessage.cs BuildRunners/MSBuildOutputParser.cs Caching/RunResultCache/BuildItem.cs Caching/ICache.cs Caching/ICreate.cs Caching/RunResultCache/IItem.cs Caching/RunResultCache/IMergeRunResults.cs Caching/IReload.cs Caching/IPrepare.cs Caching/RunResultCache/IRunResultCache.cs Caching/RunResultCache/Link.cs Caching/RunResultCache/LinkParser.cs Caching/Projects/ProjectReloader.cs Caching/Projects/ProjectFactory.cs Caching/Projects/ProjectPreparer.cs Caching/RunResultCache/RunResultCache.cs Caching/RunResultCache/TestItem.cs Configuration/CodeEditor.cs Configuration/CoreSection.cs Configuration/DIContainer.cs Configuration/IConfiguration.cs Configuration/IServiceLocator.cs Configuration/ServiceLocator.cs DebugLog/Debug.cs Launchers/ApplicatonLauncher.cs Messaging/BlockedMessage.cs Messaging/BuildRunMessage.cs Messaging/ErrorMessage.cs Messaging/IBlockingConsumerOf.cs Messaging/InformationMessage.cs Messaging/MessageConsumers/BuildListGenerator.cs Messaging/MessageConsumers/IGenerateBuildList.cs Messaging/MessageConsumers/IPrioritizeProjects.cs Messaging/MessageConsumers/ProjectChangeConsumer.cs Messaging/MessageConsumers/FileChangeConsumer.cs FileSystem/DirectoryWatcher.cs FileSystem/ChangedFile.cs FileSystem/FileSystemService.cs FileSystem/IFileSystemService.cs FileSystem/IWatchValidator.cs FileSystem/ProjectLocators/CSharpLocator.cs FileSystem/ProjectLocators/ILocateProjects.cs FileSystem/ProjectLocators/VisualBasicLocator.cs FileSystem/WatchValidator.cs Messaging/FileChangeMessage.cs FileSystem/IDirectoryWatcher.cs BuildRunners/BuildRunResults.cs BuildRunners/IBuildRunner.cs BuildRunners/MSBuildRunner.cs Configuration/BootStrapper.cs Configuration/Config.cs FileSystem/ProjectFileCrawler.cs Messaging/IConsumerOf.cs Messaging/IMessage.cs Messaging/IMessageBus.cs Messaging/IMessageConsumer.cs Messaging/MessageBus.cs Messaging/MessageConsumers/ProjectPrioritizer.cs Messaging/MessageConsumers/RunAction.cs Messaging/MessageConsumers/RunReport.cs Messaging/ProjectChangeMessage.cs Caching/Projects/IProjectParser.cs Caching/IRecord.cs Caching/Projects/Project.cs Caching/Crawlers/ProjectCrawler.cs Caching/Projects/ProjectDocument.cs Caching/Cache.cs Caching/Projects/ProjectType.cs Caching/Projects/ProjectParser.cs Messaging/RunFinishedMessage.cs Messaging/RunInformationMessage.cs Messaging/RunStartedMessage.cs Messaging/TestRunMessage.cs Messaging/WarningMessage.cs Notifiers/GrowlNotifier.cs Presenters/InformationFeedbackPresenter.cs Presenters/IInformationFeedbackPresenter.cs Presenters/IInformationFeedbackView.cs Presenters/IRunFeedbackPresenter.cs Presenters/IRunFeedbackView.cs Presenters/RunFeedbackPresenter.cs Properties/AssemblyInfo.cs TestRunners/ITestRunner.cs TestRunners/TestResult.cs TestRunners/TestRunners/IStackLine.cs TestRunners/TestRunners/MSTestResponseParser.cs TestRunners/TestRunners/MSTestRunner.cs TestRunners/TestRunners/MSTestStackLine.cs TestRunners/TestRunners/NUnitTestResponseParser.cs TestRunners/TestRunners/NUnitTestRunner.cs TestRunners/TestRunners/NUnitStackLine.cs TestRunners/TestRunners/XUnitTestRunner.cs TestRunners/TestRunResults.cs TestRunners/TestStatus.cs FileSystem/PathParsing.cs Notifiers/ISendNotifications.cs Notifiers/notify_sendNotifier.cs Notifiers/NullNotifier.cs Messaging/MessageConsumers/TestRunInfo.cs Messaging/MessageConsumers/BinaryFileChangeConsumer.cs Messaging/AssemblyChangeMessage.cs Messaging/MessageConsumers/AssemblyChangeConsumer.cs FileSystem/IResolveAssemblyReferences.cs FileSystem/AssemblyParser.cs FileSystem/IRetrieveAssemblyIdentifiers.cs TestRunners/TestRunValidator.cs TestRunners/IDetermineWetherToTestAssembly.cs Configuration/ConfigItem.cs Messaging/MessageConsumers/BuildOptimizer.cs Messaging/MessageConsumers/RunInfo.cs Messaging/MessageConsumers/IOptimizeBuildConfiguration.cs /target:library /define:DEBUG;TRACE /reference:/usr/lib/mono/2.0/System.dll /reference:/usr/lib/mono/2.0/System.Core.dll /reference:/usr/lib/mono/2.0/System.Xml.Linq.dll /reference:/usr/lib/mono/2.0/System.Data.DataSetExtensions.dll /reference:/usr/lib/mono/2.0/System.Data.dll /reference:/usr/lib/mono/2.0/System.Xml.dll /reference:../../lib/Castle.Windsor/Castle.Core.dll /reference:../../lib/Castle.Windsor/Castle.MicroKernel.dll /reference:../../lib/Castle.Windsor/Castle.Windsor.dll /reference:/usr/lib/mono/2.0/System.Configuration.dll /reference:/usr/lib/mono/2.0/mscorlib.dll /reference:/usr/lib/mono/2.0/System.Web.dll /reference:/home/ack/src/AutoTest.Net/lib/Castle.Windsor/Castle.DynamicProxy2.dll /warn:4
+Messaging/MessageConsumers/ProjectChangeConsumer.cs(62,50): error CS1003: ; expected
+			Task "Csc" execution -- FAILED
+			Done building target "CoreCompile" in project "/home/ack/src/AutoTest.Net/src/AutoTest.Core/AutoTest.Core.csproj".-- FAILED
+		
+			Target _GetCompileOutputsForClean:
+		
+			Target _RecordCleanFile:
+		
+		Done building project "/home/ack/src/AutoTest.Net/src/AutoTest.Core/AutoTest.Core.csproj".-- FAILED
+		
+		Project "/home/ack/src/AutoTest.Net/src/AutoTest.TestCore/AutoTest.TestCore.csproj" (default target(s)):
+		
+			Target _ValidateEssentialProperties:
+		
+			Target PrepareForBuild:
+				Configuration: Debug Platform: AnyCPU
+		
+			Target GetFrameworkPaths:
+		
+			Target SplitProjectReferencesByExistent:
+		
+			Target ResolveProjectReferences:
+		
+			Target ResolveAssemblyReferences:
+		
+			Target CopyFilesMarkedCopyLocal:
+		
+			Target AssignTargetPaths:
+		
+			Target SplitResourcesByCulture:
+		
+			Target CreateManifestResourceNames:
+		
+			Target GenerateResources:
+		
+			Target GenerateSatelliteAssemblies:
+			Skipping target "GenerateSatelliteAssemblies" because its outputs are up-to-date.
+		
+			Target CoreCompile:
+			Skipping target "CoreCompile" because its outputs are up-to-date.
+		
+			Target GetCopyToOutputDirectoryItems:
+		
+			Target DeployOutputFiles:
+		
+			Target _GetCompileOutputsForClean:
+		
+			Target _RecordCleanFile:
+		
+		Done building project "/home/ack/src/AutoTest.Net/src/AutoTest.TestCore/AutoTest.TestCore.csproj".
+		
+
+	Target ResolveAssemblyReferences:
+
+	Target CopyFilesMarkedCopyLocal:
+
+	Target AssignTargetPaths:
+
+	Target SplitResourcesByCulture:
+
+	Target CreateManifestResourceNames:
+
+	Target GenerateResources:
+
+	Target GenerateSatelliteAssemblies:
+	Skipping target "GenerateSatelliteAssemblies" because its outputs are up-to-date.
+
+	Target CoreCompile:
+		Tool /usr/bin/gmcs execution started with arguments: /noconfig /debug:full /debug+ /optimize- /out:obj/Debug/AutoTest.Test.dll Core/BuildRunners/BuildMessageTest.cs Core/BuildRunners/BuildRunResultTest.cs Core/BuildRunners/MSBuildOutputParserTest.cs Core/Caching/Fakes/FakeStackLine.cs Core/Caching/RunResultCache/LinkParserTest.cs Core/Caching/Projects/ProjectReloaderTest.cs Core/Caching/RunResultCache/RunResultCacheTest.cs Core/Configuration/ConfigTest.cs Core/Messaging/ErrorMessageTest.cs Core/Messaging/Fakes/FakeProjectPrioritizer.cs Core/Messaging/MessageConsumers/BuildListGeneratorTest.cs Core/Messaging/MessageConsumers/FileChangeConsumerTest.cs Core/Caching/Projects/Fakes/FakeCacheTest.cs Core/Caching/Projects/Fakes/FakeFileSystemServiceTest.cs Core/Caching/Projects/Fakes/FakeRecord.cs Core/Caching/Projects/ProjectCrawlerTest.cs Core/Caching/Projects/Fakes/FakeCache.cs Core/Caching/Projects/Fakes/FakeFileSystemService.cs Core/Caching/Projects/Fakes/FakeServiceLocator.cs Core/Caching/Projects/Fakes/FakeProjectParser.cs Core/Caching/Projects/ProjectParserTest.cs Core/Caching/Projects/ProjectDocumentTest.cs Core/Caching/CacheTest.cs Core/Caching/Projects/ProjectPreparerTest.cs Core/Configuration/DIContainerFullTest.cs Core/FileSystem/ProjectLocators/CSharpLocatorTest.cs Core/FileSystem/Fakes/FakeProjectFileCrawler.cs Core/FileSystem/ProjectLocators/VisualBasicLocatorTest.cs Core/FileSystem/WatchValidatorTest.cs Core/Messaging/Fakes/FakeProjectLocator.cs Core/Messaging/MessageConsumers/ProjectChangeConsumerTest.cs Core/Messaging/MessageConsumers/ReferencePrioritizerTest.cs Core/Messaging/MessageConsumers/RunReportTest.cs Core/Messaging/TestClasses/RunMessageConsumer.cs Core/Messaging/TestClasses/InformationMessageConsumer.cs Core/Presenters/Fakes/FakeInformationFeedbackView.cs Core/Presenters/Fakes/FakeRunFeedbackView.cs Core/Presenters/Fakes/FakeRunResultMerger.cs Core/Presenters/InformationFeedbackPresenterTest.cs Core/Presenters/RunFeedbackPresenterTest.cs Core/TestRunners/MSTestResponseParserTest.cs Core/TestRunners/MSTestRunnerTest.cs Core/TestRunners/NUnitTestResponseParserTest.cs Core/TestRunners/NUnitStackLineTest.cs Core/TestRunners/NUnitTestRunnerTest.cs Core/TestRunners/TestResultTests.cs Core/Configuration/DIContainerTests.cs Core/BuildRunners/IBuildEngine.cs Core/FileSystem/ProjectFileCrawlerTest.cs Core/FileSystem/DirectoryWatcherTests.cs Core/Messaging/FileChangeMessageTests.cs Core/Messaging/MessageTestBase.cs Core/TestRunners/XUnitTestRunnerTest.cs TestObjects/Listener.cs TestObjects/Message.cs TestObjects/Talker.cs Properties/AssemblyInfo.cs Core/Messaging/MessageBusTests.cs Core/FileSystem/PathParsingTest.cs Core/TestRunners/NUnitTestResponseParserMultipleAssembliesTest.cs Core/TestRunners/XUnitResponseParserTest.cs Core/TestRunners/NUnitTestResponseParserNewOutput.cs Core/Messaging/MessageConsumers/BinaryFileChangeConsumerTest.cs Core/TestRunners/TestRunValidatorTest.cs Core/Messaging/MessageConsumers/AssemblyChangeConsumerTest.cs Core/Configuration/CoreSectionTest.cs Core/Messaging/MessageConsumers/BuildOptimizerTest.cs /target:library /define:DEBUG;TRACE /reference:/usr/lib/mono/3.5/Microsoft.Build.Engine.dll /reference:/usr/lib/mono/2.0/System.dll /reference:/usr/lib/mono/2.0/System.Core.dll /reference:/usr/lib/mono/2.0/System.Xml.Linq.dll /reference:/usr/lib/mono/2.0/System.Data.DataSetExtensions.dll /reference:/usr/lib/mono/2.0/System.Data.dll /reference:/usr/lib/mono/2.0/System.Xml.dll /reference:../../lib/Castle.Windsor/Castle.Core.dll /reference:../../lib/Castle.Windsor/Castle.MicroKernel.dll /reference:../../lib/Castle.Windsor/Castle.Services.Logging.log4netIntegration.dll /reference:../../lib/Castle.Windsor/Castle.Windsor.dll /reference:../../lib/NUnit/nunit.framework.dll /reference:../../lib/NUnit/nunit.framework.extensions.dll /reference:../../lib/Rhino.Mocks.dll /reference:/usr/lib/mono/2.0/System.Configuration.dll /reference:/home/ack/src/AutoTest.Net/src/AutoTest.TestCore/bin/Debug//AutoTest.TestCore.dll /reference:/usr/lib/mono/2.0/mscorlib.dll /reference:/usr/lib/mono/2.0/System.Web.dll /reference:/home/ack/src/AutoTest.Net/lib/Castle.Windsor/log4net.dll /reference:/home/ack/src/AutoTest.Net/lib/Castle.Windsor/Castle.DynamicProxy2.dll /warn:4
+Core/Caching/Fakes/FakeStackLine.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Messaging/Fakes/FakeProjectPrioritizer.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Caching/Projects/Fakes/FakeRecord.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Caching/Projects/Fakes/FakeCache.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Caching/Projects/Fakes/FakeCache.cs(7,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Caching/Projects/Fakes/FakeFileSystemService.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Caching/Projects/Fakes/FakeServiceLocator.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Caching/Projects/Fakes/FakeServiceLocator.cs(6,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Caching/Projects/Fakes/FakeServiceLocator.cs(7,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Caching/Projects/Fakes/FakeProjectParser.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/FileSystem/Fakes/FakeProjectFileCrawler.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Messaging/Fakes/FakeProjectLocator.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Messaging/Fakes/FakeProjectLocator.cs(6,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Presenters/Fakes/FakeInformationFeedbackView.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Presenters/Fakes/FakeInformationFeedbackView.cs(6,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Presenters/Fakes/FakeRunFeedbackView.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Presenters/Fakes/FakeRunFeedbackView.cs(6,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Presenters/Fakes/FakeRunResultMerger.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Presenters/Fakes/FakeRunResultMerger.cs(6,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Presenters/Fakes/FakeRunResultMerger.cs(7,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Presenters/Fakes/FakeRunResultMerger.cs(8,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Messaging/FileChangeMessageTests.cs(2,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Messaging/FileChangeMessageTests.cs(4,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+TestObjects/Listener.cs(1,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+TestObjects/Listener.cs(22,24): error CS0246: The type or namespace name `IMessage' could not be found. Are you missing a using directive or an assembly reference?
+TestObjects/Listener.cs(24,29): error CS0246: The type or namespace name `IMessage' could not be found. Are you missing a using directive or an assembly reference?
+TestObjects/Listener.cs(25,30): error CS0246: The type or namespace name `IMessage' could not be found. Are you missing a using directive or an assembly reference?
+TestObjects/Listener.cs(27,31): error CS0246: The type or namespace name `IConsumerOf`1' could not be found. Are you missing a using directive or an assembly reference?
+TestObjects/Listener.cs(35,34): error CS0246: The type or namespace name `IConsumerOf`1' could not be found. Are you missing a using directive or an assembly reference?
+TestObjects/Listener.cs(35,62): error CS0246: The type or namespace name `IConsumerOf`1' could not be found. Are you missing a using directive or an assembly reference?
+TestObjects/Listener.cs(48,39): error CS0246: The type or namespace name `IBlockingConsumerOf`1' could not be found. Are you missing a using directive or an assembly reference?
+TestObjects/Listener.cs(63,40): error CS0246: The type or namespace name `IBlockingConsumerOf`1' could not be found. Are you missing a using directive or an assembly reference?
+TestObjects/Message.cs(1,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Messaging/MessageBusTests.cs(3,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Messaging/MessageBusTests.cs(4,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Messaging/MessageBusTests.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+Core/Messaging/MessageBusTests.cs(11,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+
+	Task "Csc" execution -- FAILED
+	Done building target "CoreCompile" in project "/home/ack/src/AutoTest.Net/src/AutoTest.Test/AutoTest.Test.csproj".-- FAILED
+
+	Target _GetCompileOutputsForClean:
+
+	Target _RecordCleanFile:
+
+Done building project "/home/ack/src/AutoTest.Net/src/AutoTest.Test/AutoTest.Test.csproj".-- FAILED
+
+Build FAILED.
+Errors:
+
+/home/ack/src/AutoTest.Net/src/AutoTest.Test/AutoTest.Test.csproj (default targets) ->
+/usr/lib/mono/3.5/Microsoft.Common.targets (ResolveProjectReferences target) ->
+/home/ack/src/AutoTest.Net/src/AutoTest.Core/AutoTest.Core.csproj (default targets) ->
+/usr/lib/mono/3.5/Microsoft.CSharp.targets (CoreCompile target) ->
+
+	Messaging/MessageConsumers/ProjectChangeConsumer.cs(62,50): error CS1003: ; expected
+
+/home/ack/src/AutoTest.Net/src/AutoTest.Test/AutoTest.Test.csproj (default targets) ->
+/usr/lib/mono/3.5/Microsoft.CSharp.targets (CoreCompile target) ->
+
+	Core/Caching/Fakes/FakeStackLine.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Messaging/Fakes/FakeProjectPrioritizer.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Caching/Projects/Fakes/FakeRecord.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Caching/Projects/Fakes/FakeCache.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Caching/Projects/Fakes/FakeCache.cs(7,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Caching/Projects/Fakes/FakeFileSystemService.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Caching/Projects/Fakes/FakeServiceLocator.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Caching/Projects/Fakes/FakeServiceLocator.cs(6,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Caching/Projects/Fakes/FakeServiceLocator.cs(7,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Caching/Projects/Fakes/FakeProjectParser.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/FileSystem/Fakes/FakeProjectFileCrawler.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Messaging/Fakes/FakeProjectLocator.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Messaging/Fakes/FakeProjectLocator.cs(6,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Presenters/Fakes/FakeInformationFeedbackView.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Presenters/Fakes/FakeInformationFeedbackView.cs(6,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Presenters/Fakes/FakeRunFeedbackView.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Presenters/Fakes/FakeRunFeedbackView.cs(6,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Presenters/Fakes/FakeRunResultMerger.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Presenters/Fakes/FakeRunResultMerger.cs(6,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Presenters/Fakes/FakeRunResultMerger.cs(7,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Presenters/Fakes/FakeRunResultMerger.cs(8,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Messaging/FileChangeMessageTests.cs(2,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Messaging/FileChangeMessageTests.cs(4,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	TestObjects/Listener.cs(1,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	TestObjects/Listener.cs(22,24): error CS0246: The type or namespace name `IMessage' could not be found. Are you missing a using directive or an assembly reference?
+	TestObjects/Listener.cs(24,29): error CS0246: The type or namespace name `IMessage' could not be found. Are you missing a using directive or an assembly reference?
+	TestObjects/Listener.cs(25,30): error CS0246: The type or namespace name `IMessage' could not be found. Are you missing a using directive or an assembly reference?
+	TestObjects/Listener.cs(27,31): error CS0246: The type or namespace name `IConsumerOf`1' could not be found. Are you missing a using directive or an assembly reference?
+	TestObjects/Listener.cs(35,34): error CS0246: The type or namespace name `IConsumerOf`1' could not be found. Are you missing a using directive or an assembly reference?
+	TestObjects/Listener.cs(35,62): error CS0246: The type or namespace name `IConsumerOf`1' could not be found. Are you missing a using directive or an assembly reference?
+	TestObjects/Listener.cs(48,39): error CS0246: The type or namespace name `IBlockingConsumerOf`1' could not be found. Are you missing a using directive or an assembly reference?
+	TestObjects/Listener.cs(63,40): error CS0246: The type or namespace name `IBlockingConsumerOf`1' could not be found. Are you missing a using directive or an assembly reference?
+	TestObjects/Message.cs(1,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Messaging/MessageBusTests.cs(3,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Messaging/MessageBusTests.cs(4,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Messaging/MessageBusTests.cs(5,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+	Core/Messaging/MessageBusTests.cs(11,16): error CS0234: The type or namespace name `Core' does not exist in the namespace `AutoTest'. Are you missing an assembly reference?
+
+	 0 Warning(s)
+	 38 Error(s)
+
+Time Elapsed 00:00:01.0960790

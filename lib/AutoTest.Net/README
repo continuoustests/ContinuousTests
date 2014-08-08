@@ -1,0 +1,173 @@
+AutoTest.NET is a cross-platform continuous testing Visual Studio Add-in, console
+application, and desktop application for the .NET and Mono frameworks.
+
+It improves test-driven development (TDD) by automatically compiling code and running tests
+in the background.  It can be configured to determine exactly which tests are affected from
+the code changes since the last build and only run those tests to provide real-time
+feedback faster than running all the tests in the project.  Automatically generated graphs
+help visualize the relations between methods and the tests that call them.  Annotations
+alongside the code help to immediately see the level of risk when changing pieces of code.
+
+Supported Visual Studio versions:
+  2008
+  2010
+  2012
+
+Supported build frameworks:
+  MSBuild
+  XBuild
+
+Supported projects:
+  C#
+  Visual Basic
+  F#
+
+Supported test runners:
+  NUnit
+  XUnit
+  MSTest
+  MSpec
+  MbUnit
+
+Supported notification systems:
+  notify-send (Linux)
+  Snarl through it's tcp interface (Windows)
+  Growl (Mac, Windows)
+
+File system watchers:
+  Solution file
+  Directory
+  Files \ Assemblies
+
+
+Getting started
+
+Download the windows installer or binaries from http://continuoustests.com or clone or fork
+and build from the source code repository https://github.com/continuoustests/AutoTest.Net.
+
+The Windows installer will install the Visual Studio Add-in, console application, and
+desktop application.  Once installed, a dialog will be displayed the next time a solution
+file is opened to allow configuring the settings for the solution.  Refer to the
+ContinuousTests menu item in Visual Studio to change configuration settings, perform
+actions, display output windows, and get additional help.
+
+AutoTest.NET can be configured to detect changes to files in the project once they are
+saved and automatically start to build the code and run the affected tests.  It can also be
+configured to start running tests only when assemblies are built.  Changes from specific
+files and paths can be ignored to avoid an infinite loop for example.
+
+NUnit and XUnit are configured out of the box with AutoTest.NET’s internal runner.
+
+See the instructional videos on http://continuoustests.com for working with ContinuousTests
+inside Visual Studio.
+
+The console and desktop applications can be used to run continuous tests outside of Visual 
+Studio.
+
+A watch directory must be specified which is the root directory from where AutoTest.NET
+recursively watches for file/assembly changes.
+
+The watch directory path can be passed as the first command line parameter to
+AutoTest.Console.exe and AutoTest.WinForms.exe.
+
+
+Configuration Files
+
+There are two types of configuration files, global and project.  Project configuration
+settings will be merged with the global configuration.
+
+The global configuration file can be found here:
+%LOCALAPPDATA%\MightyMoose\AutoTest.config
+
+Solution configuration files are specific to each solution file and can be found here:
+%LOCALAPPDATA%\MightyMoose\storage\Configuration\%SolutionName%_%hash%\AutoTest.config
+
+An AutoTest.config can be placed in the root of the watch directory when using the console
+or desktop application.
+
+
+AutoTest.config template:
+
+https://github.com/continuoustests/AutoTest.Net/blob/master/src/AutoTest.Core/AutoTest.config.template
+
+A project specific configuration file can look something like this:
+
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <!-- Exclude all build executable configuration all together -->
+  <BuildExecutable override="exclude"></BuildExecutable>
+
+  <!-- Merge these changes in with what's already in the base configuration -->
+  <!-- The override attribute will be read for the first occurrence in the setting family --> 
+  <NUnitTestRunner framework="v3.5" override="merge">NewTestRunner for v3.5</NUnitTestRunner>
+  <NUnitTestRunner framework="v4.0">NewTestRunner for v4.0</NUnitTestRunner>
+
+  <!-- This will just override whatever XUnit config is in the base configuration -->
+  <XUnitTestRunner>C:\XUnit\xunit.console.exe</XUnitTestRunner>
+
+  <!-- merges in some extra assemblies to ignore -->
+  <ShouldIgnoreTestAssembly override="merge">
+    <Assembly>*System.dll</Assembly>
+  </ShouldIgnoreTestAssembly>
+</configuration>
+
+
+Notifications
+
+On non-Windows operating systems notify-send can be installed by running: sudo apt-get
+install notify-osd.  The Growl application can be configured with the growlnotify
+configuration setting.  AutoTest.NET can automatically send notifications when test runs
+have started and finished.
+
+
+Ignore File Configuration
+
+The IgnoreFile option can be set to an absolute path or a path relative to the watch
+directory of the file where paths AutoTest.NET should ignore when detecting changes are
+configured.  This file uses .gitignore syntax and existing .gitignore files are compatible
+with AutoTest.NET.
+
+An example ignore file:
+
+# Making sure the file IgnoreThisOne.xml is ignored
+IgnoreThisOne.xml
+
+# Should ignore any file or directory called TestResults
+TestResults
+
+# Should ignore all output xmls
+*output.xml
+
+
+Building from source
+
+1. Clone or fork the repository.
+2. Run package.bat (Windows) or package.sh (non-Windows)
+
+The built binaries will be located under the ReleaseBinaries folder.
+On Windows, the windows installer will be located in the Installer subfolder.
+
+
+Wiki:
+
+https://github.com/continuoustests/AutoTest.Net/wiki
+
+
+Keyboard Shortcuts CheatSheet:
+
+http://continuoustests.com/cheatsheet.html
+
+
+Discussion Group:
+
+http://groups.google.com/group/autotestnet
+
+
+Special Thanks:
+
+Thanks to Philip Laureano for letting us embed the Linfu Dynamic Proxy source into the
+MSpec runner enabling us to support all MSpec versions out of the box.
+
+AutoTest.NET is based off of autotest which is a popular Ruby tool for running unit tests
+as soon as your save your files. This project was originally started by James Avery at
+http://code.google.com/p/autotestnet/

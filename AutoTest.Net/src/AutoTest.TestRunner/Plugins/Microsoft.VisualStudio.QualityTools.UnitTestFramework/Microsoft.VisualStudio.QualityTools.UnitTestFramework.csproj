@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{712F063F-2F83-4E42-89A7-1EA114F539A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.VisualStudio.TestTools.UnitTesting</RootNamespace>
+    <AssemblyName>Worst.Testing.Framework.Ever</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assert.cs" />
+    <Compile Include="AssertFailedException.cs" />
+    <Compile Include="AssertInconclusiveException.cs" />
+    <Compile Include="ClassCleanupAttribute.cs" />
+    <Compile Include="ClassInitializeAttribute.cs" />
+    <Compile Include="DeploymentItemAttribute.cs" />
+    <Compile Include="ExpectedExceptionAttribute.cs" />
+    <Compile Include="ExpectedExceptionBaseAttribute.cs" />
+    <Compile Include="IgnoreAttribute.cs" />
+    <Compile Include="NAssert\Assert.cs" />
+    <Compile Include="NAssert\Constraints\AttributeConstraints.cs" />
+    <Compile Include="NAssert\Constraints\BasicConstraints.cs" />
+    <Compile Include="NAssert\Constraints\BinaryOperations.cs" />
+    <Compile Include="NAssert\Constraints\CollectionConstraints.cs" />
+    <Compile Include="NAssert\Constraints\CollectionTally.cs" />
+    <Compile Include="NAssert\Constraints\ComparisonAdapter.cs" />
+    <Compile Include="NAssert\Constraints\ComparisonConstraints.cs" />
+    <Compile Include="NAssert\Constraints\Constraint.cs" />
+    <Compile Include="NAssert\Constraints\ConstraintBuilder.cs" />
+    <Compile Include="NAssert\Constraints\ConstraintExpression.cs" />
+    <Compile Include="NAssert\Constraints\ConstraintExpressionBase.cs" />
+    <Compile Include="NAssert\Constraints\ConstraintFactory.cs" />
+    <Compile Include="NAssert\Constraints\ConstraintOperators.cs" />
+    <Compile Include="NAssert\Constraints\ContainsConstraint.cs" />
+    <Compile Include="NAssert\Constraints\DelayedConstraint.cs" />
+    <Compile Include="NAssert\Constraints\DirectoryConstraints.cs" />
+    <Compile Include="NAssert\Constraints\EmptyConstraint.cs" />
+    <Compile Include="NAssert\Constraints\EqualConstraint.cs" />
+    <Compile Include="NAssert\Constraints\EqualityAdapter.cs" />
+    <Compile Include="NAssert\Constraints\FloatingPointNumerics.cs" />
+    <Compile Include="NAssert\Constraints\IResolveConstraint.cs" />
+    <Compile Include="NAssert\Constraints\MessageWriter.cs" />
+    <Compile Include="NAssert\Constraints\MsgUtils.cs" />
+    <Compile Include="NAssert\Constraints\Numerics.cs" />
+    <Compile Include="NAssert\Constraints\NUnitComparer.cs" />
+    <Compile Include="NAssert\Constraints\NUnitEqualityComparer.cs" />
+    <Compile Include="NAssert\Constraints\PathConstraints.cs" />
+    <Compile Include="NAssert\Constraints\PredicateConstraint.cs" />
+    <Compile Include="NAssert\Constraints\PrefixConstraints.cs" />
+    <Compile Include="NAssert\Constraints\PropertyConstraint.cs" />
+    <Compile Include="NAssert\Constraints\RangeConstraint.cs" />
+    <Compile Include="NAssert\Constraints\ResolvableConstraintExpression.cs" />
+    <Compile Include="NAssert\Constraints\ReusableConstraint.cs" />
+    <Compile Include="NAssert\Constraints\SameAsConstraint.cs" />
+    <Compile Include="NAssert\Constraints\SerializableConstraints.cs" />
+    <Compile Include="NAssert\Constraints\StringConstraints.cs" />
+    <Compile Include="NAssert\Constraints\ThrowsConstraint.cs" />
+    <Compile Include="NAssert\Constraints\Tolerance.cs" />
+    <Compile Include="NAssert\Constraints\TypeConstraints.cs" />
+    <Compile Include="NAssert\Exceptions\AssertionException.cs" />
+    <Compile Include="NAssert\Exceptions\IgnoreException.cs" />
+    <Compile Include="NAssert\Exceptions\InconclusiveException.cs" />
+    <Compile Include="NAssert\Exceptions\SuccessException.cs" />
+    <Compile Include="NAssert\GlobalSettings.cs" />
+    <Compile Include="NAssert\Has.cs" />
+    <Compile Include="NAssert\Is.cs" />
+    <Compile Include="NAssert\TextMessageWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCategoryAttribute.cs" />
+    <Compile Include="TestClass.cs" />
+    <Compile Include="TestCleanupAttribute.cs" />
+    <Compile Include="TestContext.cs" />
+    <Compile Include="TestInitializeAttribute.cs" />
+    <Compile Include="TestMethodAttribute.cs" />
+    <Compile Include="UnitTestAssertException.cs" />
+    <Compile Include="UnitTestOutcome.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

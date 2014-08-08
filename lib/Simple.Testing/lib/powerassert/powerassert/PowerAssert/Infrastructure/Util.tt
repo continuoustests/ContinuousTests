@@ -1,0 +1,34 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".Generated.cs" #>
+<#@ import namespace="System.Linq.Expressions" #>
+<#@ assembly name="System.Core" #>
+using System.Linq.Expressions;
+using System.Collections.Generic;
+
+namespace PowerAssert.Infrastructure
+{
+    internal class Util
+    {
+        internal static Dictionary<ExpressionType, string> Operators = new Dictionary<ExpressionType, string>
+        {
+            {ExpressionType.AndAlso, "&&"},
+            {ExpressionType.OrElse, "||"},
+<# 
+foreach( var v in Enum.GetValues(typeof(ExpressionType))) 
+{
+    try
+    {
+        string s = Expression.MakeBinary((ExpressionType)v, Expression.Constant(0), Expression.Constant(0)).ToString().Trim('(', ')', '0', ' ');
+#>
+            {ExpressionType.<#=v#>, "<#=s#>"},
+<# 
+    }
+    catch
+    {
+       
+    }
+} 
+#>
+        };
+    }
+}

@@ -1,0 +1,18 @@
+﻿blah blah blah blah
+
+Copyright (C) blah blah blah blah blah blah blah blah
+
+blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+blah blah blah blah
+C:\Some\Solution\File.sln(200): Solution file error MSB 5023: Error parsing solution file.
+
+Build FAILED.
+
+  C:\Some\Solution\File.sln(200): Solution file error MSB 5023: Error parsing solution file.
+
+	0 Warning(s)
+	1 Error(s)
+
+Time Elapsed 00:00:00.03
