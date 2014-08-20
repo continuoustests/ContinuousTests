@@ -5,6 +5,6 @@ In addition to making sure your work flow is optimized, its features include gra
 
 Prerequisites for compiling
     MS .Net / Mono
-    Ruby (version script)
+    Ruby (only when running version change script)
 
 To compile ContinuousTests run release.bat on Windows and release.sh on Linux (possibly osx). On windows it will deploy the stand alone binaries and the Visual Studio installer to the ReleaseBinaries\Installer folder. On Linux it will deploy the stand alone client to ReleaseBinaries.
