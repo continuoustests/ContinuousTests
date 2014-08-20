@@ -97,4 +97,3 @@ cp $DIR/lib/Rhino.Licensing/license.txt $DEPLOYDIR/Rhino.Licensing.license.txt
 cp $DIR/lib/Rhino.Licensing/Rhino.Licensing.dll $DEPLOYDIR/Rhino.Licensing.dll
 cp $DIR/lib/Rhino.Licensing/log4net.dll $DEPLOYDIR/log4net.dll
 cp $DIR/lib/Rhino.Licensing/log4net.license.txt $DEPLOYDIR/log4net.license.txt
-cp $BINARYDIR/AutoTest.GtkSharp.exe $DEPLOYDIR/AutoTest.GtkSharp.exe

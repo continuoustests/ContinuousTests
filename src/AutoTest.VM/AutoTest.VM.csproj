@@ -103,10 +103,6 @@
       <Project>{F59ADD6E-822A-4F5F-92CC-896F4669C740}</Project>
       <Name>AutoTest.Graphs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AutoTest.Minimizer\AutoTest.Minimizer.csproj">
-      <Project>{56533C4F-DA7B-4DB3-8A08-37E9A901D15F}</Project>
-      <Name>AutoTest.Minimizer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AutoTest.Profiler\AutoTest.Profiler.csproj">
       <Project>{A59EC146-66F9-45A4-95E6-18242714B581}</Project>
       <Name>AutoTest.Profiler</Name>
@@ -114,6 +110,10 @@
     <ProjectReference Include="..\AutoTest.VM.Messages\AutoTest.VM.Messages.csproj">
       <Project>{052F78A0-E25A-4C48-8409-CA4DE76958E6}</Project>
       <Name>AutoTest.VM.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTest.Minimizer\AutoTest.Minimizer.csproj">
+      <Project>{56533C4F-DA7B-4DB3-8A08-37E9A901D15F}</Project>
+      <Name>AutoTest.Minimizer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
