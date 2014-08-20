@@ -2,4 +2,4 @@ ContinuousTests is a continuous testing tool for the .Net and Mono platform. It 
 
 In addition to making sure your work flow is optimized, its features include graphs visualizing the relation between a piece of code and the tests run on it, annotation inside your code showing risk you are taking changing this piece of code, and more.
 
-To compile ContinuousTests run release.bat on Windows and release.sh on Linux (possibly osx). On windows it will deploy the stand alone binaries and the Visual Studio installer to the ReleaseBinaries folder. On Linux it will deploy the stand alone client.
+To compile ContinuousTests run release.bat on Windows and release.sh on Linux (possibly osx). On windows it will deploy the stand alone binaries and the Visual Studio installer to the ReleaseBinaries\Installer folder. On Linux it will deploy the stand alone client to ReleaseBinaries.
