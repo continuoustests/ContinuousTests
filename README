@@ -1,0 +1,5 @@
+ContinuousTests is a continuous testing tool for the .Net and Mono platform. It helps you with the way you do TDD by taking care of all compiling and testing in the background to help you work more efficiently. It also figures out exactly which tests to run, based on the changes you just made. So, instead of running all tests, it will only run those affected by your changes.
+
+In addition to making sure your work flow is optimized, its features include graphs visualizing the relation between a piece of code and the tests run on it, annotation inside your code showing risk you are taking changing this piece of code, and more.
+
+To compile ContinuousTests run release.bat on Windows and release.sh on Linux (possibly osx). On windows it will deploy the stand alone binaries and the Visual Studio installer to the ReleaseBinaries folder. On Linux it will deploy the stand alone client.
