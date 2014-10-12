@@ -80,17 +80,8 @@ set_version("src\\AutoTest.VM\\Properties\\AssemblyInfo.cs", version)
 puts "Updateing VM Messages"
 set_version("src\\AutoTest.VM.Messages\\Properties\\AssemblyInfo.cs", version)
 
-puts "Updateing VM Messages"
-set_version("src\\AutoTest.VMHost\\Properties\\AssemblyInfo.cs", version)
-
-puts "Updateing VMHost Console"
-set_version("src\\AutoTest.VMHost.Console\\Properties\\AssemblyInfo.cs", version)
-
-puts "Updateing VMHost Service"
-set_version("src\\AutoTest.VMHost.Service\\Properties\\AssemblyInfo.cs", version)
-
 puts "Updateing Minimizer"
-set_version("src\\coupling\\src\\AutoTest.Minimizer\\Properties\\AssemblyInfo.cs", version)
+set_version("src\\AutoTest.Minimizer\\Properties\\AssemblyInfo.cs", version)
 
 puts "Updating Installer"
 update_installer("Installer\\ATEInstaller.iss", version)

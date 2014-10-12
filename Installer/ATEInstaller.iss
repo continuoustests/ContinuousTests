@@ -7,14 +7,14 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{DE3A8FE7-5918-471A-BF59-84C2C3328CCF}
 AppName=ContinuousTests
-AppVersion=1.0.47
-AppVerName=ContinuousTests 1.0.47
+AppVersion=1.0.48
+AppVerName=ContinuousTests 1.0.48
 AppPublisher=ContinuousTests
 DefaultDirName={pf}\ContinuousTests
 DefaultGroupName=ContinuousTests
 ;LicenseFile=..\ReleaseBinaries\License.txt
 OutputDir=..\ReleaseBinaries\Installer
-OutputBaseFilename=ContinuousTests-v1.0.47
+OutputBaseFilename=ContinuousTests-v1.0.48
 Compression=lzma
 SolidCompression=yes
 
