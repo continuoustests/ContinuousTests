@@ -1,0 +1,28 @@
+// MMProfiler.idl : IDL source for MMProfiler
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MMProfiler.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "corprof.idl";
+
+[
+	uuid(84B10136-90E3-4215-8CF4-CAE377626EC4),
+	version(1.0),
+]
+library MMProfilerLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(36C8D782-F697-45C4-856A-92D05C061A39)		
+	]
+	coclass FunctionProfiler
+	{
+		[default] interface ICorProfilerCallback;
+        interface ICorProfilerCallback2;
+        interface ICorProfilerCallback3;
+	};
+};
+

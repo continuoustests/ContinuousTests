@@ -1,0 +1,15 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {36C8D782-F697-45C4-856A-92D05C061A39} = s 'FunctionProfiler Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{84B10136-90E3-4215-8CF4-CAE377626EC4}'
+			Version = s '1.0'
+		}
+	}
+}

@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MMProfiler", "MMProfiler\MMProfiler.vcxproj", "{59CC9EE0-772B-423B-9CCB-723F60F51D05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfilerHost", "ProfilerHost\ProfilerHost.csproj", "{E26F71EF-FD98-4A13-AB77-EF4B624F8EEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Target", "Test.Target\Test.Target.csproj", "{89A6F1D0-22A1-474E-A625-93A9752C3DEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSTest.Target", "MSTest.Target\MSTest.Target.csproj", "{E77E70D7-2527-49A3-A4B8-E2EABC325737}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{72CCE7EC-2759-4298-8435-52F0279864E5}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		MMProfiler.vsmdi = MMProfiler.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMProfiler.Tests", "MMProfiler.Tests\MMProfiler.Tests.csproj", "{B045C3CF-0FF5-4A18-9CD1-3231396051E4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{89A6F1D0-22A1-474E-A625-93A9752C3DEF} = {89A6F1D0-22A1-474E-A625-93A9752C3DEF}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MMProfiler.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59CC9EE0-772B-423B-9CCB-723F60F51D05}.Debug|x64.ActiveCfg = Debug|x64
+		{59CC9EE0-772B-423B-9CCB-723F60F51D05}.Debug|x64.Build.0 = Debug|x64
+		{59CC9EE0-772B-423B-9CCB-723F60F51D05}.Debug|x86.ActiveCfg = Debug|Win32
+		{59CC9EE0-772B-423B-9CCB-723F60F51D05}.Debug|x86.Build.0 = Debug|Win32
+		{59CC9EE0-772B-423B-9CCB-723F60F51D05}.Release|x64.ActiveCfg = Release|x64
+		{59CC9EE0-772B-423B-9CCB-723F60F51D05}.Release|x64.Build.0 = Release|x64
+		{59CC9EE0-772B-423B-9CCB-723F60F51D05}.Release|x86.ActiveCfg = Release|Win32
+		{59CC9EE0-772B-423B-9CCB-723F60F51D05}.Release|x86.Build.0 = Release|Win32
+		{E26F71EF-FD98-4A13-AB77-EF4B624F8EEF}.Debug|x64.ActiveCfg = Debug|x64
+		{E26F71EF-FD98-4A13-AB77-EF4B624F8EEF}.Debug|x64.Build.0 = Debug|x64
+		{E26F71EF-FD98-4A13-AB77-EF4B624F8EEF}.Debug|x86.ActiveCfg = Debug|x86
+		{E26F71EF-FD98-4A13-AB77-EF4B624F8EEF}.Debug|x86.Build.0 = Debug|x86
+		{E26F71EF-FD98-4A13-AB77-EF4B624F8EEF}.Release|x64.ActiveCfg = Release|x64
+		{E26F71EF-FD98-4A13-AB77-EF4B624F8EEF}.Release|x64.Build.0 = Release|x64
+		{E26F71EF-FD98-4A13-AB77-EF4B624F8EEF}.Release|x86.ActiveCfg = Release|x86
+		{E26F71EF-FD98-4A13-AB77-EF4B624F8EEF}.Release|x86.Build.0 = Release|x86
+		{89A6F1D0-22A1-474E-A625-93A9752C3DEF}.Debug|x64.ActiveCfg = Debug|x64
+		{89A6F1D0-22A1-474E-A625-93A9752C3DEF}.Debug|x64.Build.0 = Debug|x64
+		{89A6F1D0-22A1-474E-A625-93A9752C3DEF}.Debug|x86.ActiveCfg = Debug|x86
+		{89A6F1D0-22A1-474E-A625-93A9752C3DEF}.Debug|x86.Build.0 = Debug|x86
+		{89A6F1D0-22A1-474E-A625-93A9752C3DEF}.Release|x64.ActiveCfg = Release|x64
+		{89A6F1D0-22A1-474E-A625-93A9752C3DEF}.Release|x64.Build.0 = Release|x64
+		{89A6F1D0-22A1-474E-A625-93A9752C3DEF}.Release|x86.ActiveCfg = Release|x86
+		{89A6F1D0-22A1-474E-A625-93A9752C3DEF}.Release|x86.Build.0 = Release|x86
+		{E77E70D7-2527-49A3-A4B8-E2EABC325737}.Debug|x64.ActiveCfg = Debug|x64
+		{E77E70D7-2527-49A3-A4B8-E2EABC325737}.Debug|x64.Build.0 = Debug|x64
+		{E77E70D7-2527-49A3-A4B8-E2EABC325737}.Debug|x86.ActiveCfg = Debug|x86
+		{E77E70D7-2527-49A3-A4B8-E2EABC325737}.Debug|x86.Build.0 = Debug|x86
+		{E77E70D7-2527-49A3-A4B8-E2EABC325737}.Release|x64.ActiveCfg = Release|x64
+		{E77E70D7-2527-49A3-A4B8-E2EABC325737}.Release|x64.Build.0 = Release|x64
+		{E77E70D7-2527-49A3-A4B8-E2EABC325737}.Release|x86.ActiveCfg = Release|x64
+		{E77E70D7-2527-49A3-A4B8-E2EABC325737}.Release|x86.Build.0 = Release|x64
+		{B045C3CF-0FF5-4A18-9CD1-3231396051E4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B045C3CF-0FF5-4A18-9CD1-3231396051E4}.Debug|x64.Build.0 = Debug|Any CPU
+		{B045C3CF-0FF5-4A18-9CD1-3231396051E4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B045C3CF-0FF5-4A18-9CD1-3231396051E4}.Debug|x86.Build.0 = Debug|Any CPU
+		{B045C3CF-0FF5-4A18-9CD1-3231396051E4}.Release|x64.ActiveCfg = Release|Any CPU
+		{B045C3CF-0FF5-4A18-9CD1-3231396051E4}.Release|x64.Build.0 = Release|Any CPU
+		{B045C3CF-0FF5-4A18-9CD1-3231396051E4}.Release|x86.ActiveCfg = Release|Any CPU
+		{B045C3CF-0FF5-4A18-9CD1-3231396051E4}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

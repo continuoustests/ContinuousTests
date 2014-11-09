@@ -1,0 +1,56 @@
+(View in WordPad or similar on windows since the file uses Unix line endings)
+
+AutoTest.Net (http://groups.google.com/group/autotestnet)
+This product provides continuous testing for the .Net platform.It contains a 
+winforms app and a console app.
+
+Features
+	* File tracking: Automatic builds and testruns
+	* Assembly tracking: Automatic test runs for built assemblies (if 
+	  BuildExecutable is removed from config)
+		* You can then build through Visual Studio or something similar while
+		  still having your tests run automatically
+	* Cross platform support through Mono
+	* Supports C# and Visual Basic projects
+	* Supported build tools
+		* MSBuild.exe
+		* Mono's xbuild
+	* Supported test runners
+		* AutoTest.TestRunner (Built in runner supporting NUNit and XUnit pr today)
+		* NUnit (Console runner)
+		* XUnit (Console runner)
+		* MSpec (Console runner)
+		* MSTest
+	* Supports notifications through
+		* notify-send (Linux)
+		* Snarl through it's tcp interface (Windows)
+		* Growl (Mac, Windows)
+	* Supports configurable ignore files using the .gitignore format
+	* Local config files extending the main config
+		* The attribute override="merge" will merge with original
+		* The attribute override="exclude" will remove it all together
+
+Geting started
+To get started using this application edit AutoTest.config to suite your system.
+When done start either the winforms app or the console app. In the winforms 
+application the little button in the top rightcorner will display some nice to 
+know messages now and then. When set up just edita file within the watched folder 
+and save it. AutoTest.Net will detect any changes and start builds and run tests.
+If you end up in a scenario where it goes in to an endless loop it's probably
+detecting changes in a file generated either by build or testrun. If so use the
+ignore posibility in the configuration file. To figure out what files are being
+generated turn on logging and check the debug.log file.
+
+Build from source
+To build the whole thing from source just clone or fork the repository. If you want
+to build AutoTest.Net with Microsoft .Net instead fo mono go to the Settings folder.
+In there you will find the UppercuT.config and UppercuTx86.config files. Locate this
+line (<property name="microsoft.framework" value="mono-3.5" overwrite="false" />) in
+both files and switch from mono-3.5 to net-3.5.
+
+When done go in and run build and deploy scripts (biuld.sh/build.bat and 
+deploy.sh/deploy.bat depending on whether you are on Windows(bat) or something else(sh)).
+After running build and deploy scripts you will find the built binaries under the 
+ReleaseBinaries folder.
+
+PS!! For building on mono you need 2.8 or later and it uses Git's core.autocrlf=true
