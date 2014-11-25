@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <?define DevEnvResetAddinParams=/ResetAddin ContinuousTests.VS.Connect /command File.Exit?>
+    <?define DevEnvSetupParams=/setup?>
+    
+    <!--Visual Studio 2008-->
+    <CustomAction Id="SetQtExecCmdLine_9" Property="DevEnv_9" Value="&quot;[VS90DEVENV]&quot; $(var.DevEnvResetAddinParams)" Execute="immediate" />
+    <CustomAction Id="DevEnv_9" 
+                  BinaryKey="WixCA" 
+                  DllEntry="CAQuietExec" 
+                  Execute="deferred" 
+                  Return="check" 
+                  Impersonate="no" />
+    <CustomAction Id="SetQtExecCmdLine_9_Setup" Property="DevEnv_9_Setup" Value="&quot;[VS90DEVENV]&quot; $(var.DevEnvSetupParams)" Execute="immediate" />
+    <CustomAction Id="DevEnv_9_Setup"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+
+    <!--Visual Studio 2010-->
+    <CustomAction Id="SetQtExecCmdLine_10" Property="DevEnv_10" Value="&quot;[VS2010DEVENV]&quot; $(var.DevEnvResetAddinParams)" Execute="immediate" />
+    <CustomAction Id="DevEnv_10"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+    <CustomAction Id="SetQtExecCmdLine_10_Setup" Property="DevEnv_10_Setup" Value="&quot;[VS2010DEVENV]&quot; $(var.DevEnvSetupParams)" Execute="immediate" />
+    <CustomAction Id="DevEnv_10_Setup"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+
+    <!--Visual Studio 2012-->
+    <CustomAction Id="SetQtExecCmdLine_11" Property="DevEnv_11" Value="&quot;[VS2012DEVENV]&quot; $(var.DevEnvResetAddinParams)" Execute="immediate" />
+    <CustomAction Id="DevEnv_11"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+    <CustomAction Id="SetQtExecCmdLine_11_Setup" Property="DevEnv_11_Setup" Value="&quot;[VS2012DEVENV]&quot; $(var.DevEnvSetupParams)" Execute="immediate" />
+    <CustomAction Id="DevEnv_11_Setup"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+
+    <!--Visual Studio 2013-->
+    <CustomAction Id="SetQtExecCmdLine_12" Property="DevEnv_12" Value="&quot;[VS2013DEVENV]&quot; $(var.DevEnvResetAddinParams)" Execute="immediate" />
+    <CustomAction Id="DevEnv_12"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+    <CustomAction Id="SetQtExecCmdLine_12_Setup" Property="DevEnv_12_Setup" Value="&quot;[VS2013DEVENV]&quot; $(var.DevEnvSetupParams)" Execute="immediate" />
+    <CustomAction Id="DevEnv_12_Setup"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+
+    <InstallExecuteSequence>
+      <!--Visual Studio 2008-->
+      <Custom Action="SetQtExecCmdLine_9" Before="InstallFinalize">NOT Installed AND VS90DEVENV</Custom>
+      <Custom Action="DevEnv_9" After="SetQtExecCmdLine_9">NOT Installed AND VS90DEVENV</Custom>
+      <Custom Action="SetQtExecCmdLine_9_Setup" After="DevEnv_9">NOT Installed AND VS90DEVENV</Custom>
+      <Custom Action="DevEnv_9_Setup" After="SetQtExecCmdLine_9_Setup">NOT Installed AND VS90DEVENV</Custom>
+
+      <!--Visual Studio 2010-->
+      <Custom Action="SetQtExecCmdLine_10" After="DevEnv_9">NOT Installed AND VS2010DEVENV</Custom>
+      <Custom Action="DevEnv_10" After="SetQtExecCmdLine_10">NOT Installed AND VS2010DEVENV</Custom>
+      <Custom Action="SetQtExecCmdLine_10_Setup" After="DevEnv_10">NOT Installed AND VS2010DEVENV</Custom>
+      <Custom Action="DevEnv_10_Setup" After="SetQtExecCmdLine_10_Setup">NOT Installed AND VS2010DEVENV</Custom>
+
+      <!--Visual Studio 2012-->
+      <Custom Action="SetQtExecCmdLine_11" After="DevEnv_10">NOT Installed AND VS2012DEVENV</Custom>
+      <Custom Action="DevEnv_11" After="SetQtExecCmdLine_11">NOT Installed AND VS2012DEVENV</Custom>
+      <Custom Action="SetQtExecCmdLine_11_Setup" After="DevEnv_11">NOT Installed AND VS2012DEVENV</Custom>
+      <Custom Action="DevEnv_11_Setup" After="SetQtExecCmdLine_11_Setup">NOT Installed AND VS2012DEVENV</Custom>
+
+      <!--Visual Studio 2013-->
+      <Custom Action="SetQtExecCmdLine_12" After="DevEnv_11">NOT Installed AND VS2013DEVENV</Custom>
+      <Custom Action="DevEnv_12" After="SetQtExecCmdLine_12">NOT Installed AND VS2013DEVENV</Custom>
+      <Custom Action="SetQtExecCmdLine_12_Setup" After="DevEnv_12">NOT Installed AND VS2013DEVENV</Custom>
+      <Custom Action="DevEnv_12_Setup" After="SetQtExecCmdLine_12_Setup">NOT Installed AND VS2013DEVENV</Custom>
+    </InstallExecuteSequence>
+    
+    <!--TODO: Remove on uninstall-->
+	</Fragment>
+</Wix>

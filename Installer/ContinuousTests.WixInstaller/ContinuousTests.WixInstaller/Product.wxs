@@ -22,6 +22,7 @@
 
 		<Feature Id="ProductFeature" Title="ContinuousTests" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="VisualStudioAddInComponents" />
 		</Feature>
     
     <!--User interface, using stock WiX wizard-->
@@ -32,10 +33,11 @@
     <!--Program and Features info-->
     <Property Id="ARPURLINFOABOUT" Value="http://continuoustests.com/" />
     <Property Id="ARPURLUPDATEINFO" Value="http://continuoustests.com/download.html" />
+
+    <CustomActionRef Id="DevEnv_9"/>
     
-    
-    <!--TODO: Launch website after install-->
     <!--TODO: Register Visual Studio extension-->
     <!--TODO: Brand installer images-->
+    <!--TODO: Update to use VSIX instead of Add-Ins?-->
 	</Product>
 </Wix>

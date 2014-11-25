@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <Property Id="RISK_CLASSIFIER" Value="RiskClassifier..e44e3e0c-91d0-406e-9716-8bd4f842c96f,1.0" />
+    <Property Id="EXTENSIONS_FOLDER" Value="Extensions\Continuous Tests\Mighty Moose\1.0\" />
+
+    <PropertyRef Id="VS2013DEVENV" />
+    
+    <ComponentGroup Id="VisualStudioAddInComponents" Directory="INSTALLFOLDER">
+
+      <!--Visual Studio 2013-->
+      <Component Id="cmpAutomationOptionsKey_VS12" Guid="{6E347008-2A23-4775-B41B-1027376409E1}">
+        <Condition><![CDATA[VS2013DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\12.0">
+          <RegistryKey Key="AutomationOptions">
+            <RegistryKey Key="LookInFolders">
+              <RegistryValue Id="regvalue_lookinFoldersPath_VS12" 
+                             Type="string" 
+                             Name="[INSTALLFOLDER]" 
+                             Value="" 
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+      <Component Id="cmpEnabledExtensionsKey_VS12" Guid="{D607D91C-024B-4409-A615-CAAF7FC4EE01}">
+        <Condition><![CDATA[VS2013DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\12.0">
+          <RegistryKey Key="ExtensionManager">
+            <RegistryKey Key="EnabledExtensions">
+              <RegistryValue Id="regvalue_EnabledExtensions_VS12"
+                             Type="string"
+                             Name="[RISK_CLASSIFIER]"
+                             Value="[EXTENSIONS_FOLDER]"
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <!--Visual Studio 2012-->
+      <Component Id="cmpAutomationOptionsKey_VS11" Guid="{ABB20C8A-B895-4EC0-8825-1D556DE94247}">
+        <Condition><![CDATA[VS2012DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\11.0">
+          <RegistryKey Key="AutomationOptions">
+            <RegistryKey Key="LookInFolders">
+              <RegistryValue Id="regvalue_lookinFoldersPath_VS11"
+                             Type="string"
+                             Name="[INSTALLFOLDER]"
+                             Value=""
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+      <Component Id="cmpEnabledExtensionsKey_VS11" Guid="{43E60B98-B02F-4D65-91BE-2584AAEB4140}">
+        <Condition><![CDATA[VS2012DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\11.0">
+          <RegistryKey Key="ExtensionManager">
+            <RegistryKey Key="EnabledExtensions">
+              <RegistryValue Id="regvalue_EnabledExtensions_VS11"
+                             Type="string"
+                             Name="[RISK_CLASSIFIER]"
+                             Value="[EXTENSIONS_FOLDER]"
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+      <!--Visual Studio 2010-->
+      <Component Id="cmpAutomationOptionsKey_VS10" Guid="{DA391CD9-33D8-4232-B71C-6CA4521022D1}">
+        <Condition><![CDATA[VS2010DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\10.0">
+          <RegistryKey Key="AutomationOptions">
+            <RegistryKey Key="LookInFolders">
+              <RegistryValue Id="regvalue_lookinFoldersPath_VS10"
+                             Type="string"
+                             Name="[INSTALLFOLDER]"
+                             Value=""
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+      <Component Id="cmpEnabledExtensionsKey_VS10" Guid="{9012657A-6CDD-46CA-BDE3-1094F4EF2A3B}">
+        <Condition><![CDATA[VS2010DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\10.0">
+          <RegistryKey Key="ExtensionManager">
+            <RegistryKey Key="EnabledExtensions">
+              <RegistryValue Id="regvalue_EnabledExtensions_VS10"
+                             Type="string"
+                             Name="[RISK_CLASSIFIER]"
+                             Value="[EXTENSIONS_FOLDER]"
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+      
+      <!--Visual Studio 2008-->
+      <Component Id="cmpAutomationOptionsKey_VS9" Guid="{E3AB5B41-5B30-4E27-B3B7-E11C34C43728}">
+        <Condition><![CDATA[VS90DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\9.0">
+          <RegistryKey Key="AutomationOptions">
+            <RegistryKey Key="LookInFolders">
+              <RegistryValue Id="regvalue_lookinFoldersPath_VS9"
+                             Type="string"
+                             Name="[INSTALLFOLDER]"
+                             Value=""
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+
+    </ComponentGroup>
+  </Fragment>
+</Wix>

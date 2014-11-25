@@ -21,11 +21,21 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AddInRegistryComponents.wxs" />
     <Compile Include="Components.wxs" />
+    <Compile Include="CustomActions.wxs" />
     <Compile Include="Directories.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixVSExtension">
+      <HintPath>$(WixExtDir)\WixVSExtension.dll</HintPath>
+      <Name>WixVSExtension</Name>
+    </WixExtension>
     <WixExtension Include="WixUIExtension">
       <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
       <Name>WixUIExtension</Name>
@@ -43,7 +53,7 @@
       <WixToolPath>$(SolutionDir)wix39-binaries\</WixToolPath>
       <ReleaseBinariesPath>$(SolutionDir)..\..\ReleaseBinaries</ReleaseBinariesPath>
     </PropertyGroup>
-    <HeatDirectory ToolPath="$(WixToolPath)" Directory="$(ReleaseBinariesPath)" ComponentGroupName="ProductComponents" DirectoryRefId="INSTALLFOLDER" AutogenerateGuids="true" GenerateGuidsNow="false" SuppressFragments="true" SuppressRootDirectory="true" SuppressCom="true" SuppressRegistry="true" PreprocessorVariable="var.ReleaseBinariesDir" OutputFile="Components.wxs" />
+    <HeatDirectory ToolPath="$(WixToolPath)" Directory="$(ReleaseBinariesPath)" ComponentGroupName="ProductComponents" DirectoryRefId="INSTALLFOLDER" AutogenerateGuids="true" GenerateGuidsNow="false" SuppressFragments="true" SuppressRootDirectory="true" PreprocessorVariable="var.ReleaseBinariesDir" OutputFile="Components.wxs" />
   </Target>
   <!--<Target Name="AfterBuild">
 	</Target>
