@@ -306,10 +306,10 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>copy $(ProjectDir)\..\AutoTest.VM.Messages\bin\Debug\AutoTest.VM.Messages.dll $(ProjectDir)\bin\AutoTest.VM.Messages.dll
-copy $(ProjectDir)\..\..\lib\AutoTest.NET\AutoTest.Messages.dll $(ProjectDir)\bin\AutoTest.Messages.dll
-copy $(ProjectDir)\..\AutoTest.Client\bin\Debug\AutoTest.Client.dll $(ProjectDir)\bin\AutoTest.Client.dll
-copy $(ProjectDir)\..\..\lib\AutoTest.Net\AutoTest.TestRunners.Shared.dll $(ProjectDir)\bin\AutoTest.TestRunners.Shared.dll</PostBuildEvent>
+    <PostBuildEvent>copy "$(ProjectDir)\..\AutoTest.VM.Messages\bin\Debug\AutoTest.VM.Messages.dll" "$(ProjectDir)\bin\AutoTest.VM.Messages.dll"
+copy "$(ProjectDir)\..\..\lib\AutoTest.NET\AutoTest.Messages.dll" "$(ProjectDir)\bin\AutoTest.Messages.dll"
+copy "$(ProjectDir)\..\AutoTest.Client\bin\Debug\AutoTest.Client.dll" "$(ProjectDir)\bin\AutoTest.Client.dll"
+copy "$(ProjectDir)\..\..\lib\AutoTest.Net\AutoTest.TestRunners.Shared.dll" "$(ProjectDir)\bin\AutoTest.TestRunners.Shared.dll"</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions />
   <Target Name="AfterBuild">
