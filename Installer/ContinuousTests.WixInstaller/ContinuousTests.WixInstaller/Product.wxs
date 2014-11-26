@@ -29,6 +29,9 @@
     <UIRef Id="WixUI_InstallDir" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
     <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+    <!--NOTE: Background: #202121-->
+    <WixVariable Id="WixUIDialogBmp" Value="left_hand_branding.jpg" />
+    <WixVariable Id="WixUIBannerBmp" Value="top_nav.jpg"/>
     
     <!--Program and Features info-->
     <Property Id="ARPURLINFOABOUT" Value="http://continuoustests.com/" />

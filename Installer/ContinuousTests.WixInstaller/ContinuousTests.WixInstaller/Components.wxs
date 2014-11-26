@@ -438,14 +438,11 @@
                 <File Id="filB3BD01A79FF51527E9E6FC84B2F0C349" KeyPath="yes" Source="$(var.ReleaseBinariesDir)\AutoTest.VS.2013.Addin" />
             </Component>
             <Component Id="cmp60E671FCF64AE976B3629EA7F8A4CC14" Guid="*">
-                <Class Id="{4806D293-6866-3F0F-A7B0-53C81BB19E00}" Context="InprocServer32" Description="AutoTest.VS.SequenceDiagramGenerators.LifeLineClickedArgs" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="AutoTest.VS.SequenceDiagramGenerators.LifeLineClickedArgs" Description="AutoTest.VS.SequenceDiagramGenerators.LifeLineClickedArgs" />
+                <Class Id="{075E7FEC-A7C8-391E-9B84-433FCB23275E}" Context="InprocServer32" Description="AutoTest.VS.SequenceDiagramGenerators.Activation" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="AutoTest.VS.SequenceDiagramGenerators.Activation" Description="AutoTest.VS.SequenceDiagramGenerators.Activation" />
                 </Class>
-                <Class Id="{4ABFBAED-1DC1-35AD-94F5-B36BB326EAA2}" Context="InprocServer32" Description="AutoTest.VS.SequenceDiagramGenerators.MessageClickedArgs" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="AutoTest.VS.SequenceDiagramGenerators.MessageClickedArgs" Description="AutoTest.VS.SequenceDiagramGenerators.MessageClickedArgs" />
-                </Class>
-                <Class Id="{537C5B22-D4BD-34D8-97A0-0D51975F33FC}" Context="InprocServer32" Description="ContinuousTests.VS.Connect" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="ContinuousTests.VS.Connect" Description="ContinuousTests.VS.Connect" />
+                <Class Id="{6291E374-C59A-3FBB-9983-B508F31FD3DB}" Context="InprocServer32" Description="AutoTest.VS.ClientHandlers.StartupHandler" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="AutoTest.VS.ClientHandlers.StartupHandler" Description="AutoTest.VS.ClientHandlers.StartupHandler" />
                 </Class>
                 <Class Id="{67663444-F874-401C-9E55-053AA0B5BD0B}" Context="InprocServer32" Description="AutoTest.VS.AutoTestVSRunInformation" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="AutoTestVSRunInformationToolbox" Description="AutoTest.VS.AutoTestVSRunInformation" />
@@ -453,113 +450,116 @@
                 <Class Id="{67663444-F874-401C-9E55-053BB0B5BD0B}" Context="InprocServer32" Description="AutoTest.VS.ContinuousTests_ListOfRanTests" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="ContinuousTests_ListOfRanTests" Description="AutoTest.VS.ContinuousTests_ListOfRanTests" />
                 </Class>
-                <Class Id="{68470781-E439-3E2C-95DD-C8D78AE8DF4D}" Context="InprocServer32" Description="AutoTest.VS.SequenceDiagramGenerators.Activation" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="AutoTest.VS.SequenceDiagramGenerators.Activation" Description="AutoTest.VS.SequenceDiagramGenerators.Activation" />
+                <Class Id="{8BB48B99-1A2E-3E4A-92C7-F461A423D826}" Context="InprocServer32" Description="AutoTest.VS.SequenceDiagramGenerators.LifelinePort" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="AutoTest.VS.SequenceDiagramGenerators.LifelinePort" Description="AutoTest.VS.SequenceDiagramGenerators.LifelinePort" />
                 </Class>
-                <Class Id="{74C2AA22-D231-3FF7-B4D8-53EA3B8ED622}" Context="InprocServer32" Description="AutoTest.VS.GraphGenerators.GraphVizGraphVisualization" ThreadingModel="both" ForeignServer="mscoree.dll">
+                <Class Id="{B6B662B1-3659-35EF-BA1D-07EC63F8CAC7}" Context="InprocServer32" Description="AutoTest.VS.SequenceDiagramGenerators.LifeLineClickedArgs" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="AutoTest.VS.SequenceDiagramGenerators.LifeLineClickedArgs" Description="AutoTest.VS.SequenceDiagramGenerators.LifeLineClickedArgs" />
+                </Class>
+                <Class Id="{D1BEE995-3AED-3E74-AD01-0BD9494E9A1A}" Context="InprocServer32" Description="AutoTest.VS.SequenceDiagramGenerators.MessageClickedArgs" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="AutoTest.VS.SequenceDiagramGenerators.MessageClickedArgs" Description="AutoTest.VS.SequenceDiagramGenerators.MessageClickedArgs" />
+                </Class>
+                <Class Id="{EB01F460-C596-3905-9684-14AB676FCD43}" Context="InprocServer32" Description="AutoTest.VS.GraphGenerators.GraphVizGraphVisualization" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="AutoTest.VS.GraphGenerators.GraphVizGraphVisualization" Description="AutoTest.VS.GraphGenerators.GraphVizGraphVisualization" />
                 </Class>
-                <Class Id="{7B436AD1-00A0-37EB-BA6C-7E634C6BB048}" Context="InprocServer32" Description="AutoTest.VS.ClientHandlers.StartupHandler" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="AutoTest.VS.ClientHandlers.StartupHandler" Description="AutoTest.VS.ClientHandlers.StartupHandler" />
-                </Class>
-                <Class Id="{E31FD77B-57D9-37B6-BBC3-D0BD2212BB0A}" Context="InprocServer32" Description="AutoTest.VS.SequenceDiagramGenerators.LifelinePort" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="AutoTest.VS.SequenceDiagramGenerators.LifelinePort" Description="AutoTest.VS.SequenceDiagramGenerators.LifelinePort" />
+                <Class Id="{F9B23BC2-08B7-3337-9B52-5EBEA625CDC8}" Context="InprocServer32" Description="ContinuousTests.VS.Connect" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="ContinuousTests.VS.Connect" Description="ContinuousTests.VS.Connect" />
                 </Class>
                 <File Id="fil0E3097C51691F04AE46E1538126FDA47" KeyPath="yes" Source="$(var.ReleaseBinariesDir)\AutoTest.VS.dll" />
                 <ProgId Id="Record" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4806D293-6866-3F0F-A7B0-53C81BB19E00}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4806D293-6866-3F0F-A7B0-53C81BB19E00}\InprocServer32\1.0.5442.20790" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.LifeLineClickedArgs" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4806D293-6866-3F0F-A7B0-53C81BB19E00}\InprocServer32\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4806D293-6866-3F0F-A7B0-53C81BB19E00}\InprocServer32\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4806D293-6866-3F0F-A7B0-53C81BB19E00}\InprocServer32\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4806D293-6866-3F0F-A7B0-53C81BB19E00}\InprocServer32" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.LifeLineClickedArgs" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4806D293-6866-3F0F-A7B0-53C81BB19E00}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4806D293-6866-3F0F-A7B0-53C81BB19E00}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4806D293-6866-3F0F-A7B0-53C81BB19E00}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4ABFBAED-1DC1-35AD-94F5-B36BB326EAA2}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4ABFBAED-1DC1-35AD-94F5-B36BB326EAA2}\InprocServer32\1.0.5442.20790" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.MessageClickedArgs" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4ABFBAED-1DC1-35AD-94F5-B36BB326EAA2}\InprocServer32\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4ABFBAED-1DC1-35AD-94F5-B36BB326EAA2}\InprocServer32\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4ABFBAED-1DC1-35AD-94F5-B36BB326EAA2}\InprocServer32\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4ABFBAED-1DC1-35AD-94F5-B36BB326EAA2}\InprocServer32" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.MessageClickedArgs" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4ABFBAED-1DC1-35AD-94F5-B36BB326EAA2}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4ABFBAED-1DC1-35AD-94F5-B36BB326EAA2}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{4ABFBAED-1DC1-35AD-94F5-B36BB326EAA2}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{537C5B22-D4BD-34D8-97A0-0D51975F33FC}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{537C5B22-D4BD-34D8-97A0-0D51975F33FC}\InprocServer32\1.0.5442.20790" Name="Class" Value="ContinuousTests.VS.Connect" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{537C5B22-D4BD-34D8-97A0-0D51975F33FC}\InprocServer32\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{537C5B22-D4BD-34D8-97A0-0D51975F33FC}\InprocServer32\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{537C5B22-D4BD-34D8-97A0-0D51975F33FC}\InprocServer32\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{537C5B22-D4BD-34D8-97A0-0D51975F33FC}\InprocServer32" Name="Class" Value="ContinuousTests.VS.Connect" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{537C5B22-D4BD-34D8-97A0-0D51975F33FC}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{537C5B22-D4BD-34D8-97A0-0D51975F33FC}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{537C5B22-D4BD-34D8-97A0-0D51975F33FC}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{075E7FEC-A7C8-391E-9B84-433FCB23275E}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{075E7FEC-A7C8-391E-9B84-433FCB23275E}\InprocServer32\1.0.5442.35242" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.Activation" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{075E7FEC-A7C8-391E-9B84-433FCB23275E}\InprocServer32\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{075E7FEC-A7C8-391E-9B84-433FCB23275E}\InprocServer32\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{075E7FEC-A7C8-391E-9B84-433FCB23275E}\InprocServer32\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{075E7FEC-A7C8-391E-9B84-433FCB23275E}\InprocServer32" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.Activation" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{075E7FEC-A7C8-391E-9B84-433FCB23275E}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{075E7FEC-A7C8-391E-9B84-433FCB23275E}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{075E7FEC-A7C8-391E-9B84-433FCB23275E}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{6291E374-C59A-3FBB-9983-B508F31FD3DB}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{6291E374-C59A-3FBB-9983-B508F31FD3DB}\InprocServer32\1.0.5442.35242" Name="Class" Value="AutoTest.VS.ClientHandlers.StartupHandler" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{6291E374-C59A-3FBB-9983-B508F31FD3DB}\InprocServer32\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{6291E374-C59A-3FBB-9983-B508F31FD3DB}\InprocServer32\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{6291E374-C59A-3FBB-9983-B508F31FD3DB}\InprocServer32\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{6291E374-C59A-3FBB-9983-B508F31FD3DB}\InprocServer32" Name="Class" Value="AutoTest.VS.ClientHandlers.StartupHandler" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{6291E374-C59A-3FBB-9983-B508F31FD3DB}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{6291E374-C59A-3FBB-9983-B508F31FD3DB}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{6291E374-C59A-3FBB-9983-B508F31FD3DB}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32\1.0.5442.20790" Name="Class" Value="AutoTest.VS.AutoTestVSRunInformation" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32\1.0.5442.35242" Name="Class" Value="AutoTest.VS.AutoTestVSRunInformation" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32" Name="Class" Value="AutoTest.VS.AutoTestVSRunInformation" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053AA0B5BD0B}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32\1.0.5442.20790" Name="Class" Value="AutoTest.VS.ContinuousTests_ListOfRanTests" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32\1.0.5442.35242" Name="Class" Value="AutoTest.VS.ContinuousTests_ListOfRanTests" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32" Name="Class" Value="AutoTest.VS.ContinuousTests_ListOfRanTests" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{67663444-F874-401C-9E55-053BB0B5BD0B}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{68470781-E439-3E2C-95DD-C8D78AE8DF4D}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{68470781-E439-3E2C-95DD-C8D78AE8DF4D}\InprocServer32\1.0.5442.20790" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.Activation" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{68470781-E439-3E2C-95DD-C8D78AE8DF4D}\InprocServer32\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{68470781-E439-3E2C-95DD-C8D78AE8DF4D}\InprocServer32\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{68470781-E439-3E2C-95DD-C8D78AE8DF4D}\InprocServer32\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{68470781-E439-3E2C-95DD-C8D78AE8DF4D}\InprocServer32" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.Activation" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{68470781-E439-3E2C-95DD-C8D78AE8DF4D}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{68470781-E439-3E2C-95DD-C8D78AE8DF4D}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{68470781-E439-3E2C-95DD-C8D78AE8DF4D}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{74C2AA22-D231-3FF7-B4D8-53EA3B8ED622}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{74C2AA22-D231-3FF7-B4D8-53EA3B8ED622}\InprocServer32\1.0.5442.20790" Name="Class" Value="AutoTest.VS.GraphGenerators.GraphVizGraphVisualization" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{74C2AA22-D231-3FF7-B4D8-53EA3B8ED622}\InprocServer32\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{74C2AA22-D231-3FF7-B4D8-53EA3B8ED622}\InprocServer32\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{74C2AA22-D231-3FF7-B4D8-53EA3B8ED622}\InprocServer32\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{74C2AA22-D231-3FF7-B4D8-53EA3B8ED622}\InprocServer32" Name="Class" Value="AutoTest.VS.GraphGenerators.GraphVizGraphVisualization" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{74C2AA22-D231-3FF7-B4D8-53EA3B8ED622}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{74C2AA22-D231-3FF7-B4D8-53EA3B8ED622}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{74C2AA22-D231-3FF7-B4D8-53EA3B8ED622}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7B436AD1-00A0-37EB-BA6C-7E634C6BB048}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7B436AD1-00A0-37EB-BA6C-7E634C6BB048}\InprocServer32\1.0.5442.20790" Name="Class" Value="AutoTest.VS.ClientHandlers.StartupHandler" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7B436AD1-00A0-37EB-BA6C-7E634C6BB048}\InprocServer32\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7B436AD1-00A0-37EB-BA6C-7E634C6BB048}\InprocServer32\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7B436AD1-00A0-37EB-BA6C-7E634C6BB048}\InprocServer32\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7B436AD1-00A0-37EB-BA6C-7E634C6BB048}\InprocServer32" Name="Class" Value="AutoTest.VS.ClientHandlers.StartupHandler" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7B436AD1-00A0-37EB-BA6C-7E634C6BB048}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7B436AD1-00A0-37EB-BA6C-7E634C6BB048}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7B436AD1-00A0-37EB-BA6C-7E634C6BB048}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{E31FD77B-57D9-37B6-BBC3-D0BD2212BB0A}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{E31FD77B-57D9-37B6-BBC3-D0BD2212BB0A}\InprocServer32\1.0.5442.20790" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.LifelinePort" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{E31FD77B-57D9-37B6-BBC3-D0BD2212BB0A}\InprocServer32\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{E31FD77B-57D9-37B6-BBC3-D0BD2212BB0A}\InprocServer32\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{E31FD77B-57D9-37B6-BBC3-D0BD2212BB0A}\InprocServer32\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{E31FD77B-57D9-37B6-BBC3-D0BD2212BB0A}\InprocServer32" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.LifelinePort" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{E31FD77B-57D9-37B6-BBC3-D0BD2212BB0A}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{E31FD77B-57D9-37B6-BBC3-D0BD2212BB0A}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{E31FD77B-57D9-37B6-BBC3-D0BD2212BB0A}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{0B5C1BCE-4D1D-3D20-A9AA-617D7B3F9B66}\1.0.5442.20790" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.DisplayMode" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{0B5C1BCE-4D1D-3D20-A9AA-617D7B3F9B66}\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{0B5C1BCE-4D1D-3D20-A9AA-617D7B3F9B66}\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{0B5C1BCE-4D1D-3D20-A9AA-617D7B3F9B66}\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{AE35CA36-6ED4-34C5-AAB6-570EBE10DF8B}\1.0.5442.20790" Name="Class" Value="AutoTest.VS.GraphGenerators.AGLVisualizer+direction" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{AE35CA36-6ED4-34C5-AAB6-570EBE10DF8B}\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{AE35CA36-6ED4-34C5-AAB6-570EBE10DF8B}\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{AE35CA36-6ED4-34C5-AAB6-570EBE10DF8B}\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{FE7CC3F9-699A-32DD-826C-290E458C851A}\1.0.5442.20790" Name="Class" Value="AutoTest.VS.GraphGenerators.DisplayMode" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{FE7CC3F9-699A-32DD-826C-290E458C851A}\1.0.5442.20790" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.20790, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{FE7CC3F9-699A-32DD-826C-290E458C851A}\1.0.5442.20790" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{FE7CC3F9-699A-32DD-826C-290E458C851A}\1.0.5442.20790" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8BB48B99-1A2E-3E4A-92C7-F461A423D826}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8BB48B99-1A2E-3E4A-92C7-F461A423D826}\InprocServer32\1.0.5442.35242" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.LifelinePort" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8BB48B99-1A2E-3E4A-92C7-F461A423D826}\InprocServer32\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8BB48B99-1A2E-3E4A-92C7-F461A423D826}\InprocServer32\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8BB48B99-1A2E-3E4A-92C7-F461A423D826}\InprocServer32\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8BB48B99-1A2E-3E4A-92C7-F461A423D826}\InprocServer32" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.LifelinePort" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8BB48B99-1A2E-3E4A-92C7-F461A423D826}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8BB48B99-1A2E-3E4A-92C7-F461A423D826}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8BB48B99-1A2E-3E4A-92C7-F461A423D826}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B6B662B1-3659-35EF-BA1D-07EC63F8CAC7}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B6B662B1-3659-35EF-BA1D-07EC63F8CAC7}\InprocServer32\1.0.5442.35242" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.LifeLineClickedArgs" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B6B662B1-3659-35EF-BA1D-07EC63F8CAC7}\InprocServer32\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B6B662B1-3659-35EF-BA1D-07EC63F8CAC7}\InprocServer32\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B6B662B1-3659-35EF-BA1D-07EC63F8CAC7}\InprocServer32\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B6B662B1-3659-35EF-BA1D-07EC63F8CAC7}\InprocServer32" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.LifeLineClickedArgs" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B6B662B1-3659-35EF-BA1D-07EC63F8CAC7}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B6B662B1-3659-35EF-BA1D-07EC63F8CAC7}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{B6B662B1-3659-35EF-BA1D-07EC63F8CAC7}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D1BEE995-3AED-3E74-AD01-0BD9494E9A1A}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D1BEE995-3AED-3E74-AD01-0BD9494E9A1A}\InprocServer32\1.0.5442.35242" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.MessageClickedArgs" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D1BEE995-3AED-3E74-AD01-0BD9494E9A1A}\InprocServer32\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D1BEE995-3AED-3E74-AD01-0BD9494E9A1A}\InprocServer32\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D1BEE995-3AED-3E74-AD01-0BD9494E9A1A}\InprocServer32\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D1BEE995-3AED-3E74-AD01-0BD9494E9A1A}\InprocServer32" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.MessageClickedArgs" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D1BEE995-3AED-3E74-AD01-0BD9494E9A1A}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D1BEE995-3AED-3E74-AD01-0BD9494E9A1A}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D1BEE995-3AED-3E74-AD01-0BD9494E9A1A}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EB01F460-C596-3905-9684-14AB676FCD43}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EB01F460-C596-3905-9684-14AB676FCD43}\InprocServer32\1.0.5442.35242" Name="Class" Value="AutoTest.VS.GraphGenerators.GraphVizGraphVisualization" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EB01F460-C596-3905-9684-14AB676FCD43}\InprocServer32\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EB01F460-C596-3905-9684-14AB676FCD43}\InprocServer32\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EB01F460-C596-3905-9684-14AB676FCD43}\InprocServer32\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EB01F460-C596-3905-9684-14AB676FCD43}\InprocServer32" Name="Class" Value="AutoTest.VS.GraphGenerators.GraphVizGraphVisualization" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EB01F460-C596-3905-9684-14AB676FCD43}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EB01F460-C596-3905-9684-14AB676FCD43}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EB01F460-C596-3905-9684-14AB676FCD43}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F9B23BC2-08B7-3337-9B52-5EBEA625CDC8}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F9B23BC2-08B7-3337-9B52-5EBEA625CDC8}\InprocServer32\1.0.5442.35242" Name="Class" Value="ContinuousTests.VS.Connect" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F9B23BC2-08B7-3337-9B52-5EBEA625CDC8}\InprocServer32\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F9B23BC2-08B7-3337-9B52-5EBEA625CDC8}\InprocServer32\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F9B23BC2-08B7-3337-9B52-5EBEA625CDC8}\InprocServer32\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F9B23BC2-08B7-3337-9B52-5EBEA625CDC8}\InprocServer32" Name="Class" Value="ContinuousTests.VS.Connect" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F9B23BC2-08B7-3337-9B52-5EBEA625CDC8}\InprocServer32" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F9B23BC2-08B7-3337-9B52-5EBEA625CDC8}\InprocServer32" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F9B23BC2-08B7-3337-9B52-5EBEA625CDC8}\InprocServer32" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{711A64F8-73EC-3969-B2E0-782D8905B186}\1.0.5442.35242" Name="Class" Value="AutoTest.VS.GraphGenerators.AGLVisualizer+direction" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{711A64F8-73EC-3969-B2E0-782D8905B186}\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{711A64F8-73EC-3969-B2E0-782D8905B186}\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{711A64F8-73EC-3969-B2E0-782D8905B186}\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DA8905D9-E7BC-3054-8ADF-0FD66B26614E}\1.0.5442.35242" Name="Class" Value="AutoTest.VS.GraphGenerators.DisplayMode" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DA8905D9-E7BC-3054-8ADF-0FD66B26614E}\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DA8905D9-E7BC-3054-8ADF-0FD66B26614E}\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{DA8905D9-E7BC-3054-8ADF-0FD66B26614E}\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F8E98300-5A65-3F2F-8F7F-786B2E917DBB}\1.0.5442.35242" Name="Class" Value="AutoTest.VS.SequenceDiagramGenerators.DisplayMode" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F8E98300-5A65-3F2F-8F7F-786B2E917DBB}\1.0.5442.35242" Name="Assembly" Value="AutoTest.VS, Version=1.0.5442.35242, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F8E98300-5A65-3F2F-8F7F-786B2E917DBB}\1.0.5442.35242" Name="RuntimeVersion" Value="v2.0.50727" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F8E98300-5A65-3F2F-8F7F-786B2E917DBB}\1.0.5442.35242" Name="CodeBase" Value="file:///[#fil0E3097C51691F04AE46E1538126FDA47]" Type="string" Action="write" />
             </Component>
             <Component Id="cmp6514804E72CBBB4112C62CC5AE0C26D9" Guid="*">
                 <File Id="filABBDC165FB6F5B8602CAB72EB96AA60E" KeyPath="yes" Source="$(var.ReleaseBinariesDir)\AutoTest.VS.RiskClassifier.dll" />

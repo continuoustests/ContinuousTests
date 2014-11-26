@@ -42,7 +42,9 @@
     </WixExtension>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="left_hand_branding.jpg" />
     <Content Include="license.rtf" />
+    <Content Include="top_nav.jpg" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--
