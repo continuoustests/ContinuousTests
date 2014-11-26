@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.9</ProductVersion>
+    <ProjectGuid>{5638af30-9311-4d17-910d-3305375d4128}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>ContinuousTests</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug;ReleaseBinariesDir=$(SolutionDir)..\..\ReleaseBinaries</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Components.wxs" />
+    <Compile Include="Directories.wxs" />
+    <Compile Include="Product.wxs" />
+    <Compile Include="StartMenuComponents.wxs" />
+    <Compile Include="VS2008Components.wxs" />
+    <Compile Include="VS2010Components.wxs" />
+    <Compile Include="VS2012Components.wxs" />
+    <Compile Include="VS2013Components.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixVSExtension">
+      <HintPath>$(WixExtDir)\WixVSExtension.dll</HintPath>
+      <Name>WixVSExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="branding\left_hand_branding.jpg" />
+    <Content Include="branding\top_nav.jpg" />
+    <Content Include="license\license.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="branding" />
+    <Folder Include="license" />
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.-->
+  <Target Name="BeforeBuild">
+    <PropertyGroup>
+      <WixToolPath>$(SolutionDir)wix39-binaries\</WixToolPath>
+      <ReleaseBinariesPath>$(SolutionDir)..\..\ReleaseBinaries</ReleaseBinariesPath>
+    </PropertyGroup>
+    <HeatDirectory ToolPath="$(WixToolPath)" Directory="$(ReleaseBinariesPath)" ComponentGroupName="ProductComponents" DirectoryRefId="INSTALLFOLDER" AutogenerateGuids="true" GenerateGuidsNow="false" SuppressFragments="true" SuppressRootDirectory="true" PreprocessorVariable="var.ReleaseBinariesDir" OutputFile="Components.wxs" />
+  </Target>
+  <!--<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

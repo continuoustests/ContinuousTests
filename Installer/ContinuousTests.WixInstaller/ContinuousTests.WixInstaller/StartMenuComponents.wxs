@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Fragment>
+    <ComponentGroup Id="StartMenuComponents" Directory="AppStartMenuFolder">
+      <Component Id="cmpWebPageShortcut" Guid="{182268E6-CD5E-48BB-B8E8-DBFE570386D7}">
+        <util:InternetShortcut Id="internetShortcut_SeeWebPage"
+                               Directory="AppStartMenuFolder"
+                               Name="Quick Intros"
+                               Target="http://continuoustests.com/see.html"
+                               Type="url" />
+
+        <RemoveFolder Id="removeStartMenuFolder"
+                      Directory="AppStartMenuFolder"
+                      On="uninstall" />
+        
+        <RegistryValue Root="HKCU"
+                       Key="Software\ContinuousTests"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
