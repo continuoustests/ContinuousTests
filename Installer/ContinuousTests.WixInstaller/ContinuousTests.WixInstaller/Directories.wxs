@@ -7,6 +7,9 @@
         <Directory Id="INSTALLFOLDER" Name="ContinuousTests" />
       </Directory>
 
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="AppStartMenuFolder" Name="ContinuousTests" />
+      </Directory>
     </Directory>
   </Fragment>
 </Wix>

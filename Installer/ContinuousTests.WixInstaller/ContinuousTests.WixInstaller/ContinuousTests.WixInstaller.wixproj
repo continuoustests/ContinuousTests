@@ -24,6 +24,7 @@
     <Compile Include="Components.wxs" />
     <Compile Include="Directories.wxs" />
     <Compile Include="Product.wxs" />
+    <Compile Include="StartMenuComponents.wxs" />
     <Compile Include="VS2008Components.wxs" />
     <Compile Include="VS2010Components.wxs" />
     <Compile Include="VS2012Components.wxs" />
