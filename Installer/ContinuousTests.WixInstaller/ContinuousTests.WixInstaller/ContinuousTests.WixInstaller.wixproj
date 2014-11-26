@@ -21,11 +21,13 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AddInRegistryComponents.wxs" />
     <Compile Include="Components.wxs" />
-    <Compile Include="CustomActions.wxs" />
     <Compile Include="Directories.wxs" />
     <Compile Include="Product.wxs" />
+    <Compile Include="VS2008Components.wxs" />
+    <Compile Include="VS2010Components.wxs" />
+    <Compile Include="VS2012Components.wxs" />
+    <Compile Include="VS2013Components.wxs" />
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixUtilExtension">
@@ -42,9 +44,13 @@
     </WixExtension>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="left_hand_branding.jpg" />
-    <Content Include="license.rtf" />
-    <Content Include="top_nav.jpg" />
+    <Content Include="branding\left_hand_branding.jpg" />
+    <Content Include="branding\top_nav.jpg" />
+    <Content Include="license\license.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="branding" />
+    <Folder Include="license" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <!--WixVSExtension: Full path to devenv.exe-->
+    <PropertyRef Id="VS2013DEVENV" />
+
+    <ComponentGroup Id="VS2013Components" Directory="INSTALLFOLDER">
+      <!--Registry keys-->
+      <Component Id="cmpAutomationOptionsKey_VS12" Guid="{6E347008-2A23-4775-B41B-1027376409E1}">
+        <Condition><![CDATA[VS2013DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\12.0">
+          <RegistryKey Key="AutomationOptions">
+            <RegistryKey Key="LookInFolders">
+              <RegistryValue Id="regvalue_lookinFoldersPath_VS12"
+                             Type="string"
+                             Name="[INSTALLFOLDER]"
+                             Value=""
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+      <Component Id="cmpEnabledExtensionsKey_VS12" Guid="{D607D91C-024B-4409-A615-CAAF7FC4EE01}">
+        <Condition><![CDATA[VS2013DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\12.0">
+          <RegistryKey Key="ExtensionManager">
+            <RegistryKey Key="EnabledExtensions">
+              <RegistryValue Id="regvalue_EnabledExtensions_VS12"
+                             Type="string"
+                             Name="[RISK_CLASSIFIER]"
+                             Value="[EXTENSIONS_FOLDER]"
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+    </ComponentGroup>
+
+    <!--Custom actions-->
+    <?define DevEnvResetAddin_12Params=/ResetAddin ContinuousTests.VS.Connect /command File.Exit?>
+    <?define DevEnvSetup_12Params=/setup?>
+    
+    <CustomAction Id="SetDevEnvResetAddin_12"
+                  Property="DevEnvResetAddin_12"
+                  Value="&quot;[VS2013DEVENV]&quot; $(var.DevEnvResetAddin_12Params)"
+                  Execute="immediate" />
+
+    <CustomAction Id="DevEnvResetAddin_12"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+    
+    <CustomAction Id="SetDevEnvSetup_12"
+                  Property="DevEnvSetup_12"
+                  Value="&quot;[VS2013DEVENV]&quot; $(var.DevEnvSetup_12Params)"
+                  Execute="immediate" />
+
+    <CustomAction Id="DevEnvSetup_12"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+
+    <InstallExecuteSequence>
+      <Custom Action="SetDevEnvResetAddin_12" Before="InstallFinalize">NOT Installed AND VS2013DEVENV</Custom>
+      <Custom Action="DevEnvResetAddin_12" After="SetDevEnvResetAddin_12">NOT Installed AND VS2013DEVENV</Custom>
+      <Custom Action="SetDevEnvSetup_12" After="DevEnvResetAddin_12">NOT Installed AND VS2013DEVENV</Custom>
+      <Custom Action="DevEnvSetup_12" After="SetDevEnvSetup_12">NOT Installed AND VS2013DEVENV</Custom>
+    </InstallExecuteSequence>
+  </Fragment>
+</Wix>
