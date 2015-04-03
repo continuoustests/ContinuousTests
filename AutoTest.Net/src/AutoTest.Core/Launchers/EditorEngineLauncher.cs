@@ -1,12 +1,15 @@
 using System;
 using System.Threading;
+using System.Diagnostics;
 using AutoTest.Core.Messaging;
+using AutoTest.CoreExtensions;
 using AutoTest.Core.Configuration;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using AutoTest.Core.DebugLog;
 using AutoTest.Messages;
+using Debug = AutoTest.Core.DebugLog.Debug;
+
 namespace AutoTest.Core.Launchers
 {
 	public class EditorEngineLauncher :
@@ -87,7 +90,7 @@ namespace AutoTest.Core.Launchers
 			{
 				if (_client != null && _client.IsConnected)
 					return true;
-				var instance = new InstanceLocator("EditorEngine").GetInstance(_path);
+				var instance = new InstanceLocator("editor").GetInstance(_path);
 				if (instance == null)
 					return false;
 				_client = new SocketClient();
@@ -114,7 +117,7 @@ namespace AutoTest.Core.Launchers
 			{
 				if (_eventendpoint != null && _eventendpoint.IsConnected)
 					return;
-				var instance = new InstanceLocator("OpenIDE.Events").GetInstance(_path);
+				var instance = new InstanceLocator("event").GetInstance(_path);
 				if (instance == null) {
 					return;
 				}
@@ -170,44 +173,24 @@ namespace AutoTest.Core.Launchers
 	
 	class InstanceLocator
 	{
-		private string _instanceFileDirectory;
+		private string _instanceType;
 
-		public InstanceLocator(string instanceFileDirectory)
+		public InstanceLocator(string instanceType)
 		{
-			_instanceFileDirectory = instanceFileDirectory;
+			_instanceType = instanceType;
 		}
 
 		public Instance GetInstance(string path)
 		{
-			var instances = getInstances(path);
-			return instances.Where(x => path.StartsWith(x.Key) && canConnectTo(x))
-				.OrderByDescending(x => x.Key.Length)
-				.FirstOrDefault();
-		}
-		
-		private IEnumerable<Instance> getInstances(string path)
-		{
-			var dir = Path.Combine(Path.GetTempPath(), _instanceFileDirectory);
-			if (Directory.Exists(dir))
-			{
-				foreach (var file in Directory.GetFiles(dir, "*.pid"))
-				{
-					var instance = Instance.Get(file, File.ReadAllLines(file));
-					if (instance != null)
-						yield return instance;
-				}
-			}
-		}
-		
-		private bool canConnectTo(Instance info)
-		{
-			var client = new SocketClient();
-			client.Connect(info.Port);
-			var connected = client.IsConnected;
-			client.Disconnect();
-			if (!connected)
-				File.Delete(info.File);
-			return connected;
+            var process = new Process();
+            string[] errors;
+            var output = process.QueryAll("oi", "codemodel get-token-"+_instanceType+"-endpoint \""+path+"\"", false, path, out errors).ToArray();
+            if (output.Length == 2 && output[0].Contains(":")) {
+                int port;
+                if (int.TryParse(output[0].Split(new char[] {':'})[1], out port))
+                    return new Instance("", 0, path, port);
+            }
+            return null;
 		}
 	}
 }
