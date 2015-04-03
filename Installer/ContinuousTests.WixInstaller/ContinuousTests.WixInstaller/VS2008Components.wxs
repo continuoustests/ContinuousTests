@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <!--WixVSExtension: Full path to devenv.exe-->
+    <PropertyRef Id="VS90DEVENV" />
+    
+    <ComponentGroup Id="VS2008Components" Directory="INSTALLFOLDER">
+      <!--Registry keys-->
+      <Component Id="cmpAutomationOptionsKey_VS9" Guid="{E3AB5B41-5B30-4E27-B3B7-E11C34C43728}">
+        <Condition><![CDATA[VS90DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\9.0">
+          <RegistryKey Key="AutomationOptions">
+            <RegistryKey Key="LookInFolders">
+              <RegistryValue Id="regvalue_lookinFoldersPath_VS9"
+                             Type="string"
+                             Name="[INSTALLFOLDER]"
+                             Value=""
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+    </ComponentGroup>
+
+    <!--Custom actions-->
+    <?define DevEnvResetAddin_9Params=/ResetAddin ContinuousTests.VS.Connect /command File.Exit?>
+    <?define DevEnvSetup_9Params=/setup?>
+    
+    <CustomAction Id="SetDevEnvResetAddin_9" 
+                  Property="DevEnvResetAddin_9" 
+                  Value="&quot;[VS90DEVENV]&quot; $(var.DevEnvResetAddin_9Params)" 
+                  Execute="immediate" />
+    
+    <CustomAction Id="DevEnvResetAddin_9"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+    
+    <CustomAction Id="SetDevEnvSetup_9" 
+                  Property="DevEnvSetup_9" 
+                  Value="&quot;[VS90DEVENV]&quot; $(var.DevEnvSetup_9Params)" 
+                  Execute="immediate" />
+    
+    <CustomAction Id="DevEnvSetup_9"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+
+    <InstallExecuteSequence>
+      <Custom Action="SetDevEnvResetAddin_9" Before="InstallFinalize">NOT Installed AND VS90DEVENV</Custom>
+      <Custom Action="DevEnvResetAddin_9" After="SetDevEnvResetAddin_9">NOT Installed AND VS90DEVENV</Custom>
+      <Custom Action="SetDevEnvSetup_9" After="DevEnvResetAddin_9">NOT Installed AND VS90DEVENV</Custom>
+      <Custom Action="DevEnvSetup_9" After="SetDevEnvSetup_9">NOT Installed AND VS90DEVENV</Custom>
+    </InstallExecuteSequence>
+  </Fragment>
+</Wix>

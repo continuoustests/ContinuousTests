@@ -78,95 +78,218 @@ IF NOT EXIST %DEPLOYDIR%\TestRunners\SimpleTesting (
 ) ELSE (
 	del %DEPLOYDIR%\TestRunners\SimpleTesting\* /Q
 )
-copy %DIR%lib\AutoTest.Net\AutoTest.Messages.dll %DEPLOYDIR%\AutoTest.Messages.dll
-copy %DIR%lib\AutoTest.Net\AutoTest.Core.dll %DEPLOYDIR%\AutoTest.Core.dll
-copy %DIR%lib\AutoTest.Net\AutoTest.UI.dll %DEPLOYDIR%\AutoTest.UI.dll
-copy %DIR%lib\AutoTest.Net\AutoTest.TestRunner.exe  %DEPLOYDIR%\AutoTest.TestRunner.exe
-copy %DIR%lib\AutoTest.Net\AutoTest.TestRunner.exe.config  %DEPLOYDIR%\AutoTest.TestRunner.exe.config
-copy %DIR%lib\AutoTest.Net\AutoTest.TestRunner.v4.0.exe  %DEPLOYDIR%\AutoTest.TestRunner.v4.0.exe
-copy %DIR%lib\AutoTest.Net\AutoTest.TestRunner.v4.0.exe.config  %DEPLOYDIR%\AutoTest.TestRunner.v4.0.exe.config
-copy %DIR%lib\AutoTest.Net\AutoTest.TestRunner.x86.exe  %DEPLOYDIR%\AutoTest.TestRunner.x86.exe
-copy %DIR%lib\AutoTest.Net\AutoTest.TestRunner.x86.exe.config  %DEPLOYDIR%\AutoTest.TestRunner.x86.exe.config
-copy %DIR%lib\AutoTest.Net\AutoTest.TestRunner.x86.v4.0.exe  %DEPLOYDIR%\AutoTest.TestRunner.x86.v4.0.exe
-copy %DIR%lib\AutoTest.Net\AutoTest.TestRunner.x86.v4.0.exe.config  %DEPLOYDIR%\AutoTest.TestRunner.x86.v4.0.exe.config
-copy %DIR%lib\AutoTest.Net\AutoTest.TestRunners.Shared.dll  %DEPLOYDIR%\AutoTest.TestRunners.Shared.dll
-copy %DIR%lib\AutoTest.Net\progress.gif  %DEPLOYDIR%\progress.gif
-copy %DIR%lib\AutoTest.Net\progress-light.gif  %DEPLOYDIR%\progress-light.gif
-
-copy %DIR%lib\AutoTest.Net\Worst.Testing.Framework.Ever.dll %DEPLOYDIR%\Worst.Testing.Framework.Ever.dll
-copy %DIR%lib\AutoTest.Net\Worst.Testing.Framework.Ever.License.txt %DEPLOYDIR%\Worst.Testing.Framework.Ever.License.txt
-copy %DIR%lib\AutoTest.Net\NUnit.License.txt %DEPLOYDIR%\NUnit.License.txt
-
-copy %DIR%lib\AutoTest.Net\TestRunners\NUnit\AutoTest.TestRunners.NUnit.dll  %DEPLOYDIR%\TestRunners\NUnit\AutoTest.TestRunners.NUnit.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\NUnit\nunit.core.dll  %DEPLOYDIR%\TestRunners\NUnit\nunit.core.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\NUnit\nunit.core.interfaces.dll  %DEPLOYDIR%\TestRunners\NUnit\nunit.core.interfaces.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\NUnit\nunit.util.dll  %DEPLOYDIR%\TestRunners\NUnit\nunit.util.dll
-
-copy %DIR%lib\AutoTest.Net\TestRunners\XUnit\AutoTest.TestRunners.XUnit.dll  %DEPLOYDIR%\TestRunners\XUnit\AutoTest.TestRunners.XUnit.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\XUnit\xunit.runner.utility.dll  %DEPLOYDIR%\TestRunners\XUnit\xunit.runner.utility.dll
-
-copy %DIR%lib\AutoTest.Net\TestRunners\MSTest\AutoTest.TestRunners.MSTest.dll  %DEPLOYDIR%\TestRunners\MSTest\AutoTest.TestRunners.MSTest.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\MSTest\celer.Core.dll  %DEPLOYDIR%\TestRunners\MSTest\celer.Core.dll
-
-copy %DIR%lib\AutoTest.Net\TestRunners\MSpec\AutoTest.TestRunners.MSpec.dll %DEPLOYDIR%\TestRunners\MSpec\AutoTest.TestRunners.MSpec.dll
-
-copy %DIR%lib\AutoTest.Net\TestRunners\MbUnit\AutoTest.TestRunners.MbUnit.dll %DEPLOYDIR%\TestRunners\MbUnit\AutoTest.TestRunners.MbUnit.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\MbUnit\Gallio.dll %DEPLOYDIR%\TestRunners\MbUnit\Gallio.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\MbUnit\Gallio.XmlSerializers.dll %DEPLOYDIR%\TestRunners\MbUnit\Gallio.XmlSerializers.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\MbUnit\mbunit.config %DEPLOYDIR%\TestRunners\MbUnit\mbunit.config
-
-copy %DIR%lib\AutoTest.Net\TestRunners\SimpleTesting\AutoTest.TestRunners.SimpleTesting.dll %DEPLOYDIR%\TestRunners\SimpleTesting\AutoTest.TestRunners.SimpleTesting.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\SimpleTesting\Simple.Testing.Framework.dll %DEPLOYDIR%\TestRunners\SimpleTesting\Simple.Testing.Framework.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\SimpleTesting\Simple.Testing.ClientFramework.dll %DEPLOYDIR%\TestRunners\SimpleTesting\Simple.Testing.ClientFramework.dll
-copy %DIR%lib\AutoTest.Net\TestRunners\SimpleTesting\PowerAssert.dll %DEPLOYDIR%\TestRunners\SimpleTesting\PowerAssert.dll
 
 
-copy %DIR%lib\GoDiagrams\*.* %DEPLOYDIR%\
 
-copy "%DIR%lib\cecil deploy\Mono.Cecil.pdb.dll" %DEPLOYDIR%\Mono.Cecil.pdb.dll
-copy "%DIR%lib\cecil deploy\Mono.Cecil.mdb.dll" %DEPLOYDIR%\Mono.Cecil.mdb.dll
+echo --------------------------------------------------------------------------------------------
+echo                     Copying AutoTest.Net folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+AutoTest.Messages.dll ^
+AutoTest.Core.dll ^
+AutoTest.UI.dll ^
+AutoTest.TestRunner.exe ^
+AutoTest.TestRunner.exe.config ^
+AutoTest.TestRunner.v4.0.exe ^
+AutoTest.TestRunner.v4.0.exe ^
+AutoTest.TestRunner.v4.0.exe.config ^
+AutoTest.TestRunner.x86.exe ^
+AutoTest.TestRunner.x86.exe.config ^
+AutoTest.TestRunner.x86.v4.0.exe ^
+AutoTest.TestRunner.x86.v4.0.exe.config ^
+AutoTest.TestRunners.Shared.dll ^
+progress.gif ^
+progress-light.gif ^
+Worst.Testing.Framework.Ever.dll ^
+Worst.Testing.Framework.Ever.License.txt ^
+NUnit.License.txt ^
+FSWatcher.dll ^
+Castle.Core.dll ^
+Castle.Facilities.Logging.dll ^
+Castle.license.txt ^
+Castle.Windsor.dll ^
+)
 
-copy %DIR%lib\AutoTest.Net\FSWatcher.dll %DEPLOYDIR%\FSWatcher.dll
-copy %DIR%lib\AutoTest.Net\Castle.Core.dll %DEPLOYDIR%\Castle.Core.dll
-copy %DIR%lib\AutoTest.Net\Castle.Facilities.Logging.dll %DEPLOYDIR%\Castle.Facilities.Logging.dll
-copy %DIR%lib\AutoTest.Net\Castle.license.txt %DEPLOYDIR%\Castle.license.txt
-copy %DIR%lib\AutoTest.Net\Castle.Windsor.dll %DEPLOYDIR%\Castle.Windsor.dll
-copy %DIR%lib\AutoTest.Net\Icons\* %DEPLOYDIR%\Icons
-copy %DIR%License.txt %DEPLOYDIR%\License.txt
-copy "%DIR%lib\cecil deploy\Mono.Cecil.Rocks.dll" %DEPLOYDIR%\Mono.Cecil.Rocks.dll
-copy %BINARYDIR%\Microsoft.msagl.GraphViewerGDI.dll %DEPLOYDIR%\Microsoft.msagl.GraphViewerGDI.dll
-copy %BINARYDIR%\Microsoft.msagl.dll %DEPLOYDIR%\Microsoft.msagl.dll
-copy %BINARYDIR%\Microsoft.msagl.drawing.dll %DEPLOYDIR%\Microsoft.msagl.drawing.dll
-copy %BINARYDIR%\AutoTest.Minimizer.dll %DEPLOYDIR%\AutoTest.Minimizer.dll
-copy %BINARYDIR%\ContinuousTests.exe %DEPLOYDIR%\ContinuousTests.exe
-copy %BINARYDIR%\ContinuousTests.ExtensionModel.dll %DEPLOYDIR%\ContinuousTests.ExtensionModel.dll
-copy %BINARYDIR%\Mono.Cecil.dll %DEPLOYDIR%\Mono.Cecil.dll
-copy %BINARYDIR%\AutoTest.VM.exe %DEPLOYDIR%\AutoTest.VM.exe
-copy %BINARYDIR%\AutoTest.VM.Messages.dll %DEPLOYDIR%\AutoTest.VM.Messages.dll
-copy %BINARYDIR%\AutoTest.Client.dll %DEPLOYDIR%\AutoTest.Client.dll
-copy %BINARYDIR%\AutoTest.Graphs.dll %DEPLOYDIR%\AutoTest.Graphs.dll
-copy %BINARYDIR%\AutoTest.VS.dll %DEPLOYDIR%\AutoTest.VS.dll
-copy %BINARYDIR%\AutoTest.VS.Util.dll %DEPLOYDIR%\AutoTest.VS.Util.dll
-copy %BINARYDIR%\AutoTest.VS.RiskClassifier.dll %DEPLOYDIR%\AutoTest.VS.RiskClassifier.dll
-copy %BINARYDIR%\AutoTest.VS.2008.Addin %DEPLOYDIR%\AutoTest.VS.2008.Addin
-copy %BINARYDIR%\AutoTest.VS.2010.Addin %DEPLOYDIR%\AutoTest.VS.2010.Addin
-copy %BINARYDIR%\AutoTest.VS.2012.Addin %DEPLOYDIR%\AutoTest.VS.2012.Addin
-copy %BINARYDIR%\AutoTest.VS.2013.Addin %DEPLOYDIR%\AutoTest.VS.2013.Addin
-copy %DIR%src\AutoTest.VS.RiskClassifier\RiskClassifier\source.extension.vsixmanifest %DEPLOYDIR%\extension.vsixmanifest
-copy %BINARYDIR%\AutoTest.Profiler.dll %DEPLOYDIR%\AutoTest.Profiler.dll
-copy %DIR%\lib\Rhino.Licensing\acknowledgements.txt %DEPLOYDIR%\Rhino.Licensing.acknowledgements.txt
-copy %DIR%\lib\Rhino.Licensing\license.txt %DEPLOYDIR%\Rhino.Licensing.license.txt
-copy %DIR%\lib\Rhino.Licensing\Rhino.Licensing.dll %DEPLOYDIR%\Rhino.Licensing.dll
-copy %DIR%\lib\Rhino.Licensing\log4net.dll %DEPLOYDIR%\log4net.dll
-copy %DIR%\lib\Rhino.Licensing\log4net.license.txt %DEPLOYDIR%\log4net.license.txt
+FOR %%f in %file_list% do (
+  echo %%f
+  copy "%DIR%lib\AutoTest.Net\%%f" %DEPLOYDIR%\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying AutoTest.Net\TestRunners\NUnit folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+AutoTest.TestRunners.NUnit.dll ^
+nunit.core.dll ^
+nunit.core.interfaces.dll ^
+nunit.util.dll ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy "%DIR%lib\AutoTest.Net\TestRunners\NUnit\%%f"  %DEPLOYDIR%\TestRunners\NUnit\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying AutoTest.Net\TestRunners\XUnit folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+AutoTest.TestRunners.XUnit.dll ^
+xunit.runner.utility.dll ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy "%DIR%lib\AutoTest.Net\TestRunners\XUnit\%%f"  %DEPLOYDIR%\TestRunners\XUnit\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying AutoTest.Net\TestRunners\MSTest folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+AutoTest.TestRunners.MSTest.dll ^
+celer.Core.dll ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy "%DIR%lib\AutoTest.Net\TestRunners\MSTest\%%f"  %DEPLOYDIR%\TestRunners\MSTest\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying AutoTest.Net\TestRunners\MSpec folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+AutoTest.TestRunners.MSpec.dll ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy "%DIR%lib\AutoTest.Net\TestRunners\MSpec\%%f" %DEPLOYDIR%\TestRunners\MSpec\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying AutoTest.Net\TestRunners\MbUnit folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+AutoTest.TestRunners.MbUnit.dll ^
+Gallio.dll ^
+Gallio.XmlSerializers.dll ^
+mbunit.config ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy "%DIR%lib\AutoTest.Net\TestRunners\MbUnit\%%f" %DEPLOYDIR%\TestRunners\MbUnit\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying AutoTest.Net\TestRunners\SimpleTesting folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+AutoTest.TestRunners.SimpleTesting.dll ^
+Simple.Testing.Framework.dll ^
+Simple.Testing.ClientFramework.dll ^
+PowerAssert.dll ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy "%DIR%lib\AutoTest.Net\TestRunners\SimpleTesting\%%f" %DEPLOYDIR%\TestRunners\SimpleTesting\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying cecil deploy folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+Mono.Cecil.pdb.dll ^
+Mono.Cecil.mdb.dll ^
+Mono.Cecil.Rocks.dll ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy "%DIR%lib\cecil deploy\%%f" %DEPLOYDIR%\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying binaries folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+Microsoft.msagl.GraphViewerGDI.dll ^
+Microsoft.msagl.dll ^
+Microsoft.msagl.drawing.dll ^
+AutoTest.Minimizer.dll ^
+ContinuousTests.exe ^
+ContinuousTests.ExtensionModel.dll ^
+Mono.Cecil.dll ^
+AutoTest.VM.exe ^
+AutoTest.VM.Messages.dll ^
+AutoTest.Client.dll ^
+AutoTest.Graphs.dll ^
+AutoTest.VS.dll ^
+AutoTest.VS.Util.dll ^
+AutoTest.VS.RiskClassifier.dll ^
+AutoTest.VS.2008.Addin ^
+AutoTest.VS.2010.Addin ^
+AutoTest.VS.2012.Addin ^
+AutoTest.VS.2013.Addin ^
+AutoTest.Profiler.dll ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy %BINARYDIR%\%%f %DEPLOYDIR%\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying Rhino.Licensing folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+acknowledgements.txt ^
+license.txt ^
+Rhino.Licensing.dll ^
+log4net.dll ^
+log4net.license.txt ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy "%DIR%\lib\Rhino.Licensing\%%f" %DEPLOYDIR%\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying GoDiagrams folder files
+echo --------------------------------------------------------------------------------------------
+copy "%DIR%lib\GoDiagrams"\*.* %DEPLOYDIR%\
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying AutoTest.Net\Icons folder files
+echo --------------------------------------------------------------------------------------------
+copy "%DIR%lib\AutoTest.Net\Icons\"* %DEPLOYDIR%\Icons
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying License.txt
+echo --------------------------------------------------------------------------------------------
+copy "%DIR%License.txt" %DEPLOYDIR%\License.txt
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying AutoTest.VS.RiskClassifier\RiskClassifier folder files
+echo --------------------------------------------------------------------------------------------
+copy "%DIR%src\AutoTest.VS.RiskClassifier\RiskClassifier\source.extension.vsixmanifest" %DEPLOYDIR%\extension.vsixmanifest
+
+echo --------------------------------------------------------------------------------------------
+echo                 Building resource file
+echo --------------------------------------------------------------------------------------------
 cd %SOURCEDIR%\AutoTest.VS
-
 IF EXIST "C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\Resgen.exe" (
+     echo Using x64 Program Files Resgen.exe
 	"C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\Resgen.exe" Graphics.resx
-	"C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\Al.exe" /embed:Graphics.resources /culture:en-US /out:"%DEPLOYDIR%\en-US\AutoTest.VS.resources.dll"
+	"C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\Al.exe" /embed:Graphics.resources /culture:en-US /out:%DEPLOYDIR%\en-US\AutoTest.VS.resources.dll
 ) ELSE (
+	echo Using x86 Program Files Resgen.exe
 	"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\Resgen.exe" Graphics.resx
-	"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\Al.exe" /embed:Graphics.resources /culture:en-US /out:"%DEPLOYDIR%\en-US\AutoTest.VS.resources.dll"
+	"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\Al.exe" /embed:Graphics.resources /culture:en-US /out:%DEPLOYDIR%\en-US\AutoTest.VS.resources.dll
 )
 cd %DIR%
 

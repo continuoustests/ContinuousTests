@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <!--WixVSExtension: Full path to devenv.exe-->
+    <PropertyRef Id="VS2010DEVENV" />
+
+    <ComponentGroup Id="VS2010Components" Directory="INSTALLFOLDER">
+      <!--Registry keys-->
+      <Component Id="cmpAutomationOptionsKey_VS10" Guid="{DA391CD9-33D8-4232-B71C-6CA4521022D1}">
+        <Condition><![CDATA[VS2010DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\10.0">
+          <RegistryKey Key="AutomationOptions">
+            <RegistryKey Key="LookInFolders">
+              <RegistryValue Id="regvalue_lookinFoldersPath_VS10"
+                             Type="string"
+                             Name="[INSTALLFOLDER]"
+                             Value=""
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+      <Component Id="cmpEnabledExtensionsKey_VS10" Guid="{9012657A-6CDD-46CA-BDE3-1094F4EF2A3B}">
+        <Condition><![CDATA[VS2010DEVENV]]></Condition>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\10.0">
+          <RegistryKey Key="ExtensionManager">
+            <RegistryKey Key="EnabledExtensions">
+              <RegistryValue Id="regvalue_EnabledExtensions_VS10"
+                             Type="string"
+                             Name="[RISK_CLASSIFIER]"
+                             Value="[EXTENSIONS_FOLDER]"
+                             KeyPath="yes" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+    </ComponentGroup>
+
+    <!--Custom actions-->
+    <?define DevEnvResetAddin_10Params=/ResetAddin ContinuousTests.VS.Connect /command File.Exit?>
+    <?define DevEnvSetup_10Params=/setup?>
+    
+    <CustomAction Id="SetDevEnvResetAddin_10" 
+                  Property="DevEnvResetAddin_10" 
+                  Value="&quot;[VS2010DEVENV]&quot; $(var.DevEnvResetAddin_10Params)" 
+                  Execute="immediate" />
+    
+    <CustomAction Id="DevEnvResetAddin_10"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+    
+    <CustomAction Id="SetDevEnvSetup_10" 
+                  Property="DevEnvSetup_10" 
+                  Value="&quot;[VS2010DEVENV]&quot; $(var.DevEnvSetup_10Params)" 
+                  Execute="immediate" />
+    
+    <CustomAction Id="DevEnvSetup_10"
+                  BinaryKey="WixCA"
+                  DllEntry="CAQuietExec"
+                  Execute="deferred"
+                  Return="check"
+                  Impersonate="no" />
+
+    <InstallExecuteSequence>
+      <Custom Action="SetDevEnvResetAddin_10" Before="InstallFinalize">NOT Installed AND VS2010DEVENV</Custom>
+      <Custom Action="DevEnvResetAddin_10" After="SetDevEnvResetAddin_10">NOT Installed AND VS2010DEVENV</Custom>
+      <Custom Action="SetDevEnvSetup_10" After="DevEnvResetAddin_10">NOT Installed AND VS2010DEVENV</Custom>
+      <Custom Action="DevEnvSetup_10" After="SetDevEnvSetup_10">NOT Installed AND VS2010DEVENV</Custom>
+    </InstallExecuteSequence>
+  </Fragment>
+</Wix>
