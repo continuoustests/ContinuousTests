@@ -51,6 +51,12 @@
     <Reference Include="AutoTest.Messages">
       <HintPath>..\..\lib\AutoTest.Net\AutoTest.Messages.dll</HintPath>
     </Reference>
+    <Reference Include="AutoTest.Core">
+      <HintPath>..\..\lib\AutoTest.Net\AutoTest.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="BellyRub">
+      <HintPath>..\..\lib\BellyRub\BellyRub.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -84,6 +90,43 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="site\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="site\css\main.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="BellyRubProxy.cs" />
+    <Compile Include="Handlers\StatusEventHandler.cs" />
+    <Compile Include="Handlers\Handler.cs" />
+    <Compile Include="Handlers\FocusEventHandler.cs" />
+    <Compile Include="Handlers\ShutdownEventHandler.cs" />
+    <None Include="site\js\autotest-client.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="site\js\handlebars.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="site\js\jquery.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="site\graphics\circleAbort.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="site\graphics\circleFAIL.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="site\graphics\circleWAIL.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="site\graphics\circleWIN.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="site\graphics\progress.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Handlers\RunEventHandler.cs" />
+    <Compile Include="Handlers\RunItemEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoTest.Client\AutoTest.Client.csproj">
@@ -107,4 +150,8 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="site\js\" />
+    <Folder Include="site\graphics\" />
+  </ItemGroup>
 </Project>
