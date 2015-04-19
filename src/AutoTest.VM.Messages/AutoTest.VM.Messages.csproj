@@ -100,6 +100,7 @@
     <Compile Include="VMInitializedMessage.cs" />
     <Compile Include="VMSpawnedMessage.cs" />
     <Compile Include="VMTerminating.cs" />
+    <Compile Include="FocusEditorMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ms_visual_studio.ico" />

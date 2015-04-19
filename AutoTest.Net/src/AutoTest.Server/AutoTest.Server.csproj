@@ -5,13 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{95868EB3-9873-4017-A99E-7A6899BB6CD0}</ProjectGuid>
+    <ProjectGuid>{95868EB3-9873-4017-A99E-7A6899CC6CD0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AutoTest.Server</RootNamespace>
     <AssemblyName>AutoTest.Server</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -44,6 +42,13 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\lib\Castle.Windsor\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\lib\Castle.Windsor\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="..\..\lib\BellyRub\BellyRub.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HiddenGetFocusForm.cs">
@@ -75,6 +80,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Communication\MessageEndpoint.cs" />
+    <Compile Include="Handlers\RunHandler.cs" />
+    <Compile Include="Handlers\IHandler.cs" />
+    <Compile Include="Handlers\GoToHandler.cs" />
+    <Compile Include="Handlers\TriggerRunHandler.cs" />
+    <Compile Include="Handlers\ShutdownHandler.cs" />
+    <Compile Include="Handlers\FocusHandler.cs" />
+    <Compile Include="Handlers\RunItemHandler.cs" />
+    <Compile Include="Handlers\StatusHandler.cs" />
+    <Compile Include="Handlers\EngineControlHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -84,4 +99,18 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\AutoTest.Messages\AutoTest.Messages.csproj">
+      <Project>{5352CB10-E898-4089-BFF0-79D635FB44C9}</Project>
+      <Name>AutoTest.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTest.Core\AutoTest.Core.csproj">
+      <Project>{1A05A6F1-2CC0-4A55-A54B-F2AA252F7B45}</Project>
+      <Name>AutoTest.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTest.UI\AutoTest.UI.csproj">
+      <Project>{3FFC895E-13FE-4C04-9613-BDCAF78BD6A2}</Project>
+      <Name>AutoTest.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

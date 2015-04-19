@@ -307,6 +307,12 @@ namespace AutoTest.Client
                 _client.Send(new GoToFileAndLineMessage(file, line, column));
         }
 
+        public void FocusEditor()
+        {
+            if (isConnected())
+                _client.Send(new FocusEditorMessage());
+        }
+
         public void QueueRealtimeChange(RealtimeChangeList list)
         {
             if (isConnected())

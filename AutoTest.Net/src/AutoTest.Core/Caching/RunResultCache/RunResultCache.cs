@@ -14,8 +14,6 @@ namespace AutoTest.Core.Caching.RunResultCache
         private object _padLock = new object();
         private bool _deltasSupported = false;
 
-        private Dictionary<int, BuildItem> _dict = new Dictionary<int, BuildItem>();
-
         private Dictionary<int, BuildItem> _errors = new Dictionary<int, BuildItem>();
         private Dictionary<int, BuildItem> _warnings = new Dictionary<int, BuildItem>();
         private Dictionary<int, TestItem> _failed = new Dictionary<int, TestItem>();

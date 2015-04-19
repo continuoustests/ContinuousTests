@@ -1,0 +1,36 @@
+.statusText {
+}
+.statusImage {
+}
+.itemList {
+}
+.listitem {
+}
+.listitemSelected {
+    background-color: blue;
+}
+.listitemExpanded {
+    background-color: lightblue;
+}
+.listitemDetailsHidden {
+    display: none;
+}
+.listitemDetailsVisible {
+}
+.listitemLink {
+}
+.listitemLinkSelected {
+}
+.listitemLinkHref {
+}
+.listitemLinkHrefSelected {
+    background-color: lightgray;
+}
+.errorItem {
+}
+.warningItem {
+}
+.failedItem {
+}
+.ignoredItem {
+}

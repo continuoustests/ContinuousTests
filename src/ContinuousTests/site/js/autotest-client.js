@@ -6,10 +6,12 @@ $.at.failures = new Object()
 $.at.ignored = new Object()
 $.at.selectedItem = 0;
 $.at.selectedLink = 0;
+$.at.token = "";
 
 $(document).ready(function() {
 
     document.title = pageTitle + ' - Connecting...';
+    $('#status').text("Collecting source and project information...");
 
     $(window).keydown(keydown);
 
@@ -95,7 +97,7 @@ function openInEditor(file, line, column) {
 }
 
 function buildAndTestAll() {
-    send('build-test-all', {}); 
+   send('build-test-all', {}); 
 }
 
 function buildAndTestProjects(projects) {
@@ -141,7 +143,7 @@ function connect() {
     $.at.belly = createBellyRubClient();
     $.at.belly.onconnected = function() {
         $.at.belly.request('get-token-path', {}, function (body) {
-            document.title = pageTitle + ' - ' + body.token;
+            $.at.token = body.token;
         });
     };
     $.at.belly.ondisconnected = function() {
@@ -157,8 +159,12 @@ function connect() {
         $.at.belly.disconnect();
     };
 
+    $.at.belly.handlers['vm-spawned'] = function (body) {
+        document.title = pageTitle + ' - ' + $.at.token;
+        $('#status').text("Engine started and waitin for changes");
+    };
     $.at.belly.handlers['run-started'] = function (body) {
-        console.log('run started');
+        $('#status').text("run started...");
     };
     $.at.belly.handlers['run-finished'] = function (body) {
         console.log('run finished');
@@ -337,7 +343,7 @@ function focusWindow(obj) {
         offset.top -= 40;
         $('html, body').animate({
             scrollTop: offset.top,
-        });
+        }, 200);
     }
 }
 

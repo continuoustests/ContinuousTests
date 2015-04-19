@@ -96,6 +96,7 @@
     <Compile Include="Link.cs" />
     <Compile Include="ExternalCommandMessage.cs" />
     <Compile Include="EditorEngineMessage.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

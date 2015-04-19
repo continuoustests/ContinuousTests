@@ -116,6 +116,13 @@ namespace AutoTest.Test.Core.Configuration
         }
 
         [Test]
+        public void Should_bind_consumer_of_recursive_cause_detection_file_change_message()
+        {
+            var filChangeHandler = _locator.Locate<IConsumerOf<FileChangeMessage>>("RecursiveRunConsumer");
+            filChangeHandler.ShouldBeOfType<RecursiveRunCauseConsumer>();
+        }
+
+        [Test]
         public void Should_register_file_system_service()
         {
             var service = _locator.Locate<IFileSystemService>();
@@ -398,7 +405,7 @@ namespace AutoTest.Test.Core.Configuration
         [Test]
         public void Shoud_register_abort_consumers()
         {
-            Assert.That(_locator.LocateAll<IConsumerOf<AbortMessage>>().Length, Is.EqualTo(2));
+            Assert.That(_locator.LocateAll<IConsumerOf<AbortMessage>>().Length, Is.EqualTo(3));
         }
 
         [Test]

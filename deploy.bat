@@ -32,6 +32,30 @@ IF NOT EXIST %DEPLOYDIR%\Installer (
   del %DEPLOYDIR%\Installer\* /Q
 )
 
+IF NOT EXIST %DEPLOYDIR%\site (
+  mkdir %DEPLOYDIR%\site
+) ELSE (
+  del %DEPLOYDIR%\site\* /Q
+)
+
+IF NOT EXIST %DEPLOYDIR%\site\css (
+  mkdir %DEPLOYDIR%\site\css
+) ELSE (
+  del %DEPLOYDIR%\site\css\* /Q
+)
+
+IF NOT EXIST %DEPLOYDIR%\site\graphics (
+  mkdir %DEPLOYDIR%\site\graphics
+) ELSE (
+  del %DEPLOYDIR%\site\graphics\* /Q
+)
+
+IF NOT EXIST %DEPLOYDIR%\site\js (
+  mkdir %DEPLOYDIR%\site\js
+) ELSE (
+  del %DEPLOYDIR%\site\js\* /Q
+)
+
 IF NOT EXIST %DEPLOYDIR%\Icons (
   mkdir %DEPLOYDIR%\Icons
 ) ELSE (
@@ -222,6 +246,11 @@ Microsoft.msagl.drawing.dll ^
 AutoTest.Minimizer.dll ^
 ContinuousTests.exe ^
 ContinuousTests.ExtensionModel.dll ^
+BellyRub.dll ^
+Nancy.dll ^
+Nancy.Hosting.Self.dll ^
+Newtonsoft.Json.dll ^
+websocket-sharp.dll ^
 Mono.Cecil.dll ^
 AutoTest.VM.exe ^
 AutoTest.VM.Messages.dll ^
@@ -240,6 +269,60 @@ AutoTest.Profiler.dll ^
 FOR %%f in %file_list% do (
   echo %%f
   copy %BINARYDIR%\%%f %DEPLOYDIR%\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying site folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+index.html ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy %BINARYDIR%\site\%%f %DEPLOYDIR%\site\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying site\css folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+main.css ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy %BINARYDIR%\site\css\%%f %DEPLOYDIR%\site\css\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying site\graphics folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+circleAbort.png ^
+circleFAIL.png ^
+circleWAIL.png ^
+circleWIN.png ^
+progress.gif ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy %BINARYDIR%\site\graphics\%%f %DEPLOYDIR%\site\graphics\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying site\js folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+autotest-client.js ^
+handlebars.js ^
+jquery.min.js ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy %BINARYDIR%\site\js\%%f %DEPLOYDIR%\site\js\%%f
 )
 
 echo --------------------------------------------------------------------------------------------

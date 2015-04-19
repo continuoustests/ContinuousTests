@@ -35,6 +35,7 @@ namespace AutoTest.Test.Core.Messaging.MessageConsumers
 			Assert.That(result[0].Passed[0].Runner, Is.EqualTo(TestRunner.PhpUnit));
 			Assert.That(result[0].Passed[0].Status, Is.EqualTo(TestRunStatus.Passed));
 			Assert.That(result[0].Passed[0].Name, Is.EqualTo("Acme\\DemoBundle\\Tests\\Utility\\ParserTestst\\testPassingTest"));
+			Assert.That(result[0].Passed[0].DisplayName, Is.EqualTo("PassingTest"));
 			Assert.That(result[0].Passed[0].Message, Is.EqualTo(""));
 			Assert.That(result[0].Passed[0].StackTrace.Length, Is.EqualTo(0));
 
@@ -203,6 +204,82 @@ namespace AutoTest.Test.Core.Messaging.MessageConsumers
 				"PHP  14. Composer\\Autoload\\ClassLoader->loadClass() /usr/share/php/PHPUnit/Framework/TestCase.php:0";
 			return output.Replace("NEW_LINE_PLACEHOLDER", Environment.NewLine);
 		}
+
+		[Test]
+		public void When_parsing_test_output_containing_error_it_will_report_as_failure()
+		{
+			var result = JUnitXmlParser.Parse(getTestCaseResultString(), "/mytest/location");
+			Assert.That(result.Count, Is.EqualTo(6));
+			Assert.That(result[0].All.Length, Is.EqualTo(6));
+		}
+
+		private string getTestCaseResultString() {
+			return
+				"<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+				"<testsuites>" +
+				"  <testsuite name=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit\" tests=\"34\" assertions=\"66\" failures=\"1\" errors=\"0\" time=\"0.032002\">" +
+				"    <testsuite name=\"Melin\\Framework\\Tests\\Unit\\AbstractRegExFileTranslationExtractorTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/AbstractRegExFileTranslationExtractorTest.php\" namespace=\"Melin\\Framework\\Tests\\Unit\" fullPackage=\"Melin.Framework.Tests.Unit\" tests=\"6\" assertions=\"12\" failures=\"0\" errors=\"0\" time=\"0.004509\">" +
+				"      <testsuite name=\"Melin\\Framework\\Tests\\Unit\\AbstractRegExFileTranslationExtractorTest::testGetOccurrenceOnOffset\" tests=\"6\" assertions=\"12\" failures=\"0\" errors=\"0\" time=\"0.004509\">" +
+				"        <testcase name=\"testGetOccurrenceOnOffset with data set #0\" assertions=\"2\" time=\"0.003668\"/>" +
+				"        <testcase name=\"testGetOccurrenceOnOffset with data set #1\" assertions=\"2\" time=\"0.000186\"/>" +
+				"        <testcase name=\"testGetOccurrenceOnOffset with data set #2\" assertions=\"2\" time=\"0.000175\"/>" +
+				"        <testcase name=\"testGetOccurrenceOnOffset with data set #3\" assertions=\"2\" time=\"0.000161\"/>" +
+				"        <testcase name=\"testGetOccurrenceOnOffset with data set #4\" assertions=\"2\" time=\"0.000160\"/>" +
+				"        <testcase name=\"testGetOccurrenceOnOffset with data set #5\" assertions=\"2\" time=\"0.000159\"/>" +
+				"      </testsuite>" +
+				"    </testsuite>" +
+				"    <testsuite name=\"Melin\\Framework\\Tests\\Unit\\EventSourceRepositoryTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/EventSourceRepositoryTest.php\" namespace=\"Melin\\Framework\\Tests\\Unit\" fullPackage=\"Melin.Framework.Tests.Unit\" tests=\"1\" assertions=\"1\" failures=\"1\" errors=\"0\" time=\"0.018643\">" +
+				"      <testcase name=\"testWhen_flushing_a_new_aggregate_it_will_store_events\" class=\"Melin\\Framework\\Tests\\Unit\\EventSourceRepositoryTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/EventSourceRepositoryTest.php\" line=\"16\" assertions=\"1\" time=\"0.018643\">" +
+				"        <failure type=\"PHPUnit_Framework_ExpectationFailedException\">Melin\\Framework\\Tests\\Unit\\EventSourceRepositoryTest::testWhen_flushing_a_new_aggregate_it_will_store_events" +
+				"Failed asserting that two strings are equal." +
+				"--- Expected" +
+				"+++ Actual" +
+				"@@ @@" +
+				"-'Melin\\Framework\\Tests\\Unit\\EventSourceRepositoryTest'" +
+				"+'bleh'" +
+				"" +
+				"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/EventSourceRepositoryTest.php:28" +
+				"</failure>" +
+				"      </testcase>" +
+				"    </testsuite>" +
+				"    <testsuite name=\"Melin\\Framework\\Tests\\Unit\\HtmlTranslationExtractorTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/HtmlTranslationExtractorTest.php\" namespace=\"Melin\\Framework\\Tests\\Unit\" fullPackage=\"Melin.Framework.Tests.Unit\" tests=\"17\" assertions=\"34\" failures=\"0\" errors=\"0\" time=\"0.006821\">" +
+				"      <testsuite name=\"Melin\\Framework\\Tests\\Unit\\HtmlTranslationExtractorTest::testGetTagsWithSingleMatch\" tests=\"13\" assertions=\"26\" failures=\"0\" errors=\"0\" time=\"0.005193\">" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #0\" assertions=\"2\" time=\"0.000742\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #1\" assertions=\"2\" time=\"0.000432\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #2\" assertions=\"2\" time=\"0.000425\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #3\" assertions=\"2\" time=\"0.000326\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #4\" assertions=\"2\" time=\"0.000417\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #5\" assertions=\"2\" time=\"0.000346\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #6\" assertions=\"2\" time=\"0.000340\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #7\" assertions=\"2\" time=\"0.000348\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #8\" assertions=\"2\" time=\"0.000344\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #9\" assertions=\"2\" time=\"0.000374\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #10\" assertions=\"2\" time=\"0.000353\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #11\" assertions=\"2\" time=\"0.000348\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #12\" assertions=\"2\" time=\"0.000397\"/>" +
+				"      </testsuite>" +
+				"      <testcase name=\"testGetTagsWithMultipleMatches\" class=\"Melin\\Framework\\Tests\\Unit\\HtmlTranslationExtractorTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/HtmlTranslationExtractorTest.php\" line=\"139\" assertions=\"3\" time=\"0.000486\"/>" +
+				"      <testcase name=\"testGetTagsWithMultipleMatchesWithDifferentMatchPatterns\" class=\"Melin\\Framework\\Tests\\Unit\\HtmlTranslationExtractorTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/HtmlTranslationExtractorTest.php\" line=\"157\" assertions=\"3\" time=\"0.000497\"/>" +
+				"      <testcase name=\"testGetTagsWithoutContent\" class=\"Melin\\Framework\\Tests\\Unit\\HtmlTranslationExtractorTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/HtmlTranslationExtractorTest.php\" line=\"175\" assertions=\"1\" time=\"0.000234\"/>" +
+				"      <testcase name=\"testGetTagsWithoutMatches\" class=\"Melin\\Framework\\Tests\\Unit\\HtmlTranslationExtractorTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/HtmlTranslationExtractorTest.php\" line=\"185\" assertions=\"1\" time=\"0.000412\"/>" +
+				"    </testsuite>" +
+				"    <testsuite name=\"Melin\\Framework\\Tests\\Unit\\JsTranslationExtractorTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/JsTranslationExtractorTest.php\" namespace=\"Melin\\Framework\\Tests\\Unit\" fullPackage=\"Melin.Framework.Tests.Unit\" tests=\"10\" assertions=\"19\" failures=\"0\" errors=\"0\" time=\"0.002028\">" +
+				"      <testsuite name=\"Melin\\Framework\\Tests\\Unit\\JsTranslationExtractorTest::testGetTagsWithSingleMatch\" tests=\"7\" assertions=\"14\" failures=\"0\" errors=\"0\" time=\"0.001449\">" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #0\" assertions=\"2\" time=\"0.000515\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #1\" assertions=\"2\" time=\"0.000166\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #2\" assertions=\"2\" time=\"0.000155\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #3\" assertions=\"2\" time=\"0.000155\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #4\" assertions=\"2\" time=\"0.000148\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #5\" assertions=\"2\" time=\"0.000156\"/>" +
+				"        <testcase name=\"testGetTagsWithSingleMatch with data set #6\" assertions=\"2\" time=\"0.000154\"/>" +
+				"      </testsuite>" +
+				"      <testcase name=\"testGetTagsWithMultipleMatches\" class=\"Melin\\Framework\\Tests\\Unit\\JsTranslationExtractorTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/JsTranslationExtractorTest.php\" line=\"96\" assertions=\"3\" time=\"0.000369\"/>" +
+				"      <testcase name=\"testGetTagsWithoutContent\" class=\"Melin\\Framework\\Tests\\Unit\\JsTranslationExtractorTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/JsTranslationExtractorTest.php\" line=\"115\" assertions=\"1\" time=\"0.000104\"/>" +
+				"      <testcase name=\"testGetTagsWithoutMatches\" class=\"Melin\\Framework\\Tests\\Unit\\JsTranslationExtractorTest\" file=\"/home/ack/src/melin/melin-e-portal/src/Melin/Framework/Tests/Unit/JsTranslationExtractorTest.php\" line=\"125\" assertions=\"1\" time=\"0.000107\"/>" +
+				"    </testsuite>" +
+				"  </testsuite>" +
+				"</testsuites>";
+		}
 	}
 
 	[TestFixture]
@@ -219,8 +296,8 @@ namespace AutoTest.Test.Core.Messaging.MessageConsumers
 		public void When_given_an_ok_test_it_will_trurn_true_and_contain_the_test_and_number_of_tests()
 		{
 			var parser = new PhpUnitLiveParser();
-			Assert.That(parser.Parse("ok 3 - Acme\\DemoBundle\\Tests\\Utility\\ParserTestst::testPassingTest"), Is.True);
-			Assert.That(parser.Test, Is.EqualTo("testPassingTest"));
+			Assert.That(parser.Parse("ok 3 - Acme\\DemoBundle\\Tests\\Utility\\ParserTestst::testA_passing_test"), Is.True);
+			Assert.That(parser.Test, Is.EqualTo("A passing test"));
 			Assert.That(parser.Class, Is.EqualTo("Acme\\DemoBundle\\Tests\\Utility\\ParserTestst"));
 			Assert.That(parser.TestsCompleted, Is.EqualTo(3));
 		}
@@ -230,7 +307,7 @@ namespace AutoTest.Test.Core.Messaging.MessageConsumers
 		{
 			var parser = new PhpUnitLiveParser();
 			Assert.That(parser.Parse("not ok 4 - Failure: Acme\\DemoBundle\\Tests\\Utility\\ParserTestst::testFailingTest"), Is.True);
-			Assert.That(parser.Test, Is.EqualTo("testFailingTest"));
+			Assert.That(parser.Test, Is.EqualTo("FailingTest"));
 			Assert.That(parser.Class, Is.EqualTo("Acme\\DemoBundle\\Tests\\Utility\\ParserTestst"));
 			Assert.That(parser.TestsCompleted, Is.EqualTo(4));
 		}
@@ -241,7 +318,7 @@ namespace AutoTest.Test.Core.Messaging.MessageConsumers
 		{
 			var parser = new PhpUnitLiveParser();
 			Assert.That(parser.Parse("not ok 4 - Error: Acme\\DemoBundle\\Tests\\Utility\\ParserTestst::testFailingTest"), Is.True);
-			Assert.That(parser.Test, Is.EqualTo("testFailingTest"));
+			Assert.That(parser.Test, Is.EqualTo("FailingTest"));
 			Assert.That(parser.Class, Is.EqualTo("Acme\\DemoBundle\\Tests\\Utility\\ParserTestst"));
 			Assert.That(parser.TestsCompleted, Is.EqualTo(4));
 		}
@@ -251,7 +328,7 @@ namespace AutoTest.Test.Core.Messaging.MessageConsumers
 		{
 			var parser = new PhpUnitLiveParser();
 			Assert.That(parser.Parse("not ok 5 - Acme\\DemoBundle\\Tests\\Utility\\ParserTestst::testIgnoreTest # TODO Incomplete Test"), Is.True);
-			Assert.That(parser.Test, Is.EqualTo("testIgnoreTest"));
+			Assert.That(parser.Test, Is.EqualTo("IgnoreTest"));
 			Assert.That(parser.Class, Is.EqualTo("Acme\\DemoBundle\\Tests\\Utility\\ParserTestst"));
 			Assert.That(parser.TestsCompleted, Is.EqualTo(5));
 		}

@@ -125,7 +125,7 @@ namespace AutoTest.Core.TestRunners.TestRunners
 				}
 			}
 			if (tests.Length > 0)
-				tests = string.Format("\"{0}run={1}\"", separator, tests);
+				tests = string.Format("{0}run={1}", separator, tests);
             if (assemblies.Length.Equals(0))
                 return null;
 			return assemblies;

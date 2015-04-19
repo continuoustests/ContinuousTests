@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using AutoTest.Messages;
+using AutoTest.Core.DebugLog;
 using AutoTest.Core.Messaging;
 using AutoTest.Core.Configuration;
 using AutoTest.Core.ForeignLanguageProviders.Php;
@@ -23,16 +24,21 @@ namespace AutoTest.Core.Messaging.MessageConsumers
 
 		public void Consume(FileChangeMessage message)
         {
+			Debug.WriteDebug("Checking if php is the shit: " + _config.Providers);
             if (_config.Providers != "php")
                 return;
+			Debug.WriteDebug("Handling filechange for php");
             
         	var phpFiles 
-        		= message.Files
+        		= message.Files.AsQueryable()
         			.Where(x => x.Extension.ToLower() == ".php")
                     .Distinct()
         			.ToList();
-        	if (phpFiles.Count == 0)
+        	if (phpFiles.Count == 0) {
+                Debug.WriteDebug("No files to handle");
         		return;
+            }
+            Debug.WriteDebug("Running php handler for " + phpFiles.Count.ToString() + " files");
             _handler.Handle(phpFiles); 
         }
 

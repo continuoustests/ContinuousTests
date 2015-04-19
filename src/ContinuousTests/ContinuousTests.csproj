@@ -127,6 +127,7 @@
     </None>
     <Compile Include="Handlers\RunEventHandler.cs" />
     <Compile Include="Handlers\RunItemEventHandler.cs" />
+    <Compile Include="Handlers\InformationEventsHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoTest.Client\AutoTest.Client.csproj">

@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AutoTest.Core.Messaging.MessageConsumers;
+using AutoTest.Messages;
 using AutoTest.Messages;
 using AutoTest.Core.BuildRunners;
 using AutoTest.Core.TestRunners;

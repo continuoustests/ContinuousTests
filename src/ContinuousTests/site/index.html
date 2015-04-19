@@ -70,12 +70,21 @@
     </script>
 </head> 
 <body>
-    <button href="javascript:void(0)" onclick="buildAndTestAll();">Build and test all</button>
-    <button href="javascript:void(0)" onclick="detectRecursionOnNextRun();">Detect recursive run</button>
-    <button href="javascript:void(0)" onclick="pauseEngine();">Pause</button>
-    <button href="javascript:void(0)" onclick="resumeEngine();">Resume</button>
-    <button href="javascript:void(0)" onclick="abortRun();">Abort</button>
-    <img id="status-picture" class="statusImage" src="" />
+    <div id='cssmenu'>
+    <ul>
+       <li class='active has-sub'><a href='#'><span>ContinuousTests</span></a>
+          <ul>
+              <li><a href="javascript:void(0)" onclick="buildAndTestAll();"><span>Build and test all</span></a></li>
+              <li><a href="javascript:void(0)" onclick="detectRecursionOnNextRun();"><span>Detect recursive run</span></a></li>
+              <li><a href="javascript:void(0)" onclick="pauseEngine();"><span>Pause</span></a></li>
+              <li><a href="javascript:void(0)" onclick="resumeEngine();"><span>Resume</span></a></li>
+              <li><a href="javascript:void(0)" onclick="abortRun();"><span>Abort</span></a></li>
+          </ul>
+       </li>
+    </ul>
+    </div>
+ 
+    <img id="status-picture" class="statusImage" src="graphics/circleAbort.png" />
     <div id="status" class="statusText"></div>
     <div id="list" class="itemList"></div>
 

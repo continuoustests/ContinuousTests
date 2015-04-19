@@ -23,6 +23,10 @@ namespace AutoTest.Core.Caching.RunResultCache
 
         public override bool  Equals(object obj)
         {
+            if (obj == null)
+                return false;
+            if (obj.GetType() != typeof(BuildItem))
+                return false;
             var other = (BuildItem) obj;
             return GetHashCode().Equals(other.GetHashCode());
         }

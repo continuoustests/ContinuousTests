@@ -10,5 +10,6 @@ namespace AutoTest.Core.FileSystem
         void Pause();
         void Resume();
         void Watch(string path);
+        void Watch(string path, bool tamperWithLogging);
     }
 }

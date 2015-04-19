@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Dynamic;
 using System.Threading;
 using System.Reflection;
@@ -22,10 +23,14 @@ namespace ContinuousTests
         [STAThread]
         static void Main(string[] args)
         {
+            var bellyRub = args.Any(x => x == "--bellyrub");
+            args = args.Where(x => x != "--bellyrub").ToArray();
             var path = getPath(args);
             if (path != null) {
-                //runWinforms(args);
-                runBellyRub(path);
+                if (bellyRub)
+                    runBellyRub(path);
+                else
+                    runWinforms(path);
             } 
         }
 

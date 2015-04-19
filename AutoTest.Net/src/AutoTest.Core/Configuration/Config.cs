@@ -490,7 +490,7 @@ namespace AutoTest.Core.Configuration
             WatchToken = watchToken;
         }
 
-        private Action<bool> _logging = null;
+        private Action<bool> _logging = (isEnabled) => {};
         public void SetLoggerStateAction(Action<bool> setupLogging)
         {
             _logging = setupLogging;

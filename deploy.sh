@@ -34,6 +34,7 @@ fi
 
 mkdir $DEPLOYDIR/en-US
 mkdir $DEPLOYDIR/Installer
+mkdir $DEPLOYDIR/site
 mkdir $DEPLOYDIR/Icons
 mkdir $DEPLOYDIR/TestRunners
 mkdir $DEPLOYDIR/TestRunners/NUnit
@@ -106,6 +107,12 @@ cp $BINARYDIR/AutoTest.VM.Messages.dll $DEPLOYDIR/AutoTest.VM.Messages.dll
 cp $BINARYDIR/AutoTest.Client.dll $DEPLOYDIR/AutoTest.Client.dll
 cp $BINARYDIR/AutoTest.Graphs.dll $DEPLOYDIR/AutoTest.Graphs.dll
 cp $BINARYDIR/AutoTest.Profiler.dll $DEPLOYDIR/AutoTest.Profiler.dll
+cp $BINARYDIR/BellyRub.dll $DEPLOYDIR/
+cp $BINARYDIR/Nancy.dll $DEPLOYDIR/
+cp $BINARYDIR/Nancy.Hosting.Self.dll $DEPLOYDIR/
+cp $BINARYDIR/Newtonsoft.Json.dll $DEPLOYDIR/
+cp $BINARYDIR/websocket-sharp.dll $DEPLOYDIR/
+cp -r $BINARYDIR/site/* $DEPLOYDIR/site/
 cp $DIR/lib/Rhino.Licensing/acknowledgements.txt $DEPLOYDIR/Rhino.Licensing.acknowledgements.txt
 cp $DIR/lib/Rhino.Licensing/license.txt $DEPLOYDIR/Rhino.Licensing.license.txt
 cp $DIR/lib/Rhino.Licensing/Rhino.Licensing.dll $DEPLOYDIR/Rhino.Licensing.dll

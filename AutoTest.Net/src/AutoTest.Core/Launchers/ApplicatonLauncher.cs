@@ -11,14 +11,12 @@ namespace AutoTest.Core.Launchers
     public class ApplicatonLauncher : IApplicatonLauncher
     {
         private IConfiguration _configuration;
-		private IMessageBus _bus;
 		private EditorEngineLauncher _editorEngine;
 		private string _path = null;
 
         public ApplicatonLauncher(IConfiguration configuration, IMessageBus bus, EditorEngineLauncher editorEngineLauncher)
         {
             _configuration = configuration;
-			_bus = bus;
 			_editorEngine = editorEngineLauncher;
         }
 		
@@ -27,6 +25,12 @@ namespace AutoTest.Core.Launchers
 			_path = path;
 			_editorEngine.Connect(_path);
 		}
+
+        public void FocusEditor()
+        {
+            if (isEditorEngine())
+                _editorEngine.Focus();
+        }
 
         public void LaunchEditor(string file, int lineNumber, int column)
         {

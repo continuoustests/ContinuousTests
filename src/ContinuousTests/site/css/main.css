@@ -1,61 +1,237 @@
-.statusText {
-}
 .statusImage {
+    float: left;
+    height: 17px;
+    padding-top: 50px;
+    padding-right: 10px;
+    border: 0;
+}
+.statusText {
+    padding-top: 50px;
+    float: left;
+    clear: right;
+    min-width: 80%;
 }
 .itemList {
+    float: left;
+    padding-top: 10px;
 }
 .listitem {
+    padding-top: 5px;
+    padding-left: 5px;
 }
 .listitemSelected {
-    background-color: blue;
+    background-color: rgb(36,36,36);
+    border-radius: 5px;
+    padding-bottom: 1px;
 }
 .listitemExpanded {
-    background-color: lightblue;
+    background-color: rgb(36,36,36);
 }
 .listitemDetailsHidden {
     display: none;
 }
 .listitemDetailsVisible {
+    background-color: rgb(68,67,60);
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .listitemLink {
 }
 .listitemLinkSelected {
+    background-color: rgb(219,219,216);
 }
 .listitemLinkHref {
+    color: rgb(101,101,245);
 }
 .listitemLinkHrefSelected {
-    background-color: lightgray;
+    color: rgb(101,101,245);
 }
 .errorItem {
+    color: red;
 }
 .warningItem {
+    color: yellow;
 }
 .failedItem {
+    color: red;
 }
 .ignoredItem {
+    color: yellow;
 }
-.button {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 7;
-  -moz-border-radius: 7;
-  border-radius: 7px;
-  font-family: Arial;
+
+/* All */
+body {
+   background-color: #4f4a4a;
+   color: #e1e1e1;
+   font-weight: 500;
+   font-size: 14px;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* MENU */
+#cssmenu,
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {
+  border: none;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+#cssmenu {
+  position: absolute;
+  height: 37px;
+  display: block;
+  border: 1px solid;
+  border-radius: 5px;
+  width: auto;
+  border-color: #080808;
+  margin: 0;
+  padding: 0;
+}
+#cssmenu > ul {
+  list-style: inside none;
+  margin: 0;
+  padding: 0;
+}
+#cssmenu > ul > li {
+  list-style: inside none;
+  float: left;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+#cssmenu.align-center > ul {
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  float: none;
+  margin-left: -3px;
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+}
+#cssmenu.align-center > ul > li:first-child > a {
+  border-radius: 0;
+}
+#cssmenu > ul > li > a {
+  outline: none;
+  display: block;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+  font-weight: 700;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-right: 1px solid #080808;
   color: #ffffff;
-  font-size: 17px;
-  padding: 5px 10px 5px 10px;
-  text-decoration: none;
+  padding: 12px 20px;
 }
-.button:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
+#cssmenu > ul > li:first-child > a {
+  border-radius: 5px 0 0 5px;
 }
+#cssmenu > ul > li > a:after {
+  content: "";
+  position: absolute;
+  border-right: 1px solid;
+  top: -1px;
+  bottom: -1px;
+  right: -2px;
+  z-index: 99;
+  border-color: #3e3a3a;
+}
+#cssmenu ul li.has-sub:hover > a:after {
+  top: 0;
+  bottom: 0;
+}
+#cssmenu > ul > li.has-sub > a:before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 6px;
+  border: 5px solid transparent;
+  border-top: 5px solid #ffffff;
+}
+#cssmenu > ul > li.has-sub:hover > a:before {
+  top: 19px;
+}
+#cssmenu > ul > li.has-sub:hover > a {
+  padding-bottom: 14px;
+  z-index: 999;
+  border-color: #3f3f3f;
+}
+#cssmenu ul li.has-sub:hover > ul,
+#cssmenu ul li.has-sub:hover > div {
+  display: block;
+}
+#cssmenu > ul > li.has-sub > a:hover,
+#cssmenu > ul > li.has-sub:hover > a {
+  background: #3e3a3a;
+  border-color: #000000;
+}
+#cssmenu ul li > ul,
+#cssmenu ul li > div {
+  display: none;
+  width: auto;
+  position: absolute;
+  top: 38px;
+  background: #3e3a3a;
+  border-radius: 0 0 5px 5px;
+  z-index: 999;
+  padding: 10px 0;
+}
+#cssmenu ul li > ul {
+  width: 200px;
+}
+#cssmenu ul ul ul {
+  position: absolute;
+}
+#cssmenu ul ul li:hover > ul {
+  left: 100%;
+  top: -10px;
+  border-radius: 5px;
+}
+#cssmenu ul li > ul li {
+  display: block;
+  list-style: inside none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+#cssmenu ul li > ul li a {
+  outline: none;
+  display: block;
+  position: relative;
+  font: 10pt Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 8px 20px;
+}
+#cssmenu,
+#cssmenu ul ul > li:hover > a,
+#cssmenu ul ul li a:hover {
+  background: #3e3a3a;
+  background: -moz-linear-gradient(top, #3e3a3a 0%, #222222 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3e3a3a), color-stop(100%, #222222));
+  background: -webkit-linear-gradient(top, #3e3a3a 0%, #222222 100%);
+  background: -o-linear-gradient(top, #3e3a3a 0%, #222222 100%);
+  background: -ms-linear-gradient(top, #3e3a3a 0%, #222222 100%);
+  background: linear-gradient(top, #3e3a3a 0%, #222222 100%);
+}
+#cssmenu > ul > li > a:hover {
+  //background: #080808;
+  color: #ffffff;
+}
+#cssmenu ul ul a:hover {
+  color: #ffffff;
+}
+#cssmenu > ul > li.has-sub > a:hover:before {
+  border-top: 5px solid #ffffff;
+}
+

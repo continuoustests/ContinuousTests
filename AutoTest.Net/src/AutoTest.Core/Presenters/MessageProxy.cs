@@ -40,7 +40,7 @@ namespace AutoTest.Core.Presenters
 
         public void SetMessageForwarder(IMessageForwarder forwarder)
         {
-            _forwarder = forwarder;
+                _forwarder = forwarder;
         }
 
         public void RecievingFileChangeMessage(FileChangeMessage message)

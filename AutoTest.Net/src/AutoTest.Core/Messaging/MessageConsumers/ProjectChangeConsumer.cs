@@ -24,7 +24,6 @@ namespace AutoTest.Core.Messaging.MessageConsumers
         private IMessageBus _bus;
         private IGenerateBuildList _listGenerator;
         private IBuildSessionRunner _buildRunner;
-        private IConfiguration _configuration;
         private ITestRunner[] _testRunners;
 		private IDetermineIfAssemblyShouldBeTested _testAssemblyValidator;
 		private IOptimizeBuildConfiguration _buildOptimizer;
@@ -39,7 +38,6 @@ namespace AutoTest.Core.Messaging.MessageConsumers
         {
             _bus = bus;
             _listGenerator = listGenerator;
-            _configuration = configuration;
             _buildRunner = buildRunner;
             _testRunners = testRunners;
 			_testAssemblyValidator = testAssemblyValidator;

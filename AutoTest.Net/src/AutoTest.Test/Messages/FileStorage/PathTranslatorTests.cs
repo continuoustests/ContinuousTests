@@ -123,7 +123,7 @@ namespace AutoTest.Test.Messages.FileStorage
         [Test]
         public void When_returning_a_storage_apth_it_will_make_sure_that_all_directories_exists()
         {
-            var directory = new PathTranslator(format("/StorageLocation/"), format("/home/ack/src/MySolution"), _directoryExists, _createDirectory)
+            new PathTranslator(format("/StorageLocation/"), format("/home/ack/src/MySolution"), _directoryExists, _createDirectory)
                 .Translate(format("/home/ack/src/MySolution/Project/Project.csproj"));
 
 			var resultHash = OS.IsPosix ? "089916fa47d570a46efee1a1c04d77bc" : "cdd8fcbb3e82fce3dc5b40e585a4949d";

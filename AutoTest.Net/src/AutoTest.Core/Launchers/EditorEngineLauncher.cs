@@ -1,14 +1,14 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Diagnostics;
+using AutoTest.Core.Configuration;
+using Debug = AutoTest.Core.DebugLog.Debug;
 using AutoTest.Core.Messaging;
 using AutoTest.CoreExtensions;
-using AutoTest.Core.Configuration;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
 using AutoTest.Messages;
-using Debug = AutoTest.Core.DebugLog.Debug;
 
 namespace AutoTest.Core.Launchers
 {
@@ -45,6 +45,13 @@ namespace AutoTest.Core.Launchers
 			if (!isConnected())
 				return;
 			send(string.Format("goto {0}|{1}|{2}", file, line, column));
+		}
+
+		public void Focus()
+		{
+			if (!isConnected())
+				return;
+			send("setfocus");
 		}
 
 		public void Consume(BuildRunMessage message) {
@@ -90,7 +97,7 @@ namespace AutoTest.Core.Launchers
 			{
 				if (_client != null && _client.IsConnected)
 					return true;
-				var instance = new InstanceLocator("editor").GetInstance(_path);
+                var instance = new InstanceLocator("editor").GetInstance(_path);
 				if (instance == null)
 					return false;
 				_client = new SocketClient();
@@ -117,7 +124,7 @@ namespace AutoTest.Core.Launchers
 			{
 				if (_eventendpoint != null && _eventendpoint.IsConnected)
 					return;
-				var instance = new InstanceLocator("event").GetInstance(_path);
+                var instance = new InstanceLocator("event").GetInstance(_path);
 				if (instance == null) {
 					return;
 				}
@@ -173,16 +180,16 @@ namespace AutoTest.Core.Launchers
 	
 	class InstanceLocator
 	{
-		private string _instanceType;
+        private string _instanceType;
 
-		public InstanceLocator(string instanceType)
+        public InstanceLocator(string instanceType)
 		{
 			_instanceType = instanceType;
 		}
 
 		public Instance GetInstance(string path)
 		{
-            var process = new Process();
+	        var process = new Process();
             string[] errors;
             var output = process.QueryAll("oi", "codemodel get-token-"+_instanceType+"-endpoint \""+path+"\"", false, path, out errors).ToArray();
             if (output.Length == 2 && output[0].Contains(":")) {
@@ -193,5 +200,100 @@ namespace AutoTest.Core.Launchers
             return null;
 		}
 	}
+
+	class FS
+	{
+		public static string GetTempFilePath()
+		{
+			var tmpfile = Path.GetTempFileName();
+			if (OS.IsOSX)
+				tmpfile = Path.Combine("/tmp", Path.GetFileName(tmpfile));
+			return tmpfile;
+		}
+
+		public static string GetTempDir()
+		{
+			if (OS.IsOSX)
+				return "/tmp";
+			return Path.GetTempPath();
+		}
+	}
+
+	static class OS
+    {
+        private static bool? _isWindows;
+        private static bool? _isUnix;
+        private static bool? _isOSX;
+
+        public static bool IsWindows {
+            get {
+                if (_isWindows == null) {
+                    _isWindows = 
+                        Environment.OSVersion.Platform == PlatformID.Win32S ||
+                        Environment.OSVersion.Platform == PlatformID.Win32NT ||
+                        Environment.OSVersion.Platform == PlatformID.Win32Windows ||
+                        Environment.OSVersion.Platform == PlatformID.WinCE ||
+                        Environment.OSVersion.Platform == PlatformID.Xbox;
+                }
+                return (bool) _isWindows;
+            }
+        }
+
+        public static bool IsPosix {
+            get {
+                return IsUnix || IsOSX;
+            }
+        }
+
+        public static bool IsUnix {
+            get {
+                if (_isUnix == null)
+                    setUnixAndLinux();
+                return (bool) _isUnix;
+            }
+        }
+
+        public static bool IsOSX {
+            get {
+                if (_isOSX == null)
+                    setUnixAndLinux();
+                return (bool) _isOSX;
+            }
+        }
+
+        private static void setUnixAndLinux()
+        {
+            try
+            {
+                if (IsWindows) {
+                    _isOSX = false;
+                    _isUnix = false;
+                } else  {
+                    var process = new System.Diagnostics.Process
+                                      {
+                                          StartInfo =
+                                              new System.Diagnostics.ProcessStartInfo("uname", "-a")
+                                                  {
+                                                      RedirectStandardOutput = true,
+                                                      WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                                                      UseShellExecute = false,
+                                                      CreateNoWindow = true
+                                                  }
+                                      };
+
+                    process.Start();
+                    var output = process.StandardOutput.ReadToEnd();
+                    process.WaitForExit();
+                    _isOSX = output.Contains("Darwin Kernel");
+                    _isUnix = !_isOSX;
+                }
+            }
+            catch
+            {
+                _isOSX = false;
+                _isUnix = false;
+            }
+        }
+    }
 }
 

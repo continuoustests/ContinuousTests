@@ -1,0 +1,86 @@
+<html>
+<head> 
+    <meta charset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="bellyrub-client.js"></script>
+
+    <script id="listTemplate" type="text/x-handlebars-template">
+        {{#each errors}}
+            <div id="{{id}}" class="listitem errorItem" onclick="itemClicked({{id}});">{{message}}</div>
+            <div id="{{id}}_details" class="listitemDetailsHidden">
+                Project: {{error.project}}<br>
+                File: <div name="link" class="listitemLink">
+                    <a name="linkHref" href="javascript:void(0)" class="listitemLinkHref" onclick="openInEditor('{{error.build_item.file}}', {{error.build_item.line_number}}, {{error.build_item.line_position}});">{{error.build_item.file}}:{{error.build_item.line_number}}:{{error.build_item.line_position}}</a>
+                </div><br>
+                Message: <br>
+                {{error.build_item.error_message}}
+            </div>
+        {{/each}}
+        {{#each failures}}
+            <div id="{{id}}" class="listitem failedItem" onclick="itemClicked({{id}});">
+                <div>{{failed.test.display_name}}</div>
+            </div>
+            <div id="{{id}}_details" class="listitemDetailsHidden">
+                Assembly: {{failed.assembly}}<br>
+                Test: {{failed.test.name}}<br>
+                Duration: {{failed.test.time_spent}}<br>
+                Message:<br>
+                {{failed.test.message}}
+                <br>
+                Stack trace:<br>
+                {{#each failed.test.stack_trace}}
+                    at {{method}} in <div name="link" class="listitemLink">
+                        <a name="linkHref" href="javascript:void(0)" class="listitemLinkHref" onclick="openInEditor('{{file}}', {{line_number}}, 0);">{{file}}:{{line_number}}</a>
+                    </div>
+                {{/each}}
+            </div>
+        {{/each}}
+        {{#each ignored}}
+            <div id="{{id}}" class="listitem ignoredItem" onclick="itemClicked({{id}});">
+                <div>{{ignored.test.display_name}}</div>
+            </div>
+            <div id="{{id}}_details" class="listitemDetailsHidden">
+                Assembly: {{ignored.assembly}}<br>
+                Test: {{ignored.test.name}}<br>
+                Duration: {{ignored.test.time_spent}}<br>
+                Message:<br>
+                {{ignored.test.message}}
+                <br>
+                Stack trace:<br>
+                {{#each ignored.test.stack_trace}}
+                    at {{method}} in <div name="link" class="listitemLink">
+                        <a name="linkHref" href="javascript:void(0)" class="listitemLinkHref" onclick="openInEditor('{{file}}', {{line_number}}, 0});">{{file}}:{{line_number}}</a>
+                    </div>
+                {{/each}}
+            </div>
+        {{/each}}
+        {{#each warnings}}
+            <div id="{{id}}" class="listitem warningItem" onclick="itemClicked({{id}});">{{message}}</div>
+            <div id="{{id}}_details" class="listitemDetailsHidden">
+                Project: {{warning.project}}<br>
+                File: <div name="link" class="listitemLink">
+                    <a name="linkHref" href="javascript:void(0)" class="listitemLinkHref" onclick="openInEditor('{{warning.build_item.file}}', {{warning.build_item.line_number}}, {{warning.build_item.line_position}});">{{warning.build_item.file}}:{{warning.build_item.line_number}}:{{warning.build_item.line_position}}</a>
+                </div><br>
+                Message: <br>
+                {{warning.build_item.error_message}}
+            </div>
+        {{/each}}
+    </script>
+</head> 
+<body>
+
+    <a href="javascript:void(0)" onclick="buildAndTestAll();">Build and test all</a>
+    <a href="javascript:void(0)" onclick="detectRecursionOnNextRun();">Detect recursive run</a>
+    <a href="javascript:void(0)" onclick="pauseEngine();">Pause</a>
+    <a href="javascript:void(0)" onclick="resumeEngine();">Resume</a>
+    <img id="status-picture" class="statusImage" src="" />
+    <div id="status" class="statusText"></div>
+    <a href="javascript:void(0)" onclick="abortRun();">Abort</a>
+    <div id="list" class="itemList"></div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script src="js/autotest-client.js"></script>
+</body>
+</html>

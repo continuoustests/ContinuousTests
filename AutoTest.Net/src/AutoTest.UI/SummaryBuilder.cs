@@ -5,7 +5,7 @@ using System.IO;
 
 namespace AutoTest.UI
 {
-    class SummaryBuilder
+    public class SummaryBuilder
     {
         private readonly RunReport _report;
 

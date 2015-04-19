@@ -583,6 +583,14 @@ namespace AutoTest.VM
             BootStrapper.Services.Locate<IApplicatonLauncher>().LaunchEditor(location.File, location.Line, location.Column);
         }
 
+        public void Focus()
+        {
+            if (licenseIsInvalid())
+                return;
+
+            BootStrapper.Services.Locate<IApplicatonLauncher>().FocusEditor();
+        }
+
         public void QueueRealtimeRun(RealtimeChangeList msg)
         {
             _realtimeChangeTracker.Enqueue(msg);

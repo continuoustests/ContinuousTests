@@ -31,6 +31,7 @@ namespace ContinuousTests
                 .On("abort-run", m => _client.AbortRun())
                 .On("detect-recursion-on-next-run", m => _client.RunRecursiveRunDetection())
                 .On("goto", msg => _client.GoTo(msg.file.ToString(), (int)msg.line, (int)msg.column))
+                .On("focus-editor", msg => _client.FocusEditor())
                 .RespondTo("get-token-path", (msg, respondWith) =>
                     respondWith(new { token = _token })
                 );
@@ -39,7 +40,8 @@ namespace ContinuousTests
                 new ShutdownEventHandler(),
                 new FocusEventHandler(_browser),
                 new RunEventHandler(),
-                new RunItemEventHandler()
+                new RunItemEventHandler(),
+                new InformationEventsHandler()
             };
             foreach (var handler in _handlers)
                 handler.DispatchThrough((msg, o) => _engine.Send(msg, o));
@@ -52,6 +54,7 @@ namespace ContinuousTests
 
         public void VMStarted(VMSpawnedMessage message)
         {
+            _engine.Send("vm-spawned");
         }
 
         public void Connecting(int port, bool startPaused)
@@ -64,7 +67,6 @@ namespace ContinuousTests
 
         public void Consume(object message)
         {
-            Console.WriteLine("Handling "+message.GetType().ToString());
             foreach (var handler in _handlers) {
                 handler.OnMessage(message);
             }

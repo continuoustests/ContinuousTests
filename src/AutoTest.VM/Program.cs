@@ -341,6 +341,11 @@ namespace AutoTest.VM
                 Logger.WriteDebug("Go to file requested");
                 _engine.GoTo(((GoToFileAndLineMessage)e.Message));
             }
+            if (e.Message.GetType() == typeof(FocusEditorMessage))
+            {
+                Logger.WriteDebug("Focus editor requested");
+                _engine.Focus();
+            }
             if (e.Message.GetType() == typeof(RequestMessage<AssemblyPathRequest, AssemblyPathResponse>))
             {
                 Logger.WriteDebug("Assembly path for project requested");

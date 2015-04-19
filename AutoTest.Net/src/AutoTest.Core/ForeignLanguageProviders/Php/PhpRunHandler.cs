@@ -35,6 +35,7 @@ namespace AutoTest.Core.ForeignLanguageProviders.Php
             _bus.Publish(new RunStartedMessage(files.ToArray()));
             var runReport = new RunReport();
 
+            AutoTest.Core.DebugLog.Debug.WriteDebug("Reading configuration");
             var configsString = _config.AllSettings("php.phpunit.configs");
             var configs = configsString.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
             foreach (var config in configs) {
@@ -63,6 +64,7 @@ namespace AutoTest.Core.ForeignLanguageProviders.Php
                 if (configLocation != "")
                     configLocation = "-c " + configLocation + " ";
 
+                AutoTest.Core.DebugLog.Debug.WriteDebug("Running tests for test locations");
                 foreach (var location in testLocations) {
                     var results 
                         = new PhpUnitRunner(_cache)
@@ -79,7 +81,7 @@ namespace AutoTest.Core.ForeignLanguageProviders.Php
                     resultList.AddRange(results);
                     resultList.AddRange(_removedTestLocator.RemoveUnmatchedRunInfoTests(results.ToArray(), runInfos));
                     foreach (var result in resultList) {
-                        AutoTest.Core.DebugLog.Debug.WriteDebug("Result contains " + result.All.Length.ToString() + " tests");
+                        AutoTest.Core.DebugLog.Debug.WriteDebug("Result contains " + result.All.Length.ToString() + " tests for " + result.Project);
                         runReport.AddTestRun(
                             result.Project,
                             result.Assembly,
@@ -93,7 +95,7 @@ namespace AutoTest.Core.ForeignLanguageProviders.Php
             }
             // Oh my god.. please fix this
             // Issue with ordering of TestRunMessage and RunFinishedMessage
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(500);
             _bus.Publish(new RunFinishedMessage(runReport));
             IsRunning = false;
         }

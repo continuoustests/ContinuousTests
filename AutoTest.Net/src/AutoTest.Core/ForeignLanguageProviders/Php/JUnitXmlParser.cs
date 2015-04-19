@@ -4,6 +4,7 @@ using System.Xml;
 using System.Linq;
 using System.Collections.Generic;
 using AutoTest.Messages;
+using AutoTest.Core.DebugLog;
 
 namespace AutoTest.Core.ForeignLanguageProviders.Php
 {
@@ -17,7 +18,8 @@ namespace AutoTest.Core.ForeignLanguageProviders.Php
                 var suites = doc.SelectNodes("testsuites/testsuite");
                 handleSuite(suites, results, testLocation);
                 return results;
-            } catch {
+            } catch (Exception ex) {
+                Debug.WriteException(ex);
                 return new List<TestRunResults>();
             }
         }
@@ -42,19 +44,43 @@ namespace AutoTest.Core.ForeignLanguageProviders.Php
         private static IEnumerable<TestResult> getTests(XmlNode suite) {
             var cases = suite.SelectNodes("testcase");
             var tests = new List<TestResult>();
+            if (cases == null)
+                return tests;
             foreach (XmlNode testcase in cases) {
-                var test
-                    = new TestResult(
-                        TestRunner.PhpUnit,
-                        getStateFrom(testcase),
-                        testcase.Attributes["class"].Value +"\\" + testcase.Attributes["name"].Value); 
-                if (test.Status == TestRunStatus.Failed) {
-                    test.Message = getMessage(testcase);
-                    test.StackTrace = getStackTrace(testcase, test.Message).ToArray();
+                TestResult test;
+                var name = testcase.Attributes["name"];
+                var cls = testcase.Attributes["class"];
+                if (cls != null) {
+                    test
+                        = new TestResult(
+                            TestRunner.PhpUnit,
+                            getStateFrom(testcase),
+                            cls.Value +"\\" + name.Value); 
+                    if (test.Status == TestRunStatus.Failed) {
+                        test.Message = getMessage(testcase);
+                        test.StackTrace = getStackTrace(testcase, test.Message).ToArray();
+                    }
+                } else {
+                    test
+                        = new TestResult(
+                            TestRunner.PhpUnit,
+                            getStateFrom(testcase),
+                            suite.Attributes["name"].Value.Replace("::", @"\")); 
+                    if (test.Status == TestRunStatus.Failed) {
+                        test.Message = getMessage(testcase);
+                        test.StackTrace = getStackTrace(testcase, test.Message).ToArray();
+                    }
                 }
+                test.SetDisplayName(PhpUnitLiveParser.ToFriendlyName(getTestName(test.Name)));
                 tests.Add(test);
             }
             return tests;
+        }
+
+        private static string getTestName(string ns)
+        {
+            var chunks = ns.Split(new[] {"\\"}, StringSplitOptions.RemoveEmptyEntries);
+            return chunks[chunks.Length - 1];
         }
 
         private static TestRunStatus getStateFrom(XmlNode test) {
@@ -117,7 +143,7 @@ namespace AutoTest.Core.ForeignLanguageProviders.Php
         public string Method { get; set; }
         public string File { get; set; }
         public int LineNumber { get; set; }
-        public string ToString() {
+        public override string ToString() {
             return File + ":" + LineNumber.ToString();
         }
     }

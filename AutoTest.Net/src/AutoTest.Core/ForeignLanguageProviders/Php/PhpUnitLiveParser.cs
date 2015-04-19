@@ -23,16 +23,38 @@ namespace AutoTest.Core.ForeignLanguageProviders.Php
             int testNum;
             if (!int.TryParse(chunks[0], out testNum))
                 return false;
-            Test = chunks[2];
-            if (!Test.Contains("::") && chunks.Length > 3)
-            	Test = chunks[3];
-            var testChunks = Test.Split(new[] {"::"}, StringSplitOptions.RemoveEmptyEntries);
-            if (testChunks.Length != 2)
+            var ns = chunks[2];
+            if (!ns.Contains("::") && chunks.Length > 3)
+            	ns = chunks[3];
+            Test = NameFromNamespace(ns);
+            if (Test == null)
                 return false;
-            Test = testChunks[1];
-            Class = testChunks[0];
+            Class = ClassFromNamespace(ns);
             TestsCompleted = testNum;
 			return true;
 		}
+
+        public static string NameFromNamespace(string ns)
+        {
+            var test = ns;
+            var testChunks = test.Split(new[] {"::"}, StringSplitOptions.RemoveEmptyEntries);
+            if (testChunks.Length != 2)
+                return null;
+            return ToFriendlyName(testChunks[1].Replace("_", " "));
+        }
+
+        public static string ToFriendlyName(string name)
+        {
+            name = name.Replace("_", " ");
+            return name.Substring(4, name.Length - 4);
+        }
+
+        public static string ClassFromNamespace(string ns)
+        {
+            var testChunks = ns.Split(new[] {"::"}, StringSplitOptions.RemoveEmptyEntries);
+            if (testChunks.Length != 2)
+                return null;
+            return testChunks[0];
+        }
 	}
 }

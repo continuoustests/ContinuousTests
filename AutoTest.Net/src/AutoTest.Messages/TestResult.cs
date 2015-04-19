@@ -119,6 +119,10 @@ namespace AutoTest.Messages
 
         public override bool Equals(object obj)
         {
+            if (obj == null)
+                return false;
+            if (obj.GetType() != typeof(TestResult))
+                return false;
             var other = (TestResult) obj;
             return GetHashCode().Equals(other.GetHashCode());
         }

@@ -287,6 +287,11 @@ namespace AutoTest.Client
             _vm.GoTo(file, line, column);
         }
 
+        public void FocusEditor()
+        {
+            _vm.FocusEditor();
+        }
+
         public string GetAssemblyFromProject(string projectPath)
         {
             return _vm.GetAssemblyFromProject(projectPath);
