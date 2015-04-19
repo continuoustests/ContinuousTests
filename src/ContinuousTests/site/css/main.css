@@ -14,6 +14,7 @@
 .itemList {
     float: left;
     padding-top: 10px;
+    width: 100%;
 }
 .listitem {
     padding-top: 5px;
@@ -40,13 +41,14 @@
 .listitemLink {
 }
 .listitemLinkSelected {
-    background-color: rgb(219,219,216);
 }
 .listitemLinkHref {
     color: rgb(101,101,245);
+    font-weight: bold;
 }
 .listitemLinkHrefSelected {
-    color: rgb(101,101,245);
+    color: orange;
+    font-weight: bold;
 }
 .errorItem {
     color: red;
