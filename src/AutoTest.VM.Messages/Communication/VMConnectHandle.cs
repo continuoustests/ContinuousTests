@@ -103,7 +103,7 @@ namespace AutoTest.VM.Messages.Communication
         public void Remove()
         {
             if (_handle == null)
-                throw new Exception("Cannot remove handle, handle was not set");
+                return;
             if (File.Exists(_handle))
                 File.Delete(_handle);
             _handle = null;

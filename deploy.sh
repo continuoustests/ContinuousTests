@@ -17,7 +17,7 @@ else
 }
 fi
 
-xbuild $SOURCEDIR/AutoTestExtensions.XPlatform.sln /property:OutDir=$BINARYDIRENDED;Configuration=Release
+xbuild $SOURCEDIR/AutoTestExtensions.XPlatform.sln /target:rebuild /property:OutDir=$BINARYDIRENDED;Configuration=Release 
 
 chmod +x $BINARYDIR/*.exe
 chmod +x $DIR/lib/AutoTest.Net/*.exe

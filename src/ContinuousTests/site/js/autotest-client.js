@@ -1,10 +1,10 @@
-var pageTitle = 'AutoTest.Net';
+var pageTitle = 'ContinuousTests';
 $.at = new Object();
 $.at.errors = new Object();
 $.at.warnings = new Object()
 $.at.failures = new Object()
 $.at.ignored = new Object()
-$.at.selectedItem = 0;
+$.at.selectedItem = -1;
 $.at.selectedLink = 0;
 $.at.token = "";
 
@@ -78,7 +78,11 @@ function keydown(e) {
         }
     }
     if (keyCode === 74) { // j
-        selectItem(getNextItem());
+        if ($.at.selectedItem === 1) {
+            selectItem(getFirstItem());
+        } else {
+            selectItem(getNextItem());
+        }
         return true;
     }
     if (keyCode === 75) { // k
@@ -161,19 +165,19 @@ function connect() {
 
     $.at.belly.handlers['vm-spawned'] = function (body) {
         document.title = pageTitle + ' - ' + $.at.token;
-        $('#status').text("Engine started and waitin for changes");
+        $('#status').text("Engine started and waiting for changes");
     };
     $.at.belly.handlers['run-started'] = function (body) {
+        $.at.selectedItem = -1;
         $('#status').text("run started...");
     };
     $.at.belly.handlers['run-finished'] = function (body) {
-        console.log('run finished');
+        selectItem(getFirstItem());
     };
     $.at.belly.handlers['status-information'] = function (body) {
         $('#status').text(body.message);
     };
     $.at.belly.handlers['picture-update'] = function (body) {
-        console.log('pic: ' + body.state);
         var img = 'graphics/circleAbort.png';
         if (body.state === 'progress')
             img = 'graphics/progress.gif';
@@ -184,7 +188,6 @@ function connect() {
         $('#status-picture').attr('src', img);
     };
     $.at.belly.handlers['add-item'] = function (body) {
-        console.log(body);
         if (body.type === 'Build error')
             $.at.errors[body.id] = body;
         else if (body.type === 'Build warning')
@@ -252,7 +255,6 @@ function itemClicked(id) {
 }
 
 function showInformation() {
-    console.log('running show information');
     $('#'+$.at.selectedItem).removeClass('listitemSelected').addClass('listitemExpanded');
     var details = $('#'+$.at.selectedItem+'_details');
     $(details).removeClass('listitemDetailsHidden').addClass('listitemDetailsVisible');
@@ -266,8 +268,6 @@ function exitCurrent() {
 }
 
 function selectItem(id) {
-    if (id === $.at.selectedItem)
-        return;
     $("div[id$='_details']").removeClass('listitemDetailsVisible').addClass('listitemDetailsHidden');
     if (id !== $.at.selectedItem) {
         $('#'+$.at.selectedItem).removeClass('listitemSelected');
@@ -353,6 +353,9 @@ function isOnScreen(elem) {
     var viewport_height = getViewPortSize('Height');
     var viewport_bottom = viewport_top + viewport_height
     var $elem = $(elem)
+    if ($elem.offset() === undefined) {
+        return true;
+    }
     var top = $elem.offset().top
     var height = $elem.height()
     var bottom = top + height
@@ -371,8 +374,7 @@ function getViewPortSize(Name) {
     if (window["inner" + Name] === undefined) {
         // IE6 & IE7 don't have window.innerWidth or innerHeight
         size = documentElement["client" + Name];
-    }
-    else if (window["inner" + Name] != documentElement["client" + Name]) {
+    } else if (window["inner" + Name] != documentElement["client" + Name]) {
         // WebKit doesn't include scrollbars while calculating viewport size so we have to get fancy
 
         // Insert markup to test if a media query will match document.doumentElement["client" + Name]
@@ -390,8 +392,7 @@ function getViewPortSize(Name) {
         if (divElement["offset" + Name] == 7) {
             // Media query matches document.documentElement["client" + Name]
             size = documentElement["client" + Name];
-        }
-        else {
+        } else {
             // Media query didn't match, use window["inner" + Name]
             size = window["inner" + Name];
         }
@@ -406,32 +407,40 @@ function getViewPortSize(Name) {
 }
 
 function getFirstItem() {
-    for (var key in $.at.errors)
+    for (var key in $.at.errors) {
         return key;
-    for (var key in $.at.failures)
+    }
+    for (var key in $.at.failures) {
         return key;
-    for (var key in $.at.ignored)
+    }
+    for (var key in $.at.ignored) {
         return key;
-    for (var key in $.at.warnings)
+    }
+    for (var key in $.at.warnings) {
         return key;
+    }
     return 0;
 }
 
 function getLastItem() {
     var item = 0;
-    for (var key in $.at.warnings)
+    for (var key in $.at.warnings) {
         item = key;
-    if (item === 0) {
-        for (var key in $.at.ignored)
-            item = key;
     }
     if (item === 0) {
-        for (var key in $.at.failures)
+        for (var key in $.at.ignored) {
             item = key;
+        }
     }
     if (item === 0) {
-        for (var key in $.at.errors)
+        for (var key in $.at.failures) {
             item = key;
+        }
+    }
+    if (item === 0) {
+        for (var key in $.at.errors) {
+            item = key;
+        }
     }
     return item;
 }
@@ -441,15 +450,17 @@ function getItemByOffset(offset) {
     if (offset > 0) {
         for (var i = 0; i < offset; i++) {
             var newItem = skipOneForward(item);
-            if (item === newItem)
+            if (item === newItem) {
                 break;
+            }
             item = newItem;
         };
     } else {
         for (var i = 0; i < (offset * -1); i++) {
             var newItem = skipOneBackward(item);
-            if (item === newItem)
+            if (item === newItem) {
                 break;
+            }
             item = newItem;
         };
     }
@@ -463,33 +474,41 @@ function getNextItem() {
 function skipOneForward(current) {
     var foundItem = false;
     for (var key in $.at.errors) {
-        if (foundItem)
+        if (foundItem) {
             return key;
-        if (key === current)
+        }
+        if (key == current) {
             foundItem = true;
+        }
     };
 
     for (var key in $.at.failures) {
-        if (foundItem)
+        if (foundItem) {
             return key;
-        if (key === current)
+        }
+        if (key == current) {
             foundItem = true;
+        }
     };
 
     for (var key in $.at.ignored) {
-        if (foundItem)
+        if (foundItem) {
             return key;
-        if (key === current)
+        }
+        if (key == current) {
             foundItem = true;
-        if (key === current)
+        }
+        if (key == current)
             foundItem = true;
     };
 
     for (var key in $.at.warnings) {
-        if (foundItem)
+        if (foundItem) {
             return key;
-        if (key === current)
+        }
+        if (key == current) {
             foundItem = true;
+        }
     };
 
     return current;

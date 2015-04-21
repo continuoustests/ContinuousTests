@@ -13,6 +13,8 @@ namespace ContinuousTests.Handlers
         }
 
         public override void OnMessage(object message) {
+            if (_browser == null)
+                return;
             if (isType<ExternalCommandMessage>(message)) {
                 var commandMessage = (ExternalCommandMessage)message;
                 if (commandMessage.Sender == "EditorEngine") {

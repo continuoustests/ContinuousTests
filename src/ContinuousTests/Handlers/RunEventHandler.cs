@@ -13,7 +13,7 @@ namespace ContinuousTests.Handlers
             if (isType<RunStartedMessage>(message))
                 _dispatch("run-started", new { files = ((RunStartedMessage)message).Files });
             if (isType<RunFinishedMessage>(message))
-                _dispatch("run-finished", null);
+                _dispatch("run-finished", new {});
         }
 	}
 }
