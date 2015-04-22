@@ -98,6 +98,7 @@ namespace ContinuousTests
                     engine.StartHeadless();
                 } 
                 Console.WriteLine("url: "+engine.ServerUrl);
+                Console.WriteLine("waiting for client to connect..");
             } else {
                 engine.OnSendException((ex) => Console.WriteLine(ex.ToString()));
                 if (port > 0) {
@@ -118,8 +119,15 @@ namespace ContinuousTests
             
             run(localConfig, path, proxy);
             proxy.SetClient(Client);
-            while (engine.HasConnectedClients) {
-                Thread.Sleep(50);
+            if (headless) {
+                Console.WriteLine("type exit to quit ContinuousTests");
+                while (Console.ReadLine() != "exit") {
+                    Thread.Sleep(10);
+                }
+            } else {
+                while (engine.HasConnectedClients) {
+                    Thread.Sleep(50);
+                }
             }
             exit();
         }
