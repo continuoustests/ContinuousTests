@@ -31,12 +31,13 @@ namespace ContinuousTests
             var bellyRub = hasArg(ref args, "--bellyrub");
             var leaveInBackground = hasArg(ref args, "--leave-in-background");
             var port = getArg(ref args, "--bellyrub-ports");
+            var localConfig = getArg(ref args, "--local-config-location");
             var path = getPath(args);
             if (path != null) {
                 if (bellyRub || bellyRubHeadless)
-                    runBellyRub(bellyRubHeadless, path, leaveInBackground, port);
+                    runBellyRub(localConfig, bellyRubHeadless, path, leaveInBackground, port);
                 else
-                    runWinforms(path);
+                    runWinforms(localConfig, path);
             } 
         }
 
@@ -56,7 +57,7 @@ namespace ContinuousTests
             return null;
         }
 
-        static void runBellyRub(bool headless, string path, bool leaveInBackground, string portString)
+        static void runBellyRub(string localConfig, bool headless, string path, bool leaveInBackground, string portString)
         {
             int port, channelPort;
             if (portString != null) {
@@ -114,7 +115,7 @@ namespace ContinuousTests
             if (!leaveInBackground && browser != null)
                 browser.BringToFront(); 
             
-            run(path, proxy);
+            run(localConfig, path, proxy);
             proxy.SetClient(Client);
             while (engine.HasConnectedClients) {
                 Thread.Sleep(50);
@@ -122,13 +123,13 @@ namespace ContinuousTests
             exit();
         }
 
-        static void runWinforms(string path)
+        static void runWinforms(string localConfig, string path)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
  
             var form = new RunFeedbackForm(path);
-            run(path, form);
+            run(localConfig, path, form);
             Application.Run(form);
             exit();
         }
@@ -147,11 +148,15 @@ namespace ContinuousTests
             return path;
         }
 
-        static void run(string path, IStartupHandler handler)
+        static void run(string localConfig, string path, IStartupHandler handler)
         {
+            if (localConfig != null) {
+                if (Directory.Exists(Path.Combine(path, localConfig)))
+                    localConfig = Path.Combine(path, localConfig);
+            }
             Logger.SetListener(new FileLogger());
             Client = new ATEClient();
-            Client.Start(new StartupParams(path), handler);
+            Client.Start(new StartupParams(path, localConfig), handler);
         }
 
         static void exit()

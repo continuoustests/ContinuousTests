@@ -35,6 +35,7 @@ namespace AutoTest.VM
         private bool _isPaused;
         private string _currentBuildProvider = null;
         
+        private string _localConfigLocation;
         private IMessageProxy _proxy;
         private IDirectoryWatcher _watcher;
         private IConfiguration _configuration;
@@ -50,7 +51,7 @@ namespace AutoTest.VM
         public bool StartedPaused { get; private set; }
         public bool IsRunning { get; private set; }
 
-        public ATEngine(TcpServer server, ILocateWriteLocation writeLocator, string watchPath, IValidateLicense license)
+        public ATEngine(TcpServer server, ILocateWriteLocation writeLocator, string watchPath, IValidateLicense license, string localConfigLocation)
         {
             _server = server;
             _writeLocator = writeLocator;
@@ -59,6 +60,7 @@ namespace AutoTest.VM
             StartedPaused = false;
             IsRunning = false;
             _isPaused = StartedPaused;
+            _localConfigLocation = localConfigLocation;
         }
 
         public void Start()
@@ -110,6 +112,8 @@ namespace AutoTest.VM
                 runCache.EnabledDeltas();
                 BootStrapper.InitializeCache(_watchPath);
                 _watcher = BootStrapper.Services.Locate<IDirectoryWatcher>();
+                Logger.WriteDebug("Looking for config in "+_localConfigLocation);
+                _watcher.LocalConfigurationIsLocatedAt(_localConfigLocation);
                 _watcher.Watch(_watchPath);
                 _configuration.ValidateSettings();
                 _configuredCustomOutput = _configuration.CustomOutputPath;
@@ -521,7 +525,7 @@ namespace AutoTest.VM
                 return;
 
             var config = BootStrapper.Services.Locate<IConfiguration>();
-            string file = new ConfigurationLocator().GetConfiguration(_watchPath);
+            string file = new ConfigurationLocator().GetConfiguration(_localConfigLocation);
             Logger.WriteDetails("Reloading configuration with local config " + file);
             config.Reload(file);
             ValidateConfiguration();

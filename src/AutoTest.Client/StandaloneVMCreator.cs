@@ -39,6 +39,9 @@ namespace AutoTest.Client
                 debug = "debug";
             var pid = Process.GetCurrentProcess().Id;
             var arguments = string.Format("{0} \"{1}\" \"{2}\" \"{3}\" \"{4}\" \"{5}\" \"{6}\"", 0, _params.WatchToken, Guid.NewGuid(), debug, _server.Port, "local", pid);
+            if (_params.LocalConfig != null) {
+                arguments += string.Format(" \"{0}\"", _params.LocalConfig);
+            }
             Logger.Write("Starting vm: " + file + " " + arguments);
             process.StartInfo = new ProcessStartInfo(file, arguments);
             if (debug == "debug")

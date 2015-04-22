@@ -64,7 +64,7 @@ namespace AutoTest.VM
                 else
                     _license = new RhinoValidator(Environment.SpecialFolder.LocalApplicationData);
 
-                _engine = new ATEngine(server, writeLocator, arguments.WatchPath, _license);
+                _engine = new ATEngine(server, writeLocator, arguments.WatchPath, _license, arguments.ConfigPath);
                 _engine.Start();
 
                 Logger.WriteInfo(string.Format("VM listening on 127.0.0.1:{0}", server.Port));
@@ -208,7 +208,11 @@ namespace AutoTest.VM
             } else {
                 masterProcessId = 0;
             }
-            return new LaunchArguments(new Guid(args[2]), port, args[1], debug, ownerPort, args[5], masterProcessId);
+            var configPath = args[1];
+            if (args.Length > 7) {
+                configPath = args[7];
+            }
+            return new LaunchArguments(new Guid(args[2]), port, args[1], debug, ownerPort, args[5], masterProcessId, configPath);
         }
 
         private static void shutdown()
