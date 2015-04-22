@@ -129,6 +129,7 @@ namespace ContinuousTests
                     Thread.Sleep(50);
                 }
             }
+            engine.Stop();
             exit();
         }
 
