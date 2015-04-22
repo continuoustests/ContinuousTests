@@ -10,6 +10,7 @@ using BellyRub.UI;
 using AutoTest.Client;
 using AutoTest.Client.Logging;
 using AutoTest.Client.Handlers;
+using AutoTest.Core.FileSystem;
 
 namespace ContinuousTests
 {
@@ -151,8 +152,9 @@ namespace ContinuousTests
         static void run(string localConfig, string path, IStartupHandler handler)
         {
             if (localConfig != null) {
+                var parser = new PathParser(localConfig);
                 if (Directory.Exists(Path.Combine(path, localConfig)))
-                    localConfig = Path.Combine(path, localConfig);
+                    localConfig = parser.ToAbsolute(path);
             }
             Logger.SetListener(new FileLogger());
             Client = new ATEClient();
