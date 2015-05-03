@@ -8,13 +8,6 @@
 <title>Continuous Tests</title>
 <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="css/ie7.css" /><![endif]-->
-<script type="text/javascript">
- (function() {
-   var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-   uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/a10SYijzCsKMwA2QSlg.js';
-   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
- })();
-</script>
 </head>
 <body>
 <div id="wrap"> 
@@ -27,16 +20,12 @@
             	<img src="images/cb-corner-left.png" alt="continuous tests" class="cb-corner-left" />
             	<img src="images/cb-corner-right.png" alt="continuous tests" class="cb-corner-right" />
             	<h1>DOWNLOAD</h1>
-                <p>Last stable release can be found below.</p>
-                <p>After installing and registering the product with your provided license code you are ready to go. To get more familiar with the various workflows provided with ContinuousTests go into the configuration screen (TheMoose->Configuration) and have a look at the various options.</p>
-                <p>
-                	<a href="ContinuousTests-v1.0.47.exe">Windows installer package (with Visual Studio integration)</a><br>
-                   	<a href="ContinuousTests-Standalone-v1.0.47.zip">Cross platform standalone client</a>
-                </p>
-                <p>Experimental!!! VS 2013<br>
-                    This installer contains support for VS2013 but is untested. We would love some feedback on it though.<br>
-                    <a href="ContinuousTests-v1.0.48.exe">Windows installer package (with Visual Studio 2013 integration)</a>
-                </p>
+                <h2>Get the source code</h2>
+                <p>To begin with fork <a href="https://github.com/continuoustests/ContinuousTests/">this repository</a> and pull</p>
+                <h2>Get yourself some binaries</h2>
+                <p>Run release.bat on Windows or release.sh on Linux/OSX. This will generate the binaries in the ReleaseBinaries folder. On windows it will also create the VS installer. Again the VS installer is highly experimental so until someone verifies/fixes it the result might be a wecked Visual Studio install.</p>
+                <h2>Running ContinuousTests.exe</h2>
+                <p>ContinuousTests.exe PATH_TO_SOURCE_OR_SOLUTION_FILE
             </div>
             <div id="header">
                 <div class="header-inner">
@@ -44,10 +33,10 @@
                         <ul>
                             <li><a href="index.html">HOME</a></li>
                             <li><a href="about.html" class="active">ABOUT US</a></li>
-                            <li><a href="see.html">SEE</a></li>
+                            <!--<li><a href="see.html">SEE</a></li>-->
                         </ul>
                     </div>
-                    <a href="download.html" class="button-orange-big">DOWNLOAD</a>
+                    <a href="download.html" class="button-orange-big">GET STARTED</a>
                 </div>
             </div>
         </div>

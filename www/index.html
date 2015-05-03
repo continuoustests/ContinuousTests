@@ -8,13 +8,6 @@
 <title>Continuous Tests</title>
 <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="css/ie7.css" /><![endif]-->
-<script type="text/javascript">
- (function() {
-   var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-   uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/a10SYijzCsKMwA2QSlg.js';
-   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
- })();
-</script>
 </head>
 <body>
 <div id="wrap"> 
@@ -26,15 +19,15 @@
                 <img src="images/ribbon-corner.png" alt="continuous tests" class="ribbon-corner" />
             	<img src="images/cb-corner-left.png" alt="continuous tests" class="cb-corner-left" />
             	<img src="images/cb-corner-right.png" alt="continuous tests" class="cb-corner-right" />
-            	<h1>Need a moose in your code?</h1>
-                <p><h2>NB!! We are now open source and you can find the source code <a href="https://github.com/continuoustests/ContinuousTests/">here</a>!</h2></p>
-              <p>Nope, this ain't the moose that bit Svenge's sister in law while she was carving her initials in the tree with the sharpened end of an interspace toothbrush.</p>
-			  <p><iframe width="100%" height="315" src="http://www.youtube.com/embed/st3m-nZV-pY" frameborder="0" allowfullscreen></iframe></p>
-              <p>This is the Mighty-Moose that will keep a steady eye on all your tests. If any piece of code changes, he'll look up any affected tests and demand verification. Think of him as your personal Super Tester, your testing go-to guy, the mammal that can read The Matrix, for he is The Moose!</p>
+            	<h1>Monitors, builds and tests your code</h1>
+                <p><h2>Contribute or SHUT IT!</h2></p>
+                <p>ContinuousTests is an open source continuous test runner for the .NET platform. The project relies heavily on user contributions and it lives by the "contribute or shut it!" creed. As a result of this we have stopped putting up binaries and expect the user to compile it from source.</p>
+                <p>Any issues you may find you are free to create an issue on GitHub followed by a pull request</p>
+                <h2><a href="https://github.com/continuoustests/ContinuousTests/">git clone</a>, release.bat/release.sh</h2>
+                <br>
 
-			<p>ContinuousTests is a continuous testing tool for the .Net and Mono platform. It helps you with the way you do TDD by taking care of all compiling and testing in the background  to help you work more efficiently. It also figures out exactly which tests to run, based on the changes you just made. So, instead of running all tests, it will only run those affected by your changes.</p>
-
-			<p>In addition to making sure your work flow is optimized, its features include graphs visualizing the relation between a piece of code and the tests run on it, annotation inside your code showing risk you are taking changing this piece of code, and more.</p>
+                <p>It consists of a standalone client that you'll find as ContinuousTests.exe under ReleaseBinaries after you compile. To run it just pass it the source directory or solution file as it's first parameter.</p>
+                <p>If you choose to try out the VS addin please backup your computer first. The installer seems to wreak havoc on VS.</p>
             </div>
             <div id="header">
                 <div class="header-inner">
@@ -42,10 +35,10 @@
                         <ul>
                             <li><a href="index.html" class="active">HOME</a></li>
                             <li><a href="about.html">ABOUT US</a></li>
-                            <li><a href="see.html">SEE</a></li>
+                            <!--<li><a href="see.html">SEE</a></li>-->
                         </ul>
                     </div>
-                    <a href="download.html" class="button-orange-big">DOWNLOAD</a>
+                    <a href="download.html" class="button-orange-big">GET STARTED</a>
                 </div>
             </div>
         </div>
