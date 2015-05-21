@@ -9,3 +9,4 @@ Prerequisites for compiling
     Ruby (only when running version change script)
 
 To compile ContinuousTests run release.bat on Windows and release.sh on Linux (possibly osx). On windows it will deploy the stand alone binaries and the Visual Studio installer to the ReleaseBinaries\Installer folder. Please backup the world before you try out the VS addin installer. It is known to be buggy. On Linux it will deploy the stand alone client to ReleaseBinaries.
+( https://www.microsoft.com/en-us/download/details.aspx?id=21835 : known working SDK : VS2010 required )
