@@ -26,30 +26,14 @@ namespace AutoTest.TestRunners.XUnit2.Tests
     [TestFixture]
     public class RunnerTests
     {
-        private AppDomain _childDomain = null;
         private Plugin _plugin = null;
         private ITestRunner _runner;
 
         [SetUp]
         public void SetUp()
         {
-            AppDomainSetup domainSetup = new AppDomainSetup()
-            {
-                ApplicationBase = AppDomain.CurrentDomain.SetupInformation.ApplicationBase,
-                ConfigurationFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile,
-                ApplicationName = AppDomain.CurrentDomain.SetupInformation.ApplicationName,
-                LoaderOptimization = LoaderOptimization.MultiDomainHost
-            };
-            _childDomain = AppDomain.CreateDomain("XUnit2 app domain", null, domainSetup);
             _plugin = new Plugin(typeof(Runner).Assembly.Location, typeof(Runner).FullName);
-            _runner = (ITestRunner)_childDomain.CreateInstanceAndUnwrap(typeof(TestRunner).Assembly.FullName, typeof(TestRunner).FullName);
-        }
-
-        [TearDown]
-        public void Teardown()
-        {
-            if (_childDomain != null)
-                AppDomain.Unload(_childDomain);
+            _runner = new TestRunner();
         }
 
         [Test]
