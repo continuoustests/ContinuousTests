@@ -53,6 +53,9 @@ cp $BINARYDIR/nunit.util.dll $DEPLOYDIR/TestRunners/NUnit/nunit.util.dll
 
 cp $BINARYDIR/AutoTest.TestRunners.XUnit.dll $DEPLOYDIR/TestRunners/XUnit/AutoTest.TestRunners.XUnit.dll
 cp $BINARYDIR/xunit.runner.utility.dll $DEPLOYDIR/TestRunners/XUnit/xunit.runner.utility.dll
+
+cp $BINARYDIR/AutoTest.TestRunners.XUnit2.dll $DEPLOYDIR/TestRunners/XUnit2/AutoTest.TestRunners.XUnit2.dll
+cp $BINARYDIR/xunit.runner.utility.desktop.dll $DEPLOYDIR/TestRunners/XUnit2/xunit.runner.utility.desktop.dll
 	
 cp $BINARYDIR/AutoTest.TestRunners.MSTest.dll $DEPLOYDIR/TestRunners/MSTest/AutoTest.TestRunners.MSTest.dll
 cp $BINARYDIR/celer.Core.dll $DEPLOYDIR/TestRunners/MSTest/celer.Core.dll
