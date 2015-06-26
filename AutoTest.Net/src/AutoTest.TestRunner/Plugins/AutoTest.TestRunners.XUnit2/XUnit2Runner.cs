@@ -167,8 +167,10 @@ namespace AutoTest.TestRunners.XUnit2
             {
                 var result = base.Visit(testFailed);
 
+                var stackTrace = testFailed.StackTraces.SelectMany(s => s.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)).ToArray();
+
                 var testResult = getResult(testFailed.TestAssembly.Assembly.Name, testFailed.ExecutionTime, TestState.Failed,
-                    testFailed.TestMethod, testFailed.Output, testFailed.StackTraces);
+                    testFailed.TestMethod, testFailed.Output, stackTrace);
                 _results.Add(testResult);
 
                 _channel.TestFinished(testResult);
@@ -194,8 +196,8 @@ namespace AutoTest.TestRunners.XUnit2
             {
                 var name = GetTestName(testMethod);
                 var testName = name.IndexOf("(") == -1 ? name : name.Substring(0, name.IndexOf("("));
-                var result = new TestResult("XUnit", currentAssembly, "", ((double)durationInSeconds * 1000), testName, name, state, message);
-                if (stackLines != null)
+                var result = new TestResult("XUnit2", currentAssembly, "", ((double)durationInSeconds * 1000), testName, name, state, message);
+                if (stackLines != null && stackLines.Any())
                 {
                     foreach (var line in stackLines)
                         result.AddStackLine(new StackLine(line));

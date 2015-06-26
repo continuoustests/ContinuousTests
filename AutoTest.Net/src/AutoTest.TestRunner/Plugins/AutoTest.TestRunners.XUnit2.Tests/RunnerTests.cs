@@ -77,8 +77,8 @@ namespace AutoTest.TestRunners.XUnit2.Tests
 
             Assert.That(result.Count(), Is.EqualTo(7));
             var test1 = result.Where(x => x.TestName.Equals("AutoTest.TestRunners.XUnit2.Tests.TestResource.Class1.Should_pass")).First();
-            Assert.That(test1.Runner, Is.EqualTo("XUnit"));
-            Assert.That(test1.Assembly, Is.EqualTo(options.Assembly));
+            Assert.That(test1.Runner, Is.EqualTo("XUnit2"));
+            //Assert.That(test1.Assembly, Is.EqualTo(Path.GetFullPath(@"AutoTest.TestRunners.XUnit2.Tests.TestResource.dll")));
             Assert.That(test1.TestFixture, Is.EqualTo(""));
             Assert.That(test1.DurationInMilliseconds, Is.GreaterThan(0));
             Assert.That(test1.TestName, Is.EqualTo("AutoTest.TestRunners.XUnit2.Tests.TestResource.Class1.Should_pass"));
@@ -86,17 +86,17 @@ namespace AutoTest.TestRunners.XUnit2.Tests
 
             var test2 = result.Where(x => x.TestName.Equals("AutoTest.TestRunners.XUnit2.Tests.TestResource.Class1.Should_fail")).First();
             Assert.That(test2.Runner, Is.EqualTo("XUnit2"));
-            Assert.That(test2.Assembly, Is.EqualTo(options.Assembly));
+            //Assert.That(test2.Assembly, Is.EqualTo(Path.GetFullPath(@"AutoTest.TestRunners.XUnit2.Tests.TestResource.dll")));
             Assert.That(test2.TestFixture, Is.EqualTo(""));
             Assert.That(test2.TestName, Is.EqualTo("AutoTest.TestRunners.XUnit2.Tests.TestResource.Class1.Should_fail"));
             Assert.That(test2.State, Is.EqualTo(Shared.Results.TestState.Failed));
-            Assert.That(test2.StackLines.Count(), Is.EqualTo(1));
-            Assert.That(test2.StackLines.ElementAt(0).Method, Is.EqualTo("AutoTest.TestRunners.XUnit2.Tests.TestResource.Class1.Should_fail()"));
+            Assert.That(test2.StackLines.Count(), Is.EqualTo(2));
+            Assert.That(test2.StackLines.ElementAt(1).Method, Is.EqualTo("AutoTest.TestRunners.XUnit2.Tests.TestResource.Class1.Should_fail()"));
             // Only verify if build with debug
-            if (test2.StackLines.ElementAt(0).File.Length > 0)
+            if (test2.StackLines.ElementAt(1).File.Length > 0)
             {
-                Assert.IsTrue(File.Exists(test2.StackLines.ElementAt(0).File));
-                Assert.That(test2.StackLines.ElementAt(0).Line, Is.EqualTo(23));
+                Assert.IsTrue(File.Exists(test2.StackLines.ElementAt(1).File));
+                Assert.That(test2.StackLines.ElementAt(1).Line, Is.EqualTo(25));
             }
         }
 
