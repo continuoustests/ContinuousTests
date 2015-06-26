@@ -80,6 +80,12 @@ IF NOT EXIST %DEPLOYDIR%\TestRunners\XUnit (
 	del %DEPLOYDIR%\TestRunners\XUnit\* /Q
 )
 
+IF NOT EXIST %DEPLOYDIR%\TestRunners\XUnit2 (
+  mkdir %DEPLOYDIR%\TestRunners\XUnit2
+) ELSE (
+  del %DEPLOYDIR%\TestRunners\XUnit2\* /Q
+)
+
 IF NOT EXIST %DEPLOYDIR%\TestRunners\MSTest (
 	mkdir %DEPLOYDIR%\TestRunners\MSTest
 ) ELSE (
@@ -165,6 +171,19 @@ xunit.runner.utility.dll ^
 FOR %%f in %file_list% do (
   echo %%f
   copy "%DIR%lib\AutoTest.Net\TestRunners\XUnit\%%f"  %DEPLOYDIR%\TestRunners\XUnit\%%f
+)
+
+echo --------------------------------------------------------------------------------------------
+echo                 Copying AutoTest.Net\TestRunners\XUnit folder files
+echo --------------------------------------------------------------------------------------------
+SET file_list=( ^
+AutoTest.TestRunners.XUnit2.dll ^
+xunit.runner.utility.desktop.dll ^
+)
+
+FOR %%f in %file_list% do (
+  echo %%f
+  copy "%DIR%lib\AutoTest.Net\TestRunners\XUnit2\%%f"  %DEPLOYDIR%\TestRunners\XUnit2\%%f
 )
 
 echo --------------------------------------------------------------------------------------------

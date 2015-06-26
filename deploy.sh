@@ -39,6 +39,7 @@ mkdir $DEPLOYDIR/Icons
 mkdir $DEPLOYDIR/TestRunners
 mkdir $DEPLOYDIR/TestRunners/NUnit
 mkdir $DEPLOYDIR/TestRunners/XUnit
+mkdir $DEPLOYDIR/TestRunners/XUnit2
 mkdir $DEPLOYDIR/TestRunners/MSTest
 mkdir $DEPLOYDIR/TestRunners/MSpec
 mkdir $DEPLOYDIR/TestRunners/MbUnit
@@ -70,6 +71,9 @@ cp $DIR/lib/AutoTest.Net/TestRunners/NUnit/nunit.util.dll  $DEPLOYDIR/TestRunner
 
 cp $DIR/lib/AutoTest.Net/TestRunners/XUnit/AutoTest.TestRunners.XUnit.dll  $DEPLOYDIR/TestRunners/XUnit/AutoTest.TestRunners.XUnit.dll
 cp $DIR/lib/AutoTest.Net/TestRunners/XUnit/xunit.runner.utility.dll  $DEPLOYDIR/TestRunners/XUnit/xunit.runner.utility.dll
+
+cp $DIR/lib/AutoTest.Net/TestRunners/XUnit2/AutoTest.TestRunners.XUnit2.dll  $DEPLOYDIR/TestRunners/XUnit2/AutoTest.TestRunners.XUnit2.dll
+cp $DIR/lib/AutoTest.Net/TestRunners/XUnit2/xunit.runner.utility.desktop.dll  $DEPLOYDIR/TestRunners/XUnit/xunit.runner.utility.desktop.dll
 
 cp $DIR/lib/AutoTest.Net/TestRunners/MSTest/AutoTest.TestRunners.MSTest.dll  $DEPLOYDIR/TestRunners/MSTest/AutoTest.TestRunners.MSTest.dll
 cp $DIR/lib/AutoTest.Net/TestRunners/MSTest/celer.Core.dll  $DEPLOYDIR/TestRunners/MSTest/celer.Core.dll

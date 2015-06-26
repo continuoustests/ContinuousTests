@@ -24,6 +24,7 @@ mkdir $DEPLOYDIR/Icons
 mkdir $DEPLOYDIR/TestRunners
 mkdir $DEPLOYDIR/TestRunners/NUnit
 mkdir $DEPLOYDIR/TestRunners/XUnit
+mkdir $DEPLOYDIR/TestRunners/XUnit2
 mkdir $DEPLOYDIR/TestRunners/MSTest
 mkdir $DEPLOYDIR/TestRunners/MSpec
 mkdir $DEPLOYDIR/TestRunners/MbUnit
