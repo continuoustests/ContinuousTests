@@ -28,6 +28,7 @@ IF NOT EXIST "%DEPLOYDIR%" (
 	mkdir "%DEPLOYDIR%\TestRunners"
 	mkdir "%DEPLOYDIR%\TestRunners\NUnit"
 	mkdir "%DEPLOYDIR%\TestRunners\XUnit"
+    mkdir "%DEPLOYDIR%\TestRunners\XUnit2"
 	mkdir "%DEPLOYDIR%\TestRunners\MSTest"
 	mkdir "%DEPLOYDIR%\TestRunners\MSpec"
 	mkdir "%DEPLOYDIR%\TestRunners\MbUnit"
@@ -43,6 +44,11 @@ IF NOT EXIST "%DEPLOYDIR%" (
 	) ELSE (
 		del "%DEPLOYDIR%\TestRunners\XUnit\*" /Q
 	)
+    IF NOT EXIST "%DEPLOYDIR%\TestRunners\XUnit2" (
+        mkdir "%DEPLOYDIR%\TestRunners\XUnit2"
+    ) ELSE (
+        del "%DEPLOYDIR%\TestRunners\XUnit2\*" /Q
+    )
 	IF NOT EXIST "%DEPLOYDIR%\TestRunners\MSTest" (
 		mkdir "%DEPLOYDIR%\TestRunners\MSTest"
 	) ELSE (
@@ -92,6 +98,9 @@ copy "%BINARYDIR%\nunit.util.dll" "%DEPLOYDIR%\TestRunners\NUnit\nunit.util.dll"
 
 copy "%BINARYDIR%\AutoTest.TestRunners.XUnit.dll" "%DEPLOYDIR%\TestRunners\XUnit\AutoTest.TestRunners.XUnit.dll"
 copy "%BINARYDIR%\xunit.runner.utility.dll" "%DEPLOYDIR%\TestRunners\XUnit\xunit.runner.utility.dll"
+
+copy "%BINARYDIR%\AutoTest.TestRunners.XUnit2.dll" "%DEPLOYDIR%\TestRunners\XUnit\AutoTest.TestRunners.XUnit2.dll"
+copy "%BINARYDIR%\xunit.runner.utility.desktop.dll" "%DEPLOYDIR%\TestRunners\XUnit\xunit.runner.utility.desktop.dll"
 
 copy "%BINARYDIR%\AutoTest.TestRunners.MSTest.dll" "%DEPLOYDIR%\TestRunners\MSTest\AutoTest.TestRunners.MSTest.dll"
 copy "%BINARYDIR%\celer.Core.dll" "%DEPLOYDIR%\TestRunners\MSTest\celer.Core.dll"
