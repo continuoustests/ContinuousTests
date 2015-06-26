@@ -15,7 +15,7 @@ namespace AutoTest.TestRunners.XUnit2
         private Func<string, IReflectionProvider> _reflectionProviderFactory = (assembly) => { return Reflect.On(assembly); };
         private ITestFeedbackProvider _channel = null;
 
-        public string Identifier { get { return "XUnit"; } }
+        public string Identifier { get { return "XUnit2"; } }
 
         public void SetLogger(ILogger logger)
         {

@@ -1,10 +1,16 @@
 ﻿using System.Threading;
 using Xunit;
+using Xunit.Sdk;
 
 namespace AutoTest.TestRunners.XUnit2.Tests.TestResource
 {
     public class Class1
     {
+
+        public Class1()
+        {
+            typeof (TestFrameworkProxy).ToString();
+        }
         [Fact]
         public void Should_pass()
         {

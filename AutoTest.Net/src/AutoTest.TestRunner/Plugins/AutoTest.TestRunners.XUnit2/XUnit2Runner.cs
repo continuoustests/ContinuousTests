@@ -14,12 +14,9 @@ namespace AutoTest.TestRunners.XUnit2
     {
         public IEnumerable<TestResult> Run(RunSettings settings, ITestFeedbackProvider channel)
         {
-            var logger = new XUnit2Logger(channel);
             XunitProject project = new XunitProject();
 
             var runner = settings.Assembly;
-            // Set assembly externally as XUnit screws up the casing
-            logger.SetCurrentAssembly(runner.Assembly);
 
             XunitProjectAssembly assembly = new XunitProjectAssembly
             {
@@ -29,10 +26,11 @@ namespace AutoTest.TestRunners.XUnit2
             };
             project.Add(assembly);
 
+            var results = new List<TestResult>();
 
             foreach (XunitProjectAssembly asm in project.Assemblies)
             {
-                using (var controller = new XunitFrontController(asm.AssemblyFilename, asm.ConfigFilename, asm.ShadowCopy))
+                using (var controller = new Xunit2(new NullSourceInformationProvider(), asm.AssemblyFilename, asm.ConfigFilename, asm.ShadowCopy, diagnosticMessageSink: new NullMessageSink()))
                 using (var discoveryVisitor = new TestDiscoveryVisitor())
                 {
                     try
@@ -50,6 +48,8 @@ namespace AutoTest.TestRunners.XUnit2
                         controller.RunTests(filteredTestCases, testMessageVisitor, TestFrameworkOptions.ForExecution());
 
                         testMessageVisitor.Finished.WaitOne();
+
+                        results.AddRange(testMessageVisitor.Results);
                     }
                     catch (ArgumentException ex)
                     {
@@ -57,7 +57,7 @@ namespace AutoTest.TestRunners.XUnit2
                     }
                 }
             }
-            return logger.Results;
+            return results;
         }
 
         private static XunitFilters CreateFilter(AssemblyOptions runner)
@@ -128,14 +128,21 @@ namespace AutoTest.TestRunners.XUnit2
         {
             private readonly ITestFeedbackProvider _channel;
 
+            private readonly IList<TestResult> _results;
+
             public AutoTestTestMessageVisitor(ITestFeedbackProvider channel)
             {
                 _channel = channel;
+                _results = new List<TestResult>();
+            }
+
+            public IEnumerable<TestResult> Results
+            {
+                get { return _results.AsEnumerable(); }
             }
 
             protected override bool Visit(IBeforeTestStarting beforeTestStarting)
             {
-
                 var result = base.Visit(beforeTestStarting);
 
                 _channel.TestStarted(GetTestName(beforeTestStarting.TestMethod));
@@ -151,6 +158,7 @@ namespace AutoTest.TestRunners.XUnit2
                     testPassed.TestMethod, testPassed.Output);
 
                 _channel.TestFinished(testResult);
+                _results.Add(testResult);
 
                 return result;
             }
@@ -161,6 +169,7 @@ namespace AutoTest.TestRunners.XUnit2
 
                 var testResult = getResult(testFailed.TestAssembly.Assembly.Name, testFailed.ExecutionTime, TestState.Failed,
                     testFailed.TestMethod, testFailed.Output, testFailed.StackTraces);
+                _results.Add(testResult);
 
                 _channel.TestFinished(testResult);
 
@@ -176,6 +185,7 @@ namespace AutoTest.TestRunners.XUnit2
                     testSkipped.TestMethod, testSkipped.Output);
 
                 _channel.TestFinished(testResult);
+                _results.Add(testResult);
 
                 return result;
             }
@@ -198,8 +208,5 @@ namespace AutoTest.TestRunners.XUnit2
                 return testMethod.TestClass.Class.Name + "." + testMethod.Method.Name;
             }
         }
-
-
-
     }
 }
