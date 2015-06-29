@@ -60,9 +60,9 @@ namespace AutoTest.Server.Handlers
                         .Select(x => {
                             var run = new OnDemandRun(
                                 x.project.ToString(),
-                                ((IEnumerable<dynamic>)x.tests).Select(y => y.ToString()).ToArray(),
-                                ((IEnumerable<dynamic>)x.members).Select(y => y.ToString()).ToArray(),
-                                ((IEnumerable<dynamic>)x.namespaces).Select(y => y.ToString()).ToArray()
+                                ((IEnumerable<dynamic>)x.tests).Select(y => y.ToString()).OfType<string>().ToArray(),
+                                ((IEnumerable<dynamic>)x.members).Select(y => y.ToString()).OfType<string>().ToArray(),
+                                ((IEnumerable<dynamic>)x.namespaces).Select(y => y.ToString()).OfType<string>().ToArray()
                             );
                             if ((bool)x.project_runall_tests == true)
                                 run.ShouldRunAllTestsInProject();
