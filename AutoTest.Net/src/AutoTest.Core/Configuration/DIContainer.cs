@@ -60,6 +60,7 @@ namespace AutoTest.Core.Configuration
                 .Register(Component.For<IOverridingConsumer<ProjectChangeMessage>>().Forward<IConsumerOf<AbortMessage>>().ImplementedBy<ProjectChangeConsumer>().LifeStyle.Singleton)
                 .Register(Component.For<IConsumerOf<FileChangeMessage>>().ImplementedBy<FileChangeConsumer>().Named("MSBuild"))
 				.Register(Component.For<IConsumerOf<FileChangeMessage>>().ImplementedBy<BinaryFileChangeConsumer>().Named("NoBuild"))
+                .Register(Component.For<IConsumerOf<FileChangeMessage>>().ImplementedBy<RecursiveRunCauseConsumer>().Named("RecursiveRunConsumer"))
                 .Register(Component.For<ICache>().ImplementedBy<Cache>().LifeStyle.Singleton)
                 .Register(Component.For<IWatchValidator>().ImplementedBy<WatchValidator>())
                 .Register(Component.For<ILocateProjects>().ImplementedBy<CSharpLocator>())
