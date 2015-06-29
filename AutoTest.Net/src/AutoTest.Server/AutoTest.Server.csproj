@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BellyRub">
+      <HintPath>..\..\..\lib\BellyRub\BellyRub.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,7 +51,6 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\lib\Castle.Windsor\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="..\..\lib\BellyRub\BellyRub.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HiddenGetFocusForm.cs">
