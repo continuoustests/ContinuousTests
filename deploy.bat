@@ -174,7 +174,7 @@ FOR %%f in %file_list% do (
 )
 
 echo --------------------------------------------------------------------------------------------
-echo                 Copying AutoTest.Net\TestRunners\XUnit folder files
+echo                 Copying AutoTest.Net\TestRunners\XUnit2 folder files
 echo --------------------------------------------------------------------------------------------
 SET file_list=( ^
 AutoTest.TestRunners.XUnit2.dll ^
