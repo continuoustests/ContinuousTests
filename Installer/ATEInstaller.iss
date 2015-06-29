@@ -58,7 +58,6 @@ Source: "..\ReleaseBinaries\Icons\circleFAIL.png"; DestDir: "{app}\Icons"; Flags
 Source: "..\ReleaseBinaries\Icons\circleWAIL.png"; DestDir: "{app}\Icons"; Flags: ignoreversion
 Source: "..\ReleaseBinaries\Icons\circleWIN.png"; DestDir: "{app}\Icons"; Flags: ignoreversion
 Source: "..\ReleaseBinaries\progress.gif"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\ReleaseBinaries\progress-light.gif"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "..\ReleaseBinaries\Worst.Testing.Framework.Ever.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\ReleaseBinaries\Worst.Testing.Framework.Ever.License.txt"; DestDir: "{app}"; Flags: ignoreversion

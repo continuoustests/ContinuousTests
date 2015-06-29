@@ -129,7 +129,6 @@ AutoTest.TestRunner.x86.v4.0.exe ^
 AutoTest.TestRunner.x86.v4.0.exe.config ^
 AutoTest.TestRunners.Shared.dll ^
 progress.gif ^
-progress-light.gif ^
 Worst.Testing.Framework.Ever.dll ^
 Worst.Testing.Framework.Ever.License.txt ^
 NUnit.License.txt ^
