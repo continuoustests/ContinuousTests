@@ -52,7 +52,7 @@ namespace AutoTest.VM.Messages.Communication
 			} 
 			catch 
 			{
-                Reconnect(retryCount);
+                Reconnect(retryCount, ip, port);
 			}
         }
 
@@ -67,12 +67,12 @@ namespace AutoTest.VM.Messages.Communication
             _isConnected = false;
         }
 
-        private void Reconnect(int retryCount)
+        private void Reconnect(int retryCount, string ip = null, int? port = default (int))
         {
             retryCount++;
             _readBuffer.SetLength(0);
 			Disconnect();
-			Connect(_currentIp, _currentPort, retryCount);
+			Connect(ip ?? _currentIp, port ?? _currentPort, retryCount);
 		}
 
         private void ReadCompleted(IAsyncResult result)
