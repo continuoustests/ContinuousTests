@@ -11,8 +11,12 @@ IF NOT EXIST %BINARYDIR% (
   del %BINARYDIR%\* /Q
 )
 
-%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe %SOURCEDIR%\AutoTest.VS.RiskClassifier\RiskClassifier.sln /property:OutDir=%BINARYDIR%\;Configuration=Release /target:rebuild
-%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe %SOURCEDIR%\AutoTestExtensions.sln /property:OutDir=%BINARYDIR%\;Configuration=Release /target:rebuild
+SET MSBUILD="%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe"
+IF NOT EXIST %MSBUILD% SET MSBUILD="%ProgramFiles(x86)%\MSBuild\12.0\Bin\MSBuild.exe"
+IF NOT EXIST %MSBUILD% SET MSBUILD="%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe"
+
+"%MSBUILD%" %SOURCEDIR%\AutoTest.VS.RiskClassifier\RiskClassifier.sln /property:OutDir=%BINARYDIR%\;Configuration=Release /target:rebuild
+"%MSBUILD%" %SOURCEDIR%\AutoTestExtensions.sln /property:OutDir=%BINARYDIR%\;Configuration=Release /target:rebuild
 
 IF NOT EXIST %DEPLOYDIR% (
   mkdir %DEPLOYDIR%
